@@ -1,0 +1,20 @@
+\chapter{Dropbox}
+\thispagestyle{EIP} % seems mandatory
+\section{Présentation}
+DropBox est un service de stockage dans le cloud qui permet la syncronisation de fichiers entre différants terminaux. Dropbox à longtemps été la solution de référence et est énormément utilisé. Il est compatible avec GNU/Linux, Windows, Mac, Blackberrry, iOS et Android.\\
+
+\section{Historique}
+Le projet Dropbox est né au MIT en 2007 et à été lancé un an plus tard. En 2011 OPSWAT rapporte que Dropbox represente 14.14\% du marché mondial et ette même année il dépasse les 50 million d'utilisateurs. En 2012 ce chiffre est doublé et Dropbox annonce 100 million d'utilisateurs.\\
+
+\section{Description}
+Dropbox crée un dossier spécial sur chaque ordinateur ou il est installé. Il va syncroniser ce dossier entre les diférents terminaux en répercutant les modifications apportées aux fichiers ou sous-dossiers. Les données placés dans ce dossier sont aussi accesibles depuis une interface web.\\
+
+Les utilisateurs de dropbox ont gratuitement acces à un espace de stockage de 18Go, avec la possibilitée de prendre un compte Pro pour bénéficier d'espace suplémentaire en payant un abonement mensuel.\\
+
+D'un point de vue technique le server et le client Dropbox sont tout deux écrit en Python en utilisant des librairies standarts tel que Twisted et ctypes. La gestion de l'historique d'un fichier est similaire à celle d'un gestionaire de version clasique dans le sens ou il enregistre uniquement les diférences entre deux version succesive d'un fichier, c'est le delta encoding.\\
+
+Dropbox utilise le Amazon S3 pour ses serveurs.\\
+
+\section{Critiques}
+
+En juillet 2011, Dropbox a modifié ses conditions d'utilisation et peut maintenant utilisé les fichiers stockés par ses clients sans leur autorisation. Ceci à poussé de nombreux utilisateurs à abondonner le service et a s'orienter vers d'autres solutions ou l'auto-hébergement.\\
