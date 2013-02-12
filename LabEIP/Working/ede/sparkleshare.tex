@@ -1,12 +1,18 @@
 \chapter{Sparkleshare}
 \thispagestyle{EIP} % seems mandatory
 \section{Présentation}
-SparkleShare est une solution de stockage dans le cloud. Il est très proche de Dropbox dans le fonctionnement une fois configuré. Il repose sur Git pour gérer la synchronisation des fichiers. Ce logiciel est libre (sous licence GPL3), compatible GNU/Linux, Windows, Mac, iOS et Android. Il a la possibilité de se connecter à n'importe quel répertoire git dont github, gitorious, bitbucket.\\
+SparkleShare est une solution de stockage dans le cloud, orienté collaboration. Il repose sur Git pour gérer la synchronisation des fichiers. C'est un logiciel libre (GPLv3), compatible GNU/Linux, Windows, Mac, iOS et Android.\\
 
 \section{Historique}
 La version 1.0 est sortie le 9 décembre 2012 mais le travail a commencé début 2011 avec la première version publique le 14 fevrier 2011.\\
 
 \section{Description}
-Le principal problème de ce logiciel est d'être basé sur git et donc de souffrir des mêmes défauts. Par exemple, sur de gros fichiers, git est lent. Par rapport à d'autres solutions, il n'est pas compatible avec d'autres protocoles (FTP/WebDAV/RSync pour ne citer qu'eux). Le logiciel ne fonctionne qu'avec un mode graphique, il est donc impossible d'utiliser le client en mode console. L'installation n'est pas des plus simples pour un utilisateur lambda qui veut utiliser son propre serveur.\\
+Codé en C\#, SparkleShare repose essentiellement sur Git. Il est compatible avec n'importe quel dépôt Git, et peut donc être utilisé avec des services comme Github, Bitbucket ou Gitorious.\\
 
-D'un côté technologies utilisées, le logiciel se base sur git. Il est codé en C\# en utilisant mono.\\
+Son utilisation est essentiellement destinée aux utilisateurs qui voudraient travailler à plusieurs sur les mêmes fichiers, de manière plus conviviale qu'un outil de gestion de version classique.\\
+
+\section{Critiques}
+Aujourd'hui, peu d'utilisateurs semblent avoir adopté Sparkleshare, ce qui est probablement dû à son installation relativement complexe, ainsi qu'à son utilitée limitée par rapport à des solutions comme Dropbox ou OwnCloud.\\
+
+Git fonctionne très bien avec des fichiers textes, mais a plus de mal avec des binaires. Il est donc déconseillé d'utiliser Sparkleshare avec des fichiers multimédias.\\
+Qui plus est, Sparkleshare ne propose pas de compatibilité avec les protocoles plus classiques, comme HTTP, FTP ou Webdav.\\
