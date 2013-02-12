@@ -11,6 +11,8 @@
 \usepackage{colortbl}	% to put color in a table background
 \usepackage{datetime}	% to allow us set a new date formatting
 
+% Custom defines zone
+
 % Define useful hand-made colors
 \definecolor{epiBlue}{RGB}{23,54,93}
 \definecolor{lightGray}{gray}{0.85}
@@ -26,6 +28,12 @@
 % Defining a "dd/mm/yyyy" date format
 \newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
 
+% Define Document Title
+\newcommand{\DocTitle}{[2015][UbuntuOne][EDE]}
+
+% end of Defines 
+
+
 % fancyhdr-specific commands
 \setlength{\headheight}{15.2pt}
 
@@ -38,7 +46,7 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
 	}
-	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{[2015][TEMPLATE]} } }
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
 	}
 	
 	\fancyfoot[L]{
@@ -56,7 +64,7 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
 	}
-	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{[2015][TEMPLATE]} } }
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
 	}
 	
 	\fancyfoot[L]{
@@ -78,8 +86,8 @@
 
 %\title{The Title\\\normalsize A Sub-title}
 \title{
-	\huge{\textbf{\textcolor{epiBlue}{Mon super titre} } }\\
-	\Large{\textbf{\emph{\textcolor{gray}{Mon super sous-titre} } } }
+	\huge{\textbf{\textcolor{epiBlue}{EIP Ubuntu One} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{Étude de l'existant (EDE)} } } }
 }
 
 
@@ -93,19 +101,19 @@
 
 \begin{tabular}{|>{\columncolor[gray]{0.85}\color{epiBlue} \bfseries } l|l|}
 \hline
-	Titre & Modèle document EIP\\
+	Titre & \DocTitle\\
 \hline
 	Date & \dashDate\today \\
 \hline
 	Auteur & Alexandre BARON\\
 \hline
-	Responsable & Thérèse PONSABLE\\
+	Responsable & Louis Roché\\
 \hline
-	E-Mail & eip-tech@labeip.epitech.eu\\
+	E-Mail & serveurubintu\_un2015@labeip.epitech.eu\\
 \hline
-	Sujet & Il faut sauver les bébés phoques\\
+	Sujet & Étude de l'existant autour de notre projet\\
 \hline
-	Mots clés & Vachette, Bricard, Laperche\\
+	Mots clés & Étude, état de l'art, cloud\\
 \hline
 	Version du modèle & 1.0\\
 \hline
@@ -121,9 +129,9 @@
 \rowstyle{ \color{epiBlue} \bfseries}
 	Date & Auteur & Section(s) & Commentaires\\
 \hline
-	\dashDate\today & Alexandre BARON & Toutes & Première version \\
+	05/02/2013 & Alexandre BARON & Toutes & Première version \\
 \hline
-	& & & \\
+	12/02/2013 & Alexandre BARON & Chapitre 1 & Remplissage du Rappel sur l'EIP \\
 \hline
 	& & & \\
 \hline
@@ -131,8 +139,28 @@
 
 \tableofcontents
 \thispagestyle{empty}
-\chapter{Foo}
+
+\chapter{Rappel de l'EIP}
 \setcounter{page}{1} %reset the page count
+
+\section{Qu'est-ce qu'un EIP et Epitech}
+Epitech, école d'expertise informatique en cinq ans, propose aux étudiants, à partir de leur troisième année, un projet de fin d'études: l'EIP (pour \emph{Epitech Innovative Project}).\\
+
+À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
+
+
+\section{Sujet de notre EIP}
+    Il s’agit d’un projet visant à proposer une implémentation libre et Open Source du serveur d’Ubuntu One.\\
+
+    Ubuntu One est un service de Canonical (sponsor officiel d'Ubuntu) permettant de disposer d’un espace de stockage en ligne qui sera synchronisé entre différents ordinateurs et périphériques compatibles via un logiciel client. Le client et le protocole d’Ubuntu One sont disponibles sous licence libre. Néanmoins, le serveur est propriétaire et n’a pas été publié.\\
+
+
+    Notre objectif est donc de proposer un équivalent libre de ce serveur, afin
+    de profiter des fonctionnalités d’Ubuntu One par exemple à des fins d’autohébergement.\\
+
+    Le client officiel n’étant pas capable d’utiliser un serveur différent de celui
+    de Canonical, nous prévoyons également d'effectuer un fork afin d'ajouter cette option.
+
 \thispagestyle{EIP} % seems mandatory
 
 \input{sparkleshare.tex}
