@@ -1,0 +1,61 @@
+\chapter{Ubuntu One}
+\thispagestyle{EIP} % seems mandatory
+\section{Présentation}
+Ubuntu One est l'equivalent libre de dropbox, avec une integration du contenu multimedia en plus. Porte par Cannonical, la societe derriere Ubuntu, cette solution fonctionne avec un client et protocole libre. Mais un serveur proprietaire.
+
+Ubuntu One permet de synchroniser ses documents, les partager publiquement, acheter de la musique, sauvegarder ses contacts et echanger des fichiers imposants.
+
+\section{Historique}
+Ubuntu One fait sa premiere apparition publique debut 2009 et est inclu par defaut dans ubuntu depuis la version 9.10 de la distribution. Si la solution a eu du mal a convaincre les utilisateurs a ses debuts a cause du serveur proprietaire, elle s'est depuis beaucoup developpe.
+
+Des clients multiplateforme ont notamment ete lances pour attirer plus d'utilisateurs. Le logiciel est officiellememt distribues sur :
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item Ubuntu
+\item Mac Os X
+\item Windows
+\item Iphone
+\item Android
+\end{itemize}
+
+Malgre sa provenance, la majorite des utilisateurs d'Ubuntu One sont sous windows.
+
+Afin de developper son offre, Cannonical a aussi rajoute des fonctions multimedia a son logiciel. Il est possible d'acheter de la musique qui sera livree directement sur le compte Ubuntu One de l'utilisateur. Cette musique pourra etre diffuse directement depuis Ubuntu One.
+
+Il est aussi possible d'utiliser Ubuntu one comme extension a Thunderbird pour parteger des documents trop lourds pour etre en piece jointe.
+
+Malgre l'ouverture du protocole et du client, il n'existe pas encore de serveur libre pour Ubuntu one.
+
+En Juillet 2011, Cannonical annoncait atteindre le million d'utilisateurs, toutes plateformes confondues.
+
+\section{Description}
+Le logiciel est construit autour de trois briques : Le client, le protocle et le serveur. Les deux premiers sont libres et les sources sont a disposition du public. C'est notamment grace a cela que l'extension a Thunderbird a ete possible.
+
+\subsection{Le client}
+Le client est code en python et utilise Twisted pour la gestion du reseau. L'interface graphique a evolue au cours du temps, mais elle est aujourd'hui en Qt, ce qui permet d'avoir une experience identique quelque soit la plateforme.
+
+Une interface web est aussi disponible pour consulter ses documents.
+
+\subsection{Le protocole}
+
+Le protocole de communication utilise par Ubuntu One a ete cree pour l'occasion. Les equipes de developpement ont choisi de repartir de zero plutot que d'utiliser un protocole existant pour des soucis de performance.
+
+Ce protocole est base sur les protobuffers, developpes a la base par google. Cela permet au protocole d'evoluer simplement, de limiter les problemes de serialisation, limiter la taille des donnees et de pouvoir evoluer facilement techniquement. En effet, des bibliotheques permettant d'utiliser les protobuffers sont disponibles dans de nombreux langages.
+
+Cannonical a libere une implementation python du protocole.
+
+\subsection{Le serveur}
+
+Le serveur est donc l'unique brique dont nous n'avons pas tous les details, puisque nous n'avons pas les sources. Nous connaissons neanmoins certains details.
+
+Les donnees stockees sur Ubuntu One sont envoyes sur le cloud Amazon S3. C'est notamment a cause de ce lien avec amazon que le code du serveur d'Ubuntu one ne peut etre libere par Cannonical.
+
+Pour l'authentification, cannonical a fait le choix de OAuth. Sauf pour leur client web, ou une autre solution est utilisee.
+
+Une API REST partielle est egalement disponible pour communiquer avec le serveur. Elle permet notamment de distribuer les documents qui ont ete partages publiquement a travers Ubuntu One.
+
+\section{Critiques}
+Le plus gros manque actuel d'Ubuntu One est l'absence de serveur libre. Le logiciel, comme la majorite de ses concurrents, ne permet pas de reprendre le controle de ses donnees.
+
+Par rapport a ses concurrents, le service souffre aussi d'un plus faible nombre d'utilisateurs. Les fonctionnalitees de partages prives sont donc plus complique a exploite, les deux utilisateurs devant absoluement disposer d'une compte Ubuntu One.
