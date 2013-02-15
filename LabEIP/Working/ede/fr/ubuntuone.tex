@@ -1,7 +1,7 @@
 \section{Ubuntu One}
 \thispagestyle{EIP} % seems mandatory
 \subsection{Présentation}
-Ubuntu One est l'équivalent libre de dropbox, avec une intégration du contenu multimédia en plus. Porté par Cannonical, la société derrière Ubuntu, cette solution fonctionne avec un client et protocole libre. Mais un serveur propriétaire.
+Ubuntu One est l'équivalent libre de dropbox, avec une intégration du contenu multimédia en plus. Porté par Canonical, la société derrière Ubuntu, cette solution fonctionne avec un client et protocole libre. Mais un serveur propriétaire.
 
 Ubuntu One permet de synchroniser ses documents, les partager publiquement, acheter de la musique, sauvegarder ses contacts et échanger des fichiers imposants.
 
@@ -21,16 +21,16 @@ Des clients multiplateforme ont notamment été lancés pour attirer plus d'util
 
 Malgré sa provenance, la majorité des utilisateurs d'Ubuntu One sont sous windows.
 
-Afin de développer son offre, Cannonical a aussi rajouté des fonctions multimédia à son logiciel. Il est possible d'acheter de la musique qui sera livrée directement sur le compte Ubuntu One de l'utilisateur. Cette musique pourra être diffuse directement depuis Ubuntu One.
+Afin de développer son offre, Canonical a aussi rajouté des fonctions multimédia à son logiciel. Il est possible d'acheter de la musique qui sera livrée directement sur le compte Ubuntu One de l'utilisateur. Cette musique pourra être diffusée directement depuis Ubuntu One.
 
 Il est aussi possible d'utiliser Ubuntu one comme extension à Thunderbird pour partager des documents trop lourds pour être en pièce jointe.
 
 Malgré l'ouverture du protocole et du client, il n'existe pas encore de serveur libre pour Ubuntu one.
 
-En Juillet 2011, Cannonical annonçait atteindre le million d'utilisateurs, toutes plateformes confondues.
+En Juillet 2011, Canonical annonçait atteindre le million d'utilisateurs, toutes plateformes confondues.
 
 \subsection{Description}
-Le logiciel est construit autour de trois briques : Le client, le protocole et le serveur. Les deux premiers sont libres et les sources sont à disposition du public. C'est notamment grâce à cela que l'extension de Thunderbird a été possible.
+Le logiciel est construit autour de trois briques : le client, le protocole et le serveur. Les deux premiers sont libres et les sources sont à disposition du public. C'est notamment grâce à cela que l'extension de Thunderbird a été possible.
 
 \subsubsection{Le client}
 Le client est codé en python et utilise Twisted pour la gestion du réseau. L'interface graphique a évolué au cours du temps, mais elle est aujourd'hui en Qt, ce qui permet d'avoir une expérience identique quelque soit la plateforme.
@@ -39,23 +39,23 @@ Une interface web est aussi disponible pour consulter ses documents.
 
 \subsubsection{Le protocole}
 
-Le protocole de communication utilise par Ubuntu One a été créé pour l'occasion. Les équipes de développement ont choisi de repartir de zéro plutôt que d'utiliser un protocole existant pour des soucis de performance.
+Le protocole de communication utilisé par Ubuntu One a été créé pour l'occasion. Les équipes de développement ont choisi de repartir de zéro plutôt que d'utiliser un protocole existant pour des soucis de performances.
 
-Ce protocole est basé sur les protobuffers, développés à la base par google. Cela permet au protocole d'évoluer simplement, de limiter les problèmes de sérialisation, limiter la taille des données et de pouvoir évoluer facilement techniquement. En effet, des bibliothèques permettant d'utiliser les protobuffers sont disponibles dans de nombreux langages.
+Ce protocole est basé sur les protobuffers, développés à la base par Google. Cela permet au protocole d'évoluer simplement, de limiter les problèmes de sérialisation, limiter la taille des données et de pouvoir évoluer facilement techniquement. En effet, des bibliothèques permettant d'utiliser les protobuffers sont disponibles dans de nombreux langages.
 
-Cannonical a libéré une implémentation python du protocole.
+Canonical a libéré une implémentation python du protocole.
 
 \subsubsection{Le serveur}
 
 Le serveur est donc l'unique brique dont nous n'avons pas tous les détails, puisque nous n'avons pas les sources. Nous connaissons néanmoins certains détails.
 
-Les données stockées sur Ubuntu One sont envoyées sur le cloud Amazon S3. C'est notamment à cause de ce lien avec Amazon que le code du serveur d'Ubuntu One ne peut être libéré par Cannonical.
+Les données stockées sur Ubuntu One sont envoyées sur le cloud Amazon S3. C'est notamment à cause de ce lien avec Amazon que le code du serveur d'Ubuntu One ne peut être libéré par Canonical.
 
-Pour l'authentification, Cannonical a fait le choix de OAuth. Sauf pour leur client web, ou une autre solution est utilisée.
+Pour l'authentification, Canonical a fait le choix de OAuth. Sauf pour leur client web, ou une autre solution est utilisée.
 
 Une API REST partielle est également disponible pour communiquer avec le serveur. Elle permet notamment de distribuer les documents qui ont été partagés publiquement à travers Ubuntu One.
 
 \subsection{Critiques}
 Le plus gros manque actuel d'Ubuntu One est l'absence de serveur libre. Le logiciel, comme la majorité de ses concurrents, ne permet pas de reprendre le contrôle de ses données.
 
-Par rapport à ses concurrents, le service souffre aussi d'un plus faible nombre d'utilisateurs. Les fonctionnalités de partages privés sont donc plus compliqué à exploiter.
+Par rapport à ses concurrents, le service souffre aussi d'un plus faible nombre d'utilisateurs. Les fonctionnalités de partages privés sont donc plus compliquées à exploiter.
