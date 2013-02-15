@@ -1,0 +1,20 @@
+\section{Dropbox}
+\thispagestyle{EIP} % seems mandatory
+\subsection{Presentation}
+DropBox is a file hosting service in the cloud. It allows for file syncronisation between different terminals. For a long time Dropbox has been the leeding service and is massively used. It is compatible with GNU/Linux, Windows, Max, Blackbeery, iOS and Android.\\
+
+\subsection{History}
+The Dropbox project saw the light at MIT in 2007 and was released one year later. In 2011, Dropbox represents 14.14\% of the world market according to OPSWAT, that same year more than 50 million users where registered. In 2012 this number doubled and Dropbox announces 100 million users.\\
+
+\subsection{Description}
+Dropbox creates a special folder on each computer where it is instaled. It then syncronizes that folder between each terminal by fetching and applying the modifications to the files or sub-folders. The data placed in this special folder is also accesible with a web browser.\\
+
+DropBox users have access to 18Go of free storage, with the possibility to upgrade to a ``Pro'' account to have more space. This requires monthly payements from the user.\\
+
+From a technical point of view, the Dropbox server and client are both writtent in Python and they use verry well known standart libraries such as Twisted and ctypes. The history of a file is handled in a similar way as what is done by revision-control systems. It only stores the differences between two consecutive versions of a file, this is called delta encoding.\\
+
+All Dropbox content is stored on Amazon S3.
+
+\subsection{Critics}
+
+In July 2011, Dropbox modified its Terms of Use and can now freely use any file stored by its clients without their autorisation. This pushed many users to other solutions or self-hosting.\\
