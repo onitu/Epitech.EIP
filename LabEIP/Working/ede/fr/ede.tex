@@ -29,7 +29,7 @@
 \newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
 
 % Define Document Title
-\newcommand{\DocTitle}{[2015][UbuntuOne][EDE]}
+\newcommand{\DocTitle}{[2015][Onitu][EDE]}
 
 % end of Defines
 
@@ -86,7 +86,7 @@
 
 %\title{The Title\\\normalsize A Sub-title}
 \title{
-	\huge{\textbf{\textcolor{epiBlue}{EIP Ubuntu One} } }\\
+	\huge{\textbf{\textcolor{epiBlue}{EIP Onitu} } }\\
 	\Large{\textbf{\emph{\textcolor{gray}{Étude de l'existant (EDE)} } } }
 }
 
@@ -156,6 +156,8 @@
 \end{tabular}
 
 \tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty} 
+                    \protect\pagestyle{empty}}
 \thispagestyle{empty}
 
 \chapter{Rappel de l'EIP}
@@ -193,6 +195,7 @@ Epitech, école d'expertise informatique en cinq ans, propose aux étudiants, à
 \input{ubuntuone.tex}
 
 \chapter{Positionnement de notre projet}
+\thispagestyle{EIP}
 \section{Ce que nous apportons}
 Dans toutes les solutions que nous avons présentées, aucune n'est à la fois puissante, simple à utiliser et libre.
 
@@ -221,6 +224,7 @@ Il ne s'agit pas d'un système social. Si des fonctionnalités d'échange sont p
 Nous resterons donc concentrés sur la problématique du stockage pour fournir un serveur qui se veut une alternative au serveur d'Ubuntu One.
 
 \chapter{Conclusion}
+\thispagestyle{EIP}
 
 \input{conclusion.tex}
 
