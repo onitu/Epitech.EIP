@@ -1,0 +1,228 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}		% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+
+% Custom defines zone
+
+% Define useful hand-made colors
+\definecolor{epiBlue}{RGB}{23,54,93}
+\definecolor{lightGray}{gray}{0.85}
+
+% Bit of code to bold an entire table row
+% http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
+% Defining a "dd/mm/yyyy" date format
+\newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
+
+% Define Document Title
+\newcommand{\DocTitle}{[2015][Onitu][EDE]}
+
+% end of Defines
+
+
+% fancyhdr-specific commands
+\setlength{\headheight}{15.2pt}
+
+%% Defining headers and footers contents.
+
+% Big dirty hack of the "empty" pagestyle to show header and footer on the title page (in wait of a better solution)
+\fancypagestyle{empty}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{../logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{}
+}
+
+\fancypagestyle{EIP}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{../logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{
+		\thepage/\pageref{LastPage}
+	}
+}
+
+\pagestyle{EIP} % does not seem to work ...
+
+% end of fancyhdr stuff
+
+%Gummi|063|=)
+
+%\title{The Title\\\normalsize A Sub-title}
+\title{
+	\huge{\textbf{\textcolor{epiBlue}{EIP Onitu} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{Étude de l'existant (EDE)} } } }
+}
+
+
+\begin{document}
+\addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
+\maketitle
+
+\input{resume.tex}
+
+\thispagestyle{empty}
+\vspace*{10mm}
+\textbf{\emph{\textcolor{epiBlue}{Description du document} } }\\
+
+\begin{tabular}{|>{\columncolor[gray]{0.85}\color{epiBlue} \bfseries } l|l|}
+\hline
+	Titre & \DocTitle\\
+\hline
+	Date & \dashDate\today \\
+\hline
+	Auteur & Alexandre BARON\\
+\hline
+	Responsable & Louis Roché\\
+\hline
+	E-Mail & serveurubintu\_un2015@labeip.epitech.eu\\
+\hline
+	Sujet & Étude de l'existant autour de notre projet\\
+\hline
+	Mots clés & Étude, état de l'art, cloud\\
+\hline
+	Version du modèle & 1.0\\
+\hline
+\end{tabular}
+\vspace*{10mm}
+
+\textbf{\emph{\textcolor{epiBlue}{Tableau des révisions} } }\\
+
+
+\begin{tabular}{|$l|p{4cm}|p{2cm}|p{5cm}|}
+\hline
+\rowcolor{lightGray}
+\rowstyle{ \color{epiBlue} \bfseries}
+	Date & Auteur & Section(s) & Comments\\
+\hline
+	05/02/2013 & Alexandre BARON & All & First version \\
+\hline
+	12/02/2013 & Alexandre BARON & Chapter 1 & EIP Reminder \\
+\hline
+	12/02/2013 & Wannes ROMBOUTS & Chapter 2 & Added DropBox Study \\
+\hline
+	12/02/2013 & Maxime CONSTANTINIAN & Chapter 3 & Added SparkleShare Study \\
+\hline
+	12/02/1013 & Antoine ROZO & Chapter 4 & Added Google Drive, iCloud et SkyDrive Study \\
+\hline
+	12/02/2013 & Louis ROCHÉ & Chapter 5 & Added Syncany Study \\
+\hline
+	12/02/2013 & Yannick PÉROUX & Chapter 6 & Added OwnCloud Study \\
+\hline
+	12/02/2013 & Louis ROCHÉ & Chapters 5 et 6 & Minor corections \\
+\hline
+	12/02/2013 & Yannick PÉROUX & Chapter 3 & Improved SparkleShare Study \\
+\hline
+	14/02/2013 & Louis ROCHÉ & Toutes & Changed general document organisation \\
+\hline
+	15/02/2013 & Antoine Rozo & Conclusion & Redaction \\
+\hline
+\end{tabular}
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}
+                    \protect\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{EIP Reminder}
+\setcounter{page}{1} %reset the page count
+
+\section{What is an EIP at Epitech}
+Epitech, a college for information technologies in five years, offers a final major project starting durring the student's third year. This is called a EIP: \emph{Epitech Innovative Project}.\\
+
+The students must organize and form a group of at least five people. They must choose a project that brings new ideas or improves uppon an older project. The EIP is a mandatory and unique passage in an Epitech's student's life because it is so long (months) and the amount of preparation that is required. The goal is to have a marketable product in the end.\\
+
+\section{Topic of our EIP}
+
+Our project is about Ubuntu One. We want to offer an Open Source and free implementation of de Ubuntu One server.\\
+
+Ubuntu One is a service offered by Cannonical (The official Ubuntu sponsor) offering a online hosting space that is automaticaly syncronised between diferent computers and terminals using a computer program. This client computer program and the Ubuntu One protocol are freely available as open source software. However the server is closed source and has never been released.\\
+
+Thus, our goal is to offer an open source equivalent in order to be able to enjoy the different features offered by Ubuntu One. This could be use for self-hosting.\\
+
+We also plan on forking the official client because it can not connect to another server than the one maintained by Canonical.\\
+
+\thispagestyle{EIP} % seems mandatory
+
+\chapter{Solutions existantes}
+
+\input{dropbox.tex}
+\input{sparkleshare.tex}
+\input{googledrive.tex}
+\input{skydrive.tex}
+\input{owncloud.tex}
+\input{icloud.tex}
+\input{syncany.tex}
+\input{ubuntuone.tex}
+
+\chapter{Positionnement de notre projet}
+\thispagestyle{EIP}
+\section{Ce que nous apportons}
+None of the solutions presented in this doccument is powerfull, simple and free-software at the same time.
+
+Today data is more and more stored in the cloud but there does not seem to be an existing service like the one we would like to use. We want something that is simple to use and can be installed by anyone but at the same time it should let the user keep control over his data.
+
+Solutions like Dropbox or Google Drive are very attractive, but at the cost of loosing the rights on your documents, there are also problems concerning the legislation in the United States.
+
+In the open source comunity simplicity and performance do not seem to be present.
+
+Sparkleshare is verry easy to use, once you have a git repository! But few people, today, can install a git server at home and configure it corectly. There are also performance problems because of binary files. Most of the files you want to save are binary files but git does not handle them very well.
+
+OwnCloud is a very powerfull solution, but almost too much. It is complicated to install and use. It is far from beeing perfected to the point of beeing usable by anyone. Beeing able to use it for diferent purposes is not everything.
+
+Ubuntu One is not a perfect solution either. Documents are stored on the Amazon cloud and because of this they are exposed to the same legal problems as files stored on Dropbox. The advantage of Ubuntu one is its open-source and simple to use client wich is very close to what we are looking for.
+
+Our project will offer a simple way to syncronize and save documents. It shall be secure and the user will maintain control. Individuals as well as buisnesses will be able to control their data without the risk of seeing them disapear after political problems or the fall of a particular provider.
+
+\section{What shall not be done}
+
+Our project's goal is not to replace all the sharing or exchange services. We do not want to video streaming or photo galeries.
+
+Neither do we want to develop new clients or new ways to access your data. Because we use an open-source, well known and already implemented protocol, a lot of software will natively be suported.
+
+It is not a social network. If exchange features are present they should be centered arround documents. We do not want to enable discusions or messaging. We will not try to add interactions with social networks, this would be possible but we consider it is part of the client program's job.
+
+We will concentrate on the hosting problems and offer a server that could be used in alternative to the already existing Ubuntu One server.
+
+\chapter{Conclusion}
+\thispagestyle{EIP}
+
+\input{conclusion.tex}
+
+\end{document}
