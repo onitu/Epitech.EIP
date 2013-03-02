@@ -1,0 +1,190 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}		% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+\usepackage{multirow}   % to allow multirows in tables
+
+% Custom defines zone
+
+% Define useful hand-made colors
+\definecolor{epiBlue}{RGB}{23,54,93}
+\definecolor{lightGray}{gray}{0.85}
+
+% Bit of code to bold an entire table row
+% http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
+% Defining a "dd/mm/yyyy" date format
+\newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
+
+% Define Document Title
+\newcommand{\DocTitle}{[2015][Onitu][CDC]}
+
+% end of Defines
+
+
+% fancyhdr-specific commands
+\setlength{\headheight}{15.2pt}
+
+%% Defining headers and footers contents.
+
+% Big dirty hack of the "empty" pagestyle to show header and footer on the title page (in wait of a better solution)
+\fancypagestyle{empty}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{}
+}
+
+\fancypagestyle{EIP}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\DocTitle} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{
+		\thepage/\pageref{LastPage}
+	}
+}
+
+\pagestyle{EIP} % does not seem to work ...
+
+% end of fancyhdr stuff
+
+%Gummi|063|=)
+
+%\title{The Title\\\normalsize A Sub-title}
+\title{
+	\huge{\textbf{\textcolor{epiBlue}{EIP Onitu} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{Cahier des charges (CDC)} } } }
+}
+
+
+\begin{document}
+\addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
+\maketitle
+
+\input{resume.tex}
+
+\thispagestyle{empty}
+\vspace*{10mm}
+\textbf{\emph{\textcolor{epiBlue}{Description du document} } }\\
+
+\begin{tabular}{|>{\columncolor[gray]{0.85}\color{epiBlue} \bfseries } l|l|}
+\hline
+	Titre & \DocTitle\\
+\hline
+	Date & \dashDate\today \\
+\hline
+	Auteur & Alexandre BARON\\
+\hline
+	Responsable & Louis Roché\\
+\hline
+	E-Mail & onitu\_2015@labeip.epitech.eu\\
+\hline
+	Sujet & Cahier des charges\\
+\hline
+	Mots clés & \\
+\hline
+	Version du modèle & 1.0\\
+\hline
+\end{tabular}
+\vspace*{10mm}
+
+\textbf{\emph{\textcolor{epiBlue}{Tableau des révisions} } }\\
+
+
+\begin{tabular}{|$l|p{4cm}|p{2cm}|p{5cm}|}
+\hline
+\rowcolor{lightGray}
+\rowstyle{ \color{epiBlue} \bfseries}
+	Date & Auteur & Section(s) & Commentaires\\
+\hline
+\end{tabular}
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty} 
+                    \protect\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Rappel de l'EIP}
+\thispagestyle{EIP} % seems mandatory
+\setcounter{page}{1} %reset the page count
+
+\section{Qu'est-ce qu'un EIP et Epitech}
+Epitech, école d'expertise informatique en cinq ans, propose aux étudiants, à partir de leur troisième année, un projet de fin d'études: l'EIP (pour \emph{Epitech Innovative Project}).\\
+
+À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
+
+
+\section{Sujet de notre EIP}
+    Il s’agit d’un projet visant à proposer une implémentation libre et Open Source du serveur d’Ubuntu One.\\
+
+    Ubuntu One est un service de Canonical (sponsor officiel d'Ubuntu) permettant de disposer d’un espace de stockage en ligne qui sera synchronisé entre différents ordinateurs et périphériques compatibles via un logiciel client. Le client et le protocole d’Ubuntu One sont disponibles sous licence libre. Néanmoins, le serveur est propriétaire et n’a pas été publié.\\
+
+
+    Notre objectif est donc de proposer un équivalent libre de ce serveur, afin
+    de profiter des fonctionnalités d’Ubuntu One par exemple à des fins d’autohébergement.\\
+
+    Le client officiel n’étant pas capable d’utiliser un serveur différent de celui
+    de Canonical, nous prévoyons également d'effectuer un fork afin d'ajouter cette option.
+
+\section{Principes de base du système futur}
+
+\chapter{Présentation de l'environnement de réalisation}
+\thispagestyle{EIP} % seems mandatory
+\section{Environnement de réalisation}
+\section{Environnement matériel}
+\section{Architecture technique}
+\section{Composants existants}
+\section{Gestion de la sécurité}
+\section{Points sensibles}
+
+\chapter{Description des différentes parties du programme à réaliser}
+\thispagestyle{EIP} % seems mandatory
+
+\chapter{Description de la base de données}
+\thispagestyle{EIP} % seems mandatory
+
+\chapter{Description des tests de premier niveau}
+\thispagestyle{EIP} % seems mandatory
+
+\chapter{Organisation projet}
+\thispagestyle{EIP} % seems mandatory
+
+\chapter{Annexes}
+\thispagestyle{EIP} % seems mandatory
+
+\end{document}
