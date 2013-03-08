@@ -184,7 +184,7 @@ Niveau serveur, nous pensons qu'une seule machine physique serait nécessaire, s
 Pour les clients, nous utiliserons nos propres PC, et aussi possiblement diverses plateformes mobiles de façon à tester le plus grand étandard de clients possibles et vérifier que le serveur réagit bien en conséquences.
 
 \section{Architecture technique}
-\section{Composants existants}
+\input{composants_existants.tex}
 \section{Gestion de la sécurité}
 \section{Points sensibles}
 Un élément essentiel est le protocole d'Ubuntu One sur lequel nous nous basons. Si Canonical venait à le changer brusquement, cela constituerait un point sensible assez important. Il est peu probable que cela se produise, mais nous aurions alors le choix entre deux solutions: si les changements sont mineurs ou que notre implémentation est assez peu complète, nous pourrions nous adapter à ce nouveau protocole. Dans le cas contraire, libre oblige, nous partirions sur un fork du projet en gardant ainsi l'ancien protocole chez les clients.\\
