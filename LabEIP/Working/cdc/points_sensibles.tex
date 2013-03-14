@@ -1,0 +1,10 @@
+\section{Points sensibles}
+\thispagestyle{EIP} % seems mandatory
+
+Un élément essentiel est le protocole d'Ubuntu One sur lequel nous nous basons. Si Canonical venait à le changer brusquement, cela constituerait un point sensible assez important. Il est peu probable que cela se produise, mais nous aurions alors le choix entre deux solutions: si les changements sont mineurs ou que notre implémentation est assez peu complète, nous pourrions nous adapter à ce nouveau protocole. Dans le cas contraire, libre oblige, nous partirions sur un fork du projet en gardant ainsi l'ancien protocole chez les clients.\\
+
+Un autre point est la possibilité que d'autres serveurs concurrents se montent pendant le développement de notre projet.\\
+
+On peut également se poser la question de la compatibilité multi-OS (Windows, Mac OS X, *BSD, GNU/Linux). Ce point est important car il va nous orienter dans le choix du langage et des bibliothèques utilisé ainsi que des contraintes matériels, par exemple, avoir un mac pour les tests sur Mac os.\\
+
+Enfin, nous serons confrontés au théorème CAP, s'appliquant aux systèmes de calcul distribué, et affirmant que trois contraintes ne peuvent simultanément être respéctées: la cohérence, la disponibilité, et la résistance au morcellement.
