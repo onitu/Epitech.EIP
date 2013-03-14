@@ -145,60 +145,17 @@
 \thispagestyle{EIP} % seems mandatory
 \setcounter{page}{1} %reset the page count
 
-\section{Qu'est-ce qu'un EIP et Epitech}
-Epitech, école d'expertise informatique en cinq ans, propose aux étudiants, à partir de leur troisième année, un projet de fin d'études: l'EIP (pour \emph{Epitech Innovative Project}).\\
-
-À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
-
-
-\section{Principe de base du système futur}
-    Il s’agit d’un projet visant à proposer une implémentation libre et Open Source du serveur d’Ubuntu One.\\
-
-    Ubuntu One est un service de Canonical (sponsor officiel d'Ubuntu) permettant de disposer d’un espace de stockage en ligne qui sera synchronisé entre différents ordinateurs et périphériques compatibles via un logiciel client. Le client et le protocole d’Ubuntu One sont disponibles sous licence libre. Néanmoins, le serveur est propriétaire et n’a pas été publié.\\
-
-
-    Notre objectif est donc de proposer un équivalent libre de ce serveur, afin
-    de profiter des fonctionnalités d’Ubuntu One par exemple à des fins d’auto-hébergement.\\
-
-    Le client officiel n’étant pas capable d’utiliser un serveur différent de celui
-    de Canonical, nous prévoyons également d'effectuer un fork de celui-ci afin d'y ajouter cette option.\\
-
-    Des fonctionnalités d'Ubuntu One ne seront reprises que celles axées sur le stockage des fichiers en lui-même, et nous ne nous intéresserons donc pas au streaming de fichiers audio par exemple.\\
-
-    Notre cible est l'utilisateur averti, soucieux des problématiques de centralisation des données, et son entourage, à qui il fera profiter le serveur mis en place. Il n'est pas forcément technicien mais assez curieux, le profil même de l'utilisateur Ubuntu.
+\input{rappel_de_eip.tex}
 
 \chapter{Présentation de l'environnement de réalisation}
 \thispagestyle{EIP} % seems mandatory
-\section{Environnement de réalisation}
-Premièrement, un point important de la réalisation sera l'utilisation de Git pour l'hébergement du code, profitant d'un système de branches efficace et offrant ainsi à chacun un bon confort de développement. Ce Git étant hébergé sur github, nous bénéficions de plus de fonctionnalités annexes telles que les issues ou le wiki de façon à disposer d'un espace clair pour discuter de différents points sur projet, ou encore de rédiger de la documentation.\\
 
-Nous n'imposerons aucun IDE, considérant que chacun est libre d'utiliser l'environnement avec lequel il sera le plus performant. Il va de paire que les fichiers de configuration liés à un tel IDE ou autres fichiers temporaires n'auront pas leur place sur le dépôt.\\
-
-Le code sera écrit en python3, cette version n'est pas aujourd'hui la plus répandue, mais ceci est amené à changer dans les années à venir, et donc il sera communément admis lors de la finition de notre projet.\\
-Ce code sera produit en respect de la PEP8, imposant diverses règles qui impliquent un code propre et agréable à la lecture, de plus très couramment usitée chez les développeurs python.\\
-
-De plus, nous serons dans le cadre de l'EIP soumis à des contraintes de portabilité. Ces contraintes seront annihilées par python, multi-plateforme par nature, de même que l'ensemble des biliothèques et technologies que nous envisageons d'utiliser.
-
-\section{Environnement matériel}
-Notre projet consistant principalement en un serveur de stockage, il nous faudra une ou plusieurs machines faisant office de serveur pour tester un déploiement ainsi que différents postes clients afin d'en vérifier correctement et exhaustivement la validité des fonctionnalités.\\
-
-Niveau serveur, nous pensons qu'une seule machine physique serait nécessaire, sur laquelle nous pourrons en faire tourner un certain nombre de virtuelles, trois par exemple.\\
-
-Pour les clients, nous utiliserons principalement nos propres PC, ansi que possiblement diverses plateformes mobiles de façon à tester le plus grand étandard de clients possibles et vérifier que le serveur réagit bien en conséquences.\\
-
-Nous pensons aussi disposer d'une machine sur laquelle faire tourner un serveur d'intégration continue dans le but de mener à bien les tests de premier niveau décrits plus bas.
-
-\section{Architecture technique}
+\input{environnement_realisation.tex}
+\input{environnement_materiel.tex}
+\input{architecture_technique.tex}
 \input{composants_existants.tex}
-\section{Gestion de la sécurité}
-\section{Points sensibles}
-Un élément essentiel est le protocole d'Ubuntu One sur lequel nous nous basons. Si Canonical venait à le changer brusquement, cela constituerait un point sensible assez important. Il est peu probable que cela se produise, mais nous aurions alors le choix entre deux solutions: si les changements sont mineurs ou que notre implémentation est assez peu complète, nous pourrions nous adapter à ce nouveau protocole. Dans le cas contraire, libre oblige, nous partirions sur un fork du projet en gardant ainsi l'ancien protocole chez les clients.\\
-
-Un autre point est la possibilité que d'autres serveurs concurrents se montent pendant le développement de notre projet.\\
-
-On peut également se poser la question de la compatibilité multi-OS (Windows, Mac OS X, *BSD, GNU/Linux). Ce point est important car il va nous orienter dans le choix du langage utilisé et des bibliothèques ainsi que des contraintes matériels, par exemple, avoir un mac pour les tests sur Mac OS.\\
-
-Enfin, nous serons confrontés au théorème CAP, s'appliquant aux systèmes de calcul distribué, et affirmant que trois contraintes ne peuvent simultanément être respéctées: la cohérence, la disponibilité, et la résistance au morcellement.
+\input{gestion_securite.tex}
+\input{points_sensibles.tex}
 
 \chapter{Description des différentes parties du programme à réaliser}
 \thispagestyle{EIP} % seems mandatory
@@ -208,8 +165,9 @@ Enfin, nous serons confrontés au théorème CAP, s'appliquant aux systèmes de 
 
 \chapter{Description des tests de premier niveau}
 \thispagestyle{EIP} % seems mandatory
+\input{tests_premier_niveau.tex}
 
-\chapter{Organisation du projet}
+\chapter{Organisation projet}
 \thispagestyle{EIP} % seems mandatory
 \input{organisation.tex}
 
