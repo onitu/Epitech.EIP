@@ -1,7 +1,7 @@
 PROJECT=2015_CDC_FR_onitu
 
 ALL:
-	texi2pdf -c $(PROJECT).tex
+	texi2pdf -c $(PROJECT).tex 
 
 clean:
 	rm -f *.toc *.log *.aux *.out
