@@ -28,9 +28,30 @@ Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre driver. C
     \item Stockage local : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
     \item Dropbox/Box.com/Google Drive/SkyDrive : Onitu pourra utiliser ces services tiers pour stocker les fichiers, si l'utilisateur possède un compte.
     \item (S)FTP/SSH/NFS/Webdav/Samba/HTTP : Des drivers seront dévelopés afin d'être compatible avec n'importe quel serveur supportant au moins un de ces protocoles.
+    \item OwnCloud : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interragir avec lui.
     \item UbuntuOne : Il sera possible d'utiliser n'importe quel serveur compatible avec l'API d'UbuntuOne comme serveur de stockage.
 \end{itemize}
 
 \section{Clients}
+Des clients existent déjà pour UbuntuOne, sur de nombreuses plateformes (Linux, Windows, Mac, Android, iOS). Onitu étant entiérement compatible avec l'API d'UbuntuOne, ces clients peuvent interragir avec.
+
+Cependant, la plupart des clients ne permettent pas de choisir l'adresse du serveur, étant donné que pour le moment un seul serveur de référence existe. Il est donc prévu d'intégrer la possibilité de changer le serveur dans les différents clients.
+
+Le but d'Onitu n'est pas de fournir des clients, mais un serveur. Des clients pourraient tout de même être développés par l'équipe en parallèle, à des fins de tests, ou bien afin d'offrir un pannel plus complets aux utilisateurs. Un client utilisant FUSE, une bibliothèque permettant de créer des systèmes de fichiers, est notamment envisagé.
 
 \section{Interface Web}
+Actuellement, UbuntuOne propose une interface web, hébergée sur le service Amazon EC2. Cette interface fait partie du serveur, et les sources ne sont donc pas publiques.
+Onitu se doit donc de remplacer cette interface web.
+
+L'interface web est destinée aux utilisateurs ayant des droits suffisants pour accéder à certains dossiers, ainsi qu'à l'administrateur qui peut effectuer la plupart des actions de configuration sur cette interface.
+
+L'interface web dispose de plusieurs fonctionnalités :
+\begin{itemize}
+    \item Charger de nouveaux fichiers
+    \item Éditer les dossiers et les noms de fichiers
+    \item Éditer les fichiers textes de manière simple
+    \item Télécharger des fichiers
+    \item Éditer les droits liés au partage des fichiers
+    \item Ajouter, supprimer ou modifier les options liés au services externent, qui communiquent par le biais des Drivers
+    \item Éditer les différentes options de configuration du serveur
+\end{itemize}
