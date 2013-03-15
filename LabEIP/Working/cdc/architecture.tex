@@ -18,9 +18,9 @@ Une implémentation a été effectuée par l'entreprise Canonical, à l'origine 
 Onitu permet aux utilisateurs de choisir plusieurs moyens pour stocker leur données. Du point de vue du serveur, cela se fait grâce aux méta-données stockées en base de données, qui contiennent les informations nécessaires aux drivers pour récupérer les données.\\
 
 \section{Drivers}
-Les drivers permettent la communication entre le serveur et les différentes solutions de stockage. Ils sont construits autour d'une interface commune, qu'ils étendent afin d'intéragir avec la solution à laquelle ils sont destinés.\\
+Les drivers permettent la communication entre le serveur et les différentes solutions de stockage. Ils sont construits autour d'une interface commune, qu'ils étendent afin d'interagir avec la solution à laquelle ils sont destinés.\\
 
-Tous les drivers doivent permettre d'effectuer les quatre opérations de base : la création d'un fichier, sa récupération, son édition et sa suppression (connu sous l'accronyme CRUD, pour Create, Read, Update, Delete).\\
+Tous les drivers doivent permettre d'effectuer les quatre opérations de base : la création d'un fichier, sa récupération, son édition et sa suppression (connu sous l'acronyme CRUD, pour Create, Read, Update, Delete).\\
 
 Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre Driver. Ceci dit, plusieurs sont prévus et seront maintenus dans le cadre de l'EIP :
 \begin{itemize}
@@ -28,12 +28,19 @@ Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre Driver. C
     \item Dropbox/Box.com/Google Drive/SkyDrive : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
     \item (S)FTP/SSH/NFS/Webdav/Samba/HTTP : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
     \item Amazon S3 : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisée au monde.
-    \item OwnCloud : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interragir avec lui.
+    \item OwnCloud : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interagir avec lui.
     \item Ubuntu One : Il est possible d'utiliser n'importe quel serveur compatible avec l'API d'Ubuntu One comme serveur de stockage, c'est à dire un autre serveur Onitu ou bien le serveur officiel de Canonical.
 \end{itemize}
 
+\section{Base de données}
+Les meta-données liées au fichiers seront stockées dans une base de données, au sein du serveur. La majeur partie de ces métas-données est définie par le protocole d'Ubuntu One.\\
+
+Onitu étends ces métas-données afin d'ajouter les informations nécessaires aux Drivers. La forme de ces informations est, dans l'ensemble, laissée libre à chaque Driver.\\
+
+Cette flexibilité est rendue possible grâce à l'utilisation d'une base de type NoSQL orientée document, MongoDB.
+
 \section{Clients}
-Des clients existent déjà pour Ubuntu One, sur de nombreuses plateformes (Linux, Windows, Mac OS, Android, iOS). Onitu étant entiérement compatible avec l'API d'Ubuntu One, ces clients peuvent interragir avec lui.\\
+Des clients existent déjà pour Ubuntu One, sur de nombreuses plateformes (Linux, Windows, Mac OS, Android, iOS). Onitu étant entièrement compatible avec l'API d'Ubuntu One, ces clients peuvent interagir avec lui.\\
 
 Cependant, la plupart des clients ne permettent pas de choisir l'adresse du serveur, étant donné que pour le moment un seul serveur de référence existe. Il est donc prévu d'intégrer la possibilité de changer le serveur dans les différents clients.\\
 
