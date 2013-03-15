@@ -2,7 +2,8 @@
 Le but du projet est de permettre à des applications de modifier des fichiers stockés à différents endroits, via le protocole défini par Ubuntu One.\\
 
 Pour cela, plusieurs composants sont nécessaires :
-\begin{itemize} 
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
    \item Le serveur : Le serveur reçoit des instructions via l'API d'Ubuntu One, par HTTP.
    \item Les clients : Les clients sont la partie utilisateur. Ces clients échangent avec le serveur via l'API. 
    \item Les drivers : Les drivers permettent d'échanger entre le serveur et les différentes solutions de stockage. 
@@ -24,6 +25,7 @@ Tous les drivers doivent permettre d'effectuer les quatre opérations de base : 
 
 Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre Driver. Ceci dit, plusieurs sont prévus et seront maintenus dans le cadre de l'EIP :
 \begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
     \item Stockage local : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
     \item Dropbox/Box.com/Google Drive/SkyDrive : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
     \item (S)FTP/SSH/NFS/Webdav/Samba/HTTP : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
@@ -54,6 +56,7 @@ L'interface web est destinée aux utilisateurs ayant des droits suffisants pour 
 
 L'interface web dispose de plusieurs fonctionnalités :
 \begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
     \item Charger de nouveaux fichiers
     \item Éditer les dossiers et les noms de fichiers
     \item Éditer les fichiers textes de manière simple
