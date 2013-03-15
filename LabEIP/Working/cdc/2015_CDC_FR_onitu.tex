@@ -11,7 +11,9 @@
 \usepackage{colortbl}	% to put color in a table background
 \usepackage{datetime}	% to allow us set a new date formatting
 \usepackage{multirow}   % to allow multirows in tables
-\usepackage{hyperref}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+%% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
+%%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
 
 % Custom defines zone
 
@@ -141,6 +143,8 @@
 \hline
 	14/03/2013 & Wannes Rombouts & Chapitre 2.5 & Gestion de la sécurité \\
 \hline
+	14/03/2013 & Louis Roché & Chapitre 2 & résumé, présentation et annexes \\
+\hline
 \end{tabular}
 
 \tableofcontents
@@ -166,12 +170,11 @@
 
 \chapter{Description des différentes parties du programme à réaliser}
 \thispagestyle{EIP} % seems mandatory
-
 \input{architecture.tex}
-
 
 \chapter{Description de la base de données}
 \thispagestyle{EIP} % seems mandatory
+\input{description_bdd.tex}
 
 \chapter{Description des tests de premier niveau}
 \thispagestyle{EIP} % seems mandatory
@@ -183,5 +186,6 @@
 
 \chapter{Annexes}
 \thispagestyle{EIP} % seems mandatory
+\input{annexes.tex}
 
 \end{document}
