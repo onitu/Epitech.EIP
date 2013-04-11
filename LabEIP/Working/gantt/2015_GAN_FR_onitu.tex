@@ -1,0 +1,162 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}		% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+\usepackage{multirow}   % to allow multirows in tables
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+%% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
+%%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
+
+% Custom defines zone
+
+% Define useful hand-made colors
+\definecolor{epiBlue}{RGB}{23,54,93}
+\definecolor{lightGray}{gray}{0.85}
+
+% Bit of code to bold an entire table row
+% http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
+% Defining a "dd/mm/yyyy" date format
+\newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
+
+% Define Document Title
+\newcommand{\ProjectTitle}{[2015][Onitu]}
+\newcommand{\DocTitle}{Gantt}
+\newcommand{\LongDocTitle}{Diagramme de Gantt et WBS}
+
+% Setting the space between each page's header and its content
+\setlength{\headsep}{0.2in} 
+
+% end of Defines
+
+
+% fancyhdr-specific commands
+\setlength{\headheight}{15.2pt}
+
+%% Defining headers and footers contents.
+
+% Big dirty hack of the "empty" pagestyle to show header and footer on the title page (in wait of a better solution)
+\fancypagestyle{empty}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\ProjectTitle[\DocTitle]} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{}
+}
+
+\fancypagestyle{EIP}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
+	}
+	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\ProjectTitle[\DocTitle]} } }
+	}
+
+	\fancyfoot[L]{
+   		\textcolor{gray}{\{EPITECH.\}}
+	}
+	\fancyfoot[C]{
+		\jobname
+	}
+	\fancyfoot[R]{
+		\thepage/\pageref{LastPage}
+	}
+}
+
+\pagestyle{EIP} % does not seem to work ...
+
+% end of fancyhdr stuff
+
+%Gummi|063|=)
+
+%\title{The Title\\\normalsize A Sub-title}
+\title{
+	\huge{\textbf{\textcolor{epiBlue}{EIP Onitu} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{\LongDocTitle} } } }
+}
+
+
+\begin{document}
+\addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
+\maketitle
+
+\input{resume.tex}
+
+\thispagestyle{empty}
+\vspace*{10mm}
+\textbf{\emph{\textcolor{epiBlue}{Description du document} } }\\
+
+\begin{tabular}{|>{\columncolor[gray]{0.85}\color{epiBlue} \bfseries } l|l|}
+\hline
+	Titre & \LongDocTitle\\
+\hline
+	Date & \dashDate\today \\
+\hline
+	Auteur & Alexandre BARON\\
+\hline
+	Responsable & Louis Roché\\
+\hline
+	E-Mail & onitu\_2015@labeip.epitech.eu\\
+\hline
+	Sujet & \LongDocTitle\\
+\hline
+	Mots clés & Gantt, WBS\\
+\hline
+	Version du modèle & 1.0\\
+\hline
+\end{tabular}
+\vspace*{10mm}
+
+\textbf{\emph{\textcolor{epiBlue}{Tableau des révisions} } }\\
+
+
+\begin{tabular}{|$l|p{4cm}|p{2cm}|p{5cm}|}
+\hline
+\rowcolor{lightGray}
+\rowstyle{ \color{epiBlue} \bfseries}
+	Date & Auteur & Section(s) & Commentaires\\
+\hline
+	10/04/2013 & Alexandre Baron & Toutes & Nouveau template \\
+\hline
+	& & & \\
+\hline
+	& & & \\
+\hline
+\end{tabular}
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}
+                    \protect\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{Rappel de l'EIP}
+\thispagestyle{EIP} % seems mandatory
+\setcounter{page}{1} %reset the page count
+
+\input{rappel_de_eip.tex}
+
+\end{document}
