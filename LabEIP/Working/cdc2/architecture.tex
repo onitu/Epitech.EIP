@@ -5,8 +5,8 @@ Pour cela, plusieurs composants sont nécessaires :
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
    \item Le serveur : Le serveur reçoit des instructions via l'API d'Ubuntu One, par HTTP.
-   \item Les clients : Les clients sont la partie utilisateur. Ces clients échangent avec le serveur via l'API. 
-   \item Les \textit{drivers} : Les \textit{drivers} permettent d'échanger entre le serveur et les différentes solutions de stockage. 
+   \item Les clients : Les clients sont la partie utilisateur. Ces clients échangent avec le serveur via l'API.
+   \item Les \textit{drivers} : Les \textit{drivers} permettent d'échanger entre le serveur et les différentes solutions de stockage.
 \end{itemize}
 
 \begin{figure}
@@ -30,12 +30,12 @@ Tous les \textit{drivers} doivent permettre d'effectuer les quatre opérations d
 Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre \textit{driver}. Ceci dit, plusieurs sont prévus et seront maintenus dans le cadre de l'EIP :
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
-    \item Stockage local : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
-    \item Dropbox/Box.com/Google Drive/SkyDrive : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
-    \item (S)FTP/SSH/NFS/Webdav/Samba/HTTP : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
-    \item Amazon S3 : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisée au monde.
-    \item OwnCloud : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interagir avec lui.
-    \item Ubuntu One : Il est possible d'utiliser n'importe quel serveur compatible avec l'API d'Ubuntu One comme serveur de stockage, c'est à dire un autre serveur Onitu ou bien le serveur officiel de Canonical.
+    \item \textbf{Stockage local} : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
+    \item \textbf{Dropbox/Box.com/Google Drive/SkyDrive} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
+    \item \textbf{(S)FTP/SSH/NFS/Webdav/Samba/HTTP} : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
+    \item \textbf{Amazon S3} : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisée au monde.
+    \item \textbf{OwnCloud} : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interagir avec lui.
+    \item \textbf{Ubuntu One} : Il est possible d'utiliser n'importe quel serveur compatible avec l'API d'Ubuntu One comme serveur de stockage, c'est à dire un autre serveur Onitu ou bien le serveur officiel de Canonical.
 \end{itemize}
 
 \section{Base de données}
