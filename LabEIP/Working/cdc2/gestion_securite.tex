@@ -1,20 +1,20 @@
 \section{Gestion de la sécurité}
 
-La gestion de la sécurité est présente à plusieurs endroits dans le cycle de vie d'un logiciel. La première chose à laquelle nous pensons est de sécuriser le logiciel produit. C'est souvent par des attaques lorsque le logiciel est en production que celui-ci est compromis. Mais ce n'est pas le seul risque. En effet il faut prêter la même attention au procesus de dévelopement lui-même, la gestion des différentes ressources qui lui sont liées et à la facon dont le projet va être maintenu.
+La gestion de la sécurité est présente à plusieurs endroits dans le cycle de vie d'un logiciel. La première chose qui vient à l'esprit est de sécuriser le logiciel produit. C'est souvent par des attaques lorsque le logiciel est en production que celui-ci est compromis. Mais ce n'est pas le seul risque. En effet il faut prêter la même attention au procesus de dévelopement lui-même, la gestion des différentes ressources qui lui sont liées et à la facon dont le projet va être maintenu.
 
 \subsection{Infrastructure \& maintenance}
 
 Le processus de développement s'organise autour de Git et en particulier Github. Les membres du groupe d'EIP ont un accès administrateur sur cette plate-forme. Cela leur permet automatiquement de contribuer au code et d'utiliser les différents outils fournis par Github. Git permet d'avoir une tracabilité des modifications du code car chaque modification est signée et authentifiée.\\
 
-Le code source est hebergé sur les serveurs de Github, mais chaque développeur possède une copie du dépot en local à tout instant, donc une perte de données de la part de l'hébergeur n'est aucunement dramatique. Il n'y a pas non plus de problème de confidentialité, car le projet est opensource et le code source n'est donc pas privé.\\
+Le code source est hébergé sur les serveurs de Github, mais chaque développeur possède une copie du dépot en local à tout instant, donc une perte de données de la part de l'hébergeur n'est aucunement dramatique. Il n'y a pas non plus de problème de confidentialité, car le projet est opensource et le code source n'est donc pas privé.\\
 
-Vu que le projet est opensource il serait domage de se priver de contributions exterieures eventuelles. Pour cela, la méthode classique avec Git est un \textit{pull-request}. Il s'agit d'une demande d'intégration au dépôt principal de code développé sur un autre dépôt par une personne ne faisant pas partie des contributeurs habituels. Si un \textit{pull-request} est fait, le code externe sera audité pour s'assurer de sa qualité, mais aussi pour vérifier que le code n'est pas malveillant, n'apporte pas de vulnérabilités et n'enleve rien à l'efficacité des solutions déjà en place.\\
+Tous les dépôts de d'Onitu sont ouverts aux contributions extérieures, via des \textit{pull-request}. Il s'agit d'une demande d'intégration au dépôt principal de code développé sur un autre dépôt par une personne ne faisant pas partie des contributeurs habituels. Si un \textit{pull-request} est fait, le code externe sera audité pour s'assurer de sa qualité, mais aussi pour vérifier que le code n'est pas malveillant, n'apporte pas de vulnérabilités et n'enleve rien à l'efficacité des solutions déjà en place.\\
 
 Pour ce qui est de la maintenance et de la gestion des retours utilisateurs, ceux-ci pouront se faire via le système de tickets fourni par Github. Tout le monde peut créer des tickets mais ceux-ci ne peuvent être clos, supprimés ou administrés que par les membres du groupe d'EIP.
 
 \subsection{Processus de développement}
 
-La quasi-totalité du projet est développée en Python. Cela élimine une grande partie des vulnérabilités classiques que l'on rencontre dans des projets développés en C ou C++. Notamment la gestion de la mémoire qui n'est plus à la charge du développeur. De plus, python lève des exceptions et arrête le programme dès qu'une valeur n'est pas correctement utilisée. (\textit{overflows}, \textit{casts} incorects...)\\
+La quasi-totalité du projet est développée en Python. Cela élimine une grande partie des vulnérabilités classiques que l'on rencontre dans des projets développés avec des langages plus bas niveau, notamment concernant la gestion de la mémoire qui n'est plus à la charge du développeur. De plus, Python lève des exceptions et arrête le programme dès qu'une valeur n'est pas correctement utilisée. (\textit{overflows}, \textit{casts} incorects...)\\
 
 Les interactions avec les bases de données et les différents protocoles sont faites au travers de librairies proposant un usage simple et moins propice aux erreurs qu'un accès direct aux ressources.\\
 
