@@ -1,0 +1,20 @@
+Pour s'assurer du bon fonctionnement du projet tout au long du développement et pour faciliter les possibles évolutions, des tests sont nécessaires.\\
+
+Des tests sur chacune des parties du projet doivent donc être créés au fur et à mesure que du code sera écrit. Il est notamment nécessaire de tester :\\
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item L'API Ubuntu One, pour s'assurer que toutes les communications avec les clients existants se déroulent correctement ;
+\item La bonne copie et l'envoie des fichiers quand ils sont ajoutés dans un dossier qui est synchronisé ;
+\item Windows
+\end{itemize}
+
+\vspace{0.5cm}
+
+Pour facilier ces tests et être certain qu'ils sont effectués de manière régulière, les tests seront effectués avec un outil d'intégration continue à chaque commit. Les deux outils suivants peuvent être utilisés :\\
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item \href{https://travis-ci.org}{travis} qui est un service web lié à Github ;
+\item \href{http://jenkins-ci.org}{jenkins} qui est un logiciel libre à installer sur un serveur mais qui permet une beaucoup plus grande variété de tests qu'avec travis.
+\end{itemize}

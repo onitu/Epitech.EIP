@@ -1,0 +1,9 @@
+\section{Composants existants}
+\thispagestyle{EIP} % seems mandatory
+Divers clients utilisant l'API d'Ubuntu One existent, sur plusieurs plateformes. Onitu est compatible avec tous ces clients, à condition qu'ils permettent de choisir un serveur.\\
+
+Le protocole d'Ubuntu One, \textit{ubuntuone-storage-protocol}, utilise les \textbf{Protocol Buffers}, solution d'organisation de données développée par Google. Onitu utilise le même protocole et les mêmes outils.\\
+
+La communication réseau est en grande partie développée à l'aide de \textbf{Twisted}, un framework Python de programmation réseau événementielle (\emph{event-driven}). Ce framework est très utilisé, et son développement actif.\\
+
+Diverses bibliothèques peuvent être utilisées pour communiquer avec les différents services, par le biais des Drivers. Le choix de ces bibliothèques reste libre pour les personnent souhaitant développer un driver. Cepandant, il doit être raisonable et ne pas aller à l'encontre des contraintes de portabilité.
