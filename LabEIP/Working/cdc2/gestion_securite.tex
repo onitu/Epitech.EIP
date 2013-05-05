@@ -4,7 +4,7 @@ La gestion de la sécurité est présente à plusieurs endroits dans le cycle de
 
 \subsection{Infrastructure \& maintenance}
 
-Le processus de développement s'organise autour de Git et en particulier Github. Les membres du groupe d'EIP ont un accès administrateur sur cette plate-forme. Cela leur permet automatiquement de contribuer au code et d'utiliser les différents outils fournis par Github. Git permet d'avoir une tracabilité des modifications du code car chaque modification est signée et authentifiée.\\
+Le processus de développement s'organise autour de Git et en particulier Github. Les membres du groupe d'EIP ont un accès administrateur sur cette plate-forme. Cela leur permet automatiquement de contribuer au code et d'utiliser les différents outils fournis par Github. Git permet d'avoir une traçabilité des modifications du code car chaque modification est signée et authentifiée.\\
 
 Le code source est hébergé sur les serveurs de Github, mais chaque développeur possède une copie du dépot en local à tout instant, donc une perte de données de la part de l'hébergeur n'est aucunement dramatique. Il n'y a pas non plus de problème de confidentialité, car le projet est opensource et le code source n'est donc pas privé.\\
 
@@ -20,20 +20,20 @@ Les interactions avec les bases de données et les différents protocoles sont f
 
 Cependant, un certain nombre de vulnérabilités ne peuvent être évitées que par du bon sens et un respect des meilleures pratiques. C'est notamment le cas pour tout ce qui concerne les fonctions qui permettent d'évaluer du code, ou d'accéder aux ressources système. L'appel à ces fonctions devra donc être particulierement surveillé et justifié, plus encore lorsque ils peuvent être influencés par des entrées utilisateurs.\\
 
-Des phases d'audit seront organisée, où l'ensemble du code sera vérifié par des développeurs n'ayant pas travaillé sur ces parties, de facon à avoir un deuxième avis objectif sur la question de la sécurité. De plus, nous avons un partenariat avec le Laboratoire de Sécurité d'Epitech Toulouse qui pourra effectuer un ou plusieurs audits exterieurs sur le code et les différents protocoles utilisés.
+Des phases d'audit seront organisées, où l'ensemble du code sera vérifié par des développeurs n'ayant pas travaillé sur ces parties, de façon à avoir un deuxième avis objectif sur la question de la sécurité. De plus, nous avons un partenariat avec le Laboratoire de Sécurité d'Epitech Toulouse qui pourra effectuer un ou plusieurs audits extérieurs sur le code et les différents protocoles utilisés.
 
 \subsection{Sécurité dans Onitu}
 
 En plus des différentes mesures expliquées ci-dessus, une partie de la sécurité d'Onitu est apportée par ses composants principaux et les protocoles qui y seront utilisés.
 
 \subsubsection{Ubuntu One}
-Du fait de sa compatibilité avec Ubuntu One, Onitu ne dispose pas de marge de manœuvre sur le protocole. Cepandant, celui-ci a été conçu et implémenté par des développeurs professionels et est utilisé en production depuis plusieurs années.\\
+Du fait de sa compatibilité avec Ubuntu One, Onitu ne dispose pas de marge de manœuvre sur le protocole. Cependant, celui-ci a été conçu et implémenté par des développeurs professionels et est utilisé en production depuis plusieurs années.\\
 
-Comme Ubuntu One, Onitu utilise SSL (Secure Socket Layer) et des certificats numériques pour assurer l'authentification du serveur et le chifrement des connexions.\\
+Comme Ubuntu One, Onitu utilise \textit{SSL} (Secure Socket Layer) et des certificats numériques pour assurer l'authentification du serveur et le chifrement des connexions.\\
 
-Pour authentifier les clients, le protocole OAuth est utilisé. Il s'agit d'un système d'authentification par \textit{token} qui permet de gérer les accès parallèles depuis differents ordinateurs, et éventuelement leur révocation.\\
+Pour authentifier les clients, le protocole \textit{OAuth} est utilisé. Il s'agit d'un système d'authentification par \textit{token} qui permet de gérer les accès parallèles depuis differents ordinateurs, et éventuelement leur révocation.\\
 
-Les fichiers stockés ne sont pas chiffrés, car le serveur nécessitera la version originale lors d'une demande de téléchargement. Cependant, rien n'empêche l'utilisateur de chiffrer ses fichiers en local avant de les syncroniser avec le serveur Onitu.
+Les fichiers stockés ne sont pas chiffrés, car le serveur nécessitera la version originale lors d'une demande de téléchargement. Cependant, rien n'empêche l'utilisateur de chiffrer ses fichiers en local avant de les synchroniser avec le serveur Onitu.
 
 \subsubsection{Backend drivers}
-En ce qui concerne les différent modules nécessaires à la gestion du stockage de fichiers sur le serveur Onitu, la sécurité de leurs protocoles respectifs ne dépend pas de nous. Nous ne pourrons que conseiller l'utilisateur sur la configuration de la solution en fonction de ses attentes, (confidentialité, intégrité, authentification, ...), par exemple en lui conseillant \textit{SFTP} au lieu de \textit{FTP}.
+En ce qui concerne les différents modules nécessaires à la gestion du stockage de fichiers sur le serveur Onitu, la sécurité de leurs protocoles respectifs ne dépend pas de nous. Nous ne pourrons que conseiller l'utilisateur sur la configuration de la solution en fonction de ses attentes, (confidentialité, intégrité, authentification, ...), par exemple en lui conseillant \textit{SFTP} au lieu de \textit{FTP}.
