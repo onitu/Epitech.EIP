@@ -1,4 +1,4 @@
-PROJECT=2015_CDC_FR_onitu
+PROJECT=2015_CDC2_FR_onitu
 
 ALL:
 	texi2pdf -c $(PROJECT).tex 
