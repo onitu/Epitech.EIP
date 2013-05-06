@@ -1,0 +1,102 @@
+\section{Jalons principaux du projet et lotissement}
+\input{jalons.tex}
+
+\newpage
+
+\section{WBS}
+\begin{figure}[ht]
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{wbs.png}
+    \caption{Work Breakdown Structure}
+\end{figure}
+
+\section{Gantt}
+
+\begin{tikzpicture}[y=0.6cm]
+  \begin{ganttchart}
+    [vgrid,y unit chart=0.5cm, bar height=0.5]{23}
+\gantttitle {Gantt Onitu}{23} \\
+\gantttitlelist{2013}{8} \gantttitlelist{2014}{12} \gantttitlelist{2015}{3} \\
+\gantttitlelist{5,...,12}{1} \gantttitlelist{1,...,12}{1} \gantttitlelist{1, 2, 3}{1}\\
+\ganttgroup {LabEIP}{1}{22} \\
+\ganttmilestone{Communication}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{Plan de promotion exterieure}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style=right]{Forum eip}{18.5} \\
+\ganttmilestone{Bilans}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final tek4}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final}{21} \\
+\ganttmilestone{Soutenances}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style=right]{bilan architecture}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek5}{22}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek4}{17} \\
+\ganttgroup {Onitu}{1}{21} \\
+\ganttgroup {Client}{6}{21} \\
+\ganttgroup {Modification clients}{6}{14} \\
+\ganttbar {Modification des interfaces }{11}{13} \\
+\ganttbar {Client minimal pour les tests}{6}{7} \\
+\ganttbar {Suppression des adresses en dur}{13}{14} \\
+\ganttgroup {WebUi}{9}{21} \\
+\ganttbar {Conception du backend}{9}{12} \\
+\ganttbar {Gestion du compte}{16}{19} \\
+\ganttbar {Telechargement}{16}{18} \\
+\ganttbar {Visualisation}{21}{21} \\
+\ganttbar {Interface d'ajouts de fichiers}{16}{18} \\
+\ganttgroup {Partage de fichiers}{17}{21} \\
+\ganttbar {Gestion des droits}{17}{20} \\
+\ganttbar {Visualisation des fichiers publics}{20}{21} \\
+\ganttbar {Fonctionnalitees de partage}{18}{19} \\
+\ganttgroup {Interface d'administration}{12}{14} \\
+\ganttbar {Creation et suppression de comptes}{13}{13} \\
+\ganttbar {Gestion des fichiers}{12}{14} \\
+\ganttbar {Configuration du serveur Onitu}{12}{13} \\
+\ganttbar {Configuration des drivers}{12}{13} \\
+\ganttgroup {Design}{15}{16} \\
+\ganttbar {CSS}{15}{16} \\
+\ganttbar {HTML}{15}{16} \\
+\ganttgroup {Logique}{10}{16} \\
+\ganttbar {Gestion des websockets}{13}{16} \\
+\ganttbar {CRUD des fichiers}{12}{14} \\
+\ganttbar {Gestion des drivers}{10}{12} \\
+\ganttbar {Configuration de l'interface}{10}{11} \\
+\end{ganttchart}
+\end{tikzpicture}
+
+\begin{tikzpicture}[y=0.8cm]
+\begin{ganttchart}
+    [vgrid,y unit chart=0.7cm, bar height=0.6]{23}
+\gantttitle {Gantt Onitu}{23} \\
+\gantttitlelist{2013}{8} \gantttitlelist{2014}{12} \gantttitlelist{2015}{3} \\
+\gantttitlelist{5,...,12}{1} \gantttitlelist{1,...,12}{1} \gantttitlelist{1, 2, 3}{1}\\
+\ganttgroup {LabEIP}{1}{22} \\
+\ganttmilestone{Communication}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{Plan de promotion exterieure}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style=right]{Forum eip}{18.5} \\
+\ganttmilestone{Bilans}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final tek4}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final}{21} \\
+\ganttmilestone{Soutenances}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style=right]{bilan architecture}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek5}{22}
+\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek4}{17} \\
+\ganttgroup {Onitu}{1}{21} \\
+\ganttgroup {Serveur}{1}{18} \\
+\ganttgroup {API interne}{1}{10} \\
+\ganttbar {Conception}{1}{8} \\
+\ganttbar {Réalisation}{6}{10} \\
+\ganttgroup {API publique}{6}{10} \\
+\ganttbar {API Ubuntu One}{6}{10} \\
+\ganttgroup {DB}{6}{12} \\
+\ganttbar {Export}{11}{12} \\
+\ganttbar {Import}{11}{12} \\
+\ganttbar {Definition des documents}{6}{7} \\
+\ganttgroup {Configuration}{8}{11} \\
+\ganttbar {Configuration locale}{9}{11} \\
+\ganttbar {Configuration backend}{8}{11} \\
+\ganttgroup {Drivers}{1}{18} \\
+\ganttbar {Conception de l'API}{1}{7} \\
+\ganttbar {Local storage}{6}{8} \\
+\ganttbar {Ubuntu One}{6}{8} \\
+\ganttbar {Dropbox}{9}{12} \\
+\ganttbar {FTP}{11}{13} \\
+\ganttbar {Autres}{13}{18} \\
+\end{ganttchart}
+\end{tikzpicture}
