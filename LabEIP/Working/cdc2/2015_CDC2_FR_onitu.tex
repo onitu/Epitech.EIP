@@ -35,14 +35,15 @@
 % Define Document Title
 \newcommand{\ProjectTitle}{Onitu}
 \newcommand{\DocTitle}{EIP Onitu}
-\newcommand{\SubTitle}{Cahier Des Charges 2 (CDC2)}
+\newcommand{\SubTitle}{Cahier des Charges 2 (CDC2)}
 
-
+% Defining some logo image names
+\newcommand{\ProjectLogo}{}
+\newcommand{\EIPLogo}{logo_eip.png}
 % Setting the space between each page's header and its content
 \setlength{\headsep}{0.2in}
 
 % end of Defines
-
 
 % fancyhdr-specific commands
 \setlength{\headheight}{15.2pt}
@@ -54,12 +55,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=35pt]{logo_eip.png}}
-	\fancyhead[C]{\fontfamily{cm}\selectfont \textcolor{epiBlue}{\textbf{\underline{{\DocTitle}}}}}
-	\fancyhead[R]{\includegraphics[height=35pt]{petitnuage.png} \fontfamily{cm}\selectfont \textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
 
 	\fancyfoot[L]{}
-	\fancyfoot[C]{\jobname}
+	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
 	\fancyfoot[R]{}
 }
 
@@ -67,14 +68,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=35pt]{logo_eip.png}}
-	\fancyhead[C]{\fontfamily{cm}\selectfont \textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
-	\fancyhead[R]{\includegraphics[height=35pt]{petitnuage.png} \fontfamily{cm}\selectfont \textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
 
-	\fancyfoot[L]{}
-	\fancyfoot[C]{
-		\jobname
-	}
+	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\scriptsize{\leftmark}}}}}
+	\fancyfoot[C]{}
 	\fancyfoot[R]{
 		\thepage/\pageref{LastPage}
 	}
@@ -148,7 +147,7 @@
 \hline
 	06/05/2013 & Louis Roché & Titre & Corrections du titre \\
 \hline
-	& & & \\
+	15/05/2013 & Alexandre Baron & Template & Retiré l'icône, mis les titres en bas à gauche\\
 \hline
 \end{tabular}
 
