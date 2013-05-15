@@ -33,15 +33,15 @@ Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre \textit{d
     \item \textbf{Stockage local} : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
     \item \textbf{Dropbox/Box.com/Google Drive/SkyDrive} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
     \item \textbf{(S)FTP/SSH/NFS/Webdav/Samba/HTTP} : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
-    \item \textbf{Amazon S3} : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisée au monde.
+    \item \textbf{Amazon S3} : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisées au monde.
     \item \textbf{OwnCloud} : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interagir avec lui.
     \item \textbf{Ubuntu One} : Il est possible d'utiliser n'importe quel serveur compatible avec l'API d'Ubuntu One comme serveur de stockage, c'est à dire un autre serveur Onitu ou bien le serveur officiel de Canonical.
 \end{itemize}
 
 \section{Base de données}
-Les meta-données liées au fichiers seront stockées dans une base de données, au sein du serveur. La majeure partie de ces métas-données est définie par le protocole d'Ubuntu One.\\
+Les meta-données liées aux fichiers seront stockées dans une base de données, au sein du serveur. La majeure partie de ces méta-données est définie par le protocole d'Ubuntu One.\\
 
-Onitu étend ces métas-données en ajoutant les informations nécessaires aux \textit{drivers}. La forme de ces informations est, dans l'ensemble, laissée libre à chaque \textit{driver}.\\
+Onitu étend ces méta-données en ajoutant les informations nécessaires aux \textit{drivers}. La forme de ces informations est, dans l'ensemble, laissée libre à chaque \textit{driver}.\\
 
 Cette flexibilité est rendue possible grâce à l'utilisation d'une base de type NoSQL orientée document, MongoDB.
 
