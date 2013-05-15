@@ -12,6 +12,7 @@
 \usepackage{datetime}	% to allow us set a new date formatting
 \usepackage{multirow}   % to allow multirows in tables
 \usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{palatino}
 %% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
 %%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
 
@@ -37,6 +38,9 @@
 \newcommand{\DocTitle}{Titre du document}
 \newcommand{\SubTitle}{Sous-titre du document}
 
+% Defining some logo image names
+\newcommand{\ProjectLogo}{}
+\newcommand{\EIPLogo}{logo_eip.png}
 
 % Setting the space between each page's header and its content
 \setlength{\headsep}{0.2in} 
@@ -54,12 +58,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=35pt]{logo_eip.png}}
-	\fancyhead[C]{\fontfamily{bch}\selectfont \textcolor{epiBlue}{\textbf{\underline{{\DocTitle}}}}}
-	\fancyhead[R]{\includegraphics[height=35pt]{petitnuage.png} \fontfamily{bch}\selectfont \textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
 
 	\fancyfoot[L]{}
-	\fancyfoot[C]{\jobname}
+	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
 	\fancyfoot[R]{}
 }
 
@@ -67,14 +71,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=35pt]{logo_eip.png}}
-	\fancyhead[C]{\fontfamily{bch}\selectfont \textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
-	\fancyhead[R]{\includegraphics[height=35pt]{petitnuage.png} \fontfamily{bch}\selectfont \textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
 
-	\fancyfoot[L]{}
-	\fancyfoot[C]{
-		\jobname
-	}
+	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
+	\fancyfoot[C]{}
 	\fancyfoot[R]{
 		\thepage/\pageref{LastPage}
 	}
@@ -94,7 +96,6 @@
 
 
 \begin{document}
-\fontfamily{bch}\selectfont
 \addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
 \maketitle
 
