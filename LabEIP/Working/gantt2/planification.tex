@@ -9,7 +9,33 @@
     \caption{Work Breakdown Structure}
 \end{figure}
 
-\section{Gantt}
+\section{Gantt et repartition des taches}
+
+\subsection{Groupes de travail}
+
+\begin{tabular}{|$l|$l|}
+\hline
+\rowcolor{lightGray}
+\rowstyle{ \color{epiBlue} \bfseries}
+	Groupe & Membres\\
+\hline
+        Adapatation des clients (AC) & Wannes (Product Owner), Louis \\
+\hline
+        Client web & Alexandre (Product Owner), Yannick, Morgan, Maxime \\
+\hline
+        Drivers & Louis (Product Owner), Mathis (Product Owner), Antoine, Morgan, Maxime \\
+\hline
+        Serveur & Yannick (Product Owner), Wannes, Antoine, Mathis \\
+\hline
+        Marketing & Morgan (Product Owner), Yannick, Antoine \\
+\hline
+        Sécurité & Wannes (Product Owner) \\
+\hline
+\end{tabular}
+
+\newpage
+
+\subsection{Gantt}
 
 \begin{tikzpicture}[y=0.6cm]
   \begin{ganttchart}
@@ -19,44 +45,67 @@
 \gantttitlelist{5,...,12}{1} \gantttitlelist{1,...,12}{1} \gantttitlelist{1, 2, 3}{1}\\
 \ganttgroup {LabEIP}{1}{22} \\
 \ganttmilestone{Communication}{14}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{Plan de promotion exterieure}{14}
-\ganttmilestone[inline, milestone label inline anchor/.style=right]{Forum eip}{18.5} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{Plan de promotion exterieure}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style={right=5pt}]{Forum eip}{18.5} \\
 \ganttmilestone{Bilans}{14.5}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final tek4}{14.5}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final}{21} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{tech final tek4}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{tech final}{21} \\
 \ganttmilestone{Soutenances}{3}
-\ganttmilestone[inline, milestone label inline anchor/.style=right]{bilan architecture}{3}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek5}{22}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek4}{17} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={right=5pt}]{bilan architecture}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{finale tek5}{22}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{finale tek4}{17} \\
 \ganttgroup {Onitu}{1}{21} \\
 \ganttgroup {Client}{6}{21} \\
+\ganttgroup [inline, group label inline anchor/.style={left=70pt}]{[AC]}{6}{14}
 \ganttgroup {Modification clients}{6}{14} \\
-\ganttbar {Modification des interfaces }{11}{13} \\
-\ganttbar {Client minimal pour les tests}{6}{7} \\
-\ganttbar {Suppression des adresses en dur}{13}{14} \\
+\ganttbar {Modification des interfaces }{11}{13}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{8j/h }{11}{13} \\
+\ganttbar {Client minimal pour les tests}{6}{7}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{3j/h }{6}{7} \\
+\ganttbar {Suppression des adresses en dur}{13}{14}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{4j/h }{13}{14} \\
+\ganttgroup [inline, group label inline anchor/.style={left=100pt}]{[Client web]}{9}{21}
 \ganttgroup {WebUi}{9}{21} \\
-\ganttbar {Conception du backend}{9}{12} \\
-\ganttbar {Gestion du compte}{16}{19} \\
-\ganttbar {Telechargement}{16}{18} \\
-\ganttbar {Visualisation}{21}{21} \\
-\ganttbar {Interface d'ajouts de fichiers}{16}{18} \\
+\ganttbar {Conception du backend}{9}{12}
+\ganttbar [inline, bar label inline anchor/.style={left=35pt}]{10j/h }{9}{12} \\
+\ganttbar {Gestion du compte}{16}{19}
+\ganttbar [inline, bar label inline anchor/.style={left=35pt}]{3j/h }{16}{19} \\
+\ganttbar {Telechargement}{16}{18}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{3j/h }{16}{18} \\
+\ganttbar {Visualisation}{21}{21}
+\ganttbar [inline, bar label inline anchor/.style={left=10pt}]{1j/h }{21}{21} \\
+\ganttbar {Interface d'ajouts de fichiers}{16}{18}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{16}{18} \\
 \ganttgroup {Partage de fichiers}{17}{21} \\
-\ganttbar {Gestion des droits}{17}{20} \\
-\ganttbar {Visualisation des fichiers publics}{20}{21} \\
-\ganttbar {Fonctionnalitees de partage}{18}{19} \\
+\ganttbar {Gestion des droits}{17}{20}
+\ganttbar [inline, bar label inline anchor/.style={left=35pt}]{3j/h }{17}{20} \\
+\ganttbar {Visualisation des fichiers publics}{20}{21}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{20}{21} \\
+\ganttbar {Fonctionnalitees de partage}{18}{19}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{18}{19} \\
 \ganttgroup {Interface d'administration}{12}{14} \\
-\ganttbar {Creation et suppression de comptes}{13}{13} \\
-\ganttbar {Gestion des fichiers}{12}{14} \\
-\ganttbar {Configuration du serveur Onitu}{12}{13} \\
-\ganttbar {Configuration des drivers}{12}{13} \\
+\ganttbar {Creation et suppression de comptes}{13}{13}
+\ganttbar [inline, bar label inline anchor/.style={left=10pt}]{1j/h }{13}{13} \\
+\ganttbar {Gestion des fichiers}{12}{14}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{4j/h }{12}{14} \\
+\ganttbar {Configuration du serveur Onitu}{12}{13}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{3j/h }{12}{13} \\
+\ganttbar {Configuration des drivers}{12}{13}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{12}{13} \\
 \ganttgroup {Design}{15}{16} \\
-\ganttbar {CSS}{15}{16} \\
-\ganttbar {HTML}{15}{16} \\
+\ganttbar {CSS}{15}{16}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{15}{16} \\
+\ganttbar {HTML}{15}{16}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{15}{16} \\
 \ganttgroup {Logique}{10}{16} \\
-\ganttbar {Gestion des websockets}{13}{16} \\
-\ganttbar {CRUD des fichiers}{12}{14} \\
-\ganttbar {Gestion des drivers}{10}{12} \\
-\ganttbar {Configuration de l'interface}{10}{11} \\
+\ganttbar {Gestion des websockets}{13}{16}
+\ganttbar [inline, bar label inline anchor/.style={left=35pt}]{4j/h }{13}{16} \\
+\ganttbar {CRUD des fichiers}{12}{14}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{3j/h }{12}{14} \\
+\ganttbar {Gestion des drivers}{10}{12}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{2j/h }{10}{12} \\
+\ganttbar {Configuration de l'interface}{10}{11}
+\ganttbar [inline, bar label inline anchor/.style={left=20pt}]{1j/h }{10}{11} \\
 \end{ganttchart}
 \end{tikzpicture}
 
@@ -68,35 +117,51 @@
 \gantttitlelist{5,...,12}{1} \gantttitlelist{1,...,12}{1} \gantttitlelist{1, 2, 3}{1}\\
 \ganttgroup {LabEIP}{1}{22} \\
 \ganttmilestone{Communication}{14}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{Plan de promotion exterieure}{14}
-\ganttmilestone[inline, milestone label inline anchor/.style=right]{Forum eip}{18.5} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{Plan de promotion exterieure}{14}
+\ganttmilestone[inline, milestone label inline anchor/.style={right=5pt}]{Forum eip}{18.5} \\
 \ganttmilestone{Bilans}{14.5}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final tek4}{14.5}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{tech final}{21} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{tech final tek4}{14.5}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{tech final}{21} \\
 \ganttmilestone{Soutenances}{3}
-\ganttmilestone[inline, milestone label inline anchor/.style=right]{bilan architecture}{3}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek5}{22}
-\ganttmilestone[inline, milestone label inline anchor/.style=left]{finale tek4}{17} \\
+\ganttmilestone[inline, milestone label inline anchor/.style={right=5pt}]{bilan architecture}{3}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{finale tek5}{22}
+\ganttmilestone[inline, milestone label inline anchor/.style={left=5pt}]{finale tek4}{17} \\
 \ganttgroup {Onitu}{1}{21} \\
-\ganttgroup {Serveur}{1}{18} \\
+\ganttgroup {Serveur}{1}{18}
+\ganttgroup [inline, group label inline anchor/.style={right=135pt}]{[Serveur]}{1}{18} \\
 \ganttgroup {API interne}{1}{10} \\
-\ganttbar {Conception}{1}{8} \\
-\ganttbar {Réalisation}{6}{10} \\
+\ganttbar {Conception}{1}{8}
+\ganttbar [inline, bar label inline anchor/.style={right=55pt}]{ 20j/h }{1}{8} \\
+\ganttbar {Réalisation}{6}{10}
+\ganttbar [inline, bar label inline anchor/.style={right=30pt}]{ 15j/h }{6}{10} \\
 \ganttgroup {API publique}{6}{10} \\
-\ganttbar {API Ubuntu One}{6}{10} \\
+\ganttbar {API Ubuntu One}{6}{10}
+\ganttbar [inline, bar label inline anchor/.style={right=30pt}]{ 12j/h }{6}{10} \\
 \ganttgroup {DB}{6}{12} \\
-\ganttbar {Export}{11}{12} \\
-\ganttbar {Import}{11}{12} \\
-\ganttbar {Definition des documents}{6}{7} \\
+\ganttbar {Export}{11}{12}
+\ganttbar [inline, bar label inline anchor/.style={right=15pt}]{ 2j/h }{11}{12} \\
+\ganttbar {Import}{11}{12}
+\ganttbar [inline, bar label inline anchor/.style={right=15pt}]{ 2j/h }{11}{12} \\
+\ganttbar {Definition des documents}{6}{7}
+\ganttbar [inline, bar label inline anchor/.style={right=15pt}]{ 3j/h }{6}{7} \\
 \ganttgroup {Configuration}{8}{11} \\
-\ganttbar {Configuration locale}{9}{11} \\
-\ganttbar {Configuration backend}{8}{11} \\
-\ganttgroup {Drivers}{1}{18} \\
-\ganttbar {Conception de l'API}{1}{7} \\
-\ganttbar {Local storage}{6}{8} \\
-\ganttbar {Ubuntu One}{6}{8} \\
-\ganttbar {Dropbox}{9}{12} \\
-\ganttbar {FTP}{11}{13} \\
-\ganttbar {Autres}{13}{18} \\
+\ganttbar {Configuration locale}{9}{11}
+\ganttbar [inline, bar label inline anchor/.style={right=20pt}]{ 5j/h }{9}{11} \\
+\ganttbar {Configuration backend}{8}{11}
+\ganttbar [inline, bar label inline anchor/.style={right=25pt}]{ 6j/h }{8}{11} \\
+\ganttgroup {Drivers}{1}{18}
+\ganttgroup [inline, group label inline anchor/.style={right=135pt}]{[Drivers]}{1}{18}\\
+\ganttbar {Conception de l'API}{1}{7}
+\ganttbar [inline, bar label inline anchor/.style={right=55pt}]{ 15j/h }{1}{7} \\
+\ganttbar {Local storage}{6}{8}
+\ganttbar [inline, bar label inline anchor/.style={right=20pt}]{ 8j/h }{6}{8} \\
+\ganttbar {Ubuntu One}{6}{8}
+\ganttbar [inline, bar label inline anchor/.style={right=20pt}]{ 8j/h }{6}{8} \\
+\ganttbar {Dropbox}{9}{12}
+\ganttbar [inline, bar label inline anchor/.style={right=25pt}]{ 8j/h }{9}{12} \\
+\ganttbar {FTP}{11}{13}
+\ganttbar [inline, bar label inline anchor/.style={right=20pt}]{ 6j/h }{11}{13} \\
+\ganttbar {Autres}{13}{18}
+\ganttbar [inline, bar label inline anchor/.style={right=40pt}]{ 40j/h }{13}{18} \\
 \end{ganttchart}
 \end{tikzpicture}
