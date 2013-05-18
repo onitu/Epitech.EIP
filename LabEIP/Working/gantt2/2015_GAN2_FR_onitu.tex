@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[11pt]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
@@ -14,14 +14,15 @@
 \usepackage{pgfgantt}
 \usepackage{lscape}
 \usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{palatino}
 %% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
 %%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
 
 % Custom defines zone
 
 % Define useful hand-made colors
-\definecolor{epiBlue}{RGB}{23,54,93}
-\definecolor{lightGray}{gray}{0.85}
+\definecolor{epiBlue}{RGB}{0,110,255}
+\definecolor{lightGray}{gray}{0.92}
 
 % Bit of code to bold an entire table row
 % http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
@@ -35,12 +36,16 @@
 \newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
 
 % Define Document Title
-\newcommand{\ProjectTitle}{[2015][Onitu]}
+\newcommand{\ProjectTitle}{Onitu}
 \newcommand{\DocTitle}{Gantt 2}
-\newcommand{\LongDocTitle}{Diagramme de Gantt et WBS}
+\newcommand{\SubTitle}{Diagramme de Gantt et WBS}
+
+% Defining some logo image names
+\newcommand{\ProjectLogo}{}
+\newcommand{\EIPLogo}{logo_eip.png}
 
 % Setting the space between each page's header and its content
-\setlength{\headsep}{0.2in}
+\setlength{\headsep}{0.2in} 
 
 % end of Defines
 
@@ -55,17 +60,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
-	}
-	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\ProjectTitle[\DocTitle]} } }
-	}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
 
-	\fancyfoot[L]{
-   		\textcolor{gray}{\{EPITECH.\}}
-	}
-	\fancyfoot[C]{
-		\jobname
-	}
+	\fancyfoot[L]{}
+	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
 	\fancyfoot[R]{}
 }
 
@@ -73,17 +73,12 @@
 {
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{1pt}
-	\fancyhead[L]{\includegraphics[height=42pt]{logo_eip.png}
-	}
-	\fancyhead[R]{\colorbox{epiBlue}{\color{white}\textbf{\Large{\ProjectTitle[\DocTitle]} } }
-	}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
 
-	\fancyfoot[L]{
-   		\textcolor{gray}{\{EPITECH.\}}
-	}
-	\fancyfoot[C]{
-		\jobname
-	}
+	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
+	\fancyfoot[C]{}
 	\fancyfoot[R]{
 		\thepage/\pageref{LastPage}
 	}
@@ -97,8 +92,8 @@
 
 %\title{The Title\\\normalsize A Sub-title}
 \title{
-	\huge{\textbf{\textcolor{epiBlue}{EIP Onitu} } }\\
-	\Large{\textbf{\emph{\textcolor{gray}{\LongDocTitle} } } }
+	\huge{\textbf{\textcolor{epiBlue}{\DocTitle} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
 }
 
 
@@ -110,37 +105,41 @@
 
 \thispagestyle{empty}
 \vspace*{10mm}
-\textbf{\emph{\textcolor{epiBlue}{Description du document} } }\\
+\textbf{\emph{\textcolor{epiBlue}{\large{Description du documentstash stash} } } } \\
 
-\begin{tabular}{|>{\columncolor[gray]{0.85}\color{epiBlue} \bfseries } l|l|}
+\vspace*{2mm}
+
+\begin{tabular}{|>{\columncolor{epiBlue} \color{lightGray} \bfseries } l|l|}
 \hline
-	Titre & \LongDocTitle\\
+	Titre & \DocTitle\\
 \hline
 	Date & \dashDate\today \\
 \hline
-	Auteur & Alexandre BARON\\
+	Auteur & Louis Roché\\
 \hline
 	Responsable & Louis Roché\\
 \hline
 	E-Mail & onitu\_2015@labeip.epitech.eu\\
 \hline
-	Sujet & \LongDocTitle\\
+	Sujet & \DocTitle\\
 \hline
 	Mots clés & Gantt, WBS\\
 \hline
-	Version du modèle & 1.0\\
+	Version du modèle & 2.1\\
 \hline
 \end{tabular}
+
 \vspace*{10mm}
 
-\textbf{\emph{\textcolor{epiBlue}{Tableau des révisions} } }\\
+\textbf{\emph{\textcolor{epiBlue}{\large{Tableau des révisions} } } }\\
 
+\vspace*{2mm}
 
 \begin{tabular}{|$l|p{4cm}|p{2cm}|p{5cm}|}
 \hline
-\rowcolor{lightGray}
-\rowstyle{ \color{epiBlue} \bfseries}
-	Date & Auteur & Section(s) & Commentaires\\
+\rowcolor{epiBlue}
+\rowstyle{ \color{lightGray} \bfseries}
+	Date & \textcolor{lightGray}{\textbf{Auteur}} & \textcolor{lightGray}{\textbf{Section(s)}} & \textcolor{lightGray}{\textbf{Commentaires}}\\
 \hline
         06/05/2013 & Louis Roché & Gantt & Ajouts des etapes du labeip sur le gantt \\
 \hline
