@@ -1,0 +1,51 @@
+i,Name/Title,"Start Date","End Date","Percent Complete",Resources,Predecessors,Notes,URL,Comments,"Task Color"
+1,Onitu,2013-05-01,2015-01-30,,,,,,,
+1.1,Onitu,2013-05-01,2015-01-30,0,,,,,,
+1.1.1,Client,2013-10-01,2015-01-30,0,,,,,,
+1.1.1.1,"Existing clients modification",2013-10-01,2014-06-30,0,,,,,,
+1.1.1.1.1,"Interface modification to add the possibility to configure a server",2014-03-03,2014-05-30,0,,,,,,blue2
+1.1.1.1.2,"Minimal testing client",2013-10-01,2013-11-29,0,,,,,,blue2
+1.1.1.1.3,"Deletion of the hard-coded server addresses",2014-05-01,2014-06-30,0,,,,,,blue2
+1.1.1.2,WebUi,2014-01-01,2015-01-30,0,,,,,,
+1.1.1.2.1,"Backend conception",2014-01-01,2014-04-30,0,,,,,,blue2
+1.1.1.2.2,"Account management",2014-08-01,2014-11-28,0,,,,,,blue2
+1.1.1.2.3,Download,2014-08-01,2014-10-30,0,,,,,,blue2
+1.1.1.2.4,Visualization,2015-01-01,2015-01-30,0,,,,,,blue2
+1.1.1.2.5,"File adding interface",2014-08-01,2014-10-31,0,,,,,,blue2
+1.1.1.2.6,"File sharing",2014-09-01,2015-01-30,0,,,,,,
+1.1.1.2.6.1,"Rights management interface",2014-09-01,2014-12-31,0,,,,,,blue2
+1.1.1.2.6.2,"Public files visualization's interface",2014-12-01,2015-01-30,0,,,,,,blue2
+1.1.1.2.6.3,"Sharing features",2014-10-01,2014-11-28,0,,,,,,blue2
+1.1.1.2.7,"Administration interface",2014-04-01,2014-06-30,0,,,,,,
+1.1.1.2.7.1,"Creation and deletion of accounts",2014-05-01,2014-06-30,0,,,,,,blue2
+1.1.1.2.7.2,"Files handling",2014-04-01,2014-06-30,0,,,,,,blue2
+1.1.1.2.7.3,"Onitu server configuration",2014-04-01,2014-05-30,0,,,,,,blue2
+1.1.1.2.7.4,"Drivers configuration",2014-04-01,2014-05-30,0,,,,,,blue2
+1.1.1.2.8,Design,2014-07-01,2014-08-29,0,,,,,,
+1.1.1.2.8.1,CSS,2014-07-01,2014-08-29,0,,,,,,blue2
+1.1.1.2.8.2,HTML,2014-07-01,2014-08-29,0,,,,,,blue2
+1.1.1.2.9,Logic,2014-02-03,2014-08-29,0,,,,,,
+1.1.1.2.9.1,"Websockets handling",2014-05-01,2014-08-29,0,,,,,,blue2
+1.1.1.2.9.2,"Files CRUD",2014-04-01,2014-06-30,0,,,,,,blue2
+1.1.1.2.9.3,"Drivers management",2014-02-03,2014-04-29,0,,,,,,blue2
+1.1.1.2.9.4,"Interface configuration",2014-02-03,2014-03-31,0,,,,,,blue2
+1.1.2,Server,2013-05-01,2014-04-30,0,,,,,,
+1.1.2.1,"Internal API",2013-05-01,2014-02-28,0,,,,,,
+1.1.2.1.1,Conception,2013-05-01,2013-12-31,0,,,,,,blue2
+1.1.2.1.2,Realization,2013-10-01,2014-02-28,0,,,,,,blue2
+1.1.2.2,"Public API",2013-10-01,2014-02-28,0,,,,,,
+1.1.2.2.1,"Ubuntu One API",2013-10-01,2014-02-28,0,,,,,,blue2
+1.1.2.3,DB,2013-10-01,2014-04-30,0,,,,,,
+1.1.2.3.1,Export,2014-03-03,2014-04-30,0,,,,,,blue2
+1.1.2.3.2,Import,2014-03-03,2014-04-30,0,,,,,,blue2
+1.1.2.3.3,"Documents definition",2013-10-01,2013-11-29,0,,,,,,blue2
+1.1.3,Configuration,2013-12-02,2014-03-31,0,,,,,,
+1.1.3.1,"Local Configuration",2014-01-01,2014-03-31,0,,,,,,blue2
+1.1.3.2,"Backend configuration",2013-12-02,2014-02-28,0,,,,,,blue2
+1.1.4,Drivers,2013-05-01,2014-09-30,0,,,,,,
+1.1.4.1,"API Conception",2013-05-01,2013-11-29,0,,,,,,blue2
+1.1.4.2,"Local storage",2013-10-01,2013-12-31,0,,,,,,blue2
+1.1.4.3,"Ubuntu One",2013-10-01,2013-12-31,0,,,,,,blue2
+1.1.4.4,Dropbox,2014-01-01,2014-04-30,0,,,,,,blue2
+1.1.4.5,FTP,2014-03-03,2014-05-30,0,,,,,,blue2
+1.1.4.6,Others,2014-05-01,2014-09-30,0,,,,,,blue2

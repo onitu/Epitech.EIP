@@ -1,0 +1,65 @@
+digraph Onitu {
+rankdir="LR"; splines=spline;
+Onitu -> Client
+Client -> "Existing clients modification"
+"Existing clients modification" -> "Interface modification to add the possibility to configure a server"
+"Existing clients modification" -> "Minimal testing client"
+"Existing clients modification" -> "Deletion of the hard-coded server addresses"
+{rank=same; "Interface modification to add the possibility to configure a server" "Minimal testing client" "Deletion of the hard-coded server addresses"}
+Client -> WebUi
+WebUi -> "Backend conception"
+WebUi -> "Account management"
+WebUi -> Download
+WebUi -> Visualization
+WebUi -> "File adding interface"
+WebUi -> "File sharing"
+"File sharing" -> "Rights management interface"
+"File sharing" -> "Public files visualization's interface"
+"File sharing" -> "Sharing features"
+{rank=same; "Rights management interface" "Public files visualization's interface" "Sharing features"}
+WebUi -> "Administration interface"
+"Administration interface" -> "Creation and deletion of accounts"
+"Administration interface" -> "Files handling"
+"Administration interface" -> "Onitu server configuration"
+"Administration interface" -> "Drivers configuration"
+{rank=same; "Creation and deletion of accounts" "Files handling" "Onitu server configuration" "Drivers configuration"}
+WebUi -> Design
+Design -> CSS
+Design -> HTML
+{rank=same; CSS HTML}
+WebUi -> Logic
+Logic -> "Websockets handling"
+Logic -> "Files CRUD"
+Logic -> "Drivers management"
+Logic -> "Interface configuration"
+{rank=same; "Websockets handling" "Files CRUD" "Drivers management" "Interface configuration"}
+{rank=same; "Backend conception" "Account management" Download Visualization "File adding interface" "File sharing" "Administration interface" Design Logic}
+{rank=same; "Existing clients modification" WebUi}
+Onitu -> Server
+Server -> "Internal API"
+"Internal API" -> Conception
+"Internal API" -> Realization
+{rank=same; Conception Realization}
+Server -> "Public API"
+"Public API" -> "Ubuntu One API"
+{rank=same; "Ubuntu One API"}
+Server -> DB
+DB -> Export
+DB -> Import
+DB -> "Documents definition"
+{rank=same; Export Import "Documents definition"}
+{rank=same; "Internal API" "Public API" DB}
+Onitu -> Configuration
+Configuration -> "Local Configuration"
+Configuration -> "Backend configuration"
+{rank=same; "Local Configuration" "Backend configuration"}
+Onitu -> Drivers
+Drivers -> "API Conception"
+Drivers -> "Local storage"
+Drivers -> "Ubuntu One"
+Drivers -> Dropbox
+Drivers -> FTP
+Drivers -> Others
+{rank=same; "API Conception" "Local storage" "Ubuntu One" Dropbox FTP Others}
+{rank=same; Client Server Configuration Drivers}
+}

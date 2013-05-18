@@ -1,0 +1,31 @@
+\chapter{EIP Reminder}
+\setcounter{page}{1} %reset the page count
+
+\section{What is an EIP at Epitech}
+Epitech, a college for information technologies in five years, offers a final major project starting durring the student's third year. This is called a EIP: \emph{Epitech Innovative Project}.\\
+
+The students must organize and form a group of at least five people. They must choose a project that brings new ideas or improves uppon an older project. The EIP is a mandatory and unique passage in an Epitech's student's life because it is so long (months) and the amount of preparation that is required. The goal is to have a marketable product in the end.\\
+
+\section{Topic of our EIP}
+
+Our project is about Ubuntu One. We want to offer an Open Source and free implementation of de Ubuntu One server.\\
+
+Ubuntu One is a service offered by Cannonical (The official Ubuntu sponsor) offering a online hosting space that is automaticaly syncronised between diferent computers and terminals using a computer program. This client computer program and the Ubuntu One protocol are freely available as open source software. However the server is closed source and has never been released.\\
+
+Thus, our goal is to offer an open source equivalent in order to be able to enjoy the different features offered by Ubuntu One. This could be use for self-hosting.\\
+
+We also plan on forking the official client because it can not connect to another server than the one maintained by Canonical.\\
+
+\section{Qu'est-ce qu'un EIP et Epitech}
+Epitech, école d'expertise informatique en cinq ans, offre aux étudiants l'opportunité de réaliser un projet de fin d'études sur trois ans, l'EIP (pour \emph{Epitech Innovative Project}).
+
+À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
+
+
+\section{Principe de base du système futur}
+Onitu est un projet visant à proposer une implémentation libre et Open Source du serveur d’Ubuntu One. Ubuntu One est un service de Canonical (sponsor officiel d'Ubuntu) permettant de disposer d’un espace de stockage en ligne qui sera synchronisé entre différents ordinateurs et périphériques compatibles via un logiciel client. Le client et le protocole d’Ubuntu One sont disponibles sous licence libre. Néanmoins, le serveur est propriétaire et n’a pas été publié. \\
+    
+
+Notre objectif est de proposer un équivalent libre de ce serveur: Onitu. Il permettra d'utiliser facilement d'autres services d'hébergement, dans le cloud ou non, afin d'étendre l'espace disponible. Par exemple, l'utilisateur pourra utiliser son compte Dropbox, Amazon S3, et des serveurs FTP pour stocker ses fichiers, puis les synchroniser par le biais d'Ubuntu One. \\
+
+La cible première d'Onitu est l'utilisateur averti, soucieux des problématiques de centralisation des données, et son entourage, à qui il fera profiter le serveur mis en place. Il n'est pas forcément technicien mais assez curieux, le profil même de l'utilisateur Ubuntu. Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de maîtriser facilement le stockage de leur données.

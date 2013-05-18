@@ -1,0 +1,176 @@
+\documentclass[11pt]{report}
+
+\usepackage[utf8]{inputenc}
+% \usepackage[french]{babel}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}		% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+\usepackage{multirow}   % to allow multirows in tables
+\usepackage{pgfgantt}
+\usepackage{lscape}
+\usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{palatino}
+%% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
+%%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
+
+% Custom defines zone
+
+% Define useful hand-made colors
+\definecolor{epiBlue}{RGB}{0,110,255}
+\definecolor{lightGray}{gray}{0.92}
+
+% Bit of code to bold an entire table row
+% http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
+\newcolumntype{$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+  #1\ignorespaces
+}
+
+% Defining a "dd/mm/yyyy" date format
+\newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
+
+% Define Document Title
+\newcommand{\ProjectTitle}{Onitu}
+\newcommand{\DocTitle}{Gantt 2}
+\newcommand{\SubTitle}{Gantt Chart and WBS (Work Breakdown Structure)}
+
+% Defining some logo image names
+\newcommand{\ProjectLogo}{}
+\newcommand{\EIPLogo}{logo_eip.png}
+
+% Setting the space between each page's header and its content
+\setlength{\headsep}{0.2in} 
+
+% end of Defines
+
+
+% fancyhdr-specific commands
+\setlength{\headheight}{15.2pt}
+
+%% Defining headers and footers contents.
+
+% Big dirty hack of the "empty" pagestyle to show header and footer on the title page (in wait of a better solution)
+\fancypagestyle{empty}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
+
+	\fancyfoot[L]{}
+	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
+	\fancyfoot[R]{}
+}
+
+\fancypagestyle{EIP}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
+
+	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
+	\fancyfoot[C]{}
+	\fancyfoot[R]{
+		\thepage/\pageref{LastPage}
+	}
+}
+
+\pagestyle{EIP} % does not seem to work ...
+
+% end of fancyhdr stuff
+
+%Gummi|063|=)
+
+%\title{The Title\\\normalsize A Sub-title}
+\title{
+	\huge{\textbf{\textcolor{epiBlue}{\DocTitle} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
+}
+
+
+\begin{document}
+\fontfamily{cm}\selectfont
+\addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
+\maketitle
+
+\input{resume.tex}
+
+\thispagestyle{empty}
+\vspace*{10mm}
+\textbf{\emph{\textcolor{epiBlue}{\large{Description du document} } } } \\
+
+\vspace*{2mm}
+
+\begin{tabular}{|>{\columncolor{epiBlue} \color{lightGray} \bfseries } l|l|}
+\hline
+	Titre & \DocTitle\\
+\hline
+	Date & \dashDate\today \\
+\hline
+	Auteur & Louis Roché\\
+\hline
+	Responsable & Louis Roché\\
+\hline
+	E-Mail & onitu\_2015@labeip.epitech.eu\\
+\hline
+	Sujet & \DocTitle\\
+\hline
+	Mots clés & Gantt, WBS\\
+\hline
+	Version du modèle & 2.1\\
+\hline
+\end{tabular}
+
+\vspace*{10mm}
+
+\textbf{\emph{\textcolor{epiBlue}{\large{Tableau des révisions} } } }\\
+
+\vspace*{2mm}
+
+\begin{tabular}{|$l|p{4cm}|p{2cm}|p{5cm}|}
+\hline
+\rowcolor{epiBlue}
+\rowstyle{ \color{lightGray} \bfseries}
+	Date & \textcolor{lightGray}{\textbf{Auteur}} & \textcolor{lightGray}{\textbf{Section(s)}} & \textcolor{lightGray}{\textbf{Commentaires}}\\
+\hline
+        06/05/2013 & Louis Roché & Gantt & Ajouts des etapes du labeip sur le gantt \\
+\hline
+        15/05/2013 & Louis Roché & Gantt & Ajouts des charges de travail \\
+\hline
+	& & & \\
+\hline
+\end{tabular}
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}
+                    \protect\pagestyle{empty}}
+\thispagestyle{empty}
+
+\chapter{EIP Reminder}
+\thispagestyle{EIP} % seems mandatory
+\setcounter{page}{1} %reset the page count
+\input{rappel_de_eip.tex}
+
+\chapter{Context}
+\thispagestyle{EIP}
+\input{contexte.tex}
+
+\chapter{Planification}
+\thispagestyle{EIP}
+\input{planification.tex}
+
+%\chapter{Annexes}
+%\thispagestyle{EIP}
+
+\end{document}
+
+% client web, drivers, serveur, marketing, supervision (rendu, gestion), tests/review (wannes, yannick, antoine)
