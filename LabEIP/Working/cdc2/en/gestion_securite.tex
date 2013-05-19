@@ -1,0 +1,39 @@
+\section{Security considerations}
+
+Security has to be taken into accoutn a several stages of software developments. The first thing that comes to mind is to secure the produced software. Often the software is attacked and damage is caused when it in in production. But that is not the only risk. One has to pay the same attention to the development process itself, the handling of the different ressources associated to the project and the project's maintainance.
+
+\subsection{Infrastructure \& maintenance}
+
+The development process is organised around Git and Github. The members of the EIP group have an administrator level access on this platform. This automatically allows them to contribute to the code and use the different tools provided by Github. Git provides a tracability of the code's modifications because each change is signed and authenticated.\\
+
+The source code is hosted on the Github servers, but each developper has a local copy of the repository at all times. This means a data-loss on the hosting platform isn't that much of a problem. There also are no problems associated to confidentiality because the project is open source and there should be nothing private.\\
+
+All the Onitu repositories are open to external contributors, through \textit{pull-request}. This is a request to integrate into the main repository some code developed somewhere else by someone not beeing part of the usual contributors. If \textit{pull-request} is made, the external code shall be audited to make sure it meets Onitu's quality and security standarts. It will be checked that the code doesn't introduce any new vulnerabilities or takes away functionalities.\\
+
+User feed-back will be possible through Github's issue management, its ticket system will allow for easy management of bugs and security issues. Anyone can create tickets but they can only be closed, deleted or administrated by the members of the EIP group.
+
+\subsection{Development processus}
+
+Almost the whole project will be developed using the Python language. This eliminates a big part of the clasic vulnerabilities one encounters in projects developed with lower-level languages, in particular those concerning memory menagement which is no longer left to the programer. Furthermore Python raises exceptions and stops the program as soon a value is not used the way it should. (\textit{overflows}, incorect \textit{casts}…)\\
+
+The interactions with the database and the different protocols are made throufh libraries offering easy usage and which are less error-prone than a direct access to the ressources.\\
+
+However, a certain number of vulnerabilities can only be avoided by using common sense and respect of best-practises. This is in particular the case for everything concerning function allowing code evaluation or access to system ressources. Calling this functions shall therefor have to be justified and supervised, even more so when they can be influenced by user input.\\
+
+Auditing sessions shall be organised where the whole code base shall be checked by developpers who didnt work on those parts. Doing thins this way we hope to have a second, maybe more objectif, point of view. Furthermore we have a agreement with Epitech Toulouse's security lab which will be able to provide one or more external audits on the code and the different protocols that are beeing used.
+
+\subsection{Security in Onitu}
+
+In addition to the different mesures explained above, a part of the security of Onitu comes from its main components and the protocols beeing used in them.
+
+\subsubsection{Ubuntu One}
+Beeing compatible with Ubuntu One, Onitu can't change the protocols in any way. However those protocols are designed and implemented by profressional developers and are used in production for several years now.\\
+
+Like Ubuntu One, Onitu uses \textit{SSL} (Secure Socket Layer) and numeric certificates to ensure authentication of the server and encryption of the transactions.\\
+
+To authenticate cliens, the protocol \textit{OAuth} is used. It is a \textit{token}-based authentication system that allows managing parral access from diferent computers and their revocations if necessary.\\
+
+The stored files are not encrypted, because the serveur needs the original version when a download request occures. However nothing prevents the user to cypher its files localy before syncronising them with Onitu's server.
+
+\subsubsection{Backend drivers}
+Concerning the different driver modules necessary for the backend storage facilities on the Onitu server, the security of their different protocols can't be influenced by Onitu's developpers. We can only advice the user on the configuration of the solution considering his needs, (confidentiality, integrity, authentication…), for exemple we could advice \textit{SFTP} instead of \textit{FTP}.

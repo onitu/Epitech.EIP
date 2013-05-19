@@ -1,0 +1,20 @@
+In order to ensure the project is working the way it is expected, at all times during the development process, tests are necesary.\\
+
+Tests on each of the compomnents of the project must therefore be created at the same time the code itself is writtent. It is in particular necessary to test:\\
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item The Ubuntu One API, to ensure that all comunication with existing cliens goes as planned.
+\item The correct copy and sending of files when they are added to a synchronised folder.
+\item Windows
+\end{itemize}
+
+\vspace{0.5cm}
+
+To make it easier to manage those tests and be certain that they are run on a regular basis, they will be run with a continous integration tool at each \textit{commit}. The following two tools may be used:\\
+
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+\item \href{https://travis-ci.org}{travis} which is a web-service linked to Github;
+\item \href{http://jenkins-ci.org}{jenkins} which is free-software that must be installed on a server but which allows for a much larger set of tests than \textit{travis} does.
+\end{itemize}

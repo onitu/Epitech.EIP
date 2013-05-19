@@ -1,0 +1,9 @@
+\section{Existing components}
+\thispagestyle{EIP} % seems mandatory
+Several existing clients use the Ubuntu One API, on several platforms. Onitu is compatible with those clients on the sole condition they allow the user to specify the server's address.\\
+
+The Ubuntu One protocol, \textit{ubuntuone-storage-protocol}, uses Google's data organisation solution \textbf{Protocol Buffers}. Onitu uses the same protocol and the same tools.\\
+
+The network comunication will mostly be using \textbf{Twisted}, a Python framework for \emph{event-driven} network programing. This framework is largely used and is in actif development.\\
+
+Several libraries can be used to comunicate with the different services, through the \textit{drivers}. The choice of those libraries is left to the developers of the \textit{drivers}. However it must be reasonable and not cause any portability issues.
