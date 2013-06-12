@@ -1,7 +1,7 @@
-PROJECT=2015_GAN2_FR_onitu
+PROJECT=2015_GAN2_EN_onitu
 
 ALL:
-	texi2pdf -c $(PROJECT).tex 
+	texi2pdf -c $(PROJECT).tex
 
 clean:
 	rm -f *.toc *.log *.aux *.out
