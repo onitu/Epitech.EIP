@@ -1,0 +1,46 @@
+\chapter{Architecures, buts et contraintes}
+\thispagestyle{EIP}
+
+\section{Objectifs spécifiques ayant un impact sur l'architecure}
+
+Le premier objectif est d'offrir une alternative libre au serveur
+\emph{Ubuntu One}, et donc d'être entièrement compatible avec ce
+dernier.
+
+Aussi, pour une meilleure expérience utilisateur, cette solution se
+devra d'être facilement déployable.
+
+Un des objectifs est aussi de permettre de stocker les données sur des
+services externes, tels \emph{Dropbox}, par l'intermédiaire de
+\emph{drivers}. C'est principalement autour de cet objectif que se forme
+l'architecture du projet.
+
+\section{Contraintes fonctionnelles}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Système de queues de messages pour la communication entre
+  \emph{drivers} -\textgreater{} core très basique (simplement les
+  échanges de messages)
+\item
+  Réplication des données sur différents services
+\item
+  Configuration à l'aide d'un \emph{DSL}
+\end{itemize}
+
+\section{Contraintes non fonctionnelles}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Doit être conforme au protocole définit par \emph{Ubuntu One}
+\item
+  Utilisation de bibliothèques non portées en python3 (\emph{Twisted})
+\item
+  Le \emph{DSL} doit pouvoir être utilisé très simplement, pour ne pas
+  rebuter l'utilisateur
+\item
+  La sécurité doit être maximale, c'est dans un soucis de protection des
+  données que notre solution sera utilisée.
+\end{itemize}
