@@ -1,0 +1,30 @@
+\chapter{Taille et performance}
+\thispagestyle{EIP} % seems mandatory
+
+\section{Environement}
+
+Onitu est destiné à être utilisé avant tout dans un cadre privé par des particuliers, dans ce cadre nous avons des dispositions particulieres à prendre car les contraintes ne sont pas les mêmes.
+
+Tout d'abord les machines sur lesquelles Onitu va être instalé seront très diverses et risquent de varier entre des entrés de gamme et des serveurs professionels. Nous devront donc prevoir une instalation facilité, et qui s'adapte aux capacités du serveur. Le lancement des different services et leur administration devront également être simple de facon à pouvoir être utilisé par des utilisateur non professionel.
+
+Bien que nous nous concentrions principalement sur linux, il nous semble important d'etre portable, et nous feront le necessaire pour que le portage soit facile quand le projet sera plus avancé.
+
+\section{Stockage}
+
+Concernant les performances d'Onitu elles seront principalement évalué sur deux points principaux: Le stockage et les réponses aux requettes utilisateur.
+
+En ce qui concerne le stockage nous devront faire fasse a un nombre potentielement très grand de fichier. Nous avons choisis une architecture simple qui puisse fonctioner en plusieurs instances. De cette facon le systeme est extensible et poura ainsi fournir un espace de stockage virtuelement ilimité a condition d'avoir les ressources nécessaires.
+
+Organisation et equilibrage interne peut ce faire sur des periodes de temps plus longues et regulieres.
+
+\section{Accès}
+
+Dans un usage typique du produit nous auront relativement peu d'utilisateur et de requettes simultanés. En effet une instance Onitu étant principalement destiné a un usage privé ou en entreprise aura un nombre réduit d'utilisateur, au maximum le nombre d'employés d'une petite entreprise, c'est a dire quelques dizaines de personnes.
+
+Ces utilisateurs ne feront d'operations tous en meme temps. Nous estimons que nous auront moins de quelques centaines de requettes par heure, avec des pics a quelques dizaines. Ces chifres sont très raisonable pour un serveur et ne poseront pas de problemes.
+
+Dans un projet comme Onitu la difficulté est ques les requettes individuelles peuvent être lourdes car il s'agira souvent de transfert de fichiers entre un des drivers et le client. Dans la mesure du possible ces requettes seront redirigés directement vers le driver concerné, évitant ainsi une surcharge du serveur en facade.
+
+Il est primoridal que les requettes ne soient pas bloquantes et s'effectue rapidement. Pour cela nous avons choisis d'effectuer certaines actions en asynchrone. Par exemple la mise a jour des drivers, et la redistribution des fichiers en fonction de la charge de chaque plateforme de stoquage sera fait en parallelle indépendament de quand les requettes utilisateur sont faites.
+
+
