@@ -1,16 +1,16 @@
 \chapter{Qualité}
 \thispagestyle{EIP} % seems mandatory
 
-Notre architecture devra répondre a plusieurs problématiques autre que les contraintes purement fonctionelles.
+Notre architecture devra répondre à plusieurs problématiques autre que les contraintes purement fonctionnelles.
 
-Comme abordé dans la partie Taille et performance nous avons une charge réseau atypique. Nous n'auront pas a faire face a un grand nombre de requettes, mais chaqune sera potentielement relativement lourde et longue. La solution choisie est de favoriser le plus possible les échanges direct entre les clients et les drivers lorsque c'est possible.
+Comme abordé dans la partie Taille et performance, nous avons une charge réseau atypique. Nous n'aurons pas à faire face à un grand nombre de requêtes, mais chacune sera potentiellement relativement lourde et longue. La solution choisie est de favoriser le plus possible les échanges directs entre les clients et les drivers, lorsque c'est possible.
 
-Nous devrons aussi répondre à des exigences des utilisateurs, notament concernant la sécurité de leur donnés et notre capacité à faire face à des pertes de données sur certains drivers ou l'indisponitbilité de ceux-ci. Pour cela nous avons un systeme d'aiguilleur parametrable dont le travail sera de faire en sorte que l'état d'Onitu coresponde a celui décrit dans le fichier de configuration. De cette facon l'utilisateur pour définir par un ensemble de regles le nombre de sauvegarde des fichiers et les priorités des drivers.
+Nous devrons aussi répondre aux exigences des utilisateurs, notamment concernant la sécurité de leur données et notre capacité à faire face à des pertes sur certains drivers ou l'indisponibilité de ceux-ci. Pour cela, nous avons un système d'aiguilleur paramétrable dont le travail sera de faire en sorte que l'état d'Onitu corresponde à celui décrit dans le fichier de configuration. De cette façon, l'utilisateur pourra définir, par un ensemble de règles, le nombre de sauvegardes des fichiers et les priorités des drivers.
 
-Onitu devra également avoir d'autres qualités qui sont attendu d'un systeme semblable. Tout d'abord nous devront assuré la confidentialité des donnés et l'authentification, pour cela nous utiliseront des protocoles déja en place et reconus tel que OAuth.
+Onitu devra également avoir d'autres qualités qui sont attendues d'un système semblable. Tout d'abord, nous devrons assurer la confidentialité des données et l'authentification. Pour cela, nous utiliserons des protocoles déjà en place et reconnus, tel que OAuth.
 
-En ce qui concerne les différents drivers servant à la gestion du stockage de fichiers sur dans  Onitu, la sécurité de leurs protocoles respectifs ne dépend pas de nous. Nous ne pourrons que conseiller l'utilisateur sur la configuration de la solution en fonction de ses attentes, (confidentialité, intégrité, authentification…), par exemple en lui conseillant \textit{SFTP} au lieu de \textit{FTP}.
+En ce qui concerne les différents drivers servant à la gestion du stockage de fichiers dans  Onitu, la sécurité de leurs protocoles respectifs ne dépend pas de nous. Nous ne pourrons que conseiller l'utilisateur sur la configuration de la solution en fonction de ses attentes, (confidentialité, intégrité, authentification…), par exemple en lui conseillant \textit{SFTP} au lieu de \textit{FTP}.
 
-La fiabilité du systeme est aussi très importantes et sera assuré par une conception simple et modulaire. Si l'un des drivers a un probleme cela n'impactera pas le fonctionement global du systeme et devrais être transparent pour l'utilisateur si des alternatives sont possible, par exemple si nous avons des sauvegardes du fichier demandé sur un autre driver.
+La fiabilité du système est aussi très importante, et sera assurée par une conception simple et modulaire. Si l'un des drivers a un problème, cela n'impactera pas le fonctionnement global du système et devrait être transparent pour l'utilisateur si des alternatives sont possibles, par exemple si nous avons des sauvegardes du fichier demandé sur un autre driver.
 
-La portabilité sera assuré principalement par python, c'est le language principal utilisé dans Onitu et il est présent sur tout les systemes d'exploitation principaux. Nous pretons une attention particuliere aux modules et aux bibliotheques que nous utilisont pour assuré un portage facile.
+La portabilité sera assurée principalement par Python. C'est le langage principal utilisé dans Onitu et il est présent sur tout les principaux systèmes d'exploitation. Nous prêtons une attention particulière aux modules et aux bibliothèques que nous utilisons pour nous assurer un portage facile.
