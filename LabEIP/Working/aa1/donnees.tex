@@ -1,0 +1,38 @@
+\chapter{Vue Données}
+\thispagestyle{EIP} % seems mandatory
+
+\vspace{-0.5cm} % ugly hack to make the JSON fit in the first page
+Les principales données gérées par Onitu sont des fichiers. Afin de manipuler ces fichiers avec une grande précision et de manière performante, des méta-données sont stockées.\\
+
+Ces méta-données sont stockées dans une base de données NoSQL orientée document : MongoDB. Cette dernière a la particularité d'être sans schéma, c'est à dire que les champs peuvent varier d'un document à l'autre. Cette particularité est exploitée par Onitu, car elle permet au drivers de stocker des informations spécifiques pour un fichier.\\
+
+Voici un exemple de méta-données pour un fichier :
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+    id: ...,
+    checksum: '6d96270004515a0486bb7f76196a72b40c55a47f',
+    size: 1798585,
+    type: 'file',
+    content-type: 'image/png',
+    filename: '0014.png',
+    created-at: 'Thu Jun 20 2013 20:31:34 GMT+0200',
+    updated-at: 'Mon Jun 24 2013 18:27:04 GMT+0200',
+    path: '/photos/vacances/2013/05/04',
+    routes : ['2a6d0cf2-73fc-4468-b5c8-fa4da4734e7c', '47d12a68-117c-4410-8194-636f61c59281'],
+    drivers: {
+            dropbox-fb85746a-5ad3-40bd-9dab-db84519dd9ec: {
+                ...
+            },
+            ubuntuone-d165736b-20c8-445e-a574-00fca0d07ac7: {
+                ...
+            }
+        }
+    },
+}
+\end{lstlisting}
+
+Les premiers champs servent à identifier le fichier ainsi qu'à énumérer ses propriétés.
+
+Le champ \textit{routes} permet d'identifier toutes les routes qui mènent vers ce fichier. Ce champ est notamment utilisé lors de la modification du fichier, afin d'annoncer cette modification sur toutes les routes qui mènent vers lui.
+
+Le champ \textit{drivers} permet de lister diverses informations spécifiques à un driver. Toutes les instances de driver peuvent sauvegarder des informations, et elles peuvent être de n'importe quelle forme.
