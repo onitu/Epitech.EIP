@@ -9,4 +9,4 @@ La taille des données stockées est bien plus variable d'une installation à l'
 
 En effet, les fichiers concernés constituent tous ceux que l'utilisateur veut voir synchronisés avec d'autre service, et représentent donc une taille non quantifiable, limitée par les capacités et ressources en stockage de la machine hôte.
 
-Pour un bon déroulement du processus, il est promordial que les requêtes s'effectuent rapidement et ne bloquent pas l'ensemble du système. De façon à ce que différentes actions, telles que la mise à jour des drivers ou la redistribution des fichiers entre services à charge et vitesse variables (fonctions de la plateforme d'accueil), puissent ếtre effectuées simultanément, celles-ci devront se faire de manière asynchrone.
+Pour un bon déroulement du processus, il est promordial que les requêtes s'effectuent rapidement et ne bloquent pas l'ensemble du système. De façon à ce que différentes actions, telles que la mise à jour des drivers ou la redistribution des fichiers entre services à charge et vitesse variables (fonctions de la plateforme d'accueil), puissent être effectuées simultanément, celles-ci devront se faire de manière asynchrone.
