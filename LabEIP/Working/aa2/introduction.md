@@ -8,7 +8,7 @@ Epitech, école d'expertise informatique en cinq ans, offre aux étudiants l'opp
 À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
 
 
-### Contexte et périmètre du projet
+## Contexte et périmètre du projet
 
 Onitu est un projet visant à proposer une alternative libre et *open-source* au serveur d’Ubuntu One.
 
@@ -22,7 +22,7 @@ La cible première d'Onitu est l'utilisateur averti, soucieux des problématique
 Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de maîtriser facilement le stockage de leur données.
 
 
-## Abréviations, anglicismes, acronymes
+## Définitions, acronymes et abréviations
 
 - *driver*: Module se greffant au programme et permettant la gestion d'un service de stockage.
 - *core*: Cœur du programme, module principal.
