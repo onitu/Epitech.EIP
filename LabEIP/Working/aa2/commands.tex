@@ -8,6 +8,35 @@
 \newcommand{\ProjectLogo}{}
 \newcommand{\EIPLogo}{logo_eip.png}
 
+\newcommand{\FullWidthFigure}[2]{
+        \begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\FullWidthRotatedFigure}[2]{
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[height=0.9\textwidth, angle=90]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\FullHeightFigure}[2]{
+        \begin{figure}[htb]
+	\centering
+	\includegraphics[height=0.9\textheight]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\FullHeightRotatedFigure}[2]{
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.9\textheight, angle=90]{#2}
+	\caption{#1}
+	\end{figure}
+}
+
 \newcommand{\Subject}{Bilan d'architecure}
 \newcommand{\SubTitle}{Bilan Architecture AA2}
 \newcommand{\Keywords}{architecture, \emph{use cases}, vues, composants}

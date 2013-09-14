@@ -11,12 +11,13 @@ SRC =	introduction.md \
 	vue_donnees.md \
 	taille_et_performance.md \
 	qualite.md
-HEADER = resume.tex header.tex
+HEADER = print_json.tex
+BEFORE = resume.tex header.tex
 
-FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-B %)
+FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-H %) $(BEFORE:%=-B %)
 
 FIGURES = $(wildcard figures/*)
-DEPS = $(TPL) $(HEADER) $(FIGURES) commands.tex revisions.tex
+DEPS = $(TPL) $(HEADER) $(BEFORE) $(FIGURES) commands.tex revisions.tex
 
 GEN = $(PDF)
 
