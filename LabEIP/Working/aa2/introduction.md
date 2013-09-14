@@ -1,16 +1,15 @@
 # Introduction
 
 
-
 ## Rappel de l'EIP
 
-### Qu'est-ce qu'un EIP et Epitech
 Epitech, école d'expertise informatique en cinq ans, offre aux étudiants l'opportunité de réaliser un projet de fin d'études sur trois ans, l'EIP (pour *Epitech Innovative Project*).
 
 À ce titre, les élèves doivent s'organiser en un groupe d'au moins cinq personnes et choisir un sujet porteur de nouveautés ou améliorant un ancien sujet. L'EIP est un passage obligatoire et unique dans la scolarité de l'étudiant, de par son envergure (18 mois) et la préparation requise. Le but est, à la fin du temps imparti, d'obtenir un projet commercialisable.
 
 
-### Principe de base du système futur
+### Contexte et périmètre du projet
+
 Onitu est un projet visant à proposer une alternative libre et *open-source* au serveur d’Ubuntu One.
 
 Ubuntu One est un service de Canonical (sponsor officiel d'Ubuntu) permettant de disposer d’un espace de stockage en ligne, synchronisé entre différents ordinateurs et périphériques compatibles via un logiciel client. Le client et le protocole d’Ubuntu One sont disponibles sous licence libre. Néanmoins, le serveur est propriétaire et n’a pas été publié.
@@ -21,7 +20,6 @@ Les fichiers gérés par Onitu pourront être stockés sur un serveur administr�
 
 La cible première d'Onitu est l'utilisateur averti, soucieux des problématiques de centralisation des données, et son entourage, à qui il fera profiter le serveur mis en place. Il n'est pas forcément technicien mais assez curieux, le profil même de l'utilisateur Ubuntu.
 Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de maîtriser facilement le stockage de leur données.
-
 
 
 ## Abréviations, anglicismes, acronymes
@@ -35,6 +33,6 @@ Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de ma
 - *circus*: Système de supervision utilisé pour le lancement des sous-programmes correspondant aux *drivers*
 
 
-
 ## Références
+
 - [Cahier des charges - Onitu](https://labeip.epitech.eu/svn/2015/onitu/rendu/2015_CDC2_FR_onitu.pdf)
