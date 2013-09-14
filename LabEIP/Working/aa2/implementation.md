@@ -18,6 +18,13 @@ Pour limiter les donnes comune nous utilisont une archtecture de type messaging.
 
 Cette architecture particuliere fait que nos diagrame de classe et les relations entre les diferents elements d' onitu sont tres imple et il y' as peut de relations d' agregation car les differents elements sont au meme niveau et comuniquent avec des messages au lieu de se modifier directement.
 
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig1.png}
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig2.png}
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig3.png}
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig4.png}
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig5.png}
+\FullWidthFigure{Diagramme de séquence}{figures/implementation_vue_globale_seq_fig6.png}
+\clearpage
 
 ## Couches applicatives
 
