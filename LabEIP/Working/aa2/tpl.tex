@@ -35,14 +35,9 @@ $endif$
 % Defining a "dd/mm/yyyy" date format
 \newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
 
-% Define Document Title
-\newcommand{\ProjectTitle}{Onitu}
-\newcommand{\DocTitle}{EIP Onitu}
-\newcommand{\SubTitle}{$title$}
+\input{commands.tex}
 
-% Defining some logo image names
-\newcommand{\ProjectLogo}{}
-\newcommand{\EIPLogo}{logo_eip.png}
+\newcommand{\TplVersion}{3.0}
 
 % Setting the space between each page's header and its content
 \setlength{\headsep}{0.2in}
@@ -91,9 +86,7 @@ $endfor$
 
 \begin{document}
 
-$if(title)$
 \maketitle
-$endif$
 
 $for(include-before)$
 $include-before$

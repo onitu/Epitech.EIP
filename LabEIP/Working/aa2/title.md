@@ -1,1 +1,0 @@
-% Bilan Architecure AA2

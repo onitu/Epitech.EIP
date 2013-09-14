@@ -1,15 +1,15 @@
 PDF = 2015_AA2_FR_onitu.pdf
 TPL = tpl.tex
-SRC = title.md introduction.md taille_et_performance.md qualite.md
+SRC = introduction.md taille_et_performance.md qualite.md
 HEADER = resume.tex header.tex
 
 FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-B %)
 
-PICTURES = 
+DEPS = $(TPL) $(HEADER) commands.tex revisions.tex
 
 GEN = $(PDF)
 
-$(PDF):	$(SRC) $(TPL) $(HEADER) $(PICTURES)
+$(PDF):	$(SRC) $(DEPS)
 	pandoc $(SRC) -o $@ $(FLAGS)
 
 clean:
