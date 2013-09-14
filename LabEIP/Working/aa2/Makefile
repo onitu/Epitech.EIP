@@ -5,7 +5,8 @@ HEADER = resume.tex header.tex
 
 FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-B %)
 
-DEPS = $(TPL) $(HEADER) commands.tex revisions.tex
+FIGURES = $(wildcard figures/*)
+DEPS = $(TPL) $(HEADER) $(FIGURES) commands.tex revisions.tex
 
 GEN = $(PDF)
 
