@@ -37,11 +37,10 @@ Les différents *design patterns* que nous utilisons au niveau du *messaging* so
 
 * *REQuest/REsPonse*: Ce modèle est relativement standard, il s'agit de celui utilisé par beaucoup de serveurs: un client envoie une requête puis attend une réponse du serveur. Il est obligatoire que la réponse à la requête soit reçue avant de pouvoir en faire une nouvelle.
 
-
+\clearpage
 Voici, avec un exemple, comment communiquent les différentes entités du système:
 
-\FullWidthFigure{Vue globale}{figures/implementation_vue_globale_fig1.png}
-\clearpage
+\HalfWidthFigure{Vue globale}{figures/implementation_vue_globale_fig1.png}
 
 1. Un *driver* (A) prévient d'un changement sur son *backend*, par exemple un nouveau fichier. Le *referee* est abonné à tous les *drivers* et reçoit donc la notification.
 
@@ -51,6 +50,7 @@ Voici, avec un exemple, comment communiquent les différentes entités du systè
 
 4. Le *driver* (B) prévient le *referee* du succès ou de l'échec de l'opération en publiant un message indiquant le status.
 
+\clearpage
 
 ### Séquences type
 
@@ -77,5 +77,5 @@ Onitu étant un serveur relativement générique gérant des *drivers* pour diff
 
 <parler du multithread, des hooks, etc. Faire une explication texte d'un dia de seq d'un point de vue driver.>
 
-\FullHeightRotatedFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig1.png}
-\FullHeightRotatedFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig2.png}
+\FullWidthFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig1.png}
+\FullWidthFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig2.png}

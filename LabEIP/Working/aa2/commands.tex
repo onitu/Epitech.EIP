@@ -37,6 +37,35 @@
 	\end{figure}
 }
 
+\newcommand{\HalfWidthFigure}[2]{
+        \begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.60\textwidth]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\HalfWidthRotatedFigure}[2]{
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[height=0.60\textwidth, angle=90]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\HalfHeightFigure}[2]{
+        \begin{figure}[htb]
+	\centering
+	\includegraphics[height=0.60\textheight]{#2}
+	\caption{#1}
+	\end{figure}
+}
+\newcommand{\HalfHeightRotatedFigure}[2]{
+	\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.60\textheight, angle=90]{#2}
+	\caption{#1}
+	\end{figure}
+}
+
 \newcommand{\Subject}{Bilan d'architecure}
 \newcommand{\SubTitle}{Bilan Architecture AA2}
 \newcommand{\Keywords}{architecture, \emph{use cases}, vues, composants}
