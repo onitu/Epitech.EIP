@@ -1,10 +1,12 @@
 # Vue données
 
-Les principales données gérées par Onitu sont des fichiers. Afin de manipuler ces fichiers avec une grande précision et de manière performante, des méta-données sont stockées.
+Les principales données gérées par Onitu sont des fichiers. Afin de manipuler ces fichiers avec une grande précision et de manière performante, des métadonnées sont stockées.
 
-Ces méta-données sont stockées dans une base de données clé-valeur en mémoire, Redis. Les données sont préservées entre chaque lancement du serveur grâce à un 'dump' régulier de la base.\\
+Ces métadonnées sont stockées dans une base de données clé-valeur en mémoire, *Redis*. Les données sont préservées entre chaque lancement du serveur grâce à un *dump* régulier de la base.\
 
-Chaque nom de fichier correspond à une clé dans Redis, à laquelle est associée un tableau associatif (hash) contenant les méta-données du fichier, sous la forme suivante :
+\
+
+Chaque nom de fichier correspond à une clé dans Redis, à laquelle est associée un tableau associatif (hash) contenant les métadonnées du fichier, sous la forme suivante :
 
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -17,4 +19,4 @@ Chaque nom de fichier correspond à une clé dans Redis, à laquelle est associ�
 }
 \end{lstlisting}
 
-Redis sert aussi à partager diverses informations, comme les options de configuration des drivers, ou les ports correspondants aux sockets ZeroMQ.
+*Redis* sert aussi à partager diverses informations, comme les options de configuration des *drivers*, ou les ports correspondants aux sockets *ZeroMQ*.

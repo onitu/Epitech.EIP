@@ -28,4 +28,4 @@ Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de ma
 
 - *Core*, *Referee*, *Plug*, *drivers*: Organes spécifiques de notre applications, détaillés en partie \ref{composants_principaux}.
 
-- *Redis*, *Circus*, *ZeroMQ* (ou *0mq*): Différentes bibliothèques utilisées au sein de notre programme, elles aussi détaillées dans la section \ref{composants_principaux}.
+- *Redis*, *Circus*, *ZeroMQ* (ou *Zmq*, *0mq*): Différentes bibliothèques utilisées au sein de notre programme, elles aussi détaillées dans la section \ref{composants_principaux}.
