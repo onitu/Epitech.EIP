@@ -9,7 +9,7 @@ Le *driver* constitue donc un processus à part, lancé et monitoré par *Circus
 À son lancement, il s'initialise avec les paramètres transmis, puis démarre son *Plug*. Le *Plug* est l'organe communiquant du *driver*, il va donc se connecter à *Redis* pour consulter et transmettre des informations. Il écoutera aussi les requêtes que *Redis* lui transmet et les traitera s'il s'agit de celles qu'il gère, en renvoyant une réponse si necessaire.
 
 \FullHeightFigure{Vue processus}{figures/vue_processus_fig1.png}
-\FullHeightRotatedFigure{Vue processus}{figures/vue_processus_fig2.png}
+\FullHeightFigure{Vue processus}{figures/vue_processus_fig2.png}
 \FullHeightFigure{Vue processus}{figures/vue_processus_fig3.png}
 \FullHeightFigure{Vue processus}{figures/vue_processus_fig4.png}
 \FullHeightFigure{Vue processus}{figures/vue_processus_fig5.png}
