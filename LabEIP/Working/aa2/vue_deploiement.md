@@ -16,4 +16,6 @@ Les contraintes géographiques du système seront dépendantes des hôtes sur le
 
 À terme, l'architecture permettra aux différents composants du serveur de fonctionner de façon décorrélée sur différentes machines, néanmoins reliées entre-elles. Ce traffic supplémentaire sera semblable à celui nécessaire pour la communication avec les organes distants, tels que *DropBox*, et ne constituera donc pas une charge supplémentaire.
 
-\FullHeightRotatedFigure{Vue déploiement}{figures/vue_deploiement_fig1.png}
+\begin{landscape}
+\FullWidthFigure{Vue déploiement}{figures/vue_deploiement_fig1.png}
+\end{landscape}

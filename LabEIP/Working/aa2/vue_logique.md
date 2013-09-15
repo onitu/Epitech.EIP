@@ -12,7 +12,10 @@ Tout d'abord le *Core*, nœud central de l'application. Puis le *Referee* (ou ai
 
 Pour encore plus de rapidité, nous utilisons également *Redis*, un SGBD clé-valeur en mémoire, permettant d'excellentes performances en minimisant les accès disques. Il est lui aussi géré par *Circus*.
 
-\FullHeightRotatedFigure{Vue logique de l'application}{figures/vue_logique_fig1.png}
+\begin{landscape}
+\FullWidthFigure{Vue logique de l'application}{figures/vue_logique_fig1.png}
+\end{landscape}
+
 \clearpage
 
 
