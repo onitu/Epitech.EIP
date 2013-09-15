@@ -15,12 +15,10 @@
 	\caption{#1}
 	\end{figure}
 }
-\newcommand{\FullWidthRotatedFigure}[2]{
-	\begin{figure}[htb]
-	\centering
-	\includegraphics[height=\textwidth, angle=90]{#2}
-	\caption{#1}
-	\end{figure}
+\newcommand{\FullWidthLandscapeFigure}[2]{
+	\begin{landscape}
+	\FullWidthFigure{#1}{#2}
+	\end{landscape}
 }
 \newcommand{\FullHeightFigure}[2]{
         \begin{figure}[htb]
@@ -29,12 +27,10 @@
 	\caption{#1}
 	\end{figure}
 }
-\newcommand{\FullHeightRotatedFigure}[2]{
-	\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.9\textheight, angle=90]{#2}
-	\caption{#1}
-	\end{figure}
+\newcommand{\FullHeightLandscapeFigure}[2]{
+	\begin{landscape}
+	\FullHeightFigure{#1}{#2}
+	\end{landscape}
 }
 
 \newcommand{\HalfWidthFigure}[2]{
@@ -44,12 +40,10 @@
 	\caption{#1}
 	\end{figure}
 }
-\newcommand{\HalfWidthRotatedFigure}[2]{
-	\begin{figure}[htb]
-	\centering
-	\includegraphics[height=0.60\textwidth, angle=90]{#2}
-	\caption{#1}
-	\end{figure}
+\newcommand{\HalfWidthLandscapeFigure}[2]{
+	\begin{landscape}
+	\HalfWidthFigure{#1}{#2}
+	\end{landscape}
 }
 \newcommand{\HalfHeightFigure}[2]{
         \begin{figure}[htb]
@@ -58,12 +52,10 @@
 	\caption{#1}
 	\end{figure}
 }
-\newcommand{\HalfHeightRotatedFigure}[2]{
-	\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.60\textheight, angle=90]{#2}
-	\caption{#1}
-	\end{figure}
+\newcommand{\HalfHeightLandscapeFigure}[2]{
+	\begin{landscape}
+	\HalfHeightFigure{#1}{#2}
+	\end{landscape}
 }
 
 \newcommand{\Subject}{Bilan d'architecure}
