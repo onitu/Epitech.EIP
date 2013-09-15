@@ -78,10 +78,10 @@ Onitu étant un serveur relativement générique gérant des *drivers* pour diff
 \FullWidthFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig1.png}
 
 \clearpage
-Le *plug* sera lancé automatiquement dans un thread quand on le démarre. Généralement l'implémentation d'un *driver* voudra surveiller son *backend* dans un autre thread. Voici un exemple simple avec une implémentation possible pour un *driver* gérant un système de fichier local:
+Le *Plug* sera lancé automatiquement dans un *thread* lorsqu'on le démarre. Généralement l'implémentation d'un *driver* voudra surveiller son *backend* dans un autre *thread*. Voici un exemple simple avec une implémentation possible pour un *driver* gérant un système de fichier local:
 
 \FullWidthFigure{Couches applicatives}{figures/implementation_couches_applicatives_fig2.png}
 
-Le *watcher* utilise une librairie qui lui permet d'être reveillé lorsque des modifications au système de fichier ont lieu, à ce moment là il utilise le plug et ses méthodes *publish_x* pour publier les changements.
-Quand le plug recoit des ordres il appellera les *callbacks* qui ont été enregistré par le *driver*, il s'agirais ici des méthodes *reply_x*.
+Le *watcher* utilise une librairie qui lui permet d'être réveillé lorsque des modifications ont lieu sur le système de fichier. Dès lors, il utilise le *Plug* et ses méthodes *publish_x* pour publier les changements.
+À la réception des ordres par le *Plug*, il appelle les *callbacks* enregistrés par le *driver*, il s'agirait ici des méthodes *reply_x*.
 
