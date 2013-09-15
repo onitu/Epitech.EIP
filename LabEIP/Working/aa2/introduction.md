@@ -24,15 +24,8 @@ Onitu vise aussi à être utilisé au sein d'entreprises ayant la volonté de ma
 
 ## Définitions, acronymes et abréviations
 
-- *driver*: Module se greffant au programme et permettant la gestion d'un service de stockage.
-- *core*: Cœur du programme, module principal.
-- *plug*: Organe servant à la communication et l'échange entre *drivers*
-- *zmq*: Système de gestion de messages utilisé par le *plug* pour gérer les communications
-- *referee*: Système interne de routage des messages *zmq* entre les *drivers*
-- *redis*: Outil utilisé pour le stockage des paramètres de configuration au sein des programmes
-- *circus*: Système de supervision utilisé pour le lancement des sous-programmes correspondant aux *drivers*
+- *SGDB*: Système de Gestion de Base de Données.
 
+- *Core*, *Referee*, *Plug*, *drivers*: Organes spécifiques de notre applications, détaillés en partie \ref{composants_principaux}.
 
-## Références
-
-- [Cahier des charges - Onitu](https://labeip.epitech.eu/svn/2015/onitu/rendu/2015_CDC2_FR_onitu.pdf)
+- *Redis*, *Circus*, *ZeroMQ* (ou *0mq*): Différentes bibliothèques utilisées au sein de notre programme, elles aussi détaillées dans la section \ref{composants_principaux}.
