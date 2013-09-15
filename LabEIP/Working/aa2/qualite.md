@@ -1,8 +1,8 @@
 # Qualité
 
-Les contraintes purement fonctionnelles, évoquées le long de ce document, ne représentent pas l'ensemble dex exigences auxquelles notre architecture devra répondre.
+Les contraintes purement fonctionnelles, évoquées tout au long de ce document ne représentent pas l'ensemble dex exigences auxquelles notre architecture devra répondre.
 
-Premièrement, Onitu, pour être au plus proche des besoins de ses utilisateurs, devra permettre d'agréger un grand nombre de services externes de stockage. Ne pouvant prétendre à l'intégration des présentes solutions, et encore moins des futures, l'architecture permettra d'étendre facilement ses fonctionnalités en y greffant des modules complémentaires.
+Premièrement, Onitu, afin d'être au plus proche des besoins de ses utilisateurs, devra permettre d'agréger un grand nombre de services externes de stockage. Ne pouvant prétendre à l'intégration des présentes solutions, et encore moins des futures, l'architecture permettra d'étendre facilement ses fonctionnalités en y greffant des modules complémentaires.
 
 La fiabilité du système est sans aucun doute le point le plus important de la solution. S'occupant de la synchronisation, et donc de la sauvegarde des fichiers utilisateurs, il n'est en effet pas tolérable que de telles données se perdent ou soient corrompues. Ce point est comblé par une conception modulaire et un isolement des drivers: si l'un d'entre-eux rencontre un problème, le reste de l'application ne sera pas affecté. Des outils de contrôle de somme des données seront aussi implémentés afin de s'assurer à tout moment de la fiabilité de celles-ci.
 
