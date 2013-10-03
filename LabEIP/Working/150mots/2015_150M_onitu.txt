@@ -1,0 +1,13 @@
+Onitu vous permet de stocker vos fichiers où vous le souhaitez, de les synchroniser et d'y accéder sans limites, où que vous soyez.
+
+Open-source, il s'agit d'un logiciel simple et sécurisée, vous donnant un
+contrôle total sur vos données. Utilisable sans être informaticien, il permet de
+ne plus dépendre d'une unique société et de choisir comment vous souhaitez gérer
+vos documents.
+
+Onitu offre une compatibilité avec la majorité des grands systèmes de stockages,
+de Dropbox à Ubuntu One, en passant par le stockage en local ou Amazon S3. Il est
+possible de rajouter un nouveau service a tout instant.
+
+
+
