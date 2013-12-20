@@ -23,21 +23,26 @@ Cet outil utilisant des fichiers de tests rédigés en Python, nous profitions d
 
 ### tox
 
-*tox* est un outil permettant de tester la portabilité du projet, à savoir s'il est compatible avec différents environnements Python: *py2k*, *py3k* ou encore *pypy*.
+*tox* est un outil permettant de tester la portabilité du projet, à savoir s'il est compatible avec différents environnements Python: *Python 2.x*, *Python 3.x* ou encore *Pypy*.
 
 [http://tox.readthedocs.org/en/latest/](http://tox.readthedocs.org/en/latest/)
 
 ### Travis-ci
 
-*Travis-ci* est un service d'intégration continue. Détectant un nouveau *commit* sur le projet, il lance ainsi automatiquement une batterie de tests pré-établie, dont le rapport est ensuite consultable directement sur le site de *Travis-ci*.
+*Travis-ci* est un service d'intégration continue. Il détecte chaque nouveau *commit* sur le projet, et lance automatiquement tous les tests au sein des différents environnements *tox*. Les rapports de tests sont ensuite consultable directement sur le site de *Travis-ci*.
+
+Un des avantages de l'intégration continue est d'être prévenu dès qu'une régression a été introduite, sans avoir à lancer les tests manuellement. Cela permet aussi de trouver facilement l'endroit où la régression a été introduite.
+
+Le site *Travis-ci* déclenche la suite de tests et présente les résultats, mais les tests doivent tourner dans un environnement administré par nos soins. Pour le moment, une machine virtuelle d'[Amazon Web Services](http://aws.amazon.com/fr/) est utilisée, mais si certains tests demandent plus d'espace disque, une autre solution sera envisagée.
 
 [https://travis-ci.org/](https://travis-ci.org/)
-
 
 ## Outils pour les tests de performance
 
 ### Codespeed
 
 *Codespeed* est une application permettant l'évaluation des performances du projet. Elle offre entre autres des outils de calculs de temps d'exécutions, mais aussi permet des comparaisons entre différentes versions du projet, générant ainsi un aperçu simple de l'évolution globale des performances.
+
+Le serveur hébergeant l'application *Codespeed* peut-être un simple serveur web. Par contre, les tests de performances doivent être lancés dans un environnement constant et le plus isolé possible. Plusieurs solutions sont envisagées, mais aucune n'a été retenue pour le moment. La meilleure solution est d'acheter un serveur dédié, mais nécessite un investissement de la part du groupe.
 
 [https://github.com/tobami/codespeed/](https://github.com/tobami/codespeed/)
