@@ -2,10 +2,9 @@
 
 ## Cas de tests
 
-Vous décrirez ici le livrable des cas de tests
+Les cas de tests seront divisés en deux principales catégories. Premièrement, les tests liés aux fonctionnalités du système (tels les tests unitaires ou les tests fonctionnels), seront présents sur le dépôt *Git* du projet, dans un répertoire nommé `tests/`. Ce répertoire contiendra ensuite des divisions comprenant chacun des types de tests. Il n'y aura *a priori* pas d'autre liste synthétique de tests effectués que celle fournie en parcourant les répertoires.
 
-Les différents cas de tests seront répertoriés dans un dossier `test/` du dépôt principal du projet. Un dépôt `benchmarks` sera de plus dédié aux tests de performances.
-+ hiérarchie des répertoires/dépôts
+Un second dépôt, `benchmarks`, sera mis en place pour les tests liés aux performances de la solution.
 
 
 ## Rapport d'exécution de tests
