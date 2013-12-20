@@ -17,7 +17,7 @@ Ce rapport présente, pour chacun des fichiers de tests présents, ceux dont la 
 
 Les rapports sont produits par l'outil *py.test*, qui est un format soigné et très répandu dans la communauté Python. Cela permet à une personne extérieure au projet de pouvoir facilement lire les tests et d'en comprendre l'exécution.
 
-Les rapports d'exécutions des tests fonctionnels et unitaires sont disponibles via le site *Travis-ci*, qui présente la sortie de *py.test*. Les bencmarks, eux, seront présentés via l'outil *Codespeed*.
+Les rapports d'exécutions des tests fonctionnels et unitaires sont disponibles via le site *Travis-ci*, qui présente la sortie de *py.test*. Les benchmarks, eux, seront présentés via l'outil *Codespeed*.
 
 
 ## Rapport sur le suivi global de la qualité
