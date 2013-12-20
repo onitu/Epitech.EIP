@@ -4,21 +4,20 @@
 
 Les cas de tests seront divisés en deux principales catégories. Premièrement, les tests liés aux fonctionnalités du système (tels les tests unitaires ou les tests fonctionnels), seront présents sur le dépôt *Git* du projet, dans un répertoire nommé `tests/`. Ce répertoire contiendra ensuite des divisions comprenant chacun des types de tests. Il n'y aura *a priori* pas d'autre liste synthétique de tests effectués que celle fournie en parcourant les répertoires.
 
-Un second dépôt, `benchmarks`, sera mis en place pour les tests liés aux performances de la solution.
+Chaque dossier listera des fichiers de tests, qui seront agglomérés et exécutés par *py.test*.
+
+Un second dépôt, `benchmarks`, sera mis en place pour les tests liés aux performances de la solution. Il contiendra les fichiers de configurations spécifiques aux outils *codespeed* et *Travis* qui seront chargés de mesurer ces performances.
 
 
 ## Rapport d'exécution de tests
 
-Vous décrirez ici le(s) livrable(s) de rapport d’exécution des tests
+Ce rapport présente, pour chacun des fichiers de tests présents, ceux dont la validation a échoué, en indiquant les lignes incriminées et les valeurs faisant défaut.
 
-Rapport fourni par py.test -> Détailler au maximum
+Les rapports du type de ceux produits par *py.test* sont plutôt agréables à lire et très répandus, donc toute personne découvrant le projet sera facilement en mesure de lire les tests et d'en comprendre l'exécution.
 
 
 ## Rapport sur le suivi global de la qualité
 
-Vous décrirez ici le(s) rapport(s) de suivi de la qualité du projet
+De même ici, les outils utilisés, à savoir *codespeed* et *Travis* fournissent des études détaillées des performances, et par extension de la qualité, du système.
 
-Travis offre un rapport détaillé, codespeed un comparatif des versions
-Montrer, possiblement avec des screens, comment procéder à la lecture de ces rapports
-
-Le but du doc est vraiment de permettre à quelqu'un d'extérieur de comprendre les tests: comment les lancer et étudier leurs résultats
+Un comparatif des résultats entre les versions est de plus fourni par *codespeed*, permettant de mesurer les évolutions apportées par les nouvelles versions, ou encore, sur une version de développement, de constater une régression.
