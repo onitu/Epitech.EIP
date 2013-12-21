@@ -17,21 +17,6 @@ Dans ce chapitre vous décrirez en détail les types de tests que vous allez eff
 ### Critères de passage/échec
 
 
-## Tests système
-
-### Couverture
-
-### Environnement et conditions de réalisation
-
-### Configurations particulières
-
-### Planning et charge
-
-### Critère de démarrage des tests
-
-### Critères de passage/échec
-
-
 ## Tests fonctionnels
 
 ### Couverture
@@ -47,7 +32,7 @@ Dans ce chapitre vous décrirez en détail les types de tests que vous allez eff
 ### Critères de passage/échec
 
 
-## Tests d'acceptance
+## Tests de performance
 
 ### Couverture
 
