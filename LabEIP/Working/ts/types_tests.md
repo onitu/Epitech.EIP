@@ -1,37 +1,38 @@
 # Types de tests
 
-Dans ce chapitre vous décrirez en détail les types de tests que vous allez effectuer avec la même cinématique
+Ce chapitre présente en détails les types de tests qui seront implémentés au sein de notre stratégie.
 
 ## Tests unitaires
 
 ### Couverture
-La couverture des tests unitaires ne sera pas totale. Seuls les composants du cœur d'Onitu (Referee et Plug) seront testés de manière unitaire.
+La couverture des tests unitaires ne sera pas totale. Seuls les composants du cœur d'*Onitu* (*Referee* et *Plug*) seront testés de manière unitaire.
 
 ### Environnement et conditions de réalisation
-Ces tests seront réalisé via l'outil `py.test`. Un bibliothèque permettant de faire du `mocking` (simulation d'objet) sera éventuellement utilisée. Aucun environnement particulier n'est requis.
+Ces tests seront réalisés via l'outil *py.test*. Un bibliothèque permettant de faire du *mocking* (simulation d'objets) sera éventuellement utilisée. Aucun environnement particulier n'est requis.
 
 ### Configurations particulières
 Aucune configuration particulière ne sera nécessaire pour lancer les tests unitaires. Les tests seront lancés sur plusieurs configurations de *Python* grâce à l'outil *tox*.
 
 ### Planning et charge
-Les tests unitaires arrivont lorsque le cœur d'Onitu sera jugé mature et moins prompt à de gros changements. Cela devrait arriver aux alentours de la version `0.5`. Ils devraient être développés, au moins en partie, avant la première version grand publique.
+Les tests unitaires arrivont lorsque le cœur d'*Onitu* sera jugé mature et moins prompt à de gros changements. Cela devrait arriver aux alentours de la version `0.5`. Ils devraient être développés, au moins en partie, avant la première version grand public.
 
 ### Critère de démarrage des tests
 Les tests seront lancés automatiquement de manière régulière par le serveur d'intégration continue (*Travis-ci*). Ils pourront aussi être lancés dans les mêmes conditions en développement sur n'importe quelle machine.
 
 ### Critères de passage/échec
-Chaque test unitaire devrait faire une seule et unique assertion. Le test est validé que si cette assertion est juste.
+Chaque test unitaire devrait faire une seule et unique assertion. Le test est validé si et seulement si cette assertion est juste.
 
 ## Tests fonctionnels
 
 ### Couverture
-Les tests fonctionnels sont les tests privilégiés. Ils doivent couvrir toutes les fonctionnalités d'Onitu, dans un maximum de situations possibles. Cependant, toutes les situations ne sont ni prévisibles, ni reproductibles. Des compromis devront être choisis avec précaution.
+Les tests fonctionnels sont nos tests privilégiés. Ils doivent couvrir toutes les fonctionnalités d'*Onitu*, dans un maximum de situations possibles. Cependant, toutes les situations ne sont ni prévisibles, ni reproductibles. Des compromis devront être choisis avec précaution.
 
 ### Environnement et conditions de réalisation
-Une série d'utilitaires est développée afin de permettre des opérations basiques sur Onitu (le configurer, le démarrer, l'arrêter, etc…). Ces utilitaires seront utilisés par les tests afin d'éviter une duplication inutile du code.
+Une série d'utilitaires est développée afin de permettre des opérations basiques sur Onitu (le configurer, le démarrer, l'arrêter, *etc.*). Ces utilitaires seront utilisés par les tests afin d'éviter une duplication inutile du code.
 
-Beaucoup de tests auront besoin d'avoir accès à des composants externes (disque local, serveur Dropbox, serveur SSH, etc…). Une liste des composants externes disponibles sera tenue à jour et sera accessible lors de l'écriture des tests. Par exemple, un test pourra facilement demander l'accès à un compte Dropbox de test.
-Cela peut potentiellement poser de gros problèmes, par exemple si deux tests sont lancés en même temps et utilisent le même compte Dropbox de tests. Des mesures particulières devront être prise dans ces cas là.
+Beaucoup de tests auront besoin d'avoir accès à des composants externes (disque local, serveur *Dropbox*, serveur *SSH*, *etc.*). Une liste des composants externes disponibles sera tenue à jour et accessible lors de l'écriture des tests. Par exemple, un test pourra facilement demander l'accès à un compte *Dropbox* de test.
+
+Cela peut potentiellement poser de gros problèmes, par exemple si deux tests sont lancés en même temps et utilisent le même compte de tests. Des mesures particulières devront être prise dans ces cas là.
 
 ### Configurations particulières
 Tout comme les tests unitaires, l'outil *tox* sera utilisé afin de lancer les tests avec différentes configurations de *Python*.
