@@ -51,13 +51,31 @@ Chaque test fonctionnel peut faire une ou plusieurs assertions. Le test échoue 
 ## Tests de performance
 
 ### Couverture
+Les tests de performance vont mesurer les performances d'Onitu dans plusieurs situations. La couvertures de ces tests va être le nombre de situations mesurées. Il n'est pas possible de tester toutes les situations possibles, donc seuls plusieurs types de situations seront testées. Voici quelques exemples envisagés :
+
+- Montée en charge lors du transfert de centaines de petits fichier
+- Temps de transfert de gros fichiers (plusieurs giga-octets) entre différents drivers
+- Temps de lancement d'Onitu
+- Utilisation mémoire lors des transferts
+- Indexation d'un gros répertoire
+- Détection des changements sur les différents drivers
 
 ### Environnement et conditions de réalisation
+L'environnement des tests de performance doit être préparé avec beaucoup d'attention. L'intérêt de ces tests est de pouvoir comparer les évolutions entre les différentes versions, il est donc très important qu'ils aient été lancés dans des conditions les plus similaires possibles.
 
 ### Configurations particulières
+Ces tests seront lancés sur une plateforme dédiée. Ils pourront aussi être lancés de manière locale par les développeurs, mais les resultats officiels seront ceux de la plateforme. La configuration de la plateforme ne dois pas changer, ou alors tous les tests doivent être relancés pour toutes les versions d'Onitu.
+
+Les tests seront lancés dans plusieurs configurations de Python (Python 2.x, Python 3.x et Pypy) afin de comparer l'incidence de ces configurations sur les performances.
 
 ### Planning et charge
+Pour le moment, une personne s'occupe des tests de performance. Ces tests représentent un travail conséquent, et il est prévu que nous continuions à y dédier une personne pour les prochains mois.
+
+L'essentiel des tests devrait être écrit avant la première version grand-publique, même si des ajouts jugés pertinants ou testant de nouvelles fonctionnalités pourraient être effectués par la suite.
 
 ### Critère de démarrage des tests
+Ces tests peuvent être très longs et demander des interventions. De ce fait, ils ne seront pas déclenchés automatiquement mais manuellement.
+La suite de *benchmarks* pourra être lancée à tout moment par un développeur voulant mesurer les différences liées à un ajout en cours de développement, sans nécessérement publier les résultats.
 
 ### Critères de passage/échec
+Ces tests n'ont pas de critères précis de passage ou d'échec, mais des variations par rapport aux versions précédantes.
