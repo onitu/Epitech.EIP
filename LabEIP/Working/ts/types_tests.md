@@ -32,7 +32,7 @@ Une série d'utilitaires est développée afin de permettre des opérations basi
 
 Beaucoup de tests auront besoin d'avoir accès à des composants externes (disque local, serveur *Dropbox*, serveur *SSH*, *etc.*). Une liste des composants externes disponibles sera tenue à jour et accessible lors de l'écriture des tests. Par exemple, un test pourra facilement demander l'accès à un compte *Dropbox* de test.
 
-Cela peut potentiellement poser de gros problèmes, par exemple si deux tests sont lancés en même temps et utilisent le même compte de tests. Des mesures particulières devront être prise dans ces cas là.
+Cela peut potentiellement poser de gros problèmes, par exemple si deux tests sont lancés en même temps et utilisent le même compte de test. Des mesures particulières devront être prises dans ces cas là.
 
 ### Configurations particulières
 Tout comme les tests unitaires, l'outil *tox* sera utilisé afin de lancer les tests avec différentes configurations de *Python*.
@@ -51,11 +51,11 @@ Chaque test fonctionnel peut faire une ou plusieurs assertions. Le test échoue 
 ## Tests de performance
 
 ### Couverture
-Les tests de performance vont mesurer les performances d'Onitu dans plusieurs situations. La couvertures de ces tests va être le nombre de situations mesurées. Il n'est pas possible de tester toutes les situations possibles, donc seuls plusieurs types de situations seront testées. Voici quelques exemples envisagés :
+Les tests de performance vont mesurer les performances d'*Onitu* dans plusieurs situations. La couverture de ces tests sera le nombre de situations mesurées. Il n'est pas possible de tester toutes les situations possibles, donc seuls plusieurs types de situations seront testés. Voici quelques exemples envisagés :
 
-- Montée en charge lors du transfert de centaines de petits fichier
+- Montée en charge lors du transfert de centaines de petits fichiers
 - Temps de transfert de gros fichiers (plusieurs giga-octets) entre différents drivers
-- Temps de lancement d'Onitu
+- Temps de lancement d'*Onitu*
 - Utilisation mémoire lors des transferts
 - Indexation d'un gros répertoire
 - Détection des changements sur les différents drivers
@@ -64,18 +64,18 @@ Les tests de performance vont mesurer les performances d'Onitu dans plusieurs si
 L'environnement des tests de performance doit être préparé avec beaucoup d'attention. L'intérêt de ces tests est de pouvoir comparer les évolutions entre les différentes versions, il est donc très important qu'ils aient été lancés dans des conditions les plus similaires possibles.
 
 ### Configurations particulières
-Ces tests seront lancés sur une plateforme dédiée. Ils pourront aussi être lancés de manière locale par les développeurs, mais les resultats officiels seront ceux de la plateforme. La configuration de la plateforme ne dois pas changer, ou alors tous les tests doivent être relancés pour toutes les versions d'Onitu.
+Ces tests seront lancés sur une plateforme dédiée. Ils pourront aussi être lancés de manière locale par les développeurs, mais les resultats officiels seront ceux de la plateforme. La configuration de la plateforme ne dois pas changer, ou alors tous les tests doivent être relancés pour toutes les versions d'*Onitu*.
 
-Les tests seront lancés dans plusieurs configurations de Python (Python 2.x, Python 3.x et Pypy) afin de comparer l'incidence de ces configurations sur les performances.
+Les tests seront lancés avec plusieurs configurations de *Python* (*Python 2.x*, *Python 3.x* et *Pypy*) afin de comparer l'incidence de ces configurations sur les performances.
 
 ### Planning et charge
 Pour le moment, une personne s'occupe des tests de performance. Ces tests représentent un travail conséquent, et il est prévu que nous continuions à y dédier une personne pour les prochains mois.
 
-L'essentiel des tests devrait être écrit avant la première version grand-publique, même si des ajouts jugés pertinants ou testant de nouvelles fonctionnalités pourraient être effectués par la suite.
+L'essentiel des tests devrait être écrit avant la première version grand public, même si des ajouts jugés pertinents ou testant de nouvelles fonctionnalités pourront être effectués par la suite.
 
 ### Critère de démarrage des tests
-Ces tests peuvent être très longs et demander des interventions. De ce fait, ils ne seront pas déclenchés automatiquement mais manuellement.
-La suite de *benchmarks* pourra être lancée à tout moment par un développeur voulant mesurer les différences liées à un ajout en cours de développement, sans nécessérement publier les résultats.
+Ces tests peuvent être très longs et demander diverses interventions. De ce fait, ils ne seront pas déclenchés automatiquement mais manuellement.
+La suite de *benchmarks* pourra être lancée à tout moment par un développeur voulant mesurer les différences liées à un ajout en cours de développement, sans nécessairement publier les résultats.
 
 ### Critères de passage/échec
-Ces tests n'ont pas de critères précis de passage ou d'échec, mais des variations par rapport aux versions précédantes.
+Ces tests n'ont pas de critères précis de passage ou d'échec, mais des variations par rapport aux versions précédentes.
