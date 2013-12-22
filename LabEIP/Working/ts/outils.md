@@ -13,7 +13,7 @@ De façon à être le plus simple possible, en offrant à chacun la possibilité
 
 ### py.test
 
-*py.test* sera à la fois utile pour les tests fonctionnels et unitaires. Il s'agit un *framework* de tests facile d'accès, et répondant parfaitement à nos besoins en termes de fonctionnalités.
+*py.test* sera à la fois utile pour les tests fonctionnels et unitaires. Il s'agit d'un *framework* de tests facile d'accès, et répondant parfaitement à nos besoins en termes de fonctionnalités.
 
 L'utilitaire se charge de trouver l'ensemble des fichiers et fonctions de tests à partir d'un répertoire donné. Il génère ainsi des rapports d'exécution, détaillés plus haut dans la partie *Livrables*.
 
@@ -43,6 +43,6 @@ Le site *Travis-ci* déclenche la suite de tests et présente les résultats, ma
 
 *Codespeed* est une application permettant l'évaluation des performances du projet. Elle offre entre autres des outils de calculs de temps d'exécutions, mais aussi permet des comparaisons entre différentes versions du projet, générant ainsi un aperçu simple de l'évolution globale des performances.
 
-Le serveur hébergeant l'application *Codespeed* peut-être un simple serveur web. Par contre, les tests de performances doivent être lancés dans un environnement constant et le plus isolé possible. Plusieurs solutions sont envisagées, mais aucune n'a été retenue pour le moment. La meilleure solution est d'acheter un serveur dédié, mais nécessite un investissement de la part du groupe.
+Le serveur hébergeant l'application *Codespeed* peut être un simple serveur web. Par contre, les tests de performances doivent être lancés dans un environnement constant et le plus isolé possible. Plusieurs solutions sont envisagées, mais aucune n'a été retenue pour le moment. La meilleure solution est d'acheter un serveur dédié, mais nécessite un investissement de la part du groupe.
 
 [https://github.com/tobami/codespeed/](https://github.com/tobami/codespeed/)

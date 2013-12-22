@@ -14,7 +14,7 @@ Ces tests seront réalisés via l'outil *py.test*. Un bibliothèque permettant d
 Aucune configuration particulière ne sera nécessaire pour lancer les tests unitaires. Les tests seront lancés sur plusieurs configurations de *Python* grâce à l'outil *tox*.
 
 ### Planning et charge
-Les tests unitaires arrivont lorsque le cœur d'*Onitu* sera jugé mature et moins prompt à de gros changements. Cela devrait arriver aux alentours de la version `0.5`. Ils devraient être développés, au moins en partie, avant la première version grand public.
+Les tests unitaires arriveront lorsque le cœur d'*Onitu* sera jugé mature et moins prompt à de gros changements. Cela devrait arriver aux alentours de la version `0.5`. Ils devraient être développés, au moins en partie, avant la première version grand public.
 
 ### Critère de démarrage des tests
 Les tests seront lancés automatiquement de manière régulière par le serveur d'intégration continue (*Travis-ci*). Ils pourront aussi être lancés dans les mêmes conditions en développement sur n'importe quelle machine.
@@ -64,7 +64,7 @@ Les tests de performance vont mesurer les performances d'*Onitu* dans plusieurs 
 L'environnement des tests de performance doit être préparé avec beaucoup d'attention. L'intérêt de ces tests est de pouvoir comparer les évolutions entre les différentes versions, il est donc très important qu'ils aient été lancés dans des conditions les plus similaires possibles.
 
 ### Configurations particulières
-Ces tests seront lancés sur une plateforme dédiée. Ils pourront aussi être lancés de manière locale par les développeurs, mais les resultats officiels seront ceux de la plateforme. La configuration de la plateforme ne dois pas changer, ou alors tous les tests doivent être relancés pour toutes les versions d'*Onitu*.
+Ces tests seront lancés sur une plateforme dédiée. Ils pourront aussi être lancés de manière locale par les développeurs, mais les résultats officiels seront ceux de la plateforme. La configuration de la plateforme ne doit pas changer, ou alors tous les tests doivent être relancés pour toutes les versions d'*Onitu*.
 
 Les tests seront lancés avec plusieurs configurations de *Python* (*Python 2.x*, *Python 3.x* et *Pypy*) afin de comparer l'incidence de ces configurations sur les performances.
 

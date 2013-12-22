@@ -13,8 +13,7 @@ Nous avons déjà commencé à travailler sur l'élaboration de solutions à ces
 
 Les tests unitaires viendront dans un second temps dans le projet, lorsque les objectifs en terme de fonctionnalités commenceront à être atteints (premières versions stables).
 
-Il incombera au développeur de chaque partie de l'application de tester lui-même ce qu'il a produit. Par conséquent, nous estimons que les tests unitaires représenteront beaucoup de travail supplémentaire en plus des fonctionnalités requises.
-
+Il incombera au développeur de chaque partie de l'application de tester lui-même ce qu'il a produit. Par conséquent, nous estimons que les tests unitaires représenteront beaucoup de travail supplémentaire en plus des fonctionnalités requises. Nous estimons le temps d'écriture des tests à au moins un tiers du temps de développement.
 
 ## Répartition de la charge de travail
 
