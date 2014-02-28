@@ -32,7 +32,7 @@ function main {
 	echo "Please press return and enter a commit message" && read
 	svn commit
 
-	rm -rf "$GIT_DEV_SHOWCASE" "$SVN_EIP_SHOWCASE"
+	rm -rf "$DIR_DEV_SHOWCASE" "$DIR_EIP_SHOWCASE"
 }
 
 main "$@"
