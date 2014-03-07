@@ -11,7 +11,7 @@
 \usepackage{colortbl}	% to put color in a table background
 \usepackage{datetime}	% to allow us set a new date formatting
 \usepackage{multirow}   % to allow multirows in tables
-\usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage[colorlinks,urlcolor=link]{hyperref}
 \usepackage{palatino}
 \usepackage{pdflscape}
 
@@ -22,7 +22,8 @@ $endif$
 % Custom defines zone
 
 % Define useful hand-made colors
-\definecolor{epiBlue}{RGB}{0,110,255}
+\definecolor{onitu}{RGB}{5,136,178}
+\definecolor{link}{RGB}{20,100,178}
 \definecolor{lightGray}{gray}{0.92}
 
 % Bit of code to bold an entire table row
@@ -38,7 +39,7 @@ $endif$
 
 \input{commands.tex}
 
-\newcommand{\TplVersion}{3.0}
+\newcommand{\TplVersion}{4.0}
 
 \setlength{\headsep}{0pt}
 
@@ -50,10 +51,10 @@ $endif$
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
 	\fancyfoot[L]{}
-	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
+	\fancyfoot[C]{\textcolor{onitu}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
 	\fancyfoot[R]{}
 }
 
@@ -63,9 +64,9 @@ $endif$
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
-	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
+	\fancyfoot[L]{\textcolor{onitu}{\textbf{\underline{\leftmark}}}}
 	\fancyfoot[C]{}
 	\fancyfoot[R]{
 		\thepage/\pageref{LastPage}
@@ -73,7 +74,7 @@ $endif$
 }
 
 \title{
-	\huge{\textbf{\textcolor{epiBlue}{\DocTitle} } }\\
+	\huge{\textbf{\textcolor{onitu}{\DocTitle} } }\\
 	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
 }
 
