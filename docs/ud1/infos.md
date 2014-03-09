@@ -2,7 +2,11 @@
 
 ## Bogues connus
 
-* ?
+Aucun bogue non résolu n'est actuellement connu. Mais le projet étant en perpétuel développement, de nouveaux apparaissent ou sont détectés régulièrement dans les versions de test du projet.
+
+La liste des bogues peut être consulté dans la section *issues* la page github du projet, à cette adresse: <https://github.com/onitu/onitu/issues>.
+
+Le report de bogues rencontrés se fait sur cette même page.
 
 ## Évolutions
 
