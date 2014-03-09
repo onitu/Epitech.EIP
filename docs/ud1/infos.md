@@ -6,7 +6,9 @@
 
 ## Évolutions
 
-* Interface d'administration
+L'administration d'*Onitu* n'est actuellement possible que par une édition manuelle du fichier de configuration. Par la suite, *Onitu* intègrera une interface web d'administration, depuis laquelle vous pourrez directement définir les règles de transferts des fichiers.
+
+Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité, mais augmentera progressivement par la suite, à mesure que nous agrégerons les protocooles de nouveaux services.
 
 ## Foire aux questions (FAQ)
 
