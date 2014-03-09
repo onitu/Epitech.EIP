@@ -16,7 +16,15 @@ Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité,
 
 ## Foire aux questions (FAQ)
 
-* …
+* Pourquoi choisir *Onitu* ?
+* Qui êtes-vous ?
+* Où télécharger *Onitu* ?
+* Comment l'installer ?
+* Sur quelles machines puis-je l'installer ?
+* Que faire en cas de disfonctionnement ?
+* Comment puis-je contribuer au projet ?
+* Où trouver la documentation ?
+* Quelles sont les conditions d'utilisation ?
 
 ## Liens utiles
 
