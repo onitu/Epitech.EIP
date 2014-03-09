@@ -11,7 +11,7 @@ Les modules (*drivers*) communiquant avec les différents services s'installent 
 
 ## Lancement
 
-*Lancement à partir d'un programme `onitu` dans le *path*
+* Lancement à partir d'un programme `onitu` dans le *path*
 * A priori, l'installation générera un `setup.json` de base pour pouvoir lancer *Onitu* directement après installation
 
 ## Désinstallation
