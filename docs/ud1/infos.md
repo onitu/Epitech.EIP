@@ -17,6 +17,7 @@ Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité,
 ## Foire aux questions (FAQ)
 
 * Pourquoi choisir *Onitu* ?
+ Dropbox, sparkleshare, btsynch, owncloud
 * Qui êtes-vous ?
 * Où télécharger *Onitu* ?
 * Comment l'installer ?
