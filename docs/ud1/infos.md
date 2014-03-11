@@ -18,13 +18,22 @@ Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité,
 
 * Pourquoi choisir *Onitu* ?
  Dropbox, sparkleshare, btsynch, owncloud
+ Décentralisation, tout en s'appuyant sur des services reconnus, Onitu est le seul à apporter les règles
+ Contrairement aux solutions existantes, *Onitu* s'axe autour de deux atouts majeurs: controle données + services reconnus
 * Qui êtes-vous ?
+  Étudiants, projet de fin d'études
 * Où télécharger *Onitu* ?
+  pip, sources sur github
 * Comment l'installer ?
+  pip
 * Sur quelles machines puis-je l'installer ?
+  Le coeur peut tourner sur tout système supportant python. Seuls certains drivers (fichiers locaux) pourront être spécifiques à certaines architectures
 * Que faire en cas de disfonctionnement ?
+  Bug report sur les issues github
 * Comment puis-je contribuer au projet ?
+  Suivre les issues, implémenter un drivers, pull request
 * Où trouver la documentation ?
+  Readthedoc
 * Quelles sont les conditions d'utilisation ?
 
 ## Liens utiles
