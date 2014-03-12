@@ -1,5 +1,7 @@
 # Présentation d'Onitu
 
+![](logo_onitu.png)
+
 Il existe aujourd'hui diverses solutions de stockage et synchronisation de données en ligne. Seulement, ces serices sont totalement opaque pour l'utilisateur, qui n'a ainsi aucun contrôle sur ses données.
 
 Avec Onitu, nous souhaitons remédier à ce problème, en vous offrant la possibilité de configurer par vous-même, et simplement, le stockage de vos fichiers. Onitu est en effet une solution installable par tout un chacun, vous permettant de choisir vers quels outils transférer vos données.
