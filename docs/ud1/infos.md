@@ -16,25 +16,31 @@ Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité,
 
 ## Foire aux questions (FAQ)
 
-* Pourquoi choisir *Onitu* ?
- Dropbox, sparkleshare, btsynch, owncloud
- Décentralisation, tout en s'appuyant sur des services reconnus, Onitu est le seul à apporter les règles
- Contrairement aux solutions existantes, *Onitu* s'axe autour de deux atouts majeurs: controle données + services reconnus
-* Qui êtes-vous ?
-  Étudiants, projet de fin d'études
-* Où télécharger *Onitu* ?
-  pip, sources sur github
-* Comment l'installer ?
-  pip
-* Sur quelles machines puis-je l'installer ?
-  Le coeur peut tourner sur tout système supportant python. Seuls certains drivers (fichiers locaux) pourront être spécifiques à certaines architectures
-* Que faire en cas de disfonctionnement ?
-  Bug report sur les issues github
-* Comment puis-je contribuer au projet ?
-  Suivre les issues, implémenter un drivers, pull request
-* Où trouver la documentation ?
-  Readthedoc
-* Quelles sont les conditions d'utilisation ?
+* **Pourquoi choisir *Onitu* ?**  
+  Onitu se démarque sur le marché par deux atouts majeurs: en choisissant *Onitu*, vous bénéficiez d'un contrôle total de vos données, tout en vous appuyant sur des services reconnus.  
+  Vous profitez ainsi d'une compatibilité totale avec les clients de *Dropbox* et *Google Drive* par exemple.
+* **Qui êtes-vous ?**  
+  Nous sommes un groupe de 9 étudiants d'Epitech, et développons *Onitu* dans le cadre de notre projet de fin d'études (ou *EIP* pour *Epitech Innovative Project*).
+* **Où télécharger *Onitu* ?**  
+  Les sources du projet sont disponibles sur le *Github* officiel: <https://github.com/onitu/onitu>
+* **Comment l'installer ?**  
+  L'installation est très simple, et consiste juste à entrer la commande `pip install onitu` dans votre terminal.
+* **Sur quelles machines puis-je l'installer ?**  
+  *Onitu* peut s'installer sur toute machine disposant de python (2.7 ou 3.x et supérieures).  
+  Seuls certains drivers de gestion des fichiers locaux peuvent être spécifiques à certaines architectures.
+* **Que faire en cas de disfonctionnement ?**  
+  Dans le cas où vous rencontreriez un bogue lié à l'installation ou l'utilsiation d'*Onitu*, nous vous invitons à le reporter dans les *issues* du projet sur *Github*: <https://github.com/onitu/onitu/issues>
+* **Comment puis-je contribuer au projet ?**  
+  Un premier conseil si vous souhaitez contribuer au projet est d'en suivre l'évolution notamment en consultant les *issues*: <https://github.com/onitu/onitu/issues>  
+  Nous vous conseillons ensuite de prendre contact avec l'équipe (cf **Comment puis-je vous contacter ?**).  
+  Enfin, nous vous invitons à consulter la documentation technique pour mettre cela en pratique: <http://onitu.readthedocs.org>
+* **Où puis-je vous contacter ?**  
+  Vous pouvez nous contacter à l'aide de l'adresse *e-mail* `onitu_2015@labeip.epitech.eu`,  
+  ou venir nous retrouver sur *IRC*: canal `#onitu` sur *FreeNode* (`irc.freenode.net`).
+* **Où trouver la documentation technique ?**  
+  La documentation technique est disponible en ligne à l'adresse suivante: <http://onitu.readthedocs.org>
+* **Quelles sont les conditions d'utilisation ?**  
+  Ce projet est *open-source*, et distribué sous licence ???.
 
 ## Liens utiles
 
