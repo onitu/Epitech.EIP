@@ -1,15 +1,25 @@
 # Installation
 
-L'installation d'Onitu est très simple, et se contente d'un `pip install onitu` pour mettre en place le programme principal.
+L'installation repose sur *pip*, un gestionnaire de paquets très répandu dans la sphère Python, s'utilisant en ligne de commande.
 
-Les modules (*drivers*) communiquant avec les différents services s'installent de façon indépendante par une commande similaire:
+*pip* se charge de la récupération des sources ainsi que de la résolution des dépendances. L'installation par paquets indépendants vous permet de ne pas vous encombrer de dépendances inutiles.
 
-* `pip install onitu-ssh` pour ajouter le module de communication par *SSH*
-* `pip install onitu-dropbox` pour celui communiquant avec les serveurs *Dropbox*
+## Installation
 
-*pip* est un gestionnaire de paquets très répandu dans la sphère Python, qui se charge de la récupération des sources ainsi que de la résolution des dépendances. L'installation par paquets indépendants vous permet de ne pas vous encombrer de dépendances inutiles.
+Pour installer le cœur du projet:
+
+* `pip install onitu`
+
+Puis pour chaque module (*driver*), en remplaçant `onitu-nom_du_module` par le nom approprié, par exemple `onitu-ssh` ou `onitu-dropbox`:
+
+* `pip install onitu-nom_du_module`
 
 ## Lancement
+
+\begin{figure}[h]
+\includegraphics[scale=0.75]{screen_onitu.png}
+\caption{Lancement d'Onitu}
+\end{figure}
 
 Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
 
