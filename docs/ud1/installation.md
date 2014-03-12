@@ -23,7 +23,7 @@ Puis pour chaque module (*driver*), en remplaçant `onitu-nom_du_module` par le 
 
 Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
 
-Cela vous permet par exemple de lancer plusieurs instances indépendantes d'*Onitu*, opérant chacune sur une configuration différentes, des services différents.
+Cela vous permet par exemple de lancer plusieurs instances indépendantes d'*Onitu*, opérant chacune sur une configuration différente, des services différents.
 
 ## Désinstallation
 

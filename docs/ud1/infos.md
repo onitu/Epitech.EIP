@@ -4,15 +4,15 @@
 
 Aucun bogue non résolu n'est actuellement connu. Mais le projet étant en perpétuel développement, de nouveaux apparaissent ou sont détectés régulièrement dans les versions de test du projet.
 
-La liste des bogues peut être consulté dans la section *issues* la page github du projet, à cette adresse: <https://github.com/onitu/onitu/issues>.
+La liste des bogues peut être consultée dans la section *issues* la page github du projet, à cette adresse: <https://github.com/onitu/onitu/issues>.
 
-Le report de bogues rencontrés se fait sur cette même page.
+Le report des bogues rencontrés se fait sur cette même page.
 
 ## Évolutions
 
 L'administration d'*Onitu* n'est actuellement possible que par une édition manuelle du fichier de configuration. Par la suite, *Onitu* intègrera une interface web d'administration, depuis laquelle vous pourrez directement définir les règles de transferts des fichiers.
 
-Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité, mais augmentera progressivement par la suite, à mesure que nous agrégerons les protocooles de nouveaux services.
+Aussi, le nombre de *drivers* actuellement proposés est plutôt limité, mais augmentera progressivement par la suite, à mesure que nous agrégerons les protocooles de nouveaux services.
 
 ## Foire aux questions (FAQ)
 
@@ -29,12 +29,12 @@ Aussi, le nombre actuel de *drivers* actuellement proposés est plutôt limité,
   *Onitu* peut s'installer sur toute machine disposant de python (2.7 ou 3.x et supérieures).  
   Seuls certains drivers de gestion des fichiers locaux peuvent être spécifiques à certaines architectures.
 * **Que faire en cas de disfonctionnement ?**  
-  Dans le cas où vous rencontreriez un bogue lié à l'installation ou l'utilsiation d'*Onitu*, nous vous invitons à le reporter dans les *issues* du projet sur *Github*: <https://github.com/onitu/onitu/issues>
+  Dans le cas où vous rencontreriez un bogue lié à l'installation ou l'utilisation d'*Onitu*, nous vous invitons à le reporter dans les *issues* du projet sur *Github*: <https://github.com/onitu/onitu/issues>
 * **Comment puis-je contribuer au projet ?**  
   Un premier conseil si vous souhaitez contribuer au projet est d'en suivre l'évolution notamment en consultant les *issues*: <https://github.com/onitu/onitu/issues>  
   Nous vous conseillons ensuite de prendre contact avec l'équipe (cf **Comment puis-je vous contacter ?**).  
   Enfin, nous vous invitons à consulter la documentation technique pour mettre cela en pratique: <http://onitu.readthedocs.org>
-* **Où puis-je vous contacter ?**  
+* **Comment puis-je vous contacter ?**  
   Vous pouvez nous contacter à l'aide de l'adresse *e-mail* `onitu_2015@labeip.epitech.eu`,  
   ou venir nous retrouver sur *IRC*: canal `#onitu` sur *FreeNode* (`irc.freenode.net`).
 * **Où trouver la documentation technique ?**  
