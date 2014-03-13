@@ -18,7 +18,7 @@ Puis pour chaque module (*driver*), en remplaçant `onitu-nom_du_module` par le 
 
 \begin{figure}[h]
 \includegraphics[scale=0.75]{screen_onitu.png}
-\caption{Lancement d'Onitu}
+\caption{Lancement d'\emph{Onitu}}
 \end{figure}
 
 Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
