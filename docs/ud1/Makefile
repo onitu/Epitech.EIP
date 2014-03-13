@@ -4,7 +4,7 @@ SRC =	presentation.md \
 	installation.md \
 	configuration.md \
 	infos.md
-HEADER = 
+HEADER = print_json.tex
 BEFORE = resume.tex header.tex
 
 FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-H %) $(BEFORE:%=-B %)
