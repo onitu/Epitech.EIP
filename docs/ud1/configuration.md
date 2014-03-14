@@ -2,7 +2,7 @@
 
 La configuration est pour le moment rudimentaire et se réalise par une édition manuelle du fichier de configuration, rédigé au format *JSON*.
 
-Un exemple de configuration sera utilisé tout au long de ce chpatire, que vous pouvez retrouver en figure \ref{json_example}.
+Un exemple de configuration sera utilisé tout au long de ce chapitre, que vous pouvez retrouver en figure \ref{json_example}.
 
 
 ## Le nom
@@ -20,7 +20,7 @@ Les entrées sont des instances de *drivers*, et correspondent donc au paramétr
 
 Une entrée contient un champ `driver` contenant le nom du *driver* à instancier, et un champ `options` pour les options spécifiques à chaque *driver*, comme les données de connexion.
 
-Dans notre exemple, nous utiliserons deux entrées: une première pour servir des fichiers locaux et une seconde connectée à un compte *Dropbox*
+Dans notre exemple, nous utiliserons deux entrées: une première pour servir des fichiers locaux et une seconde connectée à un compte *Dropbox*.
 
 \newpage
 
@@ -28,7 +28,7 @@ Dans notre exemple, nous utiliserons deux entrées: une première pour servir de
 
 Le nom du *driver* à utiliser pour les fichiers locaux est `local_storage`. Ce *driver* n'a besoin en option que du répertoire racine à partir duquel il opérera, `root`.
 
-Une configuration possible est donc la suivante:
+Une configuration possible est la suivante:
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -44,6 +44,8 @@ Une configuration possible est donc la suivante:
 ### *Dropbox*
 
 Le nom du *driver* *Dropbox* est simplement `dropbox`. Il se configure à l'aide de l'adresse *e-mail* et du mot de passe du compte (champs `email` et `password`).
+
+Dans l'état actuel du projet, le mot de passe associé au compte est stocké en clair dans le fichier.
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -63,7 +65,7 @@ Le nom du *driver* *Dropbox* est simplement `dropbox`. Il se configure à l'aide
 
 Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quelles entrées, et s'insèrent dans la section `rules` du document.
 
-Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées à l'entrée «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG* soit relayées à *Dropbox*, comme explicité sur le schéma ci-dessous:
+Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées à l'entrée «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG*, soient relayées à *Dropbox*, comme explicité sur les schémas ci-dessous:
 
 \begin{figure}[h]
 \includegraphics[scale=0.75]{rules_schema_1.png}
