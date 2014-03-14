@@ -39,8 +39,6 @@ Aussi, le nombre de *drivers* actuellement proposés est plutôt limité, mais a
   ou venir nous retrouver sur *IRC*: canal `#onitu` sur *FreeNode* (`irc.freenode.net`).
 * **Où trouver la documentation technique ?**  
   La documentation technique est disponible en ligne à l'adresse suivante: <http://onitu.readthedocs.org>
-* **Quelles sont les conditions d'utilisation ?**  
-  Ce projet est *open-source*, et distribué sous licence ???.
 
 ## Liens utiles
 

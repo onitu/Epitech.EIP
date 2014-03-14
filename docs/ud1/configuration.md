@@ -22,6 +22,8 @@ Une entrée contient un champ `driver` contenant le nom du *driver* à instancie
 
 Dans notre exemple, nous utiliserons deux entrées: une première pour servir des fichiers locaux et une seconde connectée à un compte *Dropbox*
 
+\newpage
+
 ### Fichiers locaux
 
 Le nom du *driver* à utiliser pour les fichiers locaux est `local_storage`. Ce *driver* n'a besoin en option que du répertoire racine à partir duquel il opérera, `root`.
@@ -55,6 +57,7 @@ Le nom du *driver* *Dropbox* est simplement `dropbox`. Il se configure à l'aide
 \end{lstlisting}
 \end{figure}
 
+\newpage
 
 ## Les règles
 
@@ -62,7 +65,15 @@ Les règles vous permettent de définir quels fichiers doivent être synchronis�
 
 Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées à l'entrée «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG* soit relayées à *Dropbox*, comme explicité sur le schéma ci-dessous:
 
-SCHÉMA
+\begin{figure}[h]
+\includegraphics[scale=0.75]{rules_schema_1.png}
+\caption{Création d'un fichier sur \emph{Dropbox}}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[scale=0.75]{rules_schema_2.png}
+\caption{Création d'un fichier sur \emph{Local}}
+\end{figure}
 
 Une règle consiste en un ensemble de deux éléments: la condition d'acceptation d'un fichier et l'ensemble de entrées cibles.
 
