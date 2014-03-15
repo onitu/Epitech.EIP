@@ -21,9 +21,15 @@ Puis pour chaque module (*driver*), en remplaçant `onitu-nom_du_module` par le 
 \caption{Lancement d'\emph{Onitu}}
 \end{figure}
 
-Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
+Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration à l'aide de l'option `--setup` (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
 
 Cela vous permet par exemple de lancer plusieurs instances indépendantes d'*Onitu*, opérant chacune sur une configuration différente, des services différents.
+
+D'autres options sont disponibles au lancement d'*Onitu*:
+
+* Vous pouvez sélectionner la *socket* *ZMQ* à utiliser pour la journalisation grâce à l'option `--log-uri`.
+* Vous pouvez obtenir un affichage plus complet (dit de *debug*) à l'aide de l'option `--debug`.
+* Enfin, l'option `--help` vous affiche la présente liste d'options disponibles.
 
 ## Désinstallation
 
