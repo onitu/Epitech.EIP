@@ -147,7 +147,7 @@ Afin de synchroniser les fichiers entre différents services externes, Onitu s'a
 Programme chargé de la liaison entre Onitu et un service distant (SSH, Dropbox, un disque dur…). \emph{cf} {\hyperref[drivers::doc]{\emph{Créer un nouveau pilote}}}
 
 \item[{\index{Entry|textbf}Entrée}] \leavevmode\phantomsection\label{intro:term-entry}
-Un pilote configuré par l'utilisateur. Par exemple, il peut s'agir du pilote Dropbox configurer pour utiliser un conpte utilisateur spécifique. Une entrée peut être vue comme une instance de pilote.
+Un pilote configuré par l'utilisateur. Par exemple, il peut s'agir du pilote Dropbox configuré pour utiliser un conpte utilisateur spécifique. Une entrée peut être vue comme une instance de pilote.
 
 \item[{\index{Rule|textbf}Règle}] \leavevmode\phantomsection\label{intro:term-rule}
 Fait correspondre un ensemble de fichiers à un ensemble d'entrées. Utilisé dans la configuration pour séparer les fichiers.
@@ -156,7 +156,7 @@ Fait correspondre un ensemble de fichiers à un ensemble d'entrées. Utilisé da
 Fichier de configuration au format JSON, décrivant les entrées et les règles.
 
 \item[{\index{Referee|textbf}Referee}] \leavevmode\phantomsection\label{intro:term-referee}
-Reçoit les événements depuis les piloteset transmet les fichiers entre les entrées suivant les règles de configuration. \emph{cf} {\hyperref[components:onitu.referee.Referee]{\code{Referee}}}
+Reçoit les événements depuis les pilotes et transmet les fichiers entre les entrées suivant les règles de configuration. \emph{cf} {\hyperref[components:onitu.referee.Referee]{\code{Referee}}}
 
 \item[{\index{Plug|textbf}Plug}] \leavevmode\phantomsection\label{intro:term-plug}
 Une classe qui implémente les utilitaires nécessaires à un pilote pour communiquer avec Onitu. \emph{cf} {\hyperref[drivers:onitu.api.Plug]{\code{Plug}}}
@@ -256,7 +256,7 @@ La liste des gestionnaires pouvant être définis dans l'état actuel du projet 
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:get_chunk}\pysiglinewithargsret{\bfcode{get\_chunk}}{\emph{filename}, \emph{offset}, \emph{size}}{}
-Retourne un bloc de données depuis un fichier, de la taille indiquée et à partir de la position données.
+Retourne un bloc de données depuis un fichier, de la taille indiquée et à partir de la position donnée.
 \begin{quote}\begin{description}
 \item[{Paramètres}] \leavevmode\begin{itemize}
 \item {} 
@@ -294,7 +294,7 @@ chaîne d'octets
 \textbf{offset} (\emph{entier}) -- Position à laquelle écrire le contenu
 
 \item {} 
-\textbf{chunk} (\emph{chaîne de caractères}) -- Contenu devant être écrit dans le fichier
+\textbf{chunk} (\emph{chaîne d'octets}) -- Contenu devant être écrit dans le fichier
 
 \end{itemize}
 
@@ -699,7 +699,7 @@ Classe arbitre, reçoit tous les événements et les traite.
 
 Les événements sont représentés par une liste Redis `event' à laquelle ils doivent être ajoutés \emph{via} un RPUSH. Chaque élément de la liste est un identifiant de fichier (\emph{fid}) du fichier ayant déclenché l'evénement.
 
-Le \emph{Referee} communique des ordres aux entrées à l'aide d'une \emph{socket} ZMQ PUB, dont le port est stocké dans la clef Redis `referee:publisher'. Le \emph{Plug} de chaque entrée doit souscrire à ce port \emph{via} une \emph{scoket} PULL, et souscrire à tous les événements débutant par son nom.
+Le \emph{Referee} communique des ordres aux entrées à l'aide d'une \emph{socket} ZMQ PUB, dont le port est stocké dans la clef Redis `referee:publisher'. Le \emph{Plug} de chaque entrée doit souscrire à ce port \emph{via} une \emph{socket} PULL, et souscrire à tous les événements débutant par son nom.
 
 Les notifications sont envoyées aux éditeurs sous la forme de messages multipart contenant 3 éléments:
 \begin{itemize}
@@ -737,7 +737,7 @@ Cette classe est une simple abstraction de l'objet \code{redis.Redis} de la bibl
 
 Elle ajoute un attribut \code{session} qui préfixera toutes les clefs de la base Redis par cette session.
 
-Cette clef de session est utilisée par Onitu pour séparer les différentes instances en base. Redis ne gérant qu'un faible nombre de base de données, nous utilisons une base unique, mais préfixons les clefs.
+Cette clef de session est utilisée par Onitu pour séparer les différentes instances en base. Redis ne gérant qu'un faible nombre de bases de données, nous utilisons une base unique, mais préfixons les clefs.
 
 L'attribut de session doit toujours être utilisé.
 
@@ -759,7 +759,7 @@ Vous pouvez passer des arguments supplémentaires à la classe {\hyperref[compon
 \label{contribute:contributing-to-onitu}\label{contribute::doc}
 Onitu est un projet ouvert, dont les sources sont disponibles sur Github, et nous serions très heureux d'intégrer des corrections ou des fonctionnalités de la part de la communauté.
 
-Voici quelques lignes directrices dans le cas où vous vosu plongeriez dans le code ou rencontriez des problèmes.
+Voici quelques lignes directrices dans le cas où vous vous plongeriez dans le code ou rencontriez des problèmes.
 
 
 \subsection{Rapports de bogues}
