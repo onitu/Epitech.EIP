@@ -128,7 +128,7 @@ Note: Ce document est la documentation technique. Si vous souhaitez apprendre à
 \end{notice}
 
 
-\chapter{Contenu}
+\chapter{Table des matières}
 \label{index:onitu-version-technical-documentation}\label{index:content-table}\label{index:user-documentation}
 
 \section{Premiers pas}
@@ -252,7 +252,7 @@ Tous les gestionnaires \textbf{doivent être protégés contre les accès concur
 \end{notice}
 
 La liste des gestionnaires pouvant être définis dans l'état actuel du projet est la suivante:
-\index{get\_chunk() (built-in function)}
+\index{get\_chunk() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:get_chunk}\pysiglinewithargsret{\bfcode{get\_chunk}}{\emph{filename}, \emph{offset}, \emph{size}}{}
@@ -280,7 +280,7 @@ chaîne d'octets
 
 \end{fulllineitems}
 
-\index{upload\_chunk() (built-in function)}
+\index{upload\_chunk() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:upload_chunk}\pysiglinewithargsret{\bfcode{upload\_chunk}}{\emph{filename}, \emph{offset}, \emph{chunk}}{}
@@ -302,7 +302,7 @@ chaîne d'octets
 
 \end{fulllineitems}
 
-\index{start\_upload() (built-in function)}
+\index{start\_upload() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:start_upload}\pysiglinewithargsret{\bfcode{start\_upload}}{\emph{metadata}}{}
@@ -318,7 +318,7 @@ Initialise un nouveau transfert. Le gestionnaire est appelé au lancement d'un n
 
 \end{fulllineitems}
 
-\index{restart\_upload() (built-in function)}
+\index{restart\_upload() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:restart_upload}\pysiglinewithargsret{\bfcode{restart\_upload}}{\emph{metadata}, \emph{offset}}{}
@@ -337,7 +337,7 @@ Relance un transfert défectueux. Ce gestionnaire sera appelé au lancement si u
 
 \end{fulllineitems}
 
-\index{end\_upload() (built-in function)}
+\index{end\_upload() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:end_upload}\pysiglinewithargsret{\bfcode{end\_upload}}{\emph{metadata}}{}
@@ -353,7 +353,7 @@ Appelé lorsqu'un transfert est terminé.
 
 \end{fulllineitems}
 
-\index{abort\_upload() (built-in function)}
+\index{abort\_upload() (fonction built-in)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:abort_upload}\pysiglinewithargsret{\bfcode{abort\_upload}}{\emph{metadata}}{}
@@ -372,7 +372,7 @@ Appelé lorsqu'un transfert est annulé. Cela peut arriver par exemple si une no
 
 
 \subsection{Plug}
-\label{drivers:the-plug}\index{Plug (class in onitu.api)}
+\label{drivers:the-plug}\index{Plug (classe de onitu.api)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug}\pysigline{\strong{class }\code{onitu.api.}\bfcode{Plug}}
@@ -381,7 +381,7 @@ Le \emph{Plug} est la méthode privilégiée pour un pilote de communiquer avec 
 Chaque pilote doit instancier un nouveau \emph{Plug} et en définir les gestionnaires (voir {\hyperref[drivers:onitu.api.Plug.handler]{\code{handler()}}}).
 
 {\hyperref[drivers:onitu.api.Plug.initialize]{\code{initialize()}}} doit être appelée au début de la fonction \emph{start}. Une fois que le pilote est prêt à recevoir des requêtes depuis les autres pilotes, il doit appeler {\hyperref[components:onitu.referee.Referee.listen]{\code{listen()}}}. Cette fonction bloque jusqu'à ce que le pilote soit fermé.
-\index{get\_metadata() (onitu.api.Plug method)}
+\index{get\_metadata() (méthode de onitu.api.Plug)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug.get_metadata}\pysiglinewithargsret{\bfcode{get\_metadata}}{\emph{filename}}{}~\begin{quote}\begin{description}
@@ -403,7 +403,7 @@ Si le fichier n'existe pas dans *Onitu*, il sera créé lors de l'appel à {\hyp
 
 \end{fulllineitems}
 
-\index{handler() (onitu.api.Plug method)}
+\index{handler() (méthode de onitu.api.Plug)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug.handler}\pysiglinewithargsret{\bfcode{handler}}{\emph{task=None}}{}
@@ -429,7 +429,7 @@ Exemple:
 
 \end{fulllineitems}
 
-\index{initialize() (onitu.api.Plug method)}
+\index{initialize() (méthode de onitu.api.Plug)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug.initialize}\pysiglinewithargsret{\bfcode{initialize}}{\emph{name}}{}
@@ -445,7 +445,7 @@ Initialise les différents composants du \emph{Plug}. Le pilote doit l'appeler a
 
 \end{fulllineitems}
 
-\index{listen() (onitu.api.Plug method)}
+\index{listen() (méthode de onitu.api.Plug)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug.listen}\pysiglinewithargsret{\bfcode{listen}}{\emph{wait=True}}{}
@@ -462,7 +462,7 @@ Lance l'écoute des requêtes en provenance des autres pilotes ou du
 
 Cette méthode lance deux exétrons:
 \begin{itemize}
-\item {} \index{Plug.Router (class in onitu.api.router)}
+\item {} \index{Plug.Router (classe de onitu.api.router)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.router.Plug.Router}\pysiglinewithargsret{\strong{class }\bfcode{Router}}{\emph{plug}}{}
@@ -471,7 +471,7 @@ Reçoit et répond aux requêtes provenant des autres pilotes. C'est ce composan
 \end{fulllineitems}
 
 
-\item {} \index{Dealer (class in onitu.api.dealer)}
+\item {} \index{Dealer (classe de onitu.api.dealer)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.dealer.Dealer}\pysiglinewithargsret{\strong{class }\code{onitu.api.dealer.}\bfcode{Dealer}}{\emph{plug}}{}
@@ -486,7 +486,7 @@ Toutes les requêtes sont traitées dans une file d'exétrons.
 
 \end{fulllineitems}
 
-\index{update\_file() (onitu.api.Plug method)}
+\index{update\_file() (méthode de onitu.api.Plug)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.Plug.update_file}\pysiglinewithargsret{\code{Plug.}\bfcode{update\_file}}{\emph{metadata}}{}
@@ -500,87 +500,61 @@ Cette méthode doit être appelée par le pilote après chaque création ou mise
 
 
 \subsection{Metadata}
-\label{drivers:metadata}\index{Metadata (class in onitu.api.metadata)}
+\label{drivers:metadata}\index{Metadata (classe de onitu.api.metadata)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.metadata.Metadata}\pysiglinewithargsret{\strong{class }\code{onitu.api.metadata.}\bfcode{Metadata}}{\emph{plug=None}, \emph{filename=None}, \emph{size=0}}{}
-The Metadata class represent the metadata of any file in Onitu.
+Cette classe représente les métadonnées de tout fichier au sein d'Onitu.
 
-This class should always be instantiated via the
-{\hyperref[drivers:onitu.api.metadata.Metadata.get_by_id]{\code{get\_by\_id()}}} or {\hyperref[drivers:onitu.api.metadata.Metadata.get_by_filename]{\code{get\_by\_filename()}}}
-class methods.
-However, the drivers should never instantiate a new
-{\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} object themselves, but use the
-{\hyperref[drivers:onitu.api.Plug.get_metadata]{\code{Plug.get\_metadata()}}} function.
+Elle doit toujours être instanciée à l'aide des méthodes de classe {\hyperref[drivers:onitu.api.metadata.Metadata.get_by_id]{\code{get\_by\_id()}}} ou {\hyperref[drivers:onitu.api.metadata.Metadata.get_by_filename]{\code{get\_by\_filename()}}}. Cependant, les pilotes ne doivent jamais instancier de nouveaux objets {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} d'eux-mêmes, mais utiliser la fonction {\hyperref[drivers:onitu.api.Plug.get_metadata]{\code{Plug.get\_metadata()}}}.
 
-The attributes available for each file are the following :
+Les attributs possibles pour chaque fichier sont les suivants:
 \begin{description}
-\item[{\textbf{filename}}] \leavevmode
-The absolute filename of the file
+\item[{\textbf{filename}}] \leavevmode-
+Le chemin absolu vers le fichier.
 
-\item[{\textbf{size}}] \leavevmode
-The size of the file, in octets
+\item[{\textbf{size}}] \leavevmode-
+La taille du fichier, en octets.
 
-\item[{\textbf{revision}}] \leavevmode
-This field is specific to each entry. It is a string
-representing the current revision of the file for the
-current entry.
-The drivers should compare an upstream and a local version
-of a file with this field. The format is dependant from the
-driver (it can be whatever you want: a timestamp, a number,
-a hash...).
+\item[{\textbf{revision}}] \leavevmode-
+Ce champ est spécifique à chaque entrée. C'est une chaîne de caractères représentant la version actuelle du fichier pour cette entrée. Le pilote se sert de ce champ pour comparer une version locale avec une version distante. Le format est dépendant du pilote (il peut être ce que vous souhaitez: un \emph{timestamp}, un nombre, un \emph{hash}…).
 
-\item[{\textbf{owners}}] \leavevmode
-The entries which should have this file
+\item[{\textbf{owners}}] \leavevmode-
+La liste des entrées possédant ce fichier.
 
-\item[{\textbf{uptodate}}] \leavevmode
-The entries with an up-to-date version of this file
+\item[{\textbf{uptodate}}] \leavevmode-
+La liste des entrées possédant une version à jour de ce fichier.
 
 \end{description}
-\index{get\_by\_filename() (onitu.api.metadata.Metadata class method)}
+\index{get\_by\_filename() (méthode de classe onitu.api.metadata.Metadata)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.metadata.Metadata.get_by_filename}\pysiglinewithargsret{\strong{classmethod }\bfcode{get\_by\_filename}}{\emph{plug}, \emph{filename}}{}
-Instantiate a new {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} object for the file
-with the given name.
+Instancie un nouvel objet {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} depuis le nom de fichier donné en paramètre.
 
 \end{fulllineitems}
 
-\index{get\_by\_id() (onitu.api.metadata.Metadata class method)}
+\index{get\_by\_id() (méthode de classe onitu.api.metadata.Metadata)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.metadata.Metadata.get_by_id}\pysiglinewithargsret{\strong{classmethod }\bfcode{get\_by\_id}}{\emph{plug}, \emph{fid}}{}
-Instantiate a new {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} object for the file
-with the given id.
+Instancie un nouvel objet {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} depuis l'identifiant de fichier donné en paramètre.
 
 \end{fulllineitems}
 
-\index{revision (onitu.api.metadata.Metadata attribute)}
-
-\begin{fulllineitems}
-\phantomsection\label{drivers:onitu.api.metadata.Metadata.revision}\pysigline{\bfcode{revision}}
-The revision of a file can be any string, and should be
-used to compare the different versions of a file on driver.
-
-Each driver can use its own system of revisions, as it is
-stored for each entry.
-
-\end{fulllineitems}
-
-\index{write() (onitu.api.metadata.Metadata method)}
+\index{write() (méthode de onitu.api.metadata.Metadata)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.metadata.Metadata.write}\pysiglinewithargsret{\bfcode{write}}{}{}
-Write the metadata of the current file in the database.
+Écrit en base les métadonnées du fichier courant.
 
 \end{fulllineitems}
 
-\index{write\_revision() (onitu.api.metadata.Metadata method)}
+\index{write\_revision() (méthode de onitu.api.metadata.Metadata)}
 
 \begin{fulllineitems}
 \phantomsection\label{drivers:onitu.api.metadata.Metadata.write_revision}\pysiglinewithargsret{\bfcode{write\_revision}}{}{}
-Write the current revision in the database. Called
-by {\hyperref[drivers:onitu.api.metadata.Metadata.write]{\code{write()}}}.
+Écrit en base la révision actuelle du fichier. Appelée par {\hyperref[drivers:onitu.api.metadata.Metadata.write]{\code{write()}}}.
 
 \end{fulllineitems}
 
@@ -589,18 +563,18 @@ by {\hyperref[drivers:onitu.api.metadata.Metadata.write]{\code{write()}}}.
 
 
 
-\subsection{Example}
+\subsection{Exemple}
 \label{drivers:example}
-Usually, the drivers are created as a set of functions in a single file, with the Plug in a global variable. However, you can use a different style if you want, such as a class.
+Généralement, les pilotes sont créés sous la forme d'un ensemble de fonctions dans un même fichier, avec une variable globale pour le \emph{Plug}. Cependant, vous pouvez utiliser un autre style à votre convenance, comme une classe par exemple.
 
-Here is an example of a simple driver working with the local file system :
+Vous trouverez ci-dessous l'exemple d'un simple pilote gérant le système de fichiers local:
 
 \begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
 \PYG{k+kn}{import} \PYG{n+nn}{os}
 
 \PYG{k+kn}{from} \PYG{n+nn}{onitu.api} \PYG{k+kn}{import} \PYG{n}{Plug}
 
-\PYG{c}{\PYGZsh{} A dummy library supposed to watch the file system}
+\PYG{c}{\PYGZsh{} Une bibliothèque factice supposée surveiller le système de fichiers}
 \PYG{k+kn}{from} \PYG{n+nn}{fsmonitor} \PYG{k+kn}{import} \PYG{n}{FSWatcher}
 
 \PYG{n}{plug} \PYG{o}{=} \PYG{n}{Plug}\PYG{p}{(}\PYG{p}{)}
@@ -628,7 +602,7 @@ Here is an example of a simple driver working with the local file system :
 
 \PYG{k}{class} \PYG{n+nc}{Watcher}\PYG{p}{(}\PYG{n}{FSWatcher}\PYG{p}{)}\PYG{p}{:}
     \PYG{k}{def} \PYG{n+nf}{on\PYGZus{}update}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{filename}\PYG{p}{)}\PYG{p}{:}
-        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Called each time an update of a file is detected}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Appelée chaque fois qu'une mise à jour de fichier est détectée}
 \PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
         \PYG{n}{metadata} \PYG{o}{=} \PYG{n}{plug}\PYG{o}{.}\PYG{n}{get\PYGZus{}metadata}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)}
         \PYG{n}{metadata}\PYG{o}{.}\PYG{n}{revision} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{getmtime}\PYG{p}{(}\PYG{n}{metadata}\PYG{o}{.}\PYG{n}{filename}\PYG{p}{)}
@@ -636,13 +610,13 @@ Here is an example of a simple driver working with the local file system :
         \PYG{n}{plug}\PYG{o}{.}\PYG{n}{update\PYGZus{}file}\PYG{p}{(}\PYG{n}{metadata}\PYG{p}{)}
 
     \PYG{k}{def} \PYG{n+nf}{check\PYGZus{}changes}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{p}{:}
-        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Check the changes on the file system since the last launch}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Vérifie les changements sur le système de fichiers depuis le dernier lancement}
 \PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
         \PYG{k}{for} \PYG{n}{filename} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{files}\PYG{p}{:}
             \PYG{n}{revision} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{getmtime}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)}
             \PYG{n}{metadata} \PYG{o}{=} \PYG{n}{plug}\PYG{o}{.}\PYG{n}{get\PYGZus{}metadata}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)}
 
-            \PYG{c}{\PYGZsh{} If the file is more recent}
+            \PYG{c}{\PYGZsh{} Si le fichier est plus récent}
             \PYG{k}{if} \PYG{n}{revision} \PYG{o}{\PYGZgt{}} \PYG{n}{metadata}\PYG{o}{.}\PYG{n}{revision}\PYG{p}{:}
                 \PYG{n}{metadata}\PYG{o}{.}\PYG{n}{revision} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{getmtime}\PYG{p}{(}\PYG{n}{metadata}\PYG{o}{.}\PYG{n}{filename}\PYG{p}{)}
                 \PYG{n}{metadata}\PYG{o}{.}\PYG{n}{size} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{getsize}\PYG{p}{(}\PYG{n}{metadata}\PYG{o}{.}\PYG{n}{filename}\PYG{p}{)}
@@ -663,55 +637,52 @@ Here is an example of a simple driver working with the local file system :
 \end{Verbatim}
 
 
-\section{Components documentation}
+\section{Documentation des composants}
 \label{components::doc}\label{components:components-documentation}
-Here is the documentation of the parts not covered yet. You should not have to worry about those parts if you are writing a new driver, but they can be very useful if you want to hack the core of Onitu.
+Ici figure la documentation des composants non couverts par les précédentes sections. Vous n'avez pas à vous occupper de cette section si vous développez un pilote, mais elle peut être très utile si vous vous intéressez au cœur d'Onitu.
 
 
 \subsection{Launcher}
 \label{components:launcher}\label{components:module-onitu.__main__}\index{onitu.\_\_main\_\_ (module)}
-This module starts Onitu. It does the following:
+Ce module s'occupe du lancement d'Onitu, en réalisant les opérations suivantes:
 \begin{itemize}
 \item {} 
-parse the command line options
+Évaluer les options de la ligne de commande
 
 \item {} 
-configure the logger
+Configurer l'outil de journalisation
 
 \item {} 
-parse the setup
+Analyser le fichier de configuration
 
 \item {} 
-clean the database
+Nettoyer la base de données
 
 \item {} 
-launch the different elements using the Circus library
+Lancer les différents composants à l'aide de la bibliothèque *Circus*
 
 \end{itemize}
-\index{get\_logs\_dispatcher() (in module onitu.\_\_main\_\_)}
+\index{get\_logs\_dispatcher() (module onitu.\_\_main\_\_)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.__main__.get_logs_dispatcher}\pysiglinewithargsret{\code{onitu.\_\_main\_\_.}\bfcode{get\_logs\_dispatcher}}{\emph{uri=None}, \emph{debug=False}}{}
-Configure the dispatcher that will print the logs received
-on the ZeroMQ channel.
+Configure le répartiteur qui affichera les journaux reçus sur le canal ZeroMQ.
 
 \end{fulllineitems}
 
-\index{start\_setup() (in module onitu.\_\_main\_\_)}
+\index{start\_setup() (module onitu.\_\_main\_\_)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.__main__.start_setup}\pysiglinewithargsret{\code{onitu.\_\_main\_\_.}\bfcode{start\_setup}}{\emph{*args}, \emph{**kwargs}}{}
-Parse the setup JSON file, clean the database,
-and start the {\hyperref[components:onitu.referee.Referee]{\code{Referee}}} and the drivers.
+Analyse un fichier de configuration JSON, nettoie la base de données, démarre le {\hyperref[components:onitu.referee.Referee]{\code{Referee}}} et les pilotes.
 
 \end{fulllineitems}
 
-\index{start\_watcher() (in module onitu.\_\_main\_\_)}
+\index{start\_watcher() (module onitu.\_\_main\_\_)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.__main__.start_watcher}\pysiglinewithargsret{\code{onitu.\_\_main\_\_.}\bfcode{start\_watcher}}{\emph{*args}, \emph{**kwargs}}{}
-Start a Circus Watcher.
-If a command is already running, we try again.
+Démarre un superviseur Circus. Si une commande est déjà en cours d'exécution, renouvelle l'essai.
 
 \end{fulllineitems}
 
@@ -719,40 +690,34 @@ If a command is already running, we try again.
 
 \subsection{Referee}
 \label{components:referee}
-The role of the Referee is to receive the events emitted by the drivers, and to send notifications to the other drivers accordingly to the configuration rules.
-\index{Referee (class in onitu.referee)}
+Le rôle du \emph{Referee} est de recevoir les événements émis par les pilotes, et d'envoyer des notifications aux autres pilotes, en fonction des règles de configuration.
+\index{Referee (classe de onitu.referee)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.referee.Referee}\pysigline{\strong{class }\code{onitu.referee.}\bfcode{Referee}}
-Referee class, receive all events and deal with them.
+Classe arbitre, reçoit tous les événements et les traite.
 
-The events are represented as Redis List `events' that should be
-appended with RPUSH. Each item is the file id (fid) of the file
-which triggered the event.
+Les événements sont représentés par une liste Redis `event' à laquelle ils doivent être ajoutés \emph{via} un RPUSH. Chaque élément de la liste est un identifiant de fichier (\emph{fid}) du fichier ayant déclenché l'evénement.
 
-The Referee give orders to the entries via his PUB ZMQ socket,
-whose port is stored in the Redis `referee:publisher' key.
-The Plug of each entry should subscribe to this port with a PULL
-socket and subscribe to all the events starting by their name.
+Le \emph{Referee} communique des ordres aux entrées à l'aide d'une \emph{socket} ZMQ PUB, dont le port est stocké dans la clef Redis `referee:publisher'. Le \emph{Plug} de chaque entrée doit souscrire à ce port \emph{via} une \emph{scoket} PULL, et souscrire à tous les événements débutant par son nom.
 
-The notifications are sent to the publishers as multipart
-messages with three parts :
+Les notifications sont envoyées aux éditeurs sous la forme de messages multipart contenant 3 éléments:
 \begin{itemize}
 \item {} 
-The name of the addressee (the channel)
+Le nom de l'\emph{addressee} (du canal)
 
 \item {} 
-The name of the entry from which the file should be transferred
+Le nom de l'entrée depuis laquelle le fichier doit être transféré
 
 \item {} 
-The id of the file
+L'identifiant du fichier
 
 \end{itemize}
-\index{listen() (onitu.referee.Referee method)}
+\index{listen() (méthode de onitu.referee.Referee)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.referee.Referee.listen}\pysiglinewithargsret{\bfcode{listen}}{}{}
-Listen to all the events, and handle them
+Écoute tous les événements, et les traite.
 
 \end{fulllineitems}
 
@@ -761,126 +726,116 @@ Listen to all the events, and handle them
 
 
 
-\subsection{Utils}
+\subsection{Utilitaires}
 \label{components:utils}\label{components:module-onitu.utils}\index{onitu.utils (module)}
-This module provides a set of classes and functions useful in several
-parts of Onitu.
-\index{Redis (class in onitu.utils)}
+Ce module fournit un ensemble de classes et de fonctions utiles dans plusieurs composants d'Onitu.
+\index{Redis (classe de onitu.utils)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.utils.Redis}\pysiglinewithargsret{\strong{class }\code{onitu.utils.}\bfcode{Redis}}{\emph{*args}, \emph{**kwargs}}{}
-This is a simple wrapper around the \code{redis.Redis} object
-from the redis-py library.
+Cette classe est une simple abstraction de l'objet \code{redis.Redis} de la bibliothèque redis-py.
 
-It adds a \code{session} attribute, which can be used as a
-standard \code{redis.Redis} object, but will prefix every key
-by the current session-key.
+Elle ajoute un attribut \code{session} qui préfixera toutes les clefs de la base Redis par cette session.
 
-This session key is used by Onitu to separate the different
-sessions in the database. As Redis only handles a small finite
-number of databases, we use a single database, but prefix all the
-keys.
+Cette clef de session est utilisée par Onitu pour séparer les différentes instances en base. Redis ne gérant qu'un faible nombre de base de données, nous utilisons une base unique, mais préfixons les clefs.
 
-The session attribute should always be used.
+L'attribut de session doit toujours être utilisé.
 
 \end{fulllineitems}
 
-\index{connect\_to\_redis() (in module onitu.utils)}
+\index{connect\_to\_redis() (module onitu.utils)}
 
 \begin{fulllineitems}
 \phantomsection\label{components:onitu.utils.connect_to_redis}\pysiglinewithargsret{\code{onitu.utils.}\bfcode{connect\_to\_redis}}{\emph{*args}, \emph{**kwargs}}{}
-This class return a new {\hyperref[components:onitu.utils.Redis]{\code{Redis}}} object, ready to
-receive requests, with the session enabled.
-It blocks until the connection is made.
+Cette fonction retourne un nouvel objet {\hyperref[components:onitu.utils.Redis]{\code{Redis}}}, prêt à recevoir des requêtes, et avec une session activée. La fonction bloque jusqu'à ce que la connexion soit faite.
 
-You can pass extra arguments to the {\hyperref[components:onitu.utils.Redis]{\code{Redis}}} class by
-giving them to this function.
+Vous pouvez passer des arguments supplémentaires à la classe {\hyperref[components:onitu.utils.Redis]{\code{Redis}}} en les fournissant à cette fonction.
 
 \end{fulllineitems}
 
 
 
-\section{Contributing to Onitu}
+\section{Contribuer à Onitu}
 \label{contribute:contributing-to-onitu}\label{contribute::doc}
-Onitu is an opensource project, all of our codebase is available on Github and we would be very happy to include fixes or features from the comunity.
+Onitu est un projet ouvert, dont les sources sont disponibles sur Github, et nous serions très heureux d'intégrer des corrections ou des fonctionnalités de la part de la communauté.
 
-Here are some guidelines on what to look out for if you are hacking the code or having issues.
+Voici quelques lignes directrices dans le cas où vous vosu plongeriez dans le code ou rencontriez des problèmes.
 
 
-\subsection{Reporting issues}
+\subsection{Rapports de bogues}
 \label{contribute:reporting-issues}
-When you encounter an issue with Onitu we'dd love to hear about it. Not that we particularly like having problems with the codebase, but its better to fix them than to leave them in there.
-If you submit a bug report please include all the information available to you, here are some things you can do:
+Quand vous rencontrez des problèmes avec Onitu, nous aimons en être informés. Non pas que nous aimions que des bogues surviennent dans Onitu, mais il est préférable de les corriger que de les laisser en place.
+
+Si vous êtes amené à faire un rapport de bogue, pensez à inclure toutes les informations que vous avez en votre possession, voici quelques conseils pour avoir un rapport le plus pertinent possible:
 \begin{itemize}
 \item {} 
-If the problem is reproductible you can restart Onitu in debugging mode.
+Si le problème est reproductible, relancez Onitu en mode de débogage.
 
 \item {} 
-Onitu generate logging output, this is very usefull to us.
+Onitu journalise son exécution sur la sortie, cette sortie nous est très utile pour la compréhension du problème.
 
 \item {} 
-Try to simplify the things you are doing until getting a minimal set of actions reproducing the problem.
+Tentez de simplifier le problème en ne gardant que l'ensemble minimal d'actions permettant de le reproduire.
 
 \end{itemize}
 
 
-\subsection{Running the tests}
+\subsection{Lancement des tests}
 \label{contribute:tests}\label{contribute:running-the-tests}
-If you developed a new feature or simply want to try out an instalation of Onitu you can run the unit tests. For this you will need to install the requirements for the testing framework, this can easily be done using:
-\begin{itemize}
-\item {} 
-\emph{pip install -r requirements\_dev.txt}
+Si vous développez une nouvelle fonctionnalité ou souhaitez simplement tester votre installation d'Onitu, vous pouvez exécuter les tests unitaires.
 
-\end{itemize}
+Pour cela, vous devrez installer les dépendances nécessaires au dispositif de tests, ce qui peut facilement être réalisé par la commande \emph{pip install -r requirements\_dev.txt}.
 
-The unit tests can be launched by the command \emph{py.test tests/}. You can also use \emph{tox} in order to automatically generate a clean and functionnal environment for executing the tests.
+Les tests unitaires peuvent être lancés à l'aide de la commande \emph{py.test tests/}. Vous pouvez aussi vous aider de \emph{tox} afin de générer automatiquement un environnement propre et fonctionnel pour le lancement des tests.
 
-Finnaly, some environment variables are useful to execute the tests, they are:
+Enfin, quelques variables d'environnement que voici peuvent vous être utiles lors de l'exécution des tests:
 \begin{quote}
 \begin{description}
 \item[{ONITU\_TEST\_TIME\_UNIT}] \leavevmode
-Many tests are based on timeout to consider a transfer as failed. This variable contains thus a number of seconds corresponding to a time unit, \emph{1s} by default.
+Plusieurs tests se basent sur un délai d'exécution avant de considérer un transfert en échec. Cette variable contient donc un nombre de secondes correspondant à l'unité de temps, \emph{1s} par défaut.
 
 \item[{ONITU\_TEST\_DRIVER}] \leavevmode
-The tests set is only executed for one driver at a time. This variable is used to determine which driver will be tested, and can contains values such as \emph{local\_storage} or \emph{ssh}.
+La batterie de tests n'est exécutée que pour un pilote à la fois, cette variable permet de déterminer quel pilote sera testé, et peut donc prendre des valeurs telles que \emph{local\_storage} ou \emph{ssh}.
 
 \end{description}
 \end{quote}
 
 
-\subsection{Good practices with Git}
+\subsection{Bonnes pratiques d'utilisation de Git}
 \label{contribute:good-practices-with-git}
-In order to maintain the project while including contributions from the opensource comunity we need to have some rules in place. This is especialy true with regard to the use of Git.
+Afin de maintenir le projet tout en intégrant les contributions externes, nous avons besoin de mettre en place certaines règles. Ceci est d'autant plus vrai au regard de l'utilisation de Git.
 
-When developing new features this should always be done on feature branches that are dedicated to that particular feature. Once the feature is ready, the feature branch should be rebased on the current develop branch before doing a pull request.
+Chaque développement de nouvelle fonctionnalité doit être fait dans une branche qui lui est propre. Une fois la fonctionnalité prête à être intégrée, la branche doit être rebasée sur l'état actuel de la branche \emph{develop}, avant de faire une demande de \emph{pull request}.
 
-The maintainers of the develop branch will then review the pull request and merge it into develop when its ready. They might ask you to do some changes beforehand.
+Les mainteneurs de la branche \emph{develop} pourront ensuite intégrer la fonctionnalité au moment venu. Ils pourraient auparavant vous demander d'effectuer quelques changements sur votre travail.
 
-You should never merge master onto your feature branch, instead always use rebase on local code.
+Vous ne devez jamais fusionner la branche \emph{master} sur votre branche de développement, préférez à la place rebaser votre branche.
 
 
-\subsection{Coding style}
+\subsection{Style de codage}
 \label{contribute:coding-style}
-The code you contribute to the project should respect the guidelines defined in \index{Python Enhancement Proposals!PEP 008}\href{http://www.python.org/dev/peps/pep-0008}{\textbf{PEP 008}}, you can use a tool such as flake8 to check if this is the case. In case you're wondering: we use four spaces indentation.
+Vos contributions au projet doivent respecter les règles définies par la \index{Python Enhancement Proposals!PEP 008}\href{http://www.python.org/dev/peps/pep-0008}{\textbf{PEP 008}}, vous pouvez utiliser un outil tel que flake8 pour vérifier que votre code est en accord avec ces règles.
 
-Please take those rules into account, we aim to have a clean codebase and codestyle is a big part of that. Your code will be checked when we consider your pull requests.
+Dans le cas où vous vous poseriez la question, l'indentation utilisée est de quatre espaces.
+
+Merci de prendre en considération ces quelques règles, qui assurent au projet de rester propre. Chaque demande de \emph{pull request} sera étudiée afin de regarder en premier lieu si le code fourni les respecte.
 
 
 \section{Changelog}
 \label{changelog::doc}\label{changelog:changelog}
-You can find a detailed summary of the changes between the releases on \href{https://github.com/onitu/onitu/releases}{Github}. Here is a brief summary :
+Vous trouverez un détail des changements entre les versions sur le \href{https://github.com/onitu/onitu/releases}{Github} du projet. Retrouvez ci-dessous un bref résumé:
 
 
 \subsection{0.1}
 \label{changelog:id1}
-First release.
+Première version
 
-The Referee can handle simple rules based on the path, the size and the file extension.
+Le \emph{Referee} peut traiter de simples règles basées sur le chemin, la taille et l'extension du fichier.
 
-Four drivers are available :
+Quatre pilotes sont disponibles:
 \begin{itemize}
 \item {} 
-Local storage
+Fichiers locaux (\emph{Local storage})
 
 \item {} 
 Dropbox
@@ -893,10 +848,10 @@ SSH
 
 \end{itemize}
 
-The test suite cover the Referee and the drivers. Some benchmarks are available.
+La suite de tests couvre l'ensemble du \emph{Referee} et des pilotes. Quelques tests de performance sont disponibles.
 
 
-\chapter{Indices and tables}
+\chapter{Table d'index}
 \label{index:indices-and-tables}\begin{itemize}
 \item {} 
 \emph{genindex}
@@ -910,7 +865,7 @@ The test suite cover the Referee and the drivers. Some benchmarks are available.
 \end{itemize}
 
 
-\renewcommand{\indexname}{Python Module Index}
+\renewcommand{\indexname}{Index des modules Python}
 \begin{theindex}
 \def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
 \bigletter{o}
