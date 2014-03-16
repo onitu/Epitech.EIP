@@ -138,7 +138,7 @@ Note: Ce document est la documentation technique. Si vous souhaitez apprendre à
 \label{intro:onitu-at-a-glance}
 Onitu est chargé de traiter un grand nombre d'événements provenant de services variés. Il est ainsi contruit autour d'un modèle asynchrone. Chaque composant s'exécute dans un processus séparé, et la communication est assurée par des messages ZeroMQ et à l'aide d'une base de données Redis.
 
-Afin de synchroniser les fichiers entre différents services externes, Onitu s'appuie sur un système de pilotes (*drivers*). Vous trouverez plus d'informations à ce sujet dans la rubrique {\hyperref[drivers::doc]{\emph{Création d'un nouveau pilote}}}. Chaque pilote émet et reçoit des ordres depuis le {\hyperref[components:onitu.referee.Referee]{\code{Referee}}}, qui s'occupe de déterminer où les fichiers doivent être synchronisés, suivant les règles de configuration.
+Afin de synchroniser les fichiers entre différents services externes, Onitu s'appuie sur un système de pilotes (\emph{drivers}). Vous trouverez plus d'informations à ce sujet dans la rubrique {\hyperref[drivers::doc]{\emph{Création d'un nouveau pilote}}}. Chaque pilote émet et reçoit des ordres depuis le {\hyperref[components:onitu.referee.Referee]{\code{Referee}}}, qui s'occupe de déterminer où les fichiers doivent être synchronisés, suivant les règles de configuration.
 
 
 \subsection{Glossaire}
@@ -175,7 +175,7 @@ Vous pouvez ici trouver une illustration de l'architecture globale d'Onitu: {\hy
 \capstart
 
 \includegraphics{global_archi.png}
-\caption{Un schéma illustrant l'architecture globale d'*Onitu*, avec deux pilotes.}\label{intro:schematic}\end{figure}
+\caption{Un schéma illustrant l'architecture globale d'Onitu, avec deux pilotes.}\label{intro:schematic}\end{figure}
 
 
 \subsection{Dépendances}
@@ -199,14 +199,14 @@ Une bibliothèque de journalisation, permettant à Onitu l'écriture sur un cana
 
 \subsection{Choix techniques}
 \label{intro:logbook}\label{intro:technical-choices}
-Nous avons effectué quelques choix laborieux afin de construire *Onitu* dans une voie la plus efficiente et maintenable possible. Ces choix peuvent être discutables, mais en voici nos motivations:
+Nous avons effectué quelques choix laborieux afin de construire Onitu dans une voie la plus efficiente et maintenable possible. Ces choix peuvent être discutables, mais en voici nos motivations:
 
 
 \subsubsection{Python}
 \label{intro:python}
 Python est un langage polyvalent et flexible. Il fut notre premier choix, comme nous l'utilisions déjà tous et l'apprécions. Il nous permet de distribuer Onitu très facilement, sans avoir à compiler les sources ou fournir des binaires. Python est disponible sur un grand nombre de systèmes, possède de nombreuses fonctionnalités intégrées, et est simple à lire et à comprendre.
 
-Vous aez probablement des préoccupations au niveau de la vitesse, mais *Onitu* est une application limitée par les entrées/sorties, une grande partie du temps d'exécution n'est pas dédiée à l'interprétation du code Python mais au téléchargement de fichiers ou à l'échange d'informations sur des *sockets*. Le même programme écrit dans un langage bas-niveau tel que le C serait beaucoup plus complexe, et montrerait probablement un faible gain de performances.
+Vous avez probablement des préoccupations au niveau de la vitesse, mais Onitu est une application limitée par les entrées/sorties, une grande partie du temps d'exécution n'est pas dédiée à l'interprétation du code Python mais au téléchargement de fichiers ou à l'échange d'informations sur des \emph{sockets}. Le même programme écrit dans un langage bas-niveau tel que le C serait beaucoup plus complexe, et montrerait probablement un faible gain de performances.
 
 
 \subsubsection{ZeroMQ}
@@ -218,7 +218,7 @@ ZeroMQ est très rapide, disponible sur un grand nombre de plates-formes, et pos
 
 \subsubsection{Redis}
 \label{intro:redis}
-Onitu nécessite l'enregistrement d'informations dans une base de données persistante. Cette base doit être multiplate-forme, sans schémas, et simple à installer et maintenir. C'est dans cette optique que nous nous sommes portés sur Redis. Cependant, Redis n'est pas disponible dans la même version sur toutes les plates-formes, et n'est pas réellement persistant. Aussi, la base de données entière est chargée en mémoire, limitant donc sa taille. Ainsi, une nouvelle solution viendra sous peu remplacer *Redis*, ne répondant pas parfaitement aux besoins.
+Onitu nécessite l'enregistrement d'informations dans une base de données persistante. Cette base doit être multiplate-forme, sans schémas, et simple à installer et maintenir. C'est dans cette optique que nous nous sommes portés sur Redis. Cependant, Redis n'est pas disponible dans la même version sur toutes les plates-formes, et n'est pas réellement persistant. Aussi, la base de données entière est chargée en mémoire, limitant donc sa taille. Ainsi, une nouvelle solution viendra sous peu remplacer Redis, ne répondant pas parfaitement aux besoins.
 
 
 \section{Création d'un nouveau pilote}
@@ -232,7 +232,7 @@ Les différents pilotes communiquent avec Onitu \emph{via} la classe {\hyperref[
 
 Les transferts de fichiers au sein d'Onitu se font par blocs. Quand un nouveau transfert débute, le {\hyperref[drivers:onitu.api.Plug]{\code{Plug}}} demande des blocs de données aux autres pilotes, et appelle ensuite le gestionnaire \emph{upload\_chunk}.
 
-Chaque pilote doit contenir une fonction \emph{start}, prenant un nom en premier paramètre et ne retournant rien. Le nom est choisi par l'utilisateur lors de la configuration du pilote. Cette fonction est appelée par *Onitu* au moment de l'initialisation du pilote, et ne doit pas retourner avant la fin de vie du pilote (\emph{cf} {\hyperref[drivers:onitu.api.Plug.listen]{\code{Plug.listen()}}}).
+Chaque pilote doit contenir une fonction \emph{start}, prenant un nom en premier paramètre et ne retournant rien. Le nom est choisi par l'utilisateur lors de la configuration du pilote. Cette fonction est appelée par Onitu au moment de l'initialisation du pilote, et ne doit pas retourner avant la fin de vie du pilote (\emph{cf} {\hyperref[drivers:onitu.api.Plug.listen]{\code{Plug.listen()}}}).
 
 Quand un pilote détecte la mise à jour d'un fichier, il doit actualiser les {\hyperref[drivers:onitu.api.metadata.Metadata]{\code{Metadata}}} du fichier, en spécifiant une {\hyperref[drivers:onitu.api.metadata.Metadata.revision]{\code{Metadata.revision}}}, et appeler :meth.{}`.Plug.update\_file{}`.
 
@@ -399,7 +399,7 @@ Chaque pilote doit instancier un nouveau \emph{Plug} et en définir les gestionn
 
 \end{description}\end{quote}
 
-Si le fichier n'existe pas dans *Onitu*, il sera créé lors de l'appel à {\hyperref[drivers:onitu.api.metadata.Metadata.write]{\code{Metadata.write()}}}.
+Si le fichier n'existe pas dans Onitu, il sera créé lors de l'appel à {\hyperref[drivers:onitu.api.metadata.Metadata.write]{\code{Metadata.write()}}}.
 
 \end{fulllineitems}
 
@@ -659,7 +659,7 @@ Analyser le fichier de configuration
 Nettoyer la base de données
 
 \item {} 
-Lancer les différents composants à l'aide de la bibliothèque *Circus*
+Lancer les différents composants à l'aide de la bibliothèque Circus
 
 \end{itemize}
 \index{get\_logs\_dispatcher() (module onitu.\_\_main\_\_)}
@@ -821,7 +821,7 @@ Dans le cas où vous vous poseriez la question, l'indentation utilisée est de q
 Merci de prendre en considération ces quelques règles, qui assurent au projet de rester propre. Chaque demande de \emph{pull request} sera étudiée afin de regarder en premier lieu si le code fourni les respecte.
 
 
-\section{Changelog}
+\section{Notes de version}
 \label{changelog::doc}\label{changelog:changelog}
 Vous trouverez un détail des changements entre les versions sur le \href{https://github.com/onitu/onitu/releases}{Github} du projet. Retrouvez ci-dessous un bref résumé:
 
