@@ -1,0 +1,46 @@
+\renewcommand{\chaptername}{}
+\renewcommand{\thechapter}{}
+
+\chapter{Scope Baseline}
+
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{center}\begin{tabular}{|l l|l|l|}
+
+\hline
+\rowcolor{epiBlue}
+\rowstyle{ \color{gray} \bfseries}
+\textcolor{lightGray}{\textbf{ID}} & \textcolor{lightGray}{\textbf{Fonctionnalité}} & \textcolor{lightGray}{\textbf{Description}} & \textcolor{lightGray}{\textbf{\% Réalisé}} \tabularnewline
+\hline
+\rowcolor{lightGray}
+	\textbf{1} & \textbf{Serveur} & \textbf{La partie serveur d'Onitu} & \textbf{70} \tabularnewline
+\hline
+	1.1 & \textbf{Plug} & L'API centrale entre serveur et drivers & 50 \tabularnewline
+\hline
+	1.2 & \textbf{Base de données} & La base de données d'Onitu (Escalator) & 90 \tabularnewline
+\hline
+\rowcolor{lightGray}
+	\textbf{2} & \textbf{Drivers} & \textbf{Les interfaces d'Onitu avec les services externes} & \textbf{70} \tabularnewline
+\hline
+	2.1 & \textbf{Local Storage} & Le driver du système de fichiers local & 95 \tabularnewline
+\hline
+	2.2 & \textbf{Dropbox} & Le driver communiquant avec l'API Dropbox & 90 \tabularnewline
+\hline
+	2.3 & \textbf{Google Drive} & Le driver communiquant avec l'API Google Drive & 90 \tabularnewline
+\hline
+	2.4 & \textbf{SSH} & Le driver pour systèmes de fichiers distants via SSH & 50 \tabularnewline
+\hline
+	2.5 & \textbf{Amazon S3} & Le driver communiquant avec l'API Amazon S3 & 90 \tabularnewline
+\hline
+	2.6 & \textbf{Flickr} & Le driver communiquant avec l'API Flickr & 0 \tabularnewline
+\hline
+\rowcolor{lightGray}
+	\textbf{3} & \textbf{Clients légers} & \textbf{L'interface entre l'utilisateur et le serveur Onitu} & \textbf{10} \tabularnewline
+\hline
+	3.1 & \textbf{Client Web} & Le client proposant une interface Web pour navigateur & 20 \tabularnewline
+\hline
+	3.2 & \textbf{Client système} & Le client sous forme de logiciel graphique écrit en Qt & 0 \tabularnewline
+
+\hline
+\end{tabular}\end{center}
