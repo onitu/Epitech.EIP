@@ -12,6 +12,7 @@
 \usepackage{datetime}	% to allow us set a new date formatting
 \usepackage{multirow}   % to allow multirows in tables
 \usepackage[colorlinks,linkcolor=black]{hyperref}
+\usepackage{palatino}
 %% \usepackage[colorlinks=false, urlcolor=blue, breaklinks, pagebackref, citebordercolor={0 0 0}, filebordercolor={0 0 0}, linkbordercolor={0 0 0}, pagebordercolor={0 0 0},
 %%                      runbordercolor={0 0 0}, urlbordercolor={0 0 0}, pdfborder={0 0 0}]{hyperref}
 
@@ -38,7 +39,7 @@
 \newcommand{\SubTitle}{Cahier des Charges 2 (CDC2)}
 
 % Defining some logo image names
-\newcommand{\ProjectLogo}{}
+\newcommand{\ProjectLogo}{logo_onitu}
 \newcommand{\EIPLogo}{logo_eip.png}
 % Setting the space between each page's header and its content
 \setlength{\headsep}{0.2in}
@@ -57,7 +58,7 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
 	\fancyfoot[L]{}
 	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
@@ -70,9 +71,9 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
-	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\scriptsize{\leftmark}}}}}
+	\fancyfoot[L]{\textbf{\underline{\scriptsize{\leftmark}}}}
 	\fancyfoot[C]{}
 	\fancyfoot[R]{
 		\thepage/\pageref{LastPage}
@@ -93,7 +94,7 @@
 
 
 \begin{document}
-\fontfamily{cm}\selectfont
+%\fontfamily{cm}\selectfont
 \addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
 \maketitle
 
@@ -111,7 +112,7 @@
 \hline
 	Date & \dashDate\today \\
 \hline
-	Auteur & Alexandre BARON\\
+	Auteur & Alexandre Baron\\
 \hline
 	Responsable & Louis Roché\\
 \hline
@@ -148,6 +149,10 @@
 	06/05/2013 & Louis Roché & Titre & Corrections du titre \\
 \hline
 	15/05/2013 & Alexandre Baron & Template & Retiré l'icône, mis les titres en bas à gauche\\
+\hline
+	30/05/2014 & Alexandre Baron & Document & Relecture, corrections et mises à jour\\
+
+
 \hline
 \end{tabular}
 

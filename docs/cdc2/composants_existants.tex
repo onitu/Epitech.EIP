@@ -1,9 +1,11 @@
 \section{Composants existants}
 \thispagestyle{EIP} % seems mandatory
-Divers clients utilisant l'API d'Ubuntu One existent, sur plusieurs plateformes. Onitu est compatible avec tous ces clients, à condition qu'ils permettent de choisir un serveur.\\
+Nous nous servons au sein de notre projet des bibliothèques et des API mises à disposition par les organisations gérant les services qu'Onitu utilise, par le biais de ses \textit{drivers}.
 
-Le protocole d'Ubuntu One, \textit{ubuntuone-storage-protocol}, utilise les \textbf{Protocol Buffers}, solution d'organisation de données développée par Google. Onitu utilise le même protocole et les mêmes outils.\\
+Ce choix est logique dans le sens où il nous permet d'utiliser des briques logicielles dont la qualité a été testée par les organisations elles-mêmes, ce qui nous en évite la maintenance.
 
-La communication réseau est en grande partie développée à l'aide de \textbf{Twisted}, un framework Python de programmation réseau événementielle (\emph{event-driven}). Ce framework est très utilisé, et son développement actif.\\
+Cependant, le choix d'user de ces bibliothèques reste libre pour les personnes souhaitant développer un \textit{driver}. Cependant, il doit être raisonnable et ne pas aller à l'encontre des contraintes de portabilité.
 
-Diverses bibliothèques peuvent être utilisées pour communiquer avec les différents services, par le biais des \textit{drivers}. Le choix de ces bibliothèques reste libre pour les personnes souhaitant développer un \textit{driver}. Cependant, il doit être raisonnable et ne pas aller à l'encontre des contraintes de portabilité.
+Nous nous servons, pour la base de données d'Onitu, d'une interface Python à \textbf{LevelDB} (Plyvel), qui est une base de données développé par Google. Son principal intérêt pour notre application est qu'il s'agit d'un logiciel NoSQL, sans modèle relationnel: en effet, les drivers d'Onitu pouvant chacun avoir des besoins très spécifiques, il est important pour nous d'avoir une base de données flexible pouvant répondre à plusieurs schémas différents.
+
+Pour surveiller et gérer les processus et sockets ouverts par Onitu, nous nous servons du programme Python \textbf{Circus}. Il nous est utile pour organiser les événements au sein du serveur. De plus, comme il s'agit d'un logiciel open source, notre groupe est activement impliqué dans son développement pour qu'il réponde davantage à nos besoins (des pull requests ont déjà été acceptées, et nous travaillons actuellement à son portage en environnement Windows).

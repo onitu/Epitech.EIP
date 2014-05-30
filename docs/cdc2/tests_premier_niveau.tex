@@ -4,9 +4,10 @@ Des tests sur chacune des parties du projet doivent donc être créés au fur et
 
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
-\item L'API Ubuntu One, pour s'assurer que toutes les communications avec les clients existants se déroulent correctement ;
-\item La bonne copie et l'envoie des fichiers quand ils sont ajoutés dans un dossier qui est synchronisé ;
-\item Windows
+	\item L'intégrité des fichiers après synchronisation entre deux services différents;
+	\item La portabilité, le bon fonctionnement de l'application autant en environnements Unix que sur Windows;
+	\item Les régressions introduites par de nouveaux changements: nous devons nous assurer à chaque modification que l'ensemble du code reste cohérent et qu'elle n'engendre pas de nouveaux bogues;
+	\item La rapidité: au moyen de \emph{benchmarks}, il est nécessaire d'étudier les performances de l'application afin de cibler de possibles goulots d'étranglement et conserver un logiciel le plus rapide possible.
 \end{itemize}
 
 \vspace{0.5cm}
@@ -16,5 +17,5 @@ Pour faciliter ces tests et être certain qu'ils sont effectués de manière ré
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
 \item \href{https://travis-ci.org}{travis} qui est un service web lié à Github ;
-\item \href{http://jenkins-ci.org}{jenkins} qui est un logiciel libre à installer sur un serveur mais qui permet une beaucoup plus grande variété de tests que \textit{travis}.
+\item \href{http://jenkins-ci.org}{jenkins} qui est un logiciel libre à installer sur un serveur, mais qui permet une beaucoup plus grande variété de tests que \textit{Travis}.
 \end{itemize}

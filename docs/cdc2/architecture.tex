@@ -1,29 +1,27 @@
 \section{Architecture générale}
-Le but du projet est de permettre à des applications de modifier des fichiers stockés à différents endroits, via le protocole défini par Ubuntu One.\\
+Le but du projet est de permettre d'échanger et de synchroniser des documents entre différents services de stockage.\\
 
 Pour cela, plusieurs composants sont nécessaires :
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
-   \item Le serveur : Le serveur reçoit des instructions via l'API d'Ubuntu One, par HTTP.
-   \item Les clients : Les clients sont la partie utilisateur. Ces clients échangent avec le serveur via l'API.
-   \item Les \textit{drivers} : Les \textit{drivers} permettent d'échanger entre le serveur et les différentes solutions de stockage.
+   \item Le serveur : Le serveur reçoit des instructions par notre API interne, et achemine les événements et les données d'un service à l'autre.
+   \item Les clients : Les clients sont l'interface utilisateur. Ces clients échangent avec le serveur via l'API interne.
+   \item Les \textit{drivers} : Les \textit{drivers} sont des petits programmes à l'interface entre le serveur et les différents services de stockage comme Dropbox ou Amazon S3.
 \end{itemize}
 
 \begin{figure}
     \center
-    \includegraphics[width=500pt]{architecture.png}
+    \includegraphics[scale=0.25]{architecture.png}
     \caption{Architecture générale du projet}
 \end{figure}
 
 \section{Serveur}
-Le serveur est la partie centrale du projet. Il doit interpréter les instructions envoyées par les clients, et y répondre.\\
-
-Une implémentation a été effectuée par l'entreprise Canonical, à l'origine d'Ubuntu One. Cette implémentation utilise les services de Cloud Computing EC2 et S3 d'Amazon. Suite à un partenariat entre ces deux entreprises, le code source du serveur n'est pas disponible, et ne le sera \textit{a priori} jamais.\\
+Le serveur est la partie centrale du projet. Il doit interpréter les instructions envoyées par les clients, et y répondre, tout en communiquant avec les drivers pour interagir avec les services de stockage utilisés par Onitu.\\
 
 Onitu permet aux utilisateurs de choisir plusieurs moyens pour stocker leurs données. Du point de vue du serveur, cela se fait grâce aux méta-données stockées en base de données, qui contiennent les informations nécessaires aux \textit{drivers} pour récupérer les informations.\\
 
 \section{Drivers}
-Les \textit{drivers} permettent la communication entre le serveur et les différentes solutions de stockage. Ils sont construits autour d'une interface commune, qu'ils étendent afin d'interagir avec la solution à laquelle ils sont destinés.\\
+Les \textit{drivers} permettent la communication entre le serveur et les différents services de stockage. Ils sont construits autour d'une interface commune, qu'ils étendent afin d'interagir avec le service auquel ils sont connectés.\\
 
 Tous les \textit{drivers} doivent permettre d'effectuer les quatre opérations de base : la création d'un fichier, sa récupération, son édition et sa suppression (connu sous l'acronyme \textit{CRUD}, pour \textit{Create, Read, Update, Delete}).\\
 
@@ -31,34 +29,34 @@ Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre \textit{d
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
     \item \textbf{Stockage local} : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
-    \item \textbf{Dropbox/Box.com/Google Drive/SkyDrive} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
+    \item \textbf{Dropbox/Google Drive/Amazon S3/Flickr} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
     \item \textbf{(S)FTP/SSH/NFS/Webdav/Samba/HTTP} : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
-    \item \textbf{Amazon S3} : Onitu est compatible avec la solution de stockage dans le cloud d'Amazon, une des plus utilisées au monde.
     \item \textbf{OwnCloud} : OwnCloud est un service relativement similaire à Onitu, il est donc intéressant de pouvoir interagir avec lui.
-    \item \textbf{Ubuntu One} : Il est possible d'utiliser n'importe quel serveur compatible avec l'API d'Ubuntu One comme serveur de stockage, c'est à dire un autre serveur Onitu ou bien le serveur officiel de Canonical.
 \end{itemize}
 
 \section{Base de données}
-Les meta-données liées aux fichiers seront stockées dans une base de données, au sein du serveur. La majeure partie de ces méta-données est définie par le protocole d'Ubuntu One.\\
+Les meta-données liées aux fichiers seront stockées dans une base de données, au sein du serveur.\\
 
 Onitu étend ces méta-données en ajoutant les informations nécessaires aux \textit{drivers}. La forme de ces informations est, dans l'ensemble, laissée libre à chaque \textit{driver}.\\
 
-Cette flexibilité est rendue possible grâce à l'utilisation d'une base de type NoSQL orientée document, MongoDB.
+Cette flexibilité est rendue possible grâce à l'utilisation d'une base de type NoSQL orientée document, LevelDB.
 
 \section{Clients}
-Des clients existent déjà pour Ubuntu One, sur de nombreuses plateformes (Linux, Windows, Mac OS, Android, iOS). Onitu étant entièrement compatible avec l'API d'Ubuntu One, ces clients peuvent interagir avec lui.\\
 
-Cependant, la plupart des clients ne permettent pas de choisir l'adresse du serveur, étant donné que pour le moment un seul serveur de référence existe. Il est donc prévu d'intégrer la possibilité de changer le serveur dans les différents clients.\\
+Le but d'Onitu n'est pas de fournir des clients, mais un serveur.
 
-Le but d'Onitu n'est pas de fournir des clients, mais un serveur. Des clients pourraient tout de même être développés par l'équipe en parallèle, à des fins de tests, ou bien afin d'offrir un pannel plus complet aux utilisateurs. Un client utilisant \textit{FUSE}, une bibliothèque permettant de créer des systèmes de fichiers, est notamment envisagé.\\
+Cependant, à des fins de confort d'utilisation, une interface graphique est aujourd'hui nécessaire. C'est pourquoi nous prévoyons deux interfaces pour permettre à l'utilisateur d'interagir avec Onitu de manière plus conviviale que par la ligne de commande:
 
-\section{Interface Web}
-Actuellement, Ubuntu One propose une interface web, hébergée sur le service Amazon EC2. Cette interface fait partie du serveur, et les sources ne sont donc pas publiques.
-Onitu se doit donc de remplacer cette interface web.\\
+\begin{itemize}
+	\item Une interface Web, consultable dans tout navigateur
+	\item une application graphique indépendante, écrite en Qt
+\end{itemize}
 
-L'interface web est destinée aux utilisateurs ayant des droits suffisants pour accéder à certains dossiers, ainsi qu'à l'administrateur qui peut effectuer la plupart des actions de configuration sur cette interface.\\
+\subsection{Fonctionnalités}
 
-L'interface web dispose de plusieurs fonctionnalités :
+L'interface utilisateur est destinée à l'administrateur d'Onitu qui peut y effectuer la plupart des actions de configuration.\\
+
+L'interface dispose ainsi de plusieurs fonctionnalités :
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
     \item Charger de nouveaux fichiers
@@ -66,6 +64,6 @@ L'interface web dispose de plusieurs fonctionnalités :
     \item Éditer les fichiers textes de manière simple
     \item Télécharger des fichiers
     \item Éditer les droits liés au partage des fichiers
-    \item Ajouter, supprimer ou modifier les options liées aux services externes, qui communiquent par le biais des Drivers
+    \item Ajouter, supprimer ou modifier les services externes utilisés, qui communiquent par le biais des drivers
     \item Éditer les différentes options de configuration du serveur
 \end{itemize}

@@ -1,10 +1,12 @@
 \section{Points sensibles}
-Onitu doit être réalisé dans un délais de deux ans et demi. Pendant cette période, plusieurs points sensibles sont à surveiller.\\
+Onitu doit être réalisé dans un délai de deux ans et demi. Pendant cette période, plusieurs points sensibles sont à surveiller.\\
 
-Un premier point sensible est le protocole d'Ubuntu One. Onitu n'est pas à l'abri de devoir subir des changements majeurs si le protocole venait à évoluer. Cependant, une telle évolution n'est pour le moment pas prévue par Canonical\\
+Le premier concerne la portabilité. En effet, cela entraîne de nombreux tests sur un maximum de plateformes possibles, et le risque de devoir se passer d'une bibliothèque ou d'une fonctionnalité car elle n'est pas supportée partout. Si une plateforme pose trop de problèmes et n'est pas utilisée par beaucoup d'utilisateurs, l'abandon de son support est à envisager.\\
 
-La portabilité est un autre point sensible. En effet, cela entraîne de nombreux tests sur un maximum de plateformes possibles, et le risque de devoir se passer d'une bibliothèque ou d'une fonctionnalité car elle n'est pas supportée partout. Si une plateforme pose trop de problèmes et n'est pas utilisée par beaucoup d'utilisateurs, l'abandon de son support est à envisager.\\
+Le second point sensible concerne les services externes utilisés par Onitu. L'intérêt d'Onitu est d'autant plus grand que l'application est capable d'interagir avec un grand nombre de services différents.
+
+Mais ces services étant en grande majorité hors de notre contrôle et la propriété d'organisations indépendantes, la fermeture irrévocable d'un service est toujours une possibilité à ne pas exclure. La fermeture d'un service rendu compatible avec Onitu est donc problématique, dans le sens où le travail fourni pour communiquer avec ce service devient obsolète, et que l'intérêt général d'Onitu diminue en conséquence.\\
 
 Enfin, Onitu est confronté au théorème \textit{CAP}, s'appliquant aux systèmes de calculs distribués, et affirmant que trois contraintes ne peuvent simultanément être respectées: la cohérence, la disponibilité, et la résistance au morcellement. Onitu a essentiellement pour vocation de préserver la cohérence et la disponibilité.\\
 
-De manière générale, le développement d'un serveur est toujours un sujet délicat à ne pas prendre à la légère. De nombreux tests de différentes catégories doivent être effectués régulièrement, et les retours des utilisateurs doivent être écoutés.
+De manière générale, le développement d'un serveur est toujours un sujet délicat à étudier avec attention. De nombreux tests de différentes catégories doivent être effectués régulièrement, et les retours des utilisateurs doivent être écoutés.

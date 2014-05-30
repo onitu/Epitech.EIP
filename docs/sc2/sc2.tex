@@ -1,0 +1,100 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\hypersetup{colorlinks=true,linkcolor=blue}
+\usetheme{Warsaw}
+\usecolortheme{seahorse}
+\begin{document}
+\title[Suivi Copil]{ONITU}
+\subtitle[]{Projet EIP 2015}
+\author[Onitu]{Suivi Copil 2}
+\date[short date]{\today}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Qu'est-ce qu'Onitu ?}
+\begin{center} 
+  \includegraphics[scale=0.4]{logo.png}
+\end{center} 
+Message essentiel:
+\begin{itemize}
+  \item « Onitu vous permet d'échanger et de synchroniser vos documents entre vos différents services de stockage. »
+  \item Plusieurs services utilisables: Dropbox, Google Drive, Amazon S3, SSH, FTP…
+  \item Configurable grâce à des règles
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Organisation du projet}
+Répartition actuelle du travail :
+\begin{itemize}
+  \item le serveur et sa base de données: Yannick
+  \item Règles de configuration: Wannes
+  \item les \emph{drivers} (services): Alexandre, Mathis, Maxime, Morgan 
+  \item les interfaces utilisateur: Frank, Mathis 
+  \item les tests / benchmarks: Antoine, Louis
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Communication}
+\begin{itemize}
+  \item Notre canal IRC (\#onitu sur Freenode)
+  \item Discussion sur les issues  \underline{\hyperlink{https://github.com/onitu}{Github}} du projet
+  \item Réunions sur Google Hangout
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Réalisation}
+\begin{itemize}
+  \item le serveur: remplacement de Redis par Elevator (LevelDB)
+  \item les \emph{drivers}: arrêt d'Ubuntu One, mise en place d'Amazon S3
+  \item l'interface web: AngularJS, Sass, CoffeeScript
+  \item les tests \& benchmarks: tox, Travis-CI, Codespeed
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Documentation}
+\begin{itemize}
+  \item Documentation utilisateur
+  \item Documentation technique:
+  \begin{itemize}
+  	\item \underline{\hyperlink{http://onitu.readthedocs.org/en/latest/}{Read the docs}}
+    \item Code commenté
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Promotion}
+\begin{itemize}
+  \item Github, IRC, readthedocs
+  \item Participation au Book EIP 2015
+  \item \hyperlink{http://eip.epitech.eu/2015/onitu/}{Site vitrine}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rendez-vous EIP}
+\begin{itemize}
+  \item 150 Mots : 20
+  \item TA2  : 14
+  \item DA2  : 7
+  \item TA3   : 17
+  \item Suivis ok
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Le futur proche}
+\begin{itemize}
+   \item Intégration d'Elevator
+   \item Amélioration de l'API
+   \item L'interface Web
+   \item Un client multi-plateforme simple
+   \item Authentification OAuth pour l'API
+   \item Deux nouveaux drivers : Amazon S3 et Flickr
+  \item Suivi Mai à 22h (William)
+  \item Suivi Communication en Juin
+  \item Bilan final de Tech4 en Juillet
+\end{itemize}
+\end{frame}
+
+\end{document}
