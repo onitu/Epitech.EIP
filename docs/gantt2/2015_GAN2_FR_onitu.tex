@@ -21,7 +21,7 @@
 % Custom defines zone
 
 % Define useful hand-made colors
-\definecolor{epiBlue}{RGB}{0,110,255}
+\definecolor{epiBlue}{RGB}{5,136,178}
 \definecolor{lightGray}{gray}{0.92}
 
 % Bit of code to bold an entire table row
@@ -41,7 +41,7 @@
 \newcommand{\SubTitle}{Diagramme de Gantt et WBS}
 
 % Defining some logo image names
-\newcommand{\ProjectLogo}{}
+\newcommand{\ProjectLogo}{logo_onitu}
 \newcommand{\EIPLogo}{logo_eip.png}
 
 % Setting the space between each page's header and its content
@@ -62,7 +62,7 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{\ProjectTitle}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
 	\fancyfoot[L]{}
 	\fancyfoot[C]{\textcolor{epiBlue}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
@@ -75,7 +75,7 @@
 	\renewcommand{\footrulewidth}{1pt}
 	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
 	\fancyhead[C]{}
-	\fancyhead[R]{\textcolor{epiBlue}{\textbf{\emph{\huge{Onitu}}}}}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
 
 	\fancyfoot[L]{\textcolor{epiBlue}{\textbf{\underline{\leftmark}}}}
 	\fancyfoot[C]{}
@@ -145,7 +145,7 @@
 \hline
         15/05/2013 & Louis Roché & Gantt & Ajouts des charges de travail \\
 \hline
-	& & & \\
+	30/05/2014 & Alexandre Baron & Document & Relecture, correction et mises à jour \\
 \hline
 \end{tabular}
 
