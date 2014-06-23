@@ -10,7 +10,7 @@ Le processus de développement s'organise autour de Git et en particulier Github
 
 Le code source est hébergé sur les serveurs de Github, mais chaque développeur possède une copie locale du dépôt à tout instant, donc une perte de données de la part de l'hébergeur n'est aucunement dramatique. Il n'y a pas non plus de problème de confidentialité, car le projet est opensource, le code source n'est donc pas privé.\\
 
-Tous les dépôts de d'Onitu sont ouverts aux contributions extérieures, via des \textit{pull-requests}. Il s'agit d'une demande d'intégration au dépôt principal de code développé sur un autre dépôt par une personne ne faisant pas partie des contributeurs habituels. Si une \textit{pull-request} est faite, le code externe sera audité pour s'assurer de sa qualité, mais aussi pour vérifier que le code n'est pas malveillant, n'apporte pas de vulnérabilités et n'enleve rien à l'efficacité des solutions déjà en place.\\
+Tous les dépôts d'Onitu sont ouverts aux contributions extérieures, via des \textit{pull-requests}. Il s'agit d'une demande d'intégration au dépôt principal de code développé sur un autre dépôt par une personne ne faisant pas partie des contributeurs habituels. Si une \textit{pull-request} est faite, le code externe sera audité pour s'assurer de sa qualité, mais aussi pour vérifier que le code n'est pas malveillant, n'apporte pas de vulnérabilités et n'enlève rien à l'efficacité des solutions déjà en place.\\
 
 Pour ce qui est de la maintenance et de la gestion des retours utilisateurs, ceux-ci pourront se faire via le système de tickets fourni par Github. Tout le monde peut créer des tickets, mais ceux-ci ne peuvent être clos, supprimés ou administrés que par les membres du groupe d'EIP.
 
@@ -30,7 +30,8 @@ En plus des différentes mesures expliquées ci-dessus, une partie de la sécuri
 
 Pour authentifier les clients, le protocole \textit{OAuth} est utilisé. Il s'agit d'un système d'authentification par \textit{token} qui permet de gérer les accès parallèles depuis differents ordinateurs, et éventuelement leur révocation.\\
 
-Les fichiers stockés ne sont pas chiffrés, car le serveur nécessitera la version originale lors d'une demande de téléchargement. Cependant, rien n'empêche l'utilisateur de chiffrer ses fichiers en local avant de les synchroniser avec le serveur Onitu.
+Pour les connexions entre client et serveur, nous utilisons le module \textbf{\emph{curve}} de ZeroMQ (ØMQ) afin de sécuriser les communications.\\
 
+Les fichiers stockés ne sont pas chiffrés, car le serveur nécessitera la version originale lors d'une demande de téléchargement. Cependant, rien n'empêche l'utilisateur de chiffrer ses fichiers en local avant de les synchroniser avec le serveur Onitu.
 \subsubsection{Drivers}
 En ce qui concerne les différents modules nécessaires à la gestion du stockage de fichiers sur le serveur Onitu, la sécurité de leurs protocoles respectifs ne dépend pas de nous. Nous ne pourrons que conseiller l'utilisateur sur la configuration de la solution en fonction de ses attentes, (confidentialité, intégrité, authentification…), par exemple en lui conseillant \textit{SFTP} au lieu de \textit{FTP}.
