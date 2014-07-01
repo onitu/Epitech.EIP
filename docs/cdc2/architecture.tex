@@ -29,7 +29,7 @@ Du fait du côté ouvert d'Onitu, n'importe qui peut créer son propre \textit{d
 \begin{itemize}
 \renewcommand{\labelitemi}{$\bullet$}
     \item \textbf{Stockage local} : Pour permettre de stocker des fichiers sur le serveur où est installé Onitu.
-    \item \textbf{Dropbox/Google Drive/Amazon S3/Flickr} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
+    \item \textbf{Dropbox/Google Drive/Amazon S3/Flickr/Evernote} : Onitu peut utiliser ces services tiers pour récupérer et stocker les fichiers, si l'utilisateur y possède un compte.
     \item \textbf{(S)FTP/WebDAV} : Des drivers permettent d'utiliser n'importe quel serveur supportant au moins un de ces protocoles. Cela permet à un utilisateur d'étendre simplement son espace de stockage sans être dépendant d'un service qu'il ne maîtrise pas.
 \end{itemize}
 
@@ -46,17 +46,12 @@ Le but d'Onitu n'est pas de fournir des clients, mais un serveur.
 
 Cependant, à des fins de confort d'utilisation, une interface graphique est aujourd'hui nécessaire. C'est pourquoi nous prévoyons deux interfaces pour permettre à l'utilisateur d'interagir avec Onitu de manière plus conviviale que par la ligne de commande:
 \begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
 	\item Une interface Web, consultable dans tout navigateur
 	\item une application graphique indépendante, écrite en Qt
 \end{itemize}
 
-\section{Referee}
-
-Le Referee (ou "\emph{arbitre}" ) est un composant important de l'application, car c'est par lui que transitent toutes les données en provenance, et à destination, des \emph{drivers}.
-
-Une partie importante de la configuration du serveur concerne les règles de synchronisation du referee. En effet, ce sont ces règles qui permettent de spécifier au referee quels sont les drivers devant interagir ensemble, à quelle occasion, et avec quels fichiers interagir, sur la base d'attributs définis. C'est donc le composant qui permet de rendre Onitu extrêmement flexible sur l'utilisation que l'utilisateur souhaite en faire.
-
-
+Un client doit pouvoir être identifié de manière unique auprès du serveur.
 
 \subsection{Fonctionnalités}
 
@@ -70,4 +65,29 @@ L'interface dispose ainsi de plusieurs fonctionnalités :
     \item Télécharger des fichiers
     \item Ajouter, supprimer ou modifier les services externes utilisés, qui communiquent par le biais des drivers
     \item Éditer les différentes options de configuration du serveur
+    \item Partager un fichier publiquement à partir d'une url unique
+\end{itemize}
+
+\section{Referee}
+
+Le Referee (ou "\emph{arbitre}") est un composant important de l'application, car c'est par lui que transitent toutes les données en provenance, et à destination, des \emph{drivers}.
+
+Une partie importante de la configuration du serveur concerne les règles de synchronisation du referee. En effet, ce sont ces règles qui permettent de spécifier au referee quels sont les drivers devant interagir ensemble, à quelle occasion, et avec quels fichiers interagir, sur la base d'attributs définis. C'est donc le composant qui permet de rendre Onitu extrêmement flexible sur l'utilisation que l'utilisateur souhaite en faire.
+
+Les règles de configuration doivent aussi être personnalisables pour chaque
+client. Cela doit permettre d'avoir des utilisateurs différents avec des
+autorisations d'accès aux documents différentes.
+
+
+\section{API publique}
+
+Onitu doit mettre à disposition une API publique REST pour permettre de récupérer des
+informations sans passer par l'interface web ou le client.
+
+Cette API permettra notamment :
+\begin{itemize}
+\renewcommand{\labelitemi}{$\bullet$}
+	\item de vérifier l'état d'Onitu
+	\item d'intéragir avec les fichiers stockés sur Onitu
+  \item De modifier les règles de configuration
 \end{itemize}
