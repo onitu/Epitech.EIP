@@ -13,14 +13,32 @@
 \rowstyle{ \color{gray} \bfseries}
 \textcolor{lightGray}{\textbf{ID}} & \textcolor{lightGray}{\textbf{Fonctionnalité}} & \textcolor{lightGray}{\textbf{Description}} & \textcolor{lightGray}{\textbf{\% Réalisé}} \tabularnewline
 \hline
-\rowcolor{lightGray}
+\rowcolor{gray}
 	\textbf{1} & \textbf{Serveur} & \textbf{La partie serveur d'Onitu} & \textbf{70} \tabularnewline
 \hline
+\rowcolor{lightGray}
 	1.1 & \textbf{Plug} & L'API centrale entre serveur et drivers & 50 \tabularnewline
 \hline
+\rowcolor{lightGray}
 	1.2 & \textbf{Base de données} & La base de données d'Onitu (Escalator) & 90 \tabularnewline
 \hline
 \rowcolor{lightGray}
+	1.3 & \textbf{API REST} & API publique pour intéragir avec onitu & 0 \tabularnewline
+\hline
+	1.3.1 & \textbf{Supervision des drivers} & Récupérer l'état des drivers, ainsi
+que leurs informations de consommation mémoire et CPU & 0 \tabularnewline
+\hline
+	1.3.2 & \textbf{Manipulation des drivers} & Lancer et stopper des drivers & 0 \tabularnewline
+\hline
+	1.3.3 & \textbf{Récupération fichiers} & Téléchargement de fichiers depuis un
+drivers & 0 \tabularnewline
+\hline
+	1.3.4 & \textbf{Informations sur les fichiers} & Récupérer toutes les
+informations sur un fichier (path, taille, drivers...)  & 0 \tabularnewline
+\hline
+	1.3.5 & \textbf{Règles de configuration} & Récupérer et éditer les règles de configuration  & 0 \tabularnewline
+\hline
+\rowcolor{gray}
 	\textbf{2} & \textbf{Drivers} & \textbf{Les interfaces d'Onitu avec les services externes} & \textbf{70} \tabularnewline
 \hline
 	2.1 & \textbf{Local Storage} & Le driver du système de fichiers local & 95 \tabularnewline
@@ -33,14 +51,45 @@
 \hline
 	2.5 & \textbf{Amazon S3} & Le driver communiquant avec l'API Amazon S3 & 90 \tabularnewline
 \hline
-	2.6 & \textbf{Flickr} & Le driver communiquant avec l'API Flickr & 0 \tabularnewline
+	2.6 & \textbf{Flickr} & Le driver communiquant avec l'API Flickr.
+Synchronisation de photos & 0 \tabularnewline
+\hline
+	2.7 & \textbf{Evernote} & Le driver communiquant avec l'API Evernote.
+Synchronisation de notes & 0 \tabularnewline
+\hline
+\rowcolor{gray}
+	\textbf{3} & \textbf{Clients} & \textbf{L'interface entre l'utilisateur et le serveur Onitu} & \textbf{10} \tabularnewline
 \hline
 \rowcolor{lightGray}
-	\textbf{3} & \textbf{Clients légers} & \textbf{L'interface entre l'utilisateur et le serveur Onitu} & \textbf{10} \tabularnewline
+	3.1 & \textbf{Client Web} & Le client proposant une interface Web pour
+navigateur & 5 \tabularnewline
 \hline
-	3.1 & \textbf{Client Web} & Le client proposant une interface Web pour navigateur & 20 \tabularnewline
+	3.1.1 & \textbf{Règles de configuration} & Interface d'édition pour
+modifier les règles de configuration depuis l'interface web & 0 \tabularnewline
 \hline
-	3.2 & \textbf{Client système} & Le client sous forme de logiciel graphique écrit en Qt & 0 \tabularnewline
+	3.1.2 & \textbf{Partage de fichier} & Création d'une URL unique pour partager
+un fichier en lecture & 0 \tabularnewline
+\hline
+	3.1.3 & \textbf{Explorateur de fichiers} & Lister les fichiers présents sur
+chacun des drivers & 20 \tabularnewline
+\hline
+	3.1.4 & \textbf{Visualisateur de fichiers} & Pour les fichiers textes et
+images, afficher le contenu du fichier & 0 \tabularnewline
+\hline
+	3.1.5 & \textbf{Manipulation de fichiers} & Téléchargement et téléversement de
+fichiers & 0 \tabularnewline
+\hline
+	3.1.6 & \textbf{Drivers} & Lancer et stopper des drivers & 0 \tabularnewline
+\hline
+	3.1.7 & \textbf{Supervision} & Afficher les informations de consommation et
+d'état pour Onitu et les drivers & 0 \tabularnewline
+\hline
+	3.1.8 & \textbf{Administation} & Gestion de l'identification et configuration
+d'Onitu & 0 \tabularnewline
+\hline
+\rowcolor{lightGray}
+	3.2 & \textbf{Client système} & Client lourd, permettant de récupérer des
+fichiers stockés par Onitu & 0 \tabularnewline
 
 \hline
 \end{tabular}\end{center}
