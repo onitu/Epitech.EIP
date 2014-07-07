@@ -1,8 +1,10 @@
 # Installation
 
-L'installation repose sur *pip*, un gestionnaire de paquets très répandu dans la sphère Python, s'utilisant en ligne de commande.
+L'installation repose sur *pip*, un gestionnaire de paquets très répandu dans la sphère Python et multi-plateforme, s'utilisant en ligne de commande.
 
 *pip* se charge de la récupération des sources ainsi que de la résolution des dépendances. L'installation par paquets indépendants vous permet de ne pas vous encombrer de dépendances inutiles.
+
+Un installateur sera aussi fourni par la suite afin d'en simplifier l'installation sous Windows.
 
 ## Installation
 

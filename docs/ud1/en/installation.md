@@ -1,8 +1,10 @@
 # Installation
 
-The Onitu setup relies on *pip*, a command-line interface package manager very well known in the Python world.
+The Onitu setup relies on *pip*, a command-line interface and multi-platform package manager very well known in the Python world.
 
 *pip* takes care of retrieving the sources and resolving the dependencies of the project. Installing with independent packages avoids you to deal with useless dependencies.
+
+A setup tool will also be provided for simplify the setup on Windows.
 
 ## Setup
 
