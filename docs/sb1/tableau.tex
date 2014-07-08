@@ -6,15 +6,14 @@
 \setlength{\tabcolsep}{8pt}
 \renewcommand{\arraystretch}{1.5}
 
-\begin{center}\begin{tabular}{|l l|l|l|}
-
+\begin{center}\begin{supertabular}{|l p{3.2cm}|p{9.3cm}|p{2cm}|}
 \hline
 \rowcolor{epiBlue}
 \rowstyle{ \color{gray} \bfseries}
 \textcolor{lightGray}{\textbf{ID}} & \textcolor{lightGray}{\textbf{Fonctionnalité}} & \textcolor{lightGray}{\textbf{Description}} & \textcolor{lightGray}{\textbf{\% Réalisé}} \tabularnewline
 \hline
 \rowcolor{gray}
-	\textbf{1} & \textbf{Serveur} & \textbf{La partie serveur d'Onitu} & \textbf{70} \tabularnewline
+	\textbf{1} & \textbf{Serveur} & \textbf{La partie serveur d'Onitu} & \textbf{60} \tabularnewline
 \hline
 \rowcolor{lightGray}
 	1.1 & \textbf{Plug} & L'API centrale entre serveur et drivers & 50 \tabularnewline
@@ -25,16 +24,15 @@
 \rowcolor{lightGray}
 	1.3 & \textbf{API REST} & API publique pour intéragir avec onitu & 0 \tabularnewline
 \hline
-	1.3.1 & \textbf{Supervision des drivers} & Récupérer l'état des drivers, ainsi
-que leurs informations de consommation mémoire et CPU & 0 \tabularnewline
+1.3.1 & \textbf{Supervision des drivers} & Récupérer l'état des drivers, ainsi que leurs informations de consommation mémoire et CPU & 0 \tabularnewline
 \hline
 	1.3.2 & \textbf{Manipulation des drivers} & Lancer et stopper des drivers & 0 \tabularnewline
 \hline
 	1.3.3 & \textbf{Récupération fichiers} & Téléchargement de fichiers depuis un
 drivers & 0 \tabularnewline
 \hline
-	1.3.4 & \textbf{Informations sur les fichiers} & Récupérer toutes les
-informations sur un fichier (path, taille, drivers...)  & 0 \tabularnewline
+	1.3.4 & \textbf{Informations sur les fichiers} & Récupérer toutes les informations sur un fichier (path, taille, drivers...)
+& 0 \tabularnewline
 \hline
 	1.3.5 & \textbf{Règles de configuration} & Récupérer et éditer les règles de configuration  & 0 \tabularnewline
 \hline
@@ -47,49 +45,48 @@ informations sur un fichier (path, taille, drivers...)  & 0 \tabularnewline
 \hline
 	2.3 & \textbf{Google Drive} & Le driver communiquant avec l'API Google Drive & 90 \tabularnewline
 \hline
-	2.4 & \textbf{SSH} & Le driver pour systèmes de fichiers distants via SSH & 50 \tabularnewline
+2.4 & \textbf{SSH} & Le driver pour systèmes de fichiers distants via SSH & 50 \tabularnewline
 \hline
 	2.5 & \textbf{Amazon S3} & Le driver communiquant avec l'API Amazon S3 & 90 \tabularnewline
 \hline
-	2.6 & \textbf{Flickr} & Le driver communiquant avec l'API Flickr.
-Synchronisation de photos & 0 \tabularnewline
+	2.6 & \textbf{Flickr} & Le driver communiquant avec l'API Flickr. Synchronisation de photos
+& 0 \tabularnewline
 \hline
-	2.7 & \textbf{Evernote} & Le driver communiquant avec l'API Evernote.
-Synchronisation de notes & 0 \tabularnewline
+	2.7 & \textbf{Evernote} & Le driver communiquant avec l'API Evernote. Synchronisation de notes
+& 0 \tabularnewline
 \hline
 \rowcolor{gray}
 	\textbf{3} & \textbf{Clients} & \textbf{L'interface entre l'utilisateur et le serveur Onitu} & \textbf{10} \tabularnewline
 \hline
 \rowcolor{lightGray}
-	3.1 & \textbf{Client Web} & Le client proposant une interface Web pour
-navigateur & 5 \tabularnewline
+	3.1 & \textbf{Client Web} & Le client proposant une interface Web pour navigateur & 5 \tabularnewline
 \hline
-	3.1.1 & \textbf{Règles de configuration} & Interface d'édition pour
-modifier les règles de configuration depuis l'interface web & 0 \tabularnewline
+	3.1.1 & \textbf{Règles de configuration} & Interface d'édition pour modifier les règles de configuration depuis l'interface web & 0 \tabularnewline
 \hline
-	3.1.2 & \textbf{Partage de fichier} & Création d'une URL unique pour partager
-un fichier en lecture & 0 \tabularnewline
+	3.1.2 & \textbf{Partage de fichiers} & Création d'une URL unique pour partager un fichier en lecture & 0 \tabularnewline
 \hline
-	3.1.3 & \textbf{Explorateur de fichiers} & Lister les fichiers présents sur
-chacun des drivers & 20 \tabularnewline
+3.1.3 & \textbf{Explorateur de fichiers} & Lister les fichiers présents sur chacun des drivers & 20 \tabularnewline
 \hline
-	3.1.4 & \textbf{Visualisateur de fichiers} & Pour les fichiers textes et
-images, afficher le contenu du fichier & 0 \tabularnewline
+	3.1.4 & \textbf{Visualisateur de fichiers} & Pour les fichiers textes et images, afficher le contenu du fichier & 0 \tabularnewline
 \hline
-	3.1.5 & \textbf{Manipulation de fichiers} & Téléchargement et téléversement de
-fichiers & 0 \tabularnewline
+	3.1.5 & \textbf{Manipulation de fichiers} & Téléchargement et téléversement de fichiers
+& 0 \tabularnewline
 \hline
 	3.1.6 & \textbf{Drivers} & Lancer et stopper des drivers & 0 \tabularnewline
 \hline
 	3.1.7 & \textbf{Supervision} & Afficher les informations de consommation et
-d'état pour Onitu et les drivers & 0 \tabularnewline
+d'état pour Onitu et les drivers
+& 0 \tabularnewline
 \hline
 	3.1.8 & \textbf{Administation} & Gestion de l'identification et configuration
-d'Onitu & 0 \tabularnewline
+d'Onitu
+& 0 \tabularnewline
 \hline
 \rowcolor{lightGray}
 	3.2 & \textbf{Client système} & Client lourd, permettant de récupérer des
-fichiers stockés par Onitu & 0 \tabularnewline
+fichiers stockés par Onitu
+& 0 \tabularnewline
 
 \hline
-\end{tabular}\end{center}
+
+\end{supertabular}\end{center}
