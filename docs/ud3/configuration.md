@@ -1,6 +1,6 @@
 # Configuration
 
-Une fois qu'Onitu et les modules des services que vous désirez utiliser sont correctement installés avec PIP, il reste à configurer leur utilisation au sein du logiciel.
+Une fois qu'Onitu et les *drivers* des services que vous désirez utiliser sont correctement installés avec PIP, il reste à configurer leur utilisation au sein du logiciel.
 
 Pour ce faire, la configuration d'Onitu s'effectue par l'édition d'un fichier de configuration au format *JSON*.
 
@@ -12,22 +12,22 @@ Dans ce chapitre, nous allons aborder, point par point, tout ce qu'il y a à sav
 
 Premièrement, chaque configuration *JSON* possède un attribut `name` déterminant son nom.
 
-Ce nom est utilisé en interne pour permettre de lancer simultanément plusieurs configurations différentes.
+Ce nom est utilisé en interne pour permettre de lancer simultanément plusieurs configurations différentes. Assurez-vous donc que ce nom soit unique.
 
 
-## Les entrées
+## Les services
 
-La section `entries` du document *JSON* vous permet de lister les entrées.
+La section `services` du document *JSON* vous permet de lister les services.
 
-Une entrée est une instance de *driver*, et correspond au paramétrage d'un compte sur un service. Chaque entrée est associée à une clef permettant de l'identifier, dans les règles par exemple.
+Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service. Chaque service est associée à une clef permettant de l'identifier, dans les règles par exemple.
 
-Une entrée est composée :
+Un service est composée :
 
 * d'un nom permettant de l'identifier de manière unique : "dropbox-bob", "dropbox-alice"...
 * d'un champ `driver` contenant le nom du *driver* à instancier, en général le même que celui du service supporté par ce *driver*, comme *dropbox* ou *google_drive*
 * d'un champ `options` pour les options de lancement ce *driver*. Ces options sont spécifiques à chaque service, comme les données de connexion, et peuvent varier selon les *drivers*. Dans cette documentation, le symbole\Mandatory{} symbolise qu'il s'agit d'un champ obligatoire.
 
-Dans notre exemple, nous utiliserons deux entrées: une première pour servir des fichiers locaux et une seconde connectée à un compte *Dropbox*.
+Dans notre exemple, nous utiliserons deux services: le premier pour interagir avec les fichiers locaux et le second connecté à un compte *Dropbox*.
 
 \newpage
 
@@ -58,27 +58,27 @@ Une configuration possible est la suivante:
 \end{figure}
 
 
-### *Dropbox*
+### Dropbox
 
-Le nom du *driver* *Dropbox* est simplement `dropbox`. Il comporte quatre options :
+Le nom du *driver* **Dropbox** est simplement `dropbox`. Il comporte quatre options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Dropbox
 * \Mandatory{access\_key} : votre clé d'accès Dropbox
 * \Mandatory{access\_secret} : votre clé secrète Dropbox
 * **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Dropbox, en secondes. La valeur par défaut est **60 secondes**.
 
-Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification get_access_token.py fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
+Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification **get_access_token.py** fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
 
-\begin{figure}[h]
-\includegraphics[scale=0.65]{screen_dropbox.png}
-\caption{Utilisation du script get\_access\_token.py (sur Ubuntu)}
-\end{figure}
+![Étape 1 : Lancer le script get\_access\_token.py et accéder à l'URL générée](dropbox_etape1.png)
 
-Dans l'état actuel du projet, ces informations sont stockés en clair dans le fichier.
+![Étape 2 : Autoriser l'accès à l'application Onitu pour Dropbox](dropbox_etape2.png)
+
+![Étape 3 : Récupérer les clés générées par le script, utilisables par Onitu.](dropbox_etape3.png)
+
 
 \newpage
 
-Un exemple de configuration d'entrée Dropbox réussie :
+Un exemple de configuration de service Dropbox réussie :
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -92,13 +92,14 @@ Un exemple de configuration d'entrée Dropbox réussie :
 \end{lstlisting}
 \end{figure}
 
+
 ### Amazon S3
 
 Le nom du *driver* Amazon S3 est `amazon_s3`. Il vous permet de connecter un *bucket* Amazon S3 à Onitu.
 
-**Attention**: Amazon S3 est un service payant au nombre de requêtes HTTP effectuées avec lui. L'utilisation d'Onitu ne déroge pas à cette règle, et c'est pourquoi votre activité avec Amazon S3 au travers d'Onitu vous sera facturée par Amazon tout comme des transferts classiques.
+**Attention**: Amazon S3 est un service **payant** au nombre de requêtes HTTP effectuées avec lui. L'utilisation d'Onitu ne déroge pas à cette règle, et c'est pourquoi **votre activité avec Amazon S3 au travers d'Onitu vous sera facturée par Amazon tout comme des transferts classiques**.
 
-L'entrée du *driver* Amazon S3 comporte cinq options :
+Le service du *driver* Amazon S3 comporte cinq options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Amazon S3
 * \Mandatory{bucket} : le bucket Amazon S3 avec lequel Onitu doit se connecter
@@ -110,24 +111,9 @@ Si vous ne possédez pas déjà vos clés d'accès Amazon S3, il faut vous conne
 
 Pour créer une nouvelle paire de clés, cliquez sur "Create New Access Keys". L'opération devrait être instantanée et générer un ID de clé d'accès et une clé d'accès secrète. Ce sont les clés que vous devez utiliser avec Onitu.
 
-\begin{figure}[h]
-\includegraphics[scale=0.5]{create_access_keys_s3}
-\caption{Interface pour créer vos clés Amazon S3}
-\end{figure}
+![Étape 1 : Accéder à l'interface pour créer vos clés Amazon S3](s3_etape1.png)
 
-\begin{figure}[h!]
-\includegraphics[scale=0.5]{access_keys_s3}
-\caption{Une fois terminé, les clés générées sont celles utilisables avec Onitu}
-\end{figure}
-
-
-\newpage
-
-
-\newpage
-
-
-Dans l'état actuel du projet, ces informations sont stockés en clair dans le fichier.
+![Étape 2 : Une fois terminé, les clés générées sont celles utilisables avec Onitu](s3_etape2.png)
 
 \newpage
 
@@ -148,32 +134,101 @@ Un exemple de configuration d'entrée Amazon S3 réussie :
 \end{lstlisting}
 \end{figure}
 
+\newpage
+
+
+### HubiC
+
+Le nom du *driver* pour le service HubiC d'OVH est `hubic`. Il vous permet de connecter votre compte HubiC à Onitu.
+
+Le service du *driver* Hubic comporte cinq options :
+
+* \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Hubic
+* \Mandatory{refresh\_token} : votre clé pour accéder à Hubic depuis Onitu *(voir plus bas)*
+* \Mandatory{client\_id} : l'identifiant de votre application Onitu pour Hubic *(voir plus bas)*
+* \Mandatory{client\_secret} : la clé secrète de votre application Onitu pour Hubic *(voir plus bas)*
+* **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Hubic, en secondes. La valeur par défaut est **60 secondes**.
+
+Pour utiliser Onitu avec Hubic, il vous faut créer une application Onitu pour Hubic.
+
+Une fois votre compte Hubic créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
+
+![Étape 1 : Accéder à l'interface pour créer votre application Hubic](hubic_etape1.png)
+
+Une fois votre application Hubic créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
+
+![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application Hubic](hubic_etape2.png)
 
 \newpage
 
+Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du *driver* Hubic dans un éditeur de texte, et remplacez le contenu de `client_id` et `client_secret` avec les clés que vous avez récupérées sur l'interface Hubic.
+
+![Étape 3 : Remplacez les clés vides du script par celles de votre application (en conservant les guillemets)](hubic_etape3.png)
+
+Vous devrez ensuite lancer le script à l'aide de la commande `python get_refresh_token.py`. Après avoir appuyé sur Entrée, le script ouvrira une fenêtre dans votre navigateur Internet où vous devrez rentrer vos identifiants Hubic et cliquer sur le bouton "Accept" pour autoriser Onitu à accéder à votre compte Hubic.
+
+![Étape 4 : Lancement du script get_refresh_token.py](hubic_etape4.png)
+
+![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de Hubic](hubic_etape5.png)
+
+\newpage
+
+Vous arriverez ensuite sur une page vide, car vous n'avez aucune application Web hébergée sur votre ordinateur permettant de récupérer le code de vérification. Mais vous pouvez le récupérer depuis la barre d'adresse de votre navigateur, en copiant la valeur du paramètre `code`.
+
+![Étape 6 : Récupérez le code depuis votre barre d'adresse](hubic_etape6.png)
+
+\newpage
+
+Retournez dans le terminal pour coller le code ainsi copié. Le script produira alors un code d'autorisation, le *refresh token*, qui est celui que vous devrez utiliser pour configurer Onitu.
+
+![Étape 7 : Récupérez le code d'autorisation à utiliser dans Onitu](hubic_etape7.png)
+
+\newpage
+
+Un exemple de configuration du service Hubic réussie :
+
+\begin{figure}[h]
+\begin{lstlisting}[language=json,firstnumber=1]
+"hubic-jean-pierre": {
+  "driver": "hubic",
+  "options": {
+    "root": "onitu/",
+    "refresh_token": "MY_REFRESH_TOKEN",
+    "client_id": "MY_CLIENT_ID",
+    "client_secret": "MY_CLIENT_SECRET",
+    "changes_timer" : 300
+  }
+}
+\end{lstlisting}
+\end{figure}
+
+\newpage
+
+
+
+
 ## Les règles
 
-Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quelles entrées, et s'insèrent dans la section `rules` du document.
+Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quels services, et s'insèrent dans la section `rules` du document.
 
-Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées à l'entrée «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG*, soient relayées à *Dropbox*, comme explicité sur les schémas ci-dessous:
+Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées au service «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG*, soient relayées à *Dropbox*, comme explicité sur les schémas ci-dessous:
 
-\begin{figure}[h]
-\includegraphics[scale=0.75]{rules_schema_1.png}
-\caption{Création d'un fichier sur \emph{Dropbox}}
-\end{figure}
+![De **Dropbox** vers le **disque dur**](rules_schema_1.png)
 
-\begin{figure}[h]
-\includegraphics[scale=0.75]{rules_schema_2.png}
-\caption{Création d'un fichier sur \emph{Local}}
-\end{figure}
+![Du **disque dur** vers **Dropbox**, à condition de satisfaire les règles](rules_schema_2.png)
 
-Une règle consiste en un ensemble de deux éléments: la condition d'acceptation d'un fichier et l'ensemble de entrées cibles.
+Une règle consiste en un ensemble de deux éléments: la condition d'acceptation d'un fichier et l'ensemble des services cibles.
 
-La condition liste les différents attributs du fichier que vous voulez tester, sont pour l'instant disponibles le chemin du fichier (`path`), et une liste de types *MIME* (`mime`). La condition s'entre en tant que dictionnaire associé à la clef `match`.
+La condition liste les différents attributs du fichier que vous voulez tester. Les conditions actuellement disponibles sont :
 
-L'ensemble des cibles est une simple liste (nommée `sync`) des noms des entrées affectées par la règle.
+- le chemin du fichier (`path`)
+- une liste de types *MIME* (`mime`).
 
-Les règles que nous utilisons pour notre exemple s'écrivent de la manière suivante:
+La condition s'entre en tant que dictionnaire associé à la clef `match`.
+
+L'ensemble des cibles est une simple liste nommée `sync` des noms des services affectés par la règle.
+
+Pour synchroniser les fichiers de n'importe quel service vers le disque dur, et envoyer toutes les images contenues dans le dossier "/photos/", les règles que nous utilisons pour notre exemple s'écrivent de la manière suivante:
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
 "rules": [
