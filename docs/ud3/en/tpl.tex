@@ -1,0 +1,117 @@
+\documentclass[11pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}	% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+\usepackage{multirow}   % to allow multirows in tables
+\usepackage[colorlinks,urlcolor=link]{hyperref}
+\usepackage{palatino}
+\usepackage{pdflscape}
+
+$if(tables)$
+\usepackage{longtable}
+$endif$
+
+% Custom defines zone
+
+% Define useful hand-made colors
+\definecolor{onitu}{RGB}{5,136,178}
+\definecolor{link}{RGB}{20,100,178}
+\definecolor{lightGray}{gray}{0.92}
+
+% Bit of code to bold an entire table row
+% http://tex.stackexchange.com/questions/4811/make-first-row-of-table-all-bold
+\newcolumntype{$$}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}
+  #1\ignorespaces
+}
+
+% Defining a "dd/mm/yyyy" date format
+\newdateformat{dashDate}{\twodigit{\THEDAY}/\twodigit{\THEMONTH}/\twodigit{\THEYEAR}}
+
+\input{commands.tex}
+
+\newcommand{\TplVersion}{4.0}
+
+\setlength{\headsep}{0pt}
+
+%% Defining headers and footers contents.
+
+\fancypagestyle{empty}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
+
+	\fancyfoot[L]{}
+	\fancyfoot[C]{\textcolor{onitu}{\textbf{\underline{\DocTitle\ — \SubTitle}}}}
+	\fancyfoot[R]{}
+}
+
+\fancypagestyle{plain}
+{
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{1pt}
+	\fancyhead[L]{\includegraphics[height=35pt]{\EIPLogo}}
+	\fancyhead[C]{}
+	\fancyhead[R]{\includegraphics[height=35pt]{\ProjectLogo}}
+
+	\fancyfoot[L]{\textcolor{onitu}{\textbf{\underline{\leftmark}}}}
+	\fancyfoot[C]{}
+	\fancyfoot[R]{
+		\thepage/\pageref{LastPage}
+	}
+}
+
+\title{
+	\huge{\textbf{\textcolor{onitu}{\DocTitle} } }\\
+	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
+}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+\maketitle
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$if(toc)$
+\addtocontents{toc}{\protect\refstepcounter{page}} % makes the table of contents count pages from 1 (one)
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+\thispagestyle{empty}
+$endif$
+
+\setcounter{page}{0}
+
+\pagestyle{plain}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+%\chapter{Introduction}
+%\input{rappel_de_eip.tex}
+%\input{introduction.tex}
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+\end{document}
