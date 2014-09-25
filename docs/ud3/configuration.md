@@ -263,8 +263,9 @@ Par la suite seront aussi disponibles des conditions sur le nom du fichier ou su
     "Dropbox": {
       "driver": "dropbox",
       "options": {
-        "email": "foo@bar.com"
-        "password": "my_password"
+        "access_key": "MY_ACCESS_KEY",
+        "access_secret": "MY_SECRET_KEY",
+	"changes_timer": 300
       }
     }
   },
