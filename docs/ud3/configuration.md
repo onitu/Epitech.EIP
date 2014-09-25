@@ -69,11 +69,11 @@ Le nom du *driver* **Dropbox** est simplement `dropbox`. Il comporte quatre opti
 
 Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification **get_access_token.py** fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
 
-![Étape 1 : Lancer le script get\_access\_token.py et accéder à l'URL générée](dropbox_etape1.png)
+![Étape 1 : Lancer le script get\_access\_token.py et accéder à l'URL générée](imgs/dropbox_etape1.png)
 
-![Étape 2 : Autoriser l'accès à l'application Onitu pour Dropbox](dropbox_etape2.png)
+![Étape 2 : Autoriser l'accès à l'application Onitu pour Dropbox](imgs/dropbox_etape2.png)
 
-![Étape 3 : Récupérer les clés générées par le script, utilisables par Onitu.](dropbox_etape3.png)
+![Étape 3 : Récupérer les clés générées par le script, utilisables par Onitu.](imgs/dropbox_etape3.png)
 
 
 \newpage
@@ -111,9 +111,9 @@ Si vous ne possédez pas déjà vos clés d'accès Amazon S3, il faut vous conne
 
 Pour créer une nouvelle paire de clés, cliquez sur "Create New Access Keys". L'opération devrait être instantanée et générer un ID de clé d'accès et une clé d'accès secrète. Ce sont les clés que vous devez utiliser avec Onitu.
 
-![Étape 1 : Accéder à l'interface pour créer vos clés Amazon S3](s3_etape1.png)
+![Étape 1 : Accéder à l'interface pour créer vos clés Amazon S3](imgs/s3_etape1.png)
 
-![Étape 2 : Une fois terminé, les clés générées sont celles utilisables avec Onitu](s3_etape2.png)
+![Étape 2 : Une fois terminé, les clés générées sont celles utilisables avec Onitu](imgs/s3_etape2.png)
 
 \newpage
 
@@ -153,35 +153,35 @@ Pour utiliser Onitu avec Hubic, il vous faut créer une application Onitu pour H
 
 Une fois votre compte Hubic créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
 
-![Étape 1 : Accéder à l'interface pour créer votre application Hubic](hubic_etape1.png)
+![Étape 1 : Accéder à l'interface pour créer votre application Hubic](imgs/hubic_etape1.png)
 
 Une fois votre application Hubic créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
 
-![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application Hubic](hubic_etape2.png)
+![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application Hubic](imgs/hubic_etape2.png)
 
 \newpage
 
 Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du *driver* Hubic dans un éditeur de texte, et remplacez le contenu de `client_id` et `client_secret` avec les clés que vous avez récupérées sur l'interface Hubic.
 
-![Étape 3 : Remplacez les clés vides du script par celles de votre application (en conservant les guillemets)](hubic_etape3.png)
+![Étape 3 : Remplacez les clés vides du script par celles de votre application (en conservant les guillemets)](imgs/hubic_etape3.png)
 
 Vous devrez ensuite lancer le script à l'aide de la commande `python get_refresh_token.py`. Après avoir appuyé sur Entrée, le script ouvrira une fenêtre dans votre navigateur Internet où vous devrez rentrer vos identifiants Hubic et cliquer sur le bouton "Accept" pour autoriser Onitu à accéder à votre compte Hubic.
 
-![Étape 4 : Lancement du script get_refresh_token.py](hubic_etape4.png)
+![Étape 4 : Lancement du script get_refresh_token.py](imgs/hubic_etape4.png)
 
-![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de Hubic](hubic_etape5.png)
+![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de Hubic](imgs/hubic_etape5.png)
 
 \newpage
 
 Vous arriverez ensuite sur une page vide, car vous n'avez aucune application Web hébergée sur votre ordinateur permettant de récupérer le code de vérification. Mais vous pouvez le récupérer depuis la barre d'adresse de votre navigateur, en copiant la valeur du paramètre `code`.
 
-![Étape 6 : Récupérez le code depuis votre barre d'adresse](hubic_etape6.png)
+![Étape 6 : Récupérez le code depuis votre barre d'adresse](imgs/hubic_etape6.png)
 
 \newpage
 
 Retournez dans le terminal pour coller le code ainsi copié. Le script produira alors un code d'autorisation, le *refresh token*, qui est celui que vous devrez utiliser pour configurer Onitu.
 
-![Étape 7 : Récupérez le code d'autorisation à utiliser dans Onitu](hubic_etape7.png)
+![Étape 7 : Récupérez le code d'autorisation à utiliser dans Onitu](imgs/hubic_etape7.png)
 
 \newpage
 
@@ -213,9 +213,9 @@ Les règles vous permettent de définir quels fichiers doivent être synchronis�
 
 Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées au service «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG*, soient relayées à *Dropbox*, comme explicité sur les schémas ci-dessous:
 
-![De **Dropbox** vers le **disque dur**](rules_schema_1.png)
+![De **Dropbox** vers le **disque dur**](imgs/rules_schema_1.png)
 
-![Du **disque dur** vers **Dropbox**, à condition de satisfaire les règles](rules_schema_2.png)
+![Du **disque dur** vers **Dropbox**, à condition de satisfaire les règles](imgs/rules_schema_2.png)
 
 Une règle consiste en un ensemble de deux éléments: la condition d'acceptation d'un fichier et l'ensemble des services cibles.
 

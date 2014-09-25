@@ -1,6 +1,6 @@
 # Présentation d'*Onitu*
 
-![](logo_onitu.png)
+![](imgs/logo_onitu.png)
 
 Onitu est un serveur de synchronisation de services de stockage en ligne.
 
