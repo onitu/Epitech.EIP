@@ -4,6 +4,24 @@
 \usepackage[french]{babel}
 \usepackage{fullpage}
 \usepackage{graphicx}
+\usepackage{fancyhdr}	% headers/footers
+\usepackage{xcolor}	% to use our own color
+\usepackage{lastpage}	% to easily know the total number of pages
+\usepackage{titling}	% to easily know the total number of pages
+\usepackage{titlesec}
+\usepackage{colortbl}	% to put color in a table background
+\usepackage{datetime}	% to allow us set a new date formatting
+\usepackage{multirow}   % to allow multirows in tables
+\usepackage[colorlinks,urlcolor=link]{hyperref}
+\usepackage{palatino}
+\usepackage{pdflscape}
+
+$if(tables)$
+\usepackage{longtable}
+$endif$
+
+% Custom defines zone
+
 % Redefine \includegraphics so that, unless explicit options are
 % given, the image width will not exceed the width or the height of the page.
 % Images get their normal width if they fit onto the page, but
@@ -26,22 +44,8 @@
 \makeatother
 
 \setkeys{Gin}{width=\ScaleWidthIfNeeded,height=\ScaleHeightIfNeeded,keepaspectratio}%
-\usepackage{fancyhdr}	% headers/footers
-\usepackage{xcolor}	% to use our own color
-\usepackage{lastpage}	% to easily know the total number of pages
-\usepackage{titling}	% to easily know the total number of pages
-\usepackage{colortbl}	% to put color in a table background
-\usepackage{datetime}	% to allow us set a new date formatting
-\usepackage{multirow}   % to allow multirows in tables
-\usepackage[colorlinks,urlcolor=link]{hyperref}
-\usepackage{palatino}
-\usepackage{pdflscape}
+% End of redefinition
 
-$if(tables)$
-\usepackage{longtable}
-$endif$
-
-% Custom defines zone
 
 % Define useful hand-made colors
 \definecolor{onitu}{RGB}{5,136,178}
@@ -103,6 +107,8 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
+
+\titleformat{\chapter}{\Huge\bfseries}{\thechapter. }{0pt}{\Huge\bfseries}
 
 \begin{document}
 
