@@ -4,6 +4,28 @@
 \usepackage[french]{babel}
 \usepackage{fullpage}
 \usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width or the height of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleWidthIfNeeded{%
+ \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\def\ScaleHeightIfNeeded{%
+  \ifdim\Gin@nat@height>0.9\textheight
+    0.9\textheight
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\setkeys{Gin}{width=\ScaleWidthIfNeeded,height=\ScaleHeightIfNeeded,keepaspectratio}%
 \usepackage{fancyhdr}	% headers/footers
 \usepackage{xcolor}	% to use our own color
 \usepackage{lastpage}	% to easily know the total number of pages
@@ -74,7 +96,6 @@ $endif$
 }
 
 \title{
-        %\includegraphics[height=35pt]{\ProjectLogo}
 	\huge{\textbf{\textcolor{onitu}{\DocTitle} } }\\
 	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
 }
@@ -106,9 +127,6 @@ $endif$
 \renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
 \renewcommand{\sectionmark}[1]{ \markright{#1}{} }
 
-%\chapter{Introduction}
-%\input{rappel_de_eip.tex}
-%\input{introduction.tex}
 
 $body$
 
