@@ -9,6 +9,7 @@
 \usepackage{lastpage}	% to easily know the total number of pages
 \usepackage{titling}	% to easily know the total number of pages
 \usepackage{titlesec}
+\usepackage[tc]{titlepic}
 \usepackage{colortbl}	% to put color in a table background
 \usepackage{datetime}	% to allow us set a new date formatting
 \usepackage{multirow}   % to allow multirows in tables
@@ -99,10 +100,9 @@ $endif$
 	}
 }
 
-\title{
-	\huge{\textbf{\textcolor{onitu}{\DocTitle} } }\\
-	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
-}
+\title{}
+\date{}
+\titlepic{\includegraphics{titlepic.png}}
 
 $for(header-includes)$
 $header-includes$
