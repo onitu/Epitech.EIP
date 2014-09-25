@@ -16,15 +16,15 @@ Une fois PIP installé, pour installer Onitu, lancez la commande suivante dans u
 
 ## Installer des *drivers* Onitu
 
-La force d'Onitu est de proposer un système découplé de pilotes, les logiciels communiquant avec les services de stockage de votre choix.
+La force d'Onitu est de proposer un système découplé de *drivers*, les logiciels communiquant avec les services de stockage de votre choix.
 
-Chaque pilote possède donc son propre paquet PIP afin de n'installer que ce dont vous avez besoin. Le nom du paquet d'un pilote Onitu suivra toujours la forme `onitu-nom_du_pilote`.
+Chaque *driver* possède donc son propre paquet PIP afin de n'installer que ce dont vous avez besoin. Le nom du paquet d'un *driver* Onitu suivra toujours la forme `onitu-nom_du_driver`.
 
-Pour installer un pilote Onitu, lancez la commande suivante dans un terminal, en remplaçant par le nom approprié, par exemple `onitu-dropbox` ou `onitu-google-drive`:
+Pour installer un *driver* Onitu, lancez la commande suivante dans un terminal, en remplaçant par le nom approprié, par exemple `onitu-dropbox` ou `onitu-google-drive`:
 
-* `pip install onitu-nom_du_module`
+* `pip install onitu-nom_du_driver`
 
-Voici la liste des pilotes Onitu actuellement installables par PIP :
+Voici la liste des *drivers* Onitu actuellement installables par PIP :
 
 * Dropbox : *onitu-dropbox*
 * Google Drive : *onitu-google-drive*
@@ -36,10 +36,7 @@ Voici la liste des pilotes Onitu actuellement installables par PIP :
 
 ## Lancement
 
-\begin{figure}[h]
-\includegraphics[scale=0.75]{screen_onitu.png}
-\caption{Lancement d'\emph{Onitu}}
-\end{figure}
+![](screen_onitu.png)
 
 Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration à l'aide de l'option `--setup` (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
 
