@@ -1,4 +1,4 @@
-B1;3409;0c# Configuration
+# Configuration
 
 Une fois qu'Onitu et les *drivers* des services que vous désirez utiliser sont correctement installés avec PIP, il reste à configurer leur utilisation au sein du logiciel.
 
@@ -97,6 +97,62 @@ Un exemple de configuration de service Dropbox réussie :
 }
 \end{lstlisting}
 \end{figure}
+
+
+\newpage
+
+
+### Google Drive
+
+![](imgs/drive_logo.png)
+
+Le nom du *driver* Google Drive est `google_drive`. Il vous permet de connecter l'espace de stockage Drive de votre compte Google à Onitu.
+
+Le service du *driver* Google Drive comporte cinq options :
+
+* \Mandatory{root} : le dossier à l'intérieur duquel Onitu interagira avec Google Drive
+* \Mandatory{refresh\_token} : le jeton d'autorisation poura accéder à votre compte Drive *(voir plus bas)*
+* \Mandatory{client\_id} : la clé d'identification de l'application pour l'API Google Drive
+* \Mandatory{client\_secret} : la clé secrète de l'application pour l'API Google Drive
+* \Mandatory{changes\_timer} : la fréquence à laquelle Onitu vérifie les changements sur le compte Drive, en secondes.
+
+Pour obtenir vos clés d'autorisation Google Drive pour Onitu, vous devez vous servir du script **grt.py** fourni à l'installation du *driver* Google Drive.
+
+Lancez-le dans un terminal, puis accédez à l'URL qu'il génère dans votre navigateur Web.
+
+![Lancez le script dans un terminal, et allez à l'adresse indiquée pour récupérer votre code d'autorisation](imgs/drive_etape1.png)
+
+![Le code généré est celui que vous devez rentrer dans votre terminal](imgs/drive_etape2.png)
+
+\newpage
+
+Copiez le code d'autorisation dans votre terminal. Le script génère alors un *refresh token*, un des codes à utiliser dans votre configuration d'Onitu.
+
+![Conservez le *refresh token* généré par le script](imgs/drive_etape3.png)
+
+Enfin, vous aurez besoin de récupérer le *Client ID* et le *Client Secret* de l'application Onitu. Pour ce faire, ouvrez le fichier **grt.py** dans un éditeur de texte, et récupérez la valeur des champs nommés *client_id* et *client_secret*.
+
+![Récupérez les valeurs entre guillemets](imgs/drive_etape4.png)
+
+\newpage
+
+Un exemple de configuration du service Drive réussie :
+
+\begin{figure}[h]
+\begin{lstlisting}[language=json,firstnumber=1]
+"google-drive-celine": {
+  "driver": "google_drive",
+  "options": {
+    "root": "onitu/",
+    "refresh_token": "MY_REFRESH_TOKEN",
+    "client_id": "MY_CLIENT_ID",
+    "client_secret": "MY_CLIENT_SECRET",
+    "changes_timer": 300
+  }
+}
+\end{lstlisting}
+\end{figure}
+
 
 
 \newpage
@@ -243,6 +299,8 @@ Vous aurez besoin de vous rendre à l'adresse indiquée dans votre navigateur We
 
 ![Étape 2 : Une fois sur la page Web, autorisez l'accès de votre Flickr à Onitu](imgs/flickr_etape2.png)
 
+\newpage
+
 La page Flickr vous redirige alors sur un document XML. Copiez la nouvelle URL de ce document, revenez dans votre terminal, et collez-la à l'emplacement prévu à cet effet par le script.
 
 ![Étape 3 : Copiez-collez l'URL du document obtenu dans votre terminal](imgs/flickr_etape3.png)
@@ -317,7 +375,7 @@ Par la suite seront aussi disponibles des conditions sur le nom du fichier ou su
 {
   "name": "setup_example",
 
-  "entries": {
+  "services": {
     "Local": {
       "driver": "local_storage",
       "options": {
@@ -329,7 +387,7 @@ Par la suite seront aussi disponibles des conditions sur le nom du fichier ou su
       "options": {
         "access_key": "MY_ACCESS_KEY",
         "access_secret": "MY_SECRET_KEY",
-	"changes_timer": 300
+	 "changes_timer": 300
       }
     }
   },

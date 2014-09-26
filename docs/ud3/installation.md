@@ -1,9 +1,5 @@
 # Installation
 
-
-Un installateur graphique sera fourni par la suite afin d'en simplifier l'installation sous Windows.
-
-
 ## Installer PIP
 
 *Onitu* repose sur *PIP*, un gestionnaire de paquets Python très répandu et multi-plateforme, s'utilisant en ligne de commande.
@@ -21,6 +17,8 @@ Une fois PIP installé, pour installer Onitu, lancez la commande suivante dans u
 Pour l'installer uniquement pour votre utilisateur (ne requiert pas les droits administrateur) :
 
 * `pip install --user onitu`
+
+Un installateur graphique sera fourni par la suite afin d'en simplifier l'installation sous Windows.
 
 
 ## Installer des *drivers* Onitu
@@ -45,7 +43,7 @@ Voici la liste des *drivers* Onitu actuellement installables par PIP :
 
 ## Lancement
 
-![](imgs/screen_onitu.png)
+![Capture d'écran du lancement d'Onitu dans un terminal](imgs/screen_onitu.png)
 
 Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration à l'aide de l'option `--setup` (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
 
