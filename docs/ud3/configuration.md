@@ -58,7 +58,13 @@ Une configuration possible est la suivante:
 \end{figure}
 
 
+\newpage
+
+
 ### Dropbox
+
+![](imgs/dropbox_logo.png)
+
 
 Le nom du *driver* **Dropbox** est simplement `dropbox`. Il comporte quatre options :
 
@@ -93,7 +99,12 @@ Un exemple de configuration de service Dropbox réussie :
 \end{figure}
 
 
+\newpage
+
+
 ### Amazon S3
+
+![](imgs/s3_logo.png)
 
 Le nom du *driver* Amazon S3 est `amazon_s3`. Il vous permet de connecter un *bucket* Amazon S3 à Onitu.
 
@@ -134,10 +145,13 @@ Un exemple de configuration d'entrée Amazon S3 réussie :
 \end{lstlisting}
 \end{figure}
 
+
 \newpage
 
 
 ### HubiC
+
+![](imgs/hubic_logo.png)
 
 Le nom du *driver* pour le service HubiC d'OVH est `hubic`. Il vous permet de connecter votre compte HubiC à Onitu.
 
@@ -202,10 +216,13 @@ Un exemple de configuration du service HubiC réussie :
 \end{lstlisting}
 \end{figure}
 
+
 \newpage
 
 
 ### Flickr
+
+![](imgs/flickr_logo.png)
 
 Le nom du *driver* pour Flickr est `flickr`. Il vous permet de connecter votre compte Flickr à Onitu, et de synchroniser vos photos gérées par Onitu avec Flickr.
 
