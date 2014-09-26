@@ -1,4 +1,4 @@
-# Configuration
+B1;3409;0c# Configuration
 
 Une fois qu'Onitu et les *drivers* des services que vous désirez utiliser sont correctement installés avec PIP, il reste à configurer leur utilisation au sein du logiciel.
 
@@ -141,7 +141,7 @@ Un exemple de configuration d'entrée Amazon S3 réussie :
 
 Le nom du *driver* pour le service HubiC d'OVH est `hubic`. Il vous permet de connecter votre compte HubiC à Onitu.
 
-Le service du *driver* Hubic comporte cinq options :
+Le service du *driver* HubiC comporte cinq options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Hubic
 * \Mandatory{refresh\_token} : votre clé pour accéder à Hubic depuis Onitu *(voir plus bas)*
@@ -149,27 +149,27 @@ Le service du *driver* Hubic comporte cinq options :
 * \Mandatory{client\_secret} : la clé secrète de votre application Onitu pour Hubic *(voir plus bas)*
 * **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Hubic, en secondes. La valeur par défaut est **60 secondes**.
 
-Pour utiliser Onitu avec Hubic, il vous faut créer une application Onitu pour Hubic.
+Pour utiliser Onitu avec HubiC, il vous faut créer une application Onitu pour HubiC.
 
-Une fois votre compte Hubic créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
+Une fois votre compte HubiC créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
 
-![Étape 1 : Accéder à l'interface pour créer votre application Hubic](imgs/hubic_etape1.png)
+![Étape 1 : Accéder à l'interface pour créer votre application HubiC](imgs/hubic_etape1.png)
 
-Une fois votre application Hubic créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
+Une fois votre application HubiC créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
 
-![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application Hubic](imgs/hubic_etape2.png)
+![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application HubiC](imgs/hubic_etape2.png)
 
 \newpage
 
-Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du *driver* Hubic dans un éditeur de texte, et remplacez le contenu de `client_id` et `client_secret` avec les clés que vous avez récupérées sur l'interface Hubic.
+Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du *driver* HubiC dans un éditeur de texte, et remplacez le contenu de `client_id` et `client_secret` avec les clés que vous avez récupérées sur l'interface HubiC.
 
 ![Étape 3 : Remplacez les clés vides du script par celles de votre application (en conservant les guillemets)](imgs/hubic_etape3.png)
 
-Vous devrez ensuite lancer le script à l'aide de la commande `python get_refresh_token.py`. Après avoir appuyé sur Entrée, le script ouvrira une fenêtre dans votre navigateur Internet où vous devrez rentrer vos identifiants Hubic et cliquer sur le bouton "Accept" pour autoriser Onitu à accéder à votre compte Hubic.
+Vous devrez ensuite lancer le script à l'aide de la commande `python get_refresh_token.py`. Après avoir appuyé sur Entrée, le script ouvrira une fenêtre dans votre navigateur Internet où vous devrez rentrer vos identifiants HubiC et cliquer sur le bouton "Accept" pour autoriser Onitu à accéder à votre compte HubiC.
 
 ![Étape 4 : Lancement du script get_refresh_token.py](imgs/hubic_etape4.png)
 
-![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de Hubic](imgs/hubic_etape5.png)
+![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de HubiC](imgs/hubic_etape5.png)
 
 \newpage
 
@@ -185,7 +185,7 @@ Retournez dans le terminal pour coller le code ainsi copié. Le script produira 
 
 \newpage
 
-Un exemple de configuration du service Hubic réussie :
+Un exemple de configuration du service HubiC réussie :
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -205,7 +205,54 @@ Un exemple de configuration du service Hubic réussie :
 \newpage
 
 
+### Flickr
 
+Le nom du *driver* pour Flickr est `flickr`. Il vous permet de connecter votre compte Flickr à Onitu, et de synchroniser vos photos gérées par Onitu avec Flickr.
+
+**Attention** : le *driver* Flickr est dit "à sens unique". En effet, en raison de limitations techniques, il n'est pas possible d'importer des photos depuis Flickr avec Onitu. Il vous sera uniquement possible d'envoyer des photos sur Flickr depuis d'autres services gérés par Onitu, mais l'inverse n'est pas vrai.
+
+Le service du *driver* Flickr comporte quatre options:
+
+* \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Flickr
+* \Mandatory{oauth\_token} : votre jeton d'accès OAuth pour Flickr *(voir plus bas)*
+* \Mandatory{oauth\_token\_secret} : votre clé secrète OAuth pour Flickr *(voir plus bas)*
+* **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Flickr, en secondes. La valeur par défaut est **20 secondes**.
+
+Pour utiliser Onitu avec Flickr, il vous faut lancer dans un terminal le script **get_tokens.py** fourni à l'installation du *driver* Flickr pour Onitu.
+
+![Étape 1 : Lancez le script **get_tokens.py** et rendez-vous à l'adresse affichée](imgs/flickr_etape1.png)
+
+Vous aurez besoin de vous rendre à l'adresse indiquée dans votre navigateur Web pour autoriser Onitu à accéder à votre compte Flickr. Flickr vous redirigera ensuite sur un document XML contenant vos informations d'autorisation, dont vous devrez copier-coller l'adresse dans votre terminal pour finaliser la procédure du script.
+
+![Étape 2 : Une fois sur la page Web, autorisez l'accès de votre Flickr à Onitu](imgs/flickr_etape2.png)
+
+La page Flickr vous redirige alors sur un document XML. Copiez la nouvelle URL de ce document, revenez dans votre terminal, et collez-la à l'emplacement prévu à cet effet par le script.
+
+![Étape 3 : Copiez-collez l'URL du document obtenu dans votre terminal](imgs/flickr_etape3.png)
+
+Le script vous procure alors les jetons OAuth que vous serez en mesure d'utiliser dans votre configuration Onitu.
+
+![Étape 4 : Les jetons ainsi obtenus sont ceux que vous pourrez utiliser au sein d'Onitu](imgs/flickr_etape4.png)
+
+\newpage
+
+Un exemple de configuration du service Flickr réussie :
+
+\begin{figure}[h]
+\begin{lstlisting}[language=json,firstnumber=1]
+"flickr-william": {
+  "driver": "flickr",
+  "options": {
+    "root": "onitu/",
+    "oauth_token": "MY_OAUTH_TOKEN",
+    "oauth_secret_token": "MY_SECRET_TOKEN",
+    "changes_timer" : 300
+  }
+}
+\end{lstlisting}
+\end{figure}
+
+\newpage
 
 ## Les règles
 
