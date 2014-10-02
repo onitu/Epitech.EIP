@@ -2,15 +2,15 @@
 
 Le serveur est le point d'entrée d'Onitu, c'est le programme qui s'occupe des communications avec les différents services, qu'ils soient internes (composants, base de données) ou externes (*drivers*, client).
 
-Onitu est formé des composants suivants:
+Onitu est formé de divers composants détaillés dans les sections ci-dessous.
 
 ### *Referee*
 
 Le *Referee*, ou arbitre, est le module chargé de recevoir les événements émis par les entrées, et de les relayer aux autres entrées intéressées, suivant les règles de configuration.
 
-La classe `onitu.referee.Referee` est la classe arbitre. Elle est instanciée au démarrage d'Onitu et tourne dans un processus indépendant. Elle écoute sur une socket `ømq` l'arrivée de nouveaux événements et les récupère via la base de données *Escalator*. Chaque événement est attaché à un identifiant de fichier (*fid*), par lequel il a été déclenché.
+La classe `onitu.referee.Referee` est la classe arbitre. Elle est instanciée au démarrage d'Onitu et tourne dans un processus indépendant. Elle écoute sur une socket *ømq* l'arrivée de nouveaux événements et les récupère via la base de données *Escalator*. Chaque événement est attaché à un identifiant de fichier (*fid*), par lequel il a été déclenché.
 
-Les ordres sont ensuite relayés à l'aide d'une publication `ømq` (PUB) identifiée par son port `port:events:referee` en base de données. Le *Plug* de chaque entrée doit ensuite souscrire à ce flux d'événements via une socket PULL, et s'abonner aux événements débutant par son nom.
+Les ordres sont ensuite relayés à l'aide d'une publication *ømq* (PUB) identifiée par son port `port:events:referee` en base de données. Le *Plug* de chaque entrée doit ensuite souscrire à ce flux d'événements via une socket PULL, et s'abonner aux événements débutant par son nom.
 
 Les messages publiés sont constitués de 3 éléments:
 - Le nom du canal de communication, ou *addressee*
@@ -32,6 +32,8 @@ Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *hand
 Le *Majordomo* est l'entité au sein d'Onitu permettant la communication au sein des clients. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
 
 Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, une entrée de type *remote-driver* (pilote distant) est mise en place, et connectée aux règles établies par le client. Elle est par la suite considérée comme une entrée à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
+
+Chaque client est authentifié par le *Majordomo* à l'aide d'un ensemble de leurs clefs publique et secrète respectives.
 
 ### *Escalator*
 
