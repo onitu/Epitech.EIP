@@ -78,3 +78,7 @@ nombre de secondes correspondant à l'unité de temps, ```1s``` par défaut.
 à la fois, cette variable permet de déterminer quel pilote sera testé, et peut
 donc prendre des valeurs telles que ```local_storage``` ou ```ssh```.
 
+Des tests automatiques sont lancés par Travis sur tout code intégré à Onitu.
+L'historique de ces tests est disponible publiquement. Travis lancera aussi les
+tests si vous faites une pull request. Vous pouvez consulter la [page Travis du
+projet](https://travis-ci.org/onitu/onitu).
