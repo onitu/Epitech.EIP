@@ -12,6 +12,8 @@ Ils se définissent dans le module du *driver* à l'aide de décorateurs python 
 
 Les *handlers* disponibles sont les suivants.
 
++ Indiquer lesquels sont obligatoires / peuvent être remplacés.
+
 #### `start_upload`
 
 Informe le *driver* du commencement d'un transfert de fichier vers ce *driver*.
@@ -59,8 +61,40 @@ Demande au *driver* de déplacer un fichier vers un nouvel emplacement. Les mét
 
 ???
 
+### Plug
+
+Un *driver* est de plus amené à demander des informations auprès du *Plug*, il peut le faire à l'aide des méthodes suivantes.
+
+#### `get_metadata`
+
+Permet de récupérer les métadonnées d'un fichier. Prend le chemin du fichier en paramètre et retourne un object `Metadata` (object contenant le nom, la taille, le type *MIME* et les propriétaires du fichier).
+
+#### `update_file`
+
+Indique au *Plug* qu'un fichier a été mis à jour. Transmet les métadonnées du fichier en paramètre.
+
+#### `delete_file`
+
+Notifie le *Plug* de la suppression d'un fichier, en précisant les métadonnés du fichier en paramètre.
+
+#### `move_file`
+
+Notifie le *Plug* du déplacement d'un fichier, en indiquant en paramètre les métadonnées du fichier et le nouvel emplacement.
+
 ### Exceptions
 
+Différentes exceptions sont mises à disposition des *drivers* pour relayer à Onitu l'apparition d'un erreur.
+
+#### `ServiceError`
+
+Cette exception doit être levée si une opération ne peut aboutir, en raison d'un problème hors de portée du *driver*.
+
+#### `DriverError`
+
+Cette exception doit être levée pour tout autre problème survenant au niveau du *driver* empêchant de mener à bien une opération.
+
 ### Installation
+
+manifest.json + setuptools
 
 ### Tests
