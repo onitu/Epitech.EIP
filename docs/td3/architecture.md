@@ -28,6 +28,8 @@ METTRE À JOUR SCHÉMA (Escalator, Majordomo, Client, API)
 \caption{Architecture globale}
 \end{figure}
 
+\newpage
+
 #### Arborescence
 
 ##### Dépôt `onitu.onitu`
