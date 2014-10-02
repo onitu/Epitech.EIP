@@ -9,7 +9,7 @@ contact.
 
 ### [Le site vitrine](https://onitu.github.io/)
 
-L'ensemble des membres de l'équipe sont présentés sur le
+  L'ensemble des membres de l'équipe sont présentés sur le
   [site du projet](https://onitu.github.io/). Vous pouvez facilement
   voir quelle est la personne la plus à même de vous renseigner.
 
