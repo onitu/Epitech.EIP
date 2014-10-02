@@ -1,1 +1,3 @@
 # Architecture du projet
+
+## Glossaire
