@@ -14,6 +14,7 @@
 \usepackage[colorlinks,urlcolor=link]{hyperref}
 \usepackage{palatino}
 \usepackage{pdflscape}
+\usepackage[tc]{titlepic}
 
 $if(tables)$
 \usepackage{longtable}
@@ -39,7 +40,7 @@ $endif$
 
 \input{commands.tex}
 
-\newcommand{\TplVersion}{4.0}
+\newcommand{\TplVersion}{5.0}
 
 \setlength{\headsep}{0pt}
 
@@ -73,9 +74,11 @@ $endif$
 	}
 }
 
-\title{
-	\huge{\textbf{\textcolor{onitu}{\DocTitle} } }\\
-	\Large{\textbf{\emph{\textcolor{gray}{\SubTitle} } } }
+\title{}
+\date{}
+\titlepic{
+  \includegraphics{imgs/logo_onitu.png} \\
+  \huge{\textbf{\textcolor{onitu}{\Subject} } }
 }
 
 $for(header-includes)$
