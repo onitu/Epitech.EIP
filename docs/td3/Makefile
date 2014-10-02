@@ -5,7 +5,9 @@ SRC =	presentation.md \
 	architecture.md \
 	architecture_core.md \
 	architecture_drivers.md \
-	architecture_api.md
+	architecture_api.md \
+	architecture_client.md \
+	documentation.md
 HEADER = 
 BEFORE = resume.tex header.tex
 
