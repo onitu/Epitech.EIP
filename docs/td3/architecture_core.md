@@ -25,6 +25,8 @@ Une fois l'entrée prête à recevoir des requêtes, elle appelle la méthode `l
 
 Le plug fait la liaison entre un fichier et ses métadonnées. Les métadonnées sont toutes les informations présentes autour d'un fichier, comme son nom, sa taille, et la liste de ses propriétaires (entrées sur lesquelles le fichier est présent).
 
+Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *handlers*.
+
 ### *Majordomo*
 
 Le *Majordomo* est l'entité au sein d'Onitu permettant la communication au sein des clients. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
