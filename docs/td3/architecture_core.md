@@ -6,6 +6,10 @@ Onitu est formé de divers composants détaillés dans les sections ci-dessous.
 
 ### *Launcher*
 
+Le *Launcher*, ou lanceur, est le programme lancé lorsque la commande `onitu` est entrée.
+
+Il est chargé d'analyser le fichier de configuration et d'initialiser et exécuter à l'aide de *Circus* les autres processus, tels que le *Referee*, la base de données ou les *drivers*.
+
 ### *Referee*
 
 Le *Referee*, ou arbitre, est le module chargé de recevoir les événements émis par les entrées, et de les relayer aux autres entrées intéressées, suivant les règles de configuration.

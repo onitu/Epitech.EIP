@@ -60,6 +60,12 @@ Les données stockées par Onitu en base consistent en de simples couples clef/v
 
 Une bibliothèque python, *plyvel* fournit une très bonne abstraction à *LevelDB*, et est ainsi utilisée au sein d'Onitu pour communiquer avec la base de données.
 
+#### *Circus*
+
+*Circus* est un programme de gestion et supervision de processus pour lequel existe une bibliothèque Python.
+
+Onitu dispose de nombreux processus qui doivent être surveillés, de façon à pouvoir les démarrer/stopper facilement, ou encore les relancer automatiquement en cas d'erreur critique, c'est pourquoi nous nous sommes orientés vers *Circus*.
+
 ## Normes
 
 Vos contributions au projet doivent respecter les règles définies par la
