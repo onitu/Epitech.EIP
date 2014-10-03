@@ -14,7 +14,7 @@
 
 - **Fichier de configuration** — Fichier au format *JSON* décrivant les entrées et les règles d'une exécution d'Onitu.
 
-- **Launcher** —
+- **Launcher** — Le *Launcher* est le composant appelé au démarrage d'Onitu, et qui s'occupe de lancer les autres processus.
 
 - **Referee** — Entité chargée de recevoir les événements depuis les entrées et d'appliquer les règles afin de les relayer aux entrées intéressées.
 

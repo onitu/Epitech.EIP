@@ -40,6 +40,26 @@ développement, préférez à la place rebaser votre branche.
 
 ## Technologies utilisées
 
+#### Python
+
+Le projet est développé en python, compatible toute version ultérieure à Python 2.7.
+
+Python est un langage polyvalent est flexible. Il nous permet de développer et distribuer Onitu très facilement, sans se soucier des plateformes cibles sur lequel il sera déployé (pas de compilation des sources ou de distribution de binaires), étant de plus disponible sur un très grand nombre de systèmes. Python possède une libraire standard conséquente et est aisé à lire et à comprendre.
+
+Onitu étant une application limitée majoritairement par les entrées/sorties, la vitesse d'exécution de Python n'influera pas sur les performances du système: le temps d'exécution n'est pas dédié à l'interprétation mais au téléchargement de fichiers et à l'échange d'informations.
+
+#### *ømq*
+
+Onitu déployant divers processus et exétrons, un moyen de communication entre les composants se révélait nécessaire. *ømq* est une couche haute du protocole *IP* et des *sockets* *Unix*, qui fournit des patrons de messages. Onitu en utilise plusieurs, tels les *ROUTER/DEALER*, *PUBLISH/SUBSCRIBE* et *REQUEST/REPLY*.
+
+*ømq* est très rapide, léger et flexible. Il est disponible sur de nombreuses plate-formes et possède une implémentation Python.
+
+#### *LevelDB* et *plyvel*
+
+Les données stockées par Onitu en base consistent en de simples couples clef/valeur. C'est pourquoi nousavons opté pour une base de données simple, sans schéma, persistante et multi-plateforme. *LevelDB* répondait parfaitement à ce besoin, et nous l'avons donc choisi.
+
+Une bibliothèque python, *plyvel* fournit une très bonne abstraction à *LevelDB*, et est ainsi utilisée au sein d'Onitu pour communiquer avec la base de données.
+
 ## Normes
 
 Vos contributions au projet doivent respecter les règles définies par la
