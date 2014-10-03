@@ -1,3 +1,5 @@
+\newpage
+
 # Informations complémentaires
 
 ## Bogues connus
@@ -7,6 +9,15 @@ Onitu étant actuellement en développement, de nouveaux bogues apparaissent ou 
 La liste des bogues peut être consultée dans la section *Issues* de la page *Github* du projet, à cette adresse: <https://github.com/onitu/onitu/issues>.
 
 Le report des bogues rencontrés se fait sur cette même page, en créant une nouvelle *issue*.
+
+### Problèmes de casse avec Dropbox
+
+Dropbox utilise un système de fichiers **insensible à la casse**, c'est-à-dire que tous les noms de fichiers sont en minuscules pour Dropbox. Le service ne fait alors pas la différence entre, par exemple, des fichiers nommés **test.doc**, **Test.doc**, **test.DOC**...
+
+Cela pose bien entendu un problème lors d'une utilisation de Dropbox à travers Onitu, les autres services connectés à Onitu ne partageant pas de telles spécifications. Cela constitue un problème connu : une asymétrie de synchronisation des fichiers entre Onitu et Dropbox, c'est-à-dire que là où Onitu voit plusieurs fichiers différents dont seule la casse du nom change, Dropbox n'en voit qu'un seul. Si vous apportez des modifications à un fichier **test.doc**, puis à un autre fichier **TEST.DOC**, et que vous les synchronisez avec Dropbox, vous perdrez les modifications effectuées sur **test.doc** sur Dropbox, car il les remplacera par les données du fichier **TEST.DOC**.
+
+L'utilisateur est donc encouragé à utiliser des fichiers dont le nom diffère autrement que par la seule casse lorsqu'il connecte Onitu à son compte Dropbox, sous peine d'encourir une possible perte de données et des comportements inattendus et non-souhaités.
+
 
 ## Évolutions
 
