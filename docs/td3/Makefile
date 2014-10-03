@@ -13,7 +13,7 @@ BEFORE = resume.tex header.tex
 
 FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-H %) $(BEFORE:%=-B %)
 
-DEPS = $(TPL) $(HEADER) $(BEFORE) commands.tex revisions.tex
+DEPS = $(TPL) $(HEADER) $(BEFORE) commands.tex revisions.tex imgs/global_archi.png
 
 GEN = $(PDF)
 

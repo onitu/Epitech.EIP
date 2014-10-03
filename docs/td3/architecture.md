@@ -14,6 +14,8 @@
 
 - **Fichier de configuration** — Fichier au format *JSON* décrivant les entrées et les règles d'une exécution d'Onitu.
 
+- **Launcher** —
+
 - **Referee** — Entité chargée de recevoir les événements depuis les entrées et d'appliquer les règles afin de les relayer aux entrées intéressées.
 
 - **Plug** — Composant implémentant les utilitaires nécéssaires à un *driver* pour communiquer avec Onitu.
@@ -21,18 +23,15 @@
 - **Handler** — Une fonction définie par un *driver* qui sera automatiquement appelée lorsque l'événement correspondant surviendra.
 
 
-METTRE À JOUR SCHÉMA (Escalator, Majordomo, Client, API)
-
-\begin{figure}
-\includegraphics[scale=0.5]{imgs/global_archi.png}
-\caption{Architecture globale}
-\end{figure}
+\FullWidthFigure{Architecture globale}{imgs/global_archi.png}
 
 \newpage
 
 #### Arborescence
 
 ##### Dépôt `onitu.onitu`
+
+Dépôt principal du projet (serveur).
 
 ###### `authorized_keys/`
 Dossier contenant les clefs des clients autorisés à se connecter
@@ -59,6 +58,8 @@ Fichier de configuration Onitu
 - `utils/` — Module regroupant divers utilitaires pour les tests
 
 ##### Dépôt `onitu.client`
+
+Dépôt contenant le client Onitu.
 
 ###### `onitu/`
 Dossier semblable au `onitu/` du serveur et simulant la même architecture chez le client

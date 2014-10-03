@@ -4,6 +4,8 @@ Le serveur est le point d'entrée d'Onitu, c'est le programme qui s'occupe des c
 
 Onitu est formé de divers composants détaillés dans les sections ci-dessous.
 
+### *Launcher*
+
 ### *Referee*
 
 Le *Referee*, ou arbitre, est le module chargé de recevoir les événements émis par les entrées, et de les relayer aux autres entrées intéressées, suivant les règles de configuration.
