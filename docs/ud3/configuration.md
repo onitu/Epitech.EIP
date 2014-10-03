@@ -19,9 +19,9 @@ Ce nom est utilisé en interne pour permettre de lancer simultanément plusieurs
 
 La section `services` du document *JSON* vous permet de lister les services.
 
-Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service. Chaque service est associée à une clef permettant de l'identifier, dans les règles par exemple.
+Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service. Chaque service est associé à une clef permettant de l'identifier, dans les règles par exemple.
 
-Un service est composée :
+Un service est composé :
 
 * d'un nom permettant de l'identifier de manière unique : "dropbox-bob", "dropbox-alice"...
 * d'un champ `driver` contenant le nom du *driver* à instancier, en général le même que celui du service supporté par ce *driver*, comme *dropbox* ou *google_drive*
@@ -65,13 +65,16 @@ Une configuration possible est la suivante:
 
 ![](imgs/dropbox_logo.png)
 
+Le nom du *driver* **Dropbox** est simplement `dropbox`. Il vous permet de connecter les fichiers de votre compte Dropbox à Onitu.
 
-Le nom du *driver* **Dropbox** est simplement `dropbox`. Il comporte quatre options :
+**Attention** : il existe un bogue connu concernant les fichiers dont le nom entraîne un "conflit de casse". Reportez-vous à la section **[Bogues connus]** à ce sujet.
+
+Il comporte quatre options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu placera tous vos fichiers sur Dropbox
 * \Mandatory{access\_key} : votre clé d'accès Dropbox
 * \Mandatory{access\_secret} : votre clé secrète Dropbox
-* **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Dropbox, en secondes. La valeur par défaut est **60 secondes**.
+* **changes_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Dropbox, en secondes. **La valeur par défaut est 60 secondes.**
 
 Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification **get_access_token.py** fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
 
@@ -114,7 +117,7 @@ Le service du *driver* Google Drive comporte cinq options :
 * \Mandatory{refresh\_token} : le jeton d'autorisation poura accéder à votre compte Drive *(voir plus bas)*
 * \Mandatory{client\_id} : la clé d'identification de l'application pour l'API Google Drive
 * \Mandatory{client\_secret} : la clé secrète de l'application pour l'API Google Drive
-* \Mandatory{changes\_timer} : la fréquence à laquelle Onitu vérifie les changements sur le compte Drive, en secondes.
+* **changes\_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Drive, en secondes. **La valeur par défaut est de 60 secondes.**
 
 Pour obtenir vos clés d'autorisation Google Drive pour Onitu, vous devez vous servir du script **grt.py** fourni à l'installation du *driver* Google Drive.
 
@@ -329,6 +332,49 @@ Un exemple de configuration du service Flickr réussie :
 
 \newpage
 
+
+### Bilan des fonctionnalités des services
+
+En raison de limitations techniques inhérentes à chaque service relié à Onitu, il est important de comprendre que chaque service n'apporte pas les mêmes fonctionnalités au sein d'Onitu, en fonction de ce que leur interface permet à une application tierce de réaliser (ici, Onitu). Parmi les principales interactions possibles entre Onitu et un service donné, nous pouvons lister :
+
+- Transférer des fichiers provenant d'autres services connectés à Onitu vers ce service
+- Transférer des fichiers provenant de ce service vers d'autres services connectés à Onitu
+- Supprimer des fichiers synchronisés sur ce service si ils ont été supprimés sur un autre service connecté à Onitu
+- Notifier la suppression de fichiers supprimés sur ce service aux autres services connectés à Onitu
+- Notifier qu'un nouveau fichier sur ce service est en réalité le déplacement d'un ancien fichier
+
+Voici un tableau récapitulatif permettant de mieux comprendre ce qu'il est possible de réaliser au sein d'Onitu, et avec quel service :
+
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+\rowcolor{onitu}
+\rowstyle{ \color{lightGray} \bfseries}
+Drivers & \textcolor{lightGray}{\textbf{Dropbox}} & \textcolor{lightGray}{\textbf{Google Drive}} & \textcolor{lightGray}{\textbf{Amazon S3}}\\
+\hline
+Transfert vers le service & \Oui & \Oui & \Oui\\
+Transfert depuis le service & \Oui & \Oui & \Oui\\
+Suppression sur le service & \Oui & \Oui & \Oui\\
+Détection des suppressions & \Oui & \Oui & \Non\\
+Détection des déplacements & \Non & \Non & \Non\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{onitu}
+\rowstyle{ \color{lightGray} \bfseries}
+Drivers & \textcolor{lightGray}{\textbf{HubiC}} & \textcolor{lightGray}{\textbf{Flickr}}\\
+\hline
+Transfert vers le service & \Oui & \Oui\\
+Transfert depuis le service & \Oui & \Non\\
+Suppression sur le service & \Oui & \Non\\
+Détection des suppressions & \Non & \Non\\
+Détection des déplacements & \Non & \Non\\
+\hline
+\end{tabular}
+
+
 ## Les règles
 
 Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quels services, et s'insèrent dans la section `rules` du document.
@@ -369,7 +415,6 @@ Pour synchroniser les fichiers de n'importe quel service vers le disque dur, et 
 Par la suite seront aussi disponibles des conditions sur le nom du fichier ou sur sa taille.
 
 
-
 \begin{figure}[p]
 \begin{lstlisting}[language=json,firstnumber=1]
 {
@@ -408,3 +453,28 @@ Par la suite seront aussi disponibles des conditions sur le nom du fichier ou su
 \caption{Fichier \emph{setup.json} d'exemple}
 \label{json_example}
 \end{figure}
+
+\newpage
+
+## Interface Web
+
+Nous développons activement **Facet**, une interface d'administration pour navigateur Web, afin que vous puissiez plus facilement configurer Onitu sans passer par la ligne de commande.
+
+Cette interface est prévue afin de répondre à tous les besoins courants qu'un utilisateur pourrait rencontrer avec Onitu :
+
+- Activer un nouveau *driver* Onitu, synchroniser les services utilisés, les configurer, en désinstaller
+- Visionner les fichiers synchronisés entre tous les services disponibles, les classer, les télécharger, synchroniser de nouveaux fichiers avec Onitu
+- Une F.A.Q. intégrée ainsi que de courts tutoriaux pour répondre aux questions les plus fréquentes lors de l'installation et l'utilisation d'Onitu
+- Un formulaire de contact afin de pouvoir nous joindre facilement en cas de problème ou de suggestion
+
+Cette interface est toujours en cours de développement, elle n'intègre actuellement pas toutes ces fonctionnalités et est découplée du projet principal.
+
+Pour l'utiliser à son état de développement actuel, vous devrez cloner son dépôt Github et la lancer vous-même. Pour ce faire, clonez le dépôt à l'aide de la commande suivante : `git@github.com:onitu/facet.git` (cela implique de posséder un compte Github), puis, une fois qu'Onitu est lancé sur votre système, lancez un serveur HTTP dans le dossier où vous avez installé **Facet**, avec Python par exemple :
+
+![Étape 1 : installer le dépôt Git de Facet et lancer un serveur HTTP dans le dossier ainsi créé](imgs/web_etape1.png)
+
+\newpage
+
+Accédez ensuite à l'interface avec le navigateur de votre choix en vous connectant sur l'interface **localhost**, sur le **port 8000** dans notre exemple :
+
+![Étape 2 : Connectez-vous sur l'interface localhost, port 8000, pour accéder à Facet](imgs/web_etape2.png)
