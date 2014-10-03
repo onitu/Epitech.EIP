@@ -59,7 +59,7 @@ Demande au *driver* de déplacer un fichier vers un nouvel emplacement. Les mét
 
 #### `set_chunk_size`
 
-???
+Permet de négocier la taille des blocs entre le *Referee* et le *driver*. Le *handler* prend en paramètre la taille proposée par le *Referee*, et retourne `None` si cette valeur lui convient, ou une autre taille dans le cas contraire.
 
 ### Plug
 
@@ -93,8 +93,57 @@ Cette exception doit être levée si une opération ne peut aboutir, en raison d
 
 Cette exception doit être levée pour tout autre problème survenant au niveau du *driver* empêchant de mener à bien une opération.
 
-### Installation
+### Déploiement
 
-manifest.json + setuptools
+#### Configuration
+
+Chaque driver est fourni avec un fichier `manifest.json` qui permet de définir et de valider la structure de ses options de configuration.
+
+Ce fichier est décrit dans la figure suivante.
+
+\begin{figure}[h]
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+  "name": "Nom du driver",
+  "description": "Description du driver",
+  "options": {
+    "root": {
+      "name": "Nom de l'option root",
+      "description": "Description de l'option",
+      "type": "Type de l'option"
+    }
+  }
+}
+\end{lstlisting}
+\caption{manifest.json}
+\end{figure}
+
+Les champs `name` et `description` servent simplement à informer les futurs utilisateurs et développeurs de l'utilité du *driver*, ainsi que d'afficher des noms clairs dans les interfaces de configuration.
+
+Le champ `options` contient les options disponibles pour ce *driver* dans le fichier de configuration. La clef correspond au nom d'option à utiliser dans la configuration. Le champ `type` contient le type de l'option: sont disponibles `string` (chaîne de caractères), `int` (nombre entier), `float` (nombre à virgule), `boolean` (booléen), et `enumerate` (choix parmi une liste de valeurs précisées dans le champ `values` de l'option).
+
+#### Installation
+
+Un *driver* doit être fourni avec un script python `setup.py`, construit à l'aide des *setuptools* python et permettant l'installation du *driver* au sein d'Onitu.
+
+Ce script est simplement chargé de copier les fichiers du *driver* dans le répertoire `onitu/drivers/` d'Onitu (client ou serveur).
 
 ### Tests
+
+Afin de pouvoir être éligible aux tests génériques prévus par Onitu, chaque driver doit être fourni avec un module `driver.py` dans un sous-répertoire `tests`.
+
+Ce module contient une classe `Driver` héritant de `tests.utils.testdriver.TestDriver` fournissant un ensemble d'opérations élémentaires pour communiquer avec le service cible lors des tests.
+
+Ces opérations sont les suivantes:
+
+- **mkdir** — Crée sur le service le ou les répertoires indiqués par le chemin donné en paramètre
+- **rmdir** — Supprime le répertoire correspondant au chemin donné
+- **write** — Écrit dans le fichier donné en 1er paramètre le contenu donné en second paramètre
+- **generate** — Génère un fichier aléatoire de taille fixe. Le premier paramètre contient le nom du fichier et le second la taille des données à générer
+- **exists** — Vérifie l'existence d'un fichier sur le service, par son chemin donné en paramètre. Retourne vrai si le fichier existe et faux dans le cas contraire
+- **unlink** — Supprime le fichier pointé par le chemin
+- **rename** — Renomme un fichier, le premier paramètre contient le chemin actuel, et le second contient le nouveau
+- **checksum** — Retourne la somme *MD5* du fichier pointé par le chemin donné en paramètre
+- **close** — Permet la coupure de la connexion auprès du service
+
+Les drivers peuvent aussi fournir leurs propres fichiers de tests *py.test* en les plaçant dans ce même répertoire.

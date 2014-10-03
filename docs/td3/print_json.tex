@@ -1,0 +1,49 @@
+\usepackage{bera}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20, 105, 176}
+\definecolor{string}{RGB}{181,189,104}
+\colorlet{identifier}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    showstringspaces=false,
+    breaklines=true,
+    numbers=none,
+    frame=lines,
+    backgroundcolor=\color{background},
+    morestring=[b][\color{string}]',
+    identifierstyle=\color{identifier},
+    numberstyle=\color{number},
+    morecomment=[l][\color{string}]//,
+    alsoletter={-},
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+      {:}{{{\color{delim}{:}}}}{1}
+      {,}{{{\color{delim}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1}
+      {é}{{\'{e}}}1
+      {è}{{\`{e}}}1
+      {ê}{{\^{e}}}1
+      {ë}{{\¨{e}}}1
+      {û}{{\^{u}}}1
+      {ù}{{\`{u}}}1
+      {â}{{\^{a}}}1
+      {à}{{\`{a}}}1
+      {î}{{\^{i}}}1
+      {ç}{{\c{c}}}1
+      {Ç}{{\c{C}}}1
+      {É}{{\'{E}}}1
+      {Ê}{{\^{E}}}1
+      {À}{{\`{A}}}1
+      {Â}{{\^{A}}}1
+      {Î}{{\^{I}}}1
+      {'}{{\'{}}}1,
+}

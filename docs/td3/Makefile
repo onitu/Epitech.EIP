@@ -8,7 +8,7 @@ SRC =	presentation.md \
 	architecture_api.md \
 	architecture_client.md \
 	documentation.md
-HEADER = 
+HEADER = print_json.tex
 BEFORE = resume.tex header.tex
 
 FLAGS = --chapters --toc --template=$(TPL) $(HEADER:%=-H %) $(BEFORE:%=-B %)

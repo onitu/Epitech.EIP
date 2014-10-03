@@ -57,3 +57,33 @@ Le client offre une interface similaire à *plyvel*, et fournit les méthodes su
 - `range`: Récupérer une suite de clefs/valeurs
 
 Le client permet aussi d'instancier des `batch` de base de données, c'est à dire une suite d'opérations qui seront exécutées de façon atomique sur la base.
+
+### Tests
+
+Onitu est fourni avec une suite de tests présents dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les drivers, comme décrit dans le chapitre 2, ils sont construits à l'aide du framework *py.test*.
+
+Une série d'utilitaires est fournie dans le dossier `tests/utils/` pour vous permettre de développer le plus simplement possible de nouveaux tests.
+
+Ces utilitaires sont décris par les sections suivantes.
+
+#### `driver.py`
+
+Contient des classes permettant de générer des configurations pour divers *drivers* cibles, de façon générique
+
+#### `launcher.py`
+
+Permet d'exécuter simplement une instance d'Onitu, à l'aide du fichier de configuration donné en paramètre à la classe `Launcher`. Offre en retour la possibilité de réagir aux évènements émis par Onitu, à l'aide de `launcher.on_nomdelevenement` où `launcher` serait une instance de `Launcher` et `nomdevenement` un nom d'événement valide.
+
+La liste des noms d'événements est présente dans le fichier `logs.py`. Les méthodes de connexion aux événements peuvent aussi prendre des paramètres nommés, visibles eux aussi dans le fichier `logs.py`.
+
+#### `loops.py`
+
+Contient diverses boucles événementielles construites pour être branchées au *launcher*. Les boucles sont lancées à l'aide de leur méthode `run`, et stoppées lorsque l'événement correspondant sur vient.
+
+La boucle `BooleanLoop` possède une méthode `stop` qu'il suffit de relier à un événement du *launcher* pour être stopée lors de son émission, par exemple: `launcher.on_referee_started(loop.stop)`.
+
+La boucle `CounterLoop` est initialisée avec un nombre *N* et possède une méthode `check`. De la même manière que `BooleanLoop`, elle s'arrêtera une fois que `check` aura été appelée *N* fois.
+
+#### `setup.py`
+
+Les classes `Rule` et `Setup` permettent de générer un fichier de configuration Onitu depuis un script python.
