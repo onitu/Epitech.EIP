@@ -52,7 +52,7 @@ Onitu étant une application limitée majoritairement par les entrées/sorties, 
 
 Onitu déployant divers processus et exétrons, un moyen de communication entre les composants se révélait nécessaire. *ømq* est une couche haute du protocole *IP* et des *sockets* *Unix*, qui fournit des patrons de messages. Onitu en utilise plusieurs, tels les *ROUTER/DEALER*, *PUBLISH/SUBSCRIBE* et *REQUEST/REPLY*.
 
-*ømq* est très rapide, léger et flexible. Il est disponible sur de nombreuses plate-formes et possède une implémentation Python.
+*ømq* est très rapide, léger et flexible. Il est disponible sur de nombreuses plate-formes et possède une implémentation Python, *pyzmq*.
 
 #### *LevelDB* et *plyvel*
 
