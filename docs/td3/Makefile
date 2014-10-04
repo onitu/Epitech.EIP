@@ -7,7 +7,7 @@ SRC =	presentation.md \
 	architecture_drivers.md \
 	architecture_api.md \
 	architecture_client.md \
-	documentation.md
+	liens.md
 HEADER = print_json.tex
 BEFORE = resume.tex header.tex
 
