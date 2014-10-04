@@ -4,6 +4,12 @@
 
 ### Github
 
+Onitu est un projet libre dont les sources sont hébergées sur Github. Github, en plus de nous fournir des dépôts *Git*, nous permet de gérer tout le travail autour du projet.
+
+Nous avons sur le site une organisation Onitu à laquelle sont membres toutes les personnes de l'équipe du projet, et contenant plusieurs dépôts.
+
+Github nous offre un système d'*issues* par lequel nous gérons le *bugtracking* (voir plus bas) mais aussi le développement des fonctionnalités courantes. Enfin, les *pull requests* nous permettent de gérer au mieux les collaborations externes.
+
 ### *Bugtracker*
 
 Quand vous rencontrez des problèmes avec Onitu, nous aimons en être informés.
@@ -19,6 +25,8 @@ avoir un rapport le plus pertinent possible:
 pour la compréhension du problème.
 * Tentez de simplifier le problème en ne gardant que l'ensemble minimal
 d'actions permettant de le reproduire.
+
+Les rapports de bogues se font au moyen des *issues* Github du projet.
 
 ### *Pull requests*
 
