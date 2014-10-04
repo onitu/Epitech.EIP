@@ -8,14 +8,16 @@ La plupart des systèmes modernes sont délivrés avec l'interpréteur Python in
 
 Toutefois, si vous vous trouvez en présence d'un système d'exploitation ne disposant pas de Python, vous devrez installer l'interpréteur depuis le site officiel de Python à cette adresse : <https://www.python.org/download>.
 
-Nous faisons de notre mieux pour garder Onitu compatible avec les versions majeures de Python, c'est pourquoi Onitu est compatible avec **Python 2.7 et supérieures**.
+Nous faisons de notre mieux pour garder Onitu compatible avec les versions majeures de Python, c'est pourquoi Onitu est compatible avec **Python 2.7, 3 et supérieures**.
 
 
 ## Installer PIP
 
 *Onitu* repose sur *PIP*, un gestionnaire de paquets Python très répandu et multi-plateforme, s'utilisant en ligne de commande. *PIP* se charge de l'installation des programmes ainsi que de la résolution de leurs dépendances.
 
-Pour installer PIP, la procédure générique est de télécharger le script officiel d'installation à l'adresse suivante : <https://bootstrap.pypa.io/get-pip.py>, puis le lancer dans un terminal avec la commande `python get-pip.py`, opération pouvant nécessiter les droits administrateur. Cette procédure est valable sur **Linux, Windows et Mac OS X**. Certains systèmes, comme les distributions Linux, peuvent proposer des procédures d'installation alternatives, par le biais de leurs gestionnaires de paquets par exemple. 
+**Note : si vous possédez Python version 3.4 ou supérieure, PIP vient préinstallé dans votre distribution Python.** Pour vous assurer de la version de Python, tapez la commande `python -V` dans votre terminal.
+
+Si votre installation de Python ne comprend pas PIP, la procédure générique est de télécharger le script officiel d'installation à l'adresse suivante : <https://bootstrap.pypa.io/get-pip.py>, puis le lancer dans un terminal avec la commande `python get-pip.py`, opération pouvant nécessiter les droits administrateur. Cette procédure est valable sur **Linux, Windows et Mac OS X**. Certains systèmes, comme les distributions Linux, peuvent proposer des procédures d'installation alternatives, par le biais de leurs gestionnaires de paquets par exemple. 
 
 Pour plus d'informations à propos de l'installation de PIP, veuillez vous référer à sa documentation officielle (en anglais) : <http://pip.readthedocs.org/en/latest/installing.html>.
 
@@ -75,4 +77,6 @@ Si vous êtes amené à désinstaller *Onitu*, il vous suffit de lancer dans un 
 
 * `pip uninstall onitu`
 
-Cette commande supprimera *Onitu* ainsi que l'ensemble de ses pilotes complémentaires (*drivers*), sans oublier les fichiers de configuration locaux qui lui sont propres.
+Cette commande supprimera *Onitu*.
+
+Cette démarche est reproductible avec n'importe lequel des *drivers* Onitu si vous souhaitez en désinstaller un.

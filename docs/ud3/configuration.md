@@ -345,32 +345,17 @@ En raison de limitations techniques inhérentes à chaque service relié à Onit
 
 Voici un tableau récapitulatif permettant de mieux comprendre ce qu'il est possible de réaliser au sein d'Onitu, et avec quel service :
 
-\begin{tabular}{|l|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
 \hline
 \rowcolor{onitu}
 \rowstyle{ \color{lightGray} \bfseries}
-Drivers & \textcolor{lightGray}{\textbf{Dropbox}} & \textcolor{lightGray}{\textbf{Google Drive}} & \textcolor{lightGray}{\textbf{Amazon S3}}\\
+Drivers & \textcolor{lightGray}{\textbf{Dropbox}} & \textcolor{lightGray}{\textbf{Google Drive}} & \textcolor{lightGray}{\textbf{Amazon S3}} & \textcolor{lightGray}{\textbf{HubiC}} & \textcolor{lightGray}{\textbf{Flickr}}\\
 \hline
-Transfert vers le service & \Oui & \Oui & \Oui\\
-Transfert depuis le service & \Oui & \Oui & \Oui\\
-Suppression sur le service & \Oui & \Oui & \Oui\\
-Détection des suppressions & \Oui & \Oui & \Non\\
-Détection des déplacements & \Non & \Non & \Non\\
-\hline
-\end{tabular}
-
-
-\begin{tabular}{|l|c|c|}
-\hline
-\rowcolor{onitu}
-\rowstyle{ \color{lightGray} \bfseries}
-Drivers & \textcolor{lightGray}{\textbf{HubiC}} & \textcolor{lightGray}{\textbf{Flickr}}\\
-\hline
-Transfert vers le service & \Oui & \Oui\\
-Transfert depuis le service & \Oui & \Non\\
-Suppression sur le service & \Oui & \Non\\
-Détection des suppressions & \Non & \Non\\
-Détection des déplacements & \Non & \Non\\
+Transfert vers le service & \Oui & \Oui & \Oui & \Oui & \Oui\\
+Transfert depuis le service & \Oui & \Oui & \Oui & \Oui & \Non\\
+Suppression sur le service & \Oui & \Oui & \Oui & \Oui & \Non\\
+Détection des suppressions & \Oui & \Oui & \Non & \Non & \Non\\
+Détection des déplacements & \Non & \Non & \Non & \Non & \Non\\
 \hline
 \end{tabular}
 

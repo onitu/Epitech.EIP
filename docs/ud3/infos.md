@@ -21,7 +21,7 @@ L'utilisateur est donc encouragé à utiliser des fichiers dont le nom diffère 
 
 ## Évolutions
 
-L'administration d'*Onitu* n'est actuellement possible que par une édition manuelle du fichier de configuration. Nous travaillons activement à l'intégration d'une interface Web d'administration, depuis laquelle vous pourrez administrer vos fichiers, les services utilisés ainsi que les règles de transfert de vos fichiers.
+L'administration d'*Onitu* n'est actuellement possible que par une édition manuelle du fichier de configuration. Nous travaillons activement à l'intégration d'une interface Web d'administration, depuis laquelle vous pourrez administrer vos fichiers, les services utilisés ainsi que les règles de transfert de vos fichiers (voir **[Interface Web]**).
 
 Le nombre de *drivers* actuellement proposés est plutôt limité, mais augmentera progressivement par la suite, à mesure que nous agrégerons les protocoles de nouveaux services.
 
@@ -36,7 +36,7 @@ Le nombre de *drivers* actuellement proposés est plutôt limité, mais augmente
   Les sources du projet sont disponibles sur le *Github* officiel: <https://github.com/onitu/onitu>
 
 * **Comment installer *Onitu* ?**
-  Référez-vous au Chapitre 1 de ce document : Installation.
+  Référez-vous au Chapitre 1 de ce document : **[Installation]**.
 * **Sur quelles machines puis-je installer *Onitu* ?**  
   *Onitu* peut s'installer sur toute machine disposant de Python, versions *2.7* ou supérieures.
   Seuls certains drivers de gestion des fichiers locaux peuvent être spécifiques à certaines architectures.
