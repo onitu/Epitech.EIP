@@ -19,13 +19,14 @@ La classe `onitu.referee.Referee` est la classe arbitre. Elle est instanciée au
 Les ordres sont ensuite relayés à l'aide d'une publication *ømq* (PUB) identifiée par son port `port:events:referee` en base de données. Le *Plug* de chaque entrée doit ensuite souscrire à ce flux d'événements via une socket PULL, et s'abonner aux événements débutant par son nom.
 
 Les messages publiés sont constitués de 3 éléments:
+
 - Le nom du canal de communication, ou *addressee*
 - Le nom du destinataire (l'entrée cible)
 - L'identifiant du fichier émetteur
 
 ### *Plug*
 
-Le *Plug* (module `onitu.plug`) est l'interface permettant à une entrée de communiquer avec Onitu. Chaque entrée se doit d'instancier un *Plug* et de l'initialiser à l'aide de la méthode `initialize`.
+Le *Plug* (module `onitu.plug`) est l'interface permettant à une entrée de communiquer avec Onitu. Chaque entrée se doit d'instancier un *Plug*.
 
 Une fois l'entrée prête à recevoir des requêtes, elle appelle la méthode `listen` du *Plug* qui bloque jusqu'à la fermeture du programme.
 
@@ -35,7 +36,7 @@ Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *hand
 
 ### *Majordomo*
 
-Le *Majordomo* est l'entité au sein d'Onitu permettant la communication au sein des clients. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
+Le *Majordomo* est l'entité au sein d'Onitu permettant la communication avec des clients distant. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
 
 Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, une entrée de type *remote-driver* (pilote distant) est mise en place, et connectée aux règles établies par le client. Elle est par la suite considérée comme une entrée à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
 
@@ -52,7 +53,7 @@ Le serveur *Escalator* est initialisé au démarrage d'Onitu, et des clients son
 Le client offre une interface similaire à *plyvel*, et fournit les méthodes suivantes:
 
 - `create`: Créer une base de données.
-- `connect`: Se connecter à une base de données, ou à une sous base de donnée (base ne regroupant que les clefs débutant par un certain préfixe).
+- `connect`: Se connecter à une base de données, ou à une sous base de donnée (base ne regroupant que les clefs débutant par un certain préfixe)
 - `close`: Fermer une base de données ouverte
 - `get`: Récuperer la valeur correspondant à une clef
 - `exists`: Vérifier l'existence d'une clef
@@ -64,7 +65,7 @@ Le client permet aussi d'instancier des `batch` de base de données, c'est à di
 
 ### Tests
 
-Onitu est fourni avec une suite de tests présents dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les drivers, comme décrit dans le chapitre 2, ils sont construits à l'aide du framework *py.test*.
+Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit dans le chapitre 2, ils sont construits à l'aide du framework *py.test*.
 
 Une série d'utilitaires est fournie dans le dossier `tests/utils/` pour vous permettre de développer le plus simplement possible de nouveaux tests.
 
@@ -72,11 +73,11 @@ Ces utilitaires sont décris par les sections suivantes.
 
 #### `driver.py`
 
-Contient des classes permettant de générer des configurations pour divers *drivers* cibles, de façon générique
+Contient des classes permettant de générer des configurations pour divers *drivers* cibles, de façon générique.
 
 #### `launcher.py`
 
-Permet d'exécuter simplement une instance d'Onitu, à l'aide du fichier de configuration donné en paramètre à la classe `Launcher`. Offre en retour la possibilité de réagir aux évènements émis par Onitu, à l'aide de `launcher.on_nomdelevenement` où `launcher` serait une instance de `Launcher` et `nomdevenement` un nom d'événement valide.
+Permet d'exécuter simplement une instance d'Onitu, à l'aide du fichier de configuration donné en paramètre à la classe `Launcher`. Offre en retour la possibilité de réagir aux évènements émis par Onitu, à l'aide des méthodes `launcher.on_nomdelevenement` où `launcher` serait une instance de `Launcher` et `nomdevenement` un nom d'événement valide.
 
 La liste des noms d'événements est présente dans le fichier `logs.py`. Les méthodes de connexion aux événements peuvent aussi prendre des paramètres nommés, visibles eux aussi dans le fichier `logs.py`.
 

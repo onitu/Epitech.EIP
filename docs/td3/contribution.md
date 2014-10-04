@@ -4,10 +4,10 @@
 
 ### Github
 
-### Bugtracker
+### *Bugtracker*
 
 Quand vous rencontrez des problèmes avec Onitu, nous aimons en être informés.
-Non pas que nous aimions que des bogues surviennent dans Onitu, mais il est
+Non pas que nous aimions que des bogues surviennent dans Onitu, mais il nous est
 préférable de les corriger que de les laisser en place.
 
 Si vous êtes amené à faire un rapport de bogue, pensez à inclure toutes les
@@ -20,7 +20,7 @@ pour la compréhension du problème.
 * Tentez de simplifier le problème en ne gardant que l'ensemble minimal
 d'actions permettant de le reproduire.
 
-### Pull requests
+### *Pull requests*
 
 Afin de maintenir le projet tout en intégrant les contributions externes, nous
 avons besoin de mettre en place certaines règles. Ceci est d'autant plus vrai au
@@ -42,7 +42,7 @@ développement, préférez à la place rebaser votre branche.
 
 #### Python
 
-Le projet est développé en python, compatible toute version ultérieure à Python 2.7.
+Le projet est développé en python, compatible Python 2.7, Python 3 et versions ultérieures.
 
 Python est un langage polyvalent est flexible. Il nous permet de développer et distribuer Onitu très facilement, sans se soucier des plateformes cibles sur lequel il sera déployé (pas de compilation des sources ou de distribution de binaires), étant de plus disponible sur un très grand nombre de systèmes. Python possède une libraire standard conséquente et est aisé à lire et à comprendre.
 
@@ -56,7 +56,7 @@ Onitu déployant divers processus et exétrons, un moyen de communication entre 
 
 #### *LevelDB* et *plyvel*
 
-Les données stockées par Onitu en base consistent en de simples couples clef/valeur. C'est pourquoi nousavons opté pour une base de données simple, sans schéma, persistante et multi-plateforme. *LevelDB* répondait parfaitement à ce besoin, et nous l'avons donc choisi.
+Les données stockées par Onitu en base consistent en de simples couples clef/valeur. C'est pourquoi nous avons opté pour une base de données simple, sans schéma, persistante et multi-plateforme. *LevelDB* répondait parfaitement à ce besoin, et nous l'avons donc choisi.
 
 Une bibliothèque python, *plyvel* fournit une très bonne abstraction à *LevelDB*, et est ainsi utilisée au sein d'Onitu pour communiquer avec la base de données.
 
@@ -66,11 +66,15 @@ Une bibliothèque python, *plyvel* fournit une très bonne abstraction à *Level
 
 Onitu dispose de nombreux processus qui doivent être surveillés, de façon à pouvoir les démarrer/stopper facilement, ou encore les relancer automatiquement en cas d'erreur critique, c'est pourquoi nous nous sommes orientés vers *Circus*.
 
+#### *py.test*
+
+*py.test* est une librairie python simplifiant l'écriture et l'exécution de tests. Elle est utilisée pour tester l'ensemble des composants du projet, et nous vous invitions à en faire de même pour toutes vos contributions.
+
 ## Normes
 
 Vos contributions au projet doivent respecter les règles définies par la
 [PEP 008](http://www.python.org/dev/peps/pep-0008), vous pouvez utiliser un outil
-tel que flake8 pour vérifier que votre code est en accord avec ces règles.
+tel que `flake8` pour vérifier que votre code est en accord avec ces règles.
 
 Dans le cas où vous vous poseriez la question, l'indentation utilisée est de
 quatre espaces.
@@ -82,13 +86,13 @@ regarder en premier lieu si le code fourni les respecte.
 ## Tests
 
 Si vous développez une nouvelle fonctionnalité ou souhaitez simplement tester
-votre installation d'Onitu, vous pouvez exécuter les tests unitaires.
+votre installation d'Onitu, vous pouvez exécuter les tests fonctionnels.
 
 Pour cela, vous devrez installer les dépendances nécessaires au dispositif de
 tests, ce qui peut facilement être réalisé par la commande ```pip install -r
 requirements_dev.txt```.
 
-Les tests unitaires peuvent être lancés à l'aide de la commande ```py.test
+Les tests fonctionnels peuvent être lancés à l'aide de la commande ```py.test
 tests```. Vous pouvez aussi vous aider de ```tox``` afin de générer
 automatiquement un environnement propre et fonctionnel pour le lancement des
 tests.
@@ -106,5 +110,5 @@ donc prendre des valeurs telles que ```local_storage``` ou ```ssh```.
 
 Des tests automatiques sont lancés par Travis sur tout code intégré à Onitu.
 L'historique de ces tests est disponible publiquement. Travis lancera aussi les
-tests si vous faites une pull request. Vous pouvez consulter la [page Travis du
+tests si vous faites une *pull request*. Vous pouvez consulter la [page Travis du
 projet](https://travis-ci.org/onitu/onitu).

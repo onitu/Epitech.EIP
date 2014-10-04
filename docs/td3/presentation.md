@@ -17,20 +17,20 @@ contact.
   moyens de nous contacter. Il y a notamment un formulaire qui permet de rédiger
   un message à destination de toute l'équipe.
 
-### Mailing-list
+### Liste de diffusion
 
-  Un mail de contact enverra votre message à toute l'équipe : [onitu_2015@labeip.epitech.eu](mailto:onitu_2015@labeip.epitech.eu)
+  Une adresse mél de contact enverra votre message à toute l'équipe : [onitu_2015@labeip.epitech.eu](mailto:onitu_2015@labeip.epitech.eu)
 
-### IRC
+### *IRC*
 
-  Le projet dispose d'un canal de discussion IRC sur le réseau freenode. Les
-  développeurs du projet y sont présent la plus grande partie du temps. C'est un
+  Le projet dispose d'un canal de discussion *IRC* sur le réseau *freenode*. Les
+  développeurs du projet y sont présents la plus grande partie du temps. C'est un
   bon moyen de communication si vous avez besoin d'éclaircir un point précis et
-  que vous préferez la discussion instantannée aux mails.
+  que vous préferez la discussion instantannée aux courriels.
 
-  Les personnes sur le canal utilisent pour beaucoup un bouncer ou un serveur
-  afin de rester connecter en permanence au canal et ne pas louper de message.
-  Mais il ne sont pas tout le temps disponible pour répondre à vos questions. Ne
+  Les personnes sur le canal utilisent pour beaucoup un *bouncer* ou un serveur
+  afin de rester connectés en permanence au canal et ne pas manquer de message.
+  Mais il ne sont pas tout le temps disponibles pour répondre à vos questions. Ne
   vous étonnez pas si vous devez attendre.
 
   Le canal est [#onitu@irc.freenode.org](https://webchat.freenode.net/?channels=%23onitu).
@@ -39,5 +39,5 @@ contact.
 
   [Une organisation Github](https://github.com/onitu) regroupe les principaux
   contributeurs d'Onitu. Vous pouvez les contacter directement via Github. Vous
-  pouvez également ouvrir une issue sur un des projets de l'équipe.
+  pouvez également ouvrir une *issue* sur un des projets de l'équipe.
 

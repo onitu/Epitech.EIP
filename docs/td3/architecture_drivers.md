@@ -1,18 +1,18 @@
 ## *Drivers*
 
-Les *drivers* sont les éléments clefs d'Onitu. Ils forment une interface entre le cœur d'Onitu et les services distant.
+Les *drivers*, ou pilotes, sont les éléments clefs d'Onitu. Ils forment une interface entre le cœur d'Onitu et les services distant.
 
-Un *driver* est spécifique à un service, en cela il implémente l'API propre à chaque service. Certaines API ne fournissent pas toutes les fonctionnalités que nous pourrions espérer (téléchargement par blocs) et peuvent donc impliquer des *drivers* plus limités.
+Un *driver* est spécifique à un service, en cela il implémente l'API propre à chaque service. Certaines API ne fournissent pas toutes les fonctionnalités que nous pourrions espérer (téléchargement par blocs par exemple) et peuvent donc impliquer des *drivers* plus limités.
+
+Un *driver* consiste simplement en un module python. Chaque *driver* doit comporter une méthode `start`, son point d'entrée, qui sera appelée pour son initialisation.
 
 ### *Handlers*
 
 Les *handlers* sont les méthodes par lequel le *Plug* effectue des requêtes auprès d'une entrée.
 
-Ils se définissent dans le module du *driver* à l'aide de décorateurs python englobant les méthodes voulues.
+Ils se définissent dans le module du *driver* à l'aide d'un décorateur `plug.handler()` englobant les méthodes voulues.
 
 Les *handlers* disponibles sont les suivants.
-
-+ Indiquer lesquels sont obligatoires / peuvent être remplacés.
 
 #### `start_upload`
 
@@ -120,7 +120,9 @@ Ce fichier est décrit dans la figure suivante.
 
 Les champs `name` et `description` servent simplement à informer les futurs utilisateurs et développeurs de l'utilité du *driver*, ainsi que d'afficher des noms clairs dans les interfaces de configuration.
 
-Le champ `options` contient les options disponibles pour ce *driver* dans le fichier de configuration. La clef correspond au nom d'option à utiliser dans la configuration. Le champ `type` contient le type de l'option: sont disponibles `string` (chaîne de caractères), `int` (nombre entier), `float` (nombre à virgule), `boolean` (booléen), et `enumerate` (choix parmi une liste de valeurs précisées dans le champ `values` de l'option).
+Le champ `options` contient les options disponibles pour ce *driver* dans le fichier de configuration. La clef correspond au nom d'option à utiliser dans la configuration.
+
+Le champ `type` contient le type de l'option: sont disponibles `string` (chaîne de caractères), `int` (nombre entier), `float` (nombre à virgule), `boolean` (booléen), et `enumerate` (choix parmi une liste de valeurs précisées dans le champ `values` de l'option).
 
 #### Installation
 
@@ -138,7 +140,7 @@ Ces opérations sont les suivantes:
 
 - **mkdir** — Crée sur le service le ou les répertoires indiqués par le chemin donné en paramètre
 - **rmdir** — Supprime le répertoire correspondant au chemin donné
-- **write** — Écrit dans le fichier donné en 1er paramètre le contenu donné en second paramètre
+- **write** — Écrit dans le fichier donné en premier paramètre le contenu donné en second paramètre
 - **generate** — Génère un fichier aléatoire de taille fixe. Le premier paramètre contient le nom du fichier et le second la taille des données à générer
 - **exists** — Vérifie l'existence d'un fichier sur le service, par son chemin donné en paramètre. Retourne vrai si le fichier existe et faux dans le cas contraire
 - **unlink** — Supprime le fichier pointé par le chemin
