@@ -39,7 +39,7 @@ Dépôt principal du projet (serveur).
 Dossier contenant les clefs des clients autorisés à se connecter
 
 ###### `onitu/`
-- `api/` — Module contrôlant l'API d'Onitu
+- `api/` — Module contrôlant l'API REST d'Onitu
 - `drivers/` — Dossier contenant les différents *drivers* installés
     - `local_storage/` — *Driver* gérant le système de fichiers local
         - `manifest.json` — Fichier de description du *driver*

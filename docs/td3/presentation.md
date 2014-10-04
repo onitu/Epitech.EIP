@@ -23,7 +23,7 @@ contact.
 
 ### Le site vitrine
 
- Onitu possède un site vitrine : [https://onitu.github.io/]()
+ Onitu possède un site vitrine : (<https://onitu.github.io/>)
 
   L'ensemble des membres de l'équipe sont présentés sur le
   [site du projet](https://onitu.github.io/). Vous pouvez facilement
