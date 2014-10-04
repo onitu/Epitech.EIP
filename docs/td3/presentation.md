@@ -21,7 +21,9 @@ Nous vous invitons à consulter la documentation utilisateur pour plus d'informa
 L'équipe de développement du projet propose plusieurs outils pour prendre
 contact.
 
-### [Le site vitrine](https://onitu.github.io/)
+### Le site vitrine
+
+ Onitu possède un site vitrine : <https://onitu.github.io/>
 
   L'ensemble des membres de l'équipe sont présentés sur le
   [site du projet](https://onitu.github.io/). Vous pouvez facilement
