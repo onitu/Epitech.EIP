@@ -12,25 +12,25 @@ Il est chargé d'analyser le fichier de configuration et d'initialiser et exécu
 
 ### *Referee*
 
-Le *Referee*, ou arbitre, est le module chargé de recevoir les événements émis par les entrées, et de les relayer aux autres entrées intéressées, suivant les règles de configuration.
+Le *Referee*, ou arbitre, est le module chargé de recevoir les événements émis par les services, et de les relayer aux autres services intéressés, suivant les règles de configuration.
 
 La classe `onitu.referee.Referee` est la classe arbitre. Elle est instanciée au démarrage d'Onitu et tourne dans un processus indépendant. Elle écoute sur une socket *ømq* l'arrivée de nouveaux événements et les récupère via la base de données *Escalator*. Chaque événement est attaché à un identifiant de fichier (*fid*), par lequel il a été déclenché.
 
-Les ordres sont ensuite relayés à l'aide d'une publication *ømq* (PUB) identifiée par son port `port:events:referee` en base de données. Le *Plug* de chaque entrée doit ensuite souscrire à ce flux d'événements via une socket PULL, et s'abonner aux événements débutant par son nom.
+Les ordres sont ensuite relayés à l'aide d'une publication *ømq* (PUB) identifiée par son port `port:events:referee` en base de données. Le *Plug* de chaque service doit ensuite souscrire à ce flux d'événements via une socket PULL, et s'abonner aux événements débutant par son nom.
 
 Les messages publiés sont constitués de 3 éléments:
 
 - Le nom du canal de communication, ou *addressee*
-- Le nom du destinataire (l'entrée cible)
+- Le nom du destinataire (le service cible)
 - L'identifiant du fichier émetteur
 
 ### *Plug*
 
-Le *Plug* (module `onitu.plug`) est l'interface permettant à une entrée de communiquer avec Onitu. Chaque entrée se doit d'instancier un *Plug*.
+Le *Plug* (module `onitu.plug`) est l'interface permettant à un service de communiquer avec Onitu. Chaque service se doit d'instancier un *Plug*.
 
-Une fois l'entrée prête à recevoir des requêtes, elle appelle la méthode `listen` du *Plug* qui bloque jusqu'à la fermeture du programme.
+Une fois le service prêt à recevoir des requêtes, il appelle la méthode `listen` du *Plug* qui bloque jusqu'à la fermeture du programme.
 
-Le plug fait la liaison entre un fichier et ses métadonnées. Les métadonnées sont toutes les informations présentes autour d'un fichier, comme son nom, sa taille, et la liste de ses propriétaires (entrées sur lesquelles le fichier est présent).
+Le plug fait la liaison entre un fichier et ses métadonnées. Les métadonnées sont toutes les informations présentes autour d'un fichier, comme son nom, sa taille, et la liste de ses propriétaires (services sur lesquels le fichier est présent).
 
 Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *handlers*.
 
@@ -38,7 +38,7 @@ Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *hand
 
 Le *Majordomo* est l'entité au sein d'Onitu permettant la communication avec des clients distant. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
 
-Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, une entrée de type *remote-driver* (pilote distant) est mise en place, et connectée aux règles établies par le client. Elle est par la suite considérée comme une entrée à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
+Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, un service de type *remote-driver* (pilote distant) est mise en place, et connecté aux règles établies par le client. Il est par la suite considéré comme un service à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
 
 Chaque client est authentifié par le *Majordomo* à l'aide d'un ensemble de leurs clefs publique et secrète respectives.
 

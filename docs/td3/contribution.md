@@ -53,7 +53,7 @@ développement, préférez à la place rebaser votre branche.
 Le projet est développé en python, compatible Python 2.7, Python 3 et versions
 ultérieures.
 
-Python est un langage polyvalent est flexible. Il nous permet de développer et
+Python est un langage polyvalent et flexible. Il nous permet de développer et
 distribuer Onitu très facilement, sans se soucier des plateformes cibles sur
 lequel il sera déployé (pas de compilation des sources ou de distribution de
     binaires), étant de plus disponible sur un très grand nombre de systèmes.
@@ -101,7 +101,7 @@ en cas d'erreur critique, c'est pourquoi nous nous sommes orientés vers
 
 *py.test* est une librairie python simplifiant l'écriture et l'exécution de
 tests. Elle est utilisée pour tester l'ensemble des composants du projet, et
-nous vous invitions à en faire de même pour toutes vos contributions.
+nous vous invitons à en faire de même pour toutes vos contributions.
 
 #### *Bottle*
 

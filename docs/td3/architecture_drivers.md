@@ -8,7 +8,7 @@ Un *driver* consiste simplement en un module python. Chaque *driver* doit compor
 
 ### *Handlers*
 
-Les *handlers* sont les méthodes par lequel le *Plug* effectue des requêtes auprès d'une entrée.
+Les *handlers* sont les méthodes par lequel le *Plug* effectue des requêtes auprès d'un service.
 
 Ils se définissent dans le module du *driver* à l'aide d'un décorateur `plug.handler()` englobant les méthodes voulues.
 
