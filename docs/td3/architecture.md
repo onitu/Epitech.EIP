@@ -1,6 +1,8 @@
 # Architecture du projet
 
-#### Glossaire
+## Architecture générale
+
+### Glossaire
 
 - **Serveur** — Composé par le *Referee*, le *Majordomo*, *Escalator* et le *Plug*. Entité auprès de laquelle se greffent les pilotes.
 
@@ -29,7 +31,7 @@
 
 \newpage
 
-#### Arborescence
+### Arborescence
 
 ##### Dépôt `onitu.onitu`
 

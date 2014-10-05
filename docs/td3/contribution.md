@@ -121,6 +121,28 @@ Merci de prendre en considération ces quelques règles, qui assurent au projet 
 rester propre. Chaque demande de ```pull request``` sera étudiée afin de
 regarder en premier lieu si le code fourni les respecte.
 
+## Installation de l'environnement
+
+La première étape à réaliser est le téléchargement des sources depuis Github:
+
+    git clone git@github.com:onitu/onitu.git
+    cd onitu
+
+L'environnement de développement se configure ensuite à l'aide d'un virtualenv (ce n'est pas obligatoire mais fortement conseillé, afin de garder l'installation des dépendances locale à votre répertoire de travail).
+
+    virtualenv env
+    source env/bin/activate
+
+Cette dernière commande est à exécuter chaque fois que vous entrez dans le répertoire de travail.
+
+Il ne vous reste ensuite qu'à installer les dépendances requises par Onitu:
+
+    pip install -r requirements.txt
+
+Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la commande suivante:
+
+    python -m onitu --debug
+
 ## Tests
 
 Si vous développez une nouvelle fonctionnalité ou souhaitez simplement tester
@@ -150,3 +172,10 @@ Des tests automatiques sont lancés par Travis sur tout code intégré à Onitu.
 L'historique de ces tests est disponible publiquement. Travis lancera aussi les
 tests si vous faites une *pull request*. Vous pouvez consulter la [page Travis
 du projet](https://travis-ci.org/onitu/onitu).
+
+Les tests s'exécutent à l'aides des commandes suivantes:
+
+    py.test -v tests/functionnal # Tests avec l'environnement courant
+    tox -e py2.7 # Tests avec Python2.7
+    tox -e flake8 # Vérification de la syntaxe
+    tox -e benchmarks # Tests de performances
