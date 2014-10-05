@@ -42,7 +42,7 @@ contact.
   Le projet dispose d'un canal de discussion *IRC* sur le réseau *freenode*. Les
   développeurs du projet y sont présents la plus grande partie du temps. C'est un
   bon moyen de communication si vous avez besoin d'éclaircir un point précis et
-  que vous préferez la discussion instantannée aux courriels.
+  que vous préferez la discussion instantanée aux courriels.
 
   Les personnes sur le canal utilisent pour beaucoup un *bouncer* ou un serveur
   afin de rester connectés en permanence au canal et ne pas manquer de message.

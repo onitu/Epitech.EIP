@@ -2,7 +2,7 @@
 
 Le client est le programme permettant de déployer facilement Onitu sur plusieurs machines en conservant une configuration commune. Le serveur sera lancé avec sa configuration et les clients viendront s'y connecter, ils communiqueront ainsi au sein d'un même réseau Onitu.
 
-L'architecture du client est copiée sur celle du serveur, les drivers sont placés dans le même répertoire et le *Plug* simule celui du serveur par des appels réseaux.
+L'architecture du client est copiée sur celle du serveur, les *drivers* sont placés dans le même répertoire et le *Plug* simule celui du serveur par des appels réseaux.
 
 ### Authentification
 
@@ -10,7 +10,7 @@ Chaque client est identifié par un couple de clefs publique/privée automatique
 
 De la même manière, pour des raisons de sécurité, le client doit être capable de vérifier l'identité du serveur, et donc pour cela avoir le fichier de clef publique `server.key` dans son répertoire `keys`/.
 
-Une fois ces étapes respectées, il suffit de lancer le client pour que celui-ci se connecte auprès du serveur. Un driver de type *remote-driver* (pilote distant) sera alors instancié du côté du serveur.
+Une fois ces étapes respectées, il suffit de lancer le client pour que celui-ci se connecte auprès du serveur. Un *driver* de type *remote-driver* (pilote distant) sera alors instancié du côté du serveur.
 
 ### *Plug*
 

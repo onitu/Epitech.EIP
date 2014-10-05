@@ -10,7 +10,7 @@
 
 - **Driver** — Un *driver*, ou pilote, est un programme chargé de la liaison entre Onitu et un service local ou distant (système de fichiers local, SSH, Dropbox, etc.).
 
-- **Service** — Un service est un pilote configuré par l'utilisateur. Il peut s'agir par exemple d'un pilote Dropbox configuré pour utiliser un compte utilisateur spécifique. Un service peut être vue comme l'instanciation d'un pilote.
+- **Service** — Un service est un pilote configuré par l'utilisateur. Il peut s'agir par exemple d'un pilote Dropbox configuré pour utiliser un compte utilisateur spécifique. Un service peut être vu comme l'instanciation d'un pilote.
 
 - **Règle** — Unité faisant correspondre un ensemble de fichiers à un ensemble de services. Les règles définissent les conditions par lesquelles un fichier serait envoyé à un service.
 
@@ -71,6 +71,9 @@ Fichier de configuration Onitu
 ##### Dépôt `onitu.client`
 
 Dépôt contenant le client Onitu.
+
+###### `drivers/`
+Dossier où sont installés les *drivers* client
 
 ###### `onitu/`
 Dossier semblable au `onitu/` du serveur et simulant la même architecture chez le client

@@ -21,4 +21,4 @@ Afin d'aller plus loin et de comprendre plus en profondeur notre projet, nous vo
 - Documentations *LevelDB* (<https://github.com/google/leveldb>) et *plyvel* (<https://plyvel.readthedocs.org/en/latest/>)
 - Documentation *Circus*: <http://circus.readthedocs.org/en/0.11.1/>
 - Documentations *py.test* (<http://pytest.org/latest/contents.html>) et *tox* (<https://tox.readthedocs.org/en/latest/>)
-- Documentation *Bottle*: (<http://bottlepy.org/docs/dev/index.html>)
+- Documentation *Bottle*: <http://bottlepy.org/docs/dev/index.html>

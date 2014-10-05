@@ -2,17 +2,17 @@
 
 Les *drivers*, ou pilotes, sont les éléments clefs d'Onitu. Ils forment une interface entre le cœur d'Onitu et les services distant.
 
-Un *driver* est spécifique à un service, en cela il implémente l'API propre à chaque service. Certaines API ne fournissent pas toutes les fonctionnalités que nous pourrions espérer (téléchargement par blocs par exemple) et peuvent donc impliquer des *drivers* plus limités.
+Un *driver* est spécifique à un service, en cela il implémente l'API propre à ce service. Certaines API ne fournissent pas toutes les fonctionnalités que nous pourrions espérer (téléchargement par blocs par exemple) et peuvent donc impliquer des *drivers* plus limités.
 
 Un *driver* consiste simplement en un module python. Chaque *driver* doit comporter une méthode `start`, son point d'entrée, qui sera appelée pour son initialisation.
 
 ### *Handlers*
 
-Les *handlers* sont les méthodes par lequel le *Plug* effectue des requêtes auprès d'un service.
+Les *handlers* sont les méthodes par lesquelles le *Plug* effectue des requêtes auprès d'un service.
 
 Ils se définissent dans le module du *driver* à l'aide d'un décorateur `plug.handler()` englobant les méthodes voulues.
 
-Les *handlers* disponibles sont les suivants.
+Les *handlers* disponibles sont les suivants:
 
 #### `start_upload`
 
@@ -67,7 +67,7 @@ Un *driver* est de plus amené à demander des informations auprès du *Plug*, i
 
 #### `get_metadata`
 
-Permet de récupérer les métadonnées d'un fichier. Prend le chemin du fichier en paramètre et retourne un object `Metadata` (object contenant le nom, la taille, le type *MIME* et les propriétaires du fichier).
+Permet de récupérer les métadonnées d'un fichier. Prend le chemin du fichier en paramètre et retourne un objet `Metadata` (objet contenant le nom, la taille, le type *MIME* et les propriétaires du fichier).
 
 #### `update_file`
 
@@ -150,4 +150,4 @@ Ces opérations sont les suivantes:
 - **checksum** — Retourne la somme *MD5* du fichier pointé par le chemin donné en paramètre
 - **close** — Permet la coupure de la connexion auprès du service
 
-Les drivers peuvent aussi fournir leurs propres fichiers de tests *py.test* en les plaçant dans ce même répertoire.
+Les *drivers* peuvent aussi fournir leurs propres fichiers de tests *py.test* en les plaçant dans ce même répertoire.

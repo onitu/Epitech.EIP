@@ -128,7 +128,7 @@ La première étape à réaliser est le téléchargement des sources depuis Gith
     git clone git@github.com:onitu/onitu.git
     cd onitu
 
-L'environnement de développement se configure ensuite à l'aide d'un virtualenv (ce n'est pas obligatoire mais fortement conseillé, afin de garder l'installation des dépendances locale à votre répertoire de travail).
+L'environnement de développement se configure ensuite à l'aide d'un *virtualenv* (ce n'est pas obligatoire mais fortement conseillé, afin de garder l'installation des dépendances locale à votre répertoire de travail).
 
     virtualenv env
     source env/bin/activate
@@ -147,10 +147,6 @@ Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la comm
 
 Si vous développez une nouvelle fonctionnalité ou souhaitez simplement tester
 votre installation d'Onitu, vous pouvez exécuter les tests fonctionnels.
-
-Pour cela, vous devrez installer les dépendances nécessaires au dispositif de
-tests, ce qui peut facilement être réalisé par la commande ```pip install -r
-requirements_dev.txt```.
 
 Les tests fonctionnels peuvent être lancés à l'aide de la commande ```py.test
 tests```. Vous pouvez aussi vous aider de ```tox``` afin de générer

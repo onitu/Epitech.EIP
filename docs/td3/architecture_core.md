@@ -1,6 +1,6 @@
 ## Serveur
 
-Le serveur est le point d'entrée d'Onitu, c'est le programme qui s'occupe des communications avec les différents services, qu'ils soient internes (composants, base de données) ou externes (*drivers*, client).
+Le serveur est le point d'entrée d'Onitu, c'est le programme qui s'occupe des communications avec les différents services, qu'ils soient internes (composants, base de données) ou externes (*drivers*, clients).
 
 Onitu est formé de divers composants détaillés dans les sections ci-dessous.
 
@@ -36,15 +36,15 @@ Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *hand
 
 ### *Majordomo*
 
-Le *Majordomo* est l'entité au sein d'Onitu permettant la communication avec des clients distant. Il agit comme un proxy en permettant d'instancier un *driver* sur une machine distante.
+Le *Majordomo* est l'entité au sein d'Onitu permettant la communication avec des clients distant. Il agit comme un *proxy* en permettant d'instancier un *driver* sur une machine distante.
 
-Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, un service de type *remote-driver* (pilote distant) est mise en place, et connecté aux règles établies par le client. Il est par la suite considéré comme un service à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
+Un processus l'instanciant est démarré avec Onitu, qui écoute par défaut sur les ports 20001 et 20003 et attend la connexion de clients. Lorsqu'un client souhaite se connecter, un service de type *remote-driver* (pilote distant) est mis en place, et connecté aux règles établies par le client. Il est par la suite considéré comme un service à part entière, et chaque requête qui lui est faite est relayée au *Majordomo*, puis enfin au client distant.
 
-Chaque client est authentifié par le *Majordomo* à l'aide d'un ensemble de leurs clefs publique et secrète respectives.
+Chaque client est authentifié par le *Majordomo* à l'aide de leurs clefs publique et secrète respectives.
 
 ### *Escalator*
 
-*Escalator* est le système de gestion de base de données. Il offre une interface réseau à *LevelDB*, permettant ainsi diverses connections simultanées sur la base.
+*Escalator* est le système de gestion de base de données. Il offre une interface réseau à *LevelDB*, permettant ainsi diverses connexions simultanées sur la base.
 
 La base de données est utilisée pour tout ce qui est stockage de métadonnées des fichiers, mais aussi pour les règles, options de configuration, et les événements.
 
@@ -52,8 +52,8 @@ Le serveur *Escalator* est initialisé au démarrage d'Onitu, et des clients son
 
 Le client offre une interface similaire à *plyvel*, et fournit les méthodes suivantes:
 
-- `create`: Créer une base de données.
-- `connect`: Se connecter à une base de données, ou à une sous base de donnée (base ne regroupant que les clefs débutant par un certain préfixe)
+- `create`: Créer une base de données
+- `connect`: Se connecter à une base de données, ou à une sous-base de données (base ne regroupant que les clefs débutant par un certain préfixe)
 - `close`: Fermer une base de données ouverte
 - `get`: Récuperer la valeur correspondant à une clef
 - `exists`: Vérifier l'existence d'une clef
@@ -83,7 +83,7 @@ La liste des noms d'événements est présente dans le fichier `logs.py`. Les m�
 
 #### `loops.py`
 
-Contient diverses boucles événementielles construites pour être branchées au *launcher*. Les boucles sont lancées à l'aide de leur méthode `run`, et stoppées lorsque l'événement correspondant sur vient.
+Contient diverses boucles événementielles construites pour être branchées au *launcher*. Les boucles sont lancées à l'aide de leur méthode `run`, et stoppées lorsque l'événement correspondant survient.
 
 La boucle `BooleanLoop` possède une méthode `stop` qu'il suffit de relier à un événement du *launcher* pour être stopée lors de son émission, par exemple: `launcher.on_referee_started(loop.stop)`.
 
