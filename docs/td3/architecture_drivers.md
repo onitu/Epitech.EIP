@@ -97,7 +97,9 @@ Cette exception doit être levée pour tout autre problème survenant au niveau 
 
 #### Configuration
 
-Chaque driver est fourni avec un fichier `manifest.json` qui permet de définir et de valider la structure de ses options de configuration.
+Le dossier du *driver* doit respecter l'arborescence décrite plus haut, en intégrant un fichier `manifest.json` et un fichier `LICENSE`.
+
+Chaque *driver* est fourni avec un fichier `manifest.json` qui permet de définir et de valider la structure de ses options de configuration.
 
 Ce fichier est décrit dans la figure suivante.
 
@@ -128,7 +130,7 @@ Le champ `type` contient le type de l'option: sont disponibles `string` (chaîne
 
 Un *driver* doit être fourni avec un script python `setup.py`, construit à l'aide des *setuptools* python et permettant l'installation du *driver* au sein d'Onitu.
 
-Ce script est simplement chargé de copier les fichiers du *driver* dans le répertoire `onitu/drivers/` d'Onitu (client ou serveur).
+Ce script est simplement chargé de copier les fichiers du *driver* dans le répertoire `drivers/` d'Onitu (client ou serveur).
 
 ### Tests
 

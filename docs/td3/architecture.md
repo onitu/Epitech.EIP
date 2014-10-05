@@ -40,12 +40,19 @@ Dépôt principal du projet (serveur).
 ###### `authorized_keys/`
 Dossier contenant les clefs des clients autorisés à se connecter
 
+###### `drivers/`
+Dossier contenant les différents *drivers* installés
+
+- `local_storage/` — *Driver* gérant le système de fichiers local
+    - `LICENSE` — Fichier précisant la licence sous laquelle est distribuée le *driver*
+    - `manifest.json` — Fichier de description du *driver*
+    - `onitu_local_storage/` — Module de *driver*
+        - `tests/` — Tests spécifiques au *driver*
+    - `setup.py` — Script *setuptools* d'installation
+
 ###### `onitu/`
 - `api/` — Module contrôlant l'API REST d'Onitu
-- `drivers/` — Dossier contenant les différents *drivers* installés
-    - `local_storage/` — *Driver* gérant le système de fichiers local
-        - `manifest.json` — Fichier de description du *driver*
-        - `tests/` — Tests spécifiques au *driver*
+- `drivers/` — Module chargé du chargement des *drivers*
 - `escalator/` — Module consacré à la gestion de la base de données, contenant le serveur et le client
 - `plug/` — Module *Plug*
 - `referee/` — Module *Referee*
