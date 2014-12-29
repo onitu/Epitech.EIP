@@ -30,7 +30,7 @@ Il ne vous reste ensuite qu'à installer les dépendances requises par Onitu:
 
 Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la commande suivante:
 
-    python -m onitu --debug
+    onitu --debug
 
 ### *Bugtracker*
 

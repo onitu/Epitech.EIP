@@ -64,4 +64,14 @@ un serveur web qui sert notamment à mettre à disposition une API REST.
 
 ### Client
 
+Le client reprend les mêmes technologies que le serveur. Peuvent y être ajoutée la bibliothèque ***msgpack*** utilisée pour la sérialisation des données lors des échanges entre clients et serveur.
+
 ### Interface web
+
+#### *Javascript*
+
+L'interface web du projet exploite les possibilités offertes par le moteur *Javascript* du navigateur pour offrir un affichage complet et dynamique.
+
+#### *AngularJS*
+
+Le *framework* *AngularJS* est utilisé afin de mieux découper le code *Javascript*, et de disposer d'outils puissants pour la génération dynamique de pages côté client.

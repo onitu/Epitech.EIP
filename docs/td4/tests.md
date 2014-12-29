@@ -35,8 +35,6 @@ Les tests s'exécutent à l'aides des commandes suivantes:
 
 ## Architecture des tests
 
-## Tests serveur
-
 Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit dans le chapitre 2, ils sont construits à l'aide du framework *py.test*.
 
 Une série d'utilitaires est fournie dans le dossier `tests/utils/` pour vous permettre de développer le plus simplement possible de nouveaux tests.
@@ -65,6 +63,8 @@ La boucle `CounterLoop` est initialisée avec un nombre *N* et possède une mét
 
 Les classes `Rule` et `Setup` permettent de générer un fichier de configuration Onitu depuis un script python.
 
+
+## Tests serveur
 
 ## Tests drivers
 

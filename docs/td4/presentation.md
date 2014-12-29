@@ -8,13 +8,19 @@ Il existe aujourd'hui beaucoup de solutions de stockage en ligne. Mais ces servi
 
 Avec *Onitu*, nous souhaitons remédier à ce problème, en vous offrant la possibilité de configurer par vous-même le stockage et la synchronisation de vos fichiers.
 
-Pour cela, *Onitu* agit comme un intermédiaire au moyen de *drivers*, petits programmes destinés à faire communiquer et transférer des données entre les services supportés.
+Pour cela, *Onitu* agit comme un intermédiaire au moyen de *drivers*, petits programmes destinés à faire communiquer et transférer des données entre les services supportés. Voir figure \ref{final_user_schema}.
 
-*Onitu* va plus loin que le simple transfert, et vous permet de mettre en place des mécanismes tels qu'un filtrage selon le service, le type ou la taille des fichiers détectés.
+*Onitu* va plus loin que le simple transfert, et vous permet de mettre en place des mécanismes tels qu'un filtrage selon le service, le type ou la taille des fichiers détectés. Voir figure \ref{use_cases}.
 
 *Onitu* est un programme adaptable à tous les usages. Ainsi, vous pouvez aussi bien le mettre en place sur un serveur, entièrement en ligne de commande, que sur votre bureau, via son interface Web dédiée.
 
 Nous vous invitons à consulter la documentation utilisateur pour plus d'informations sur l'utilisation du projet.
+
+\HalfWidthFigure{\label{final_user_schema}Onitu, synchronisez vos fichiers en toute simplicité}{imgs/final_user_schema.png}
+
+\HalfWidthFigure{\label{use_cases}Onitu - Cas d'utilisation}{imgs/use_cases.png}
+
+\clearpage
 
 ## Contact
 

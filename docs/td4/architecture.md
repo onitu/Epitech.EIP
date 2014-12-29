@@ -26,14 +26,16 @@
 
 - **API** — Interface permettant le contrôle du serveur (ajout de pilotes, modification des règles), épaulée par une interface web.
 
-
-\FullWidthFigure{Architecture globale}{imgs/global_archi.png}
-
 \newpage
 
 ### Vue logique
 
+\FullWidthFigure{Architecture globale - Vue logique}{imgs/global_archi.png}
+
+
 ### Arborescence
+
+Le projet est répartit sur 3 dépôts *Git*, décrits ci-dessous.
 
 ##### Dépôt `onitu.onitu`
 
@@ -62,12 +64,13 @@ Dossier contenant les différents *drivers* installés
 ###### `server.key_secret`
 Clef secrète du serveur
 
-###### `setup.json`
+###### `setup.yml`
 Fichier de configuration Onitu
 
 ###### `tests/`
 - `benchmarks/` — Tests des performances du système
 - `functional/` — Tests fonctionnels du système
+- `units/` — Tests unitaires
 - `utils/` — Module regroupant divers utilitaires pour les tests
 
 ##### Dépôt `onitu.client`
@@ -83,5 +86,28 @@ Dossier semblable au `onitu/` du serveur et simulant la même architecture chez 
 ###### `keys/`
 Dossier regroupant les clefs (publique et secrète) du client et la clef publique du serveur
 
-###### `setup.json`
+###### `setup.yml`
 Fichier de configuration client Onitu
+
+#### Dépôt `onitu.facet`
+
+Dépôt contenant l'interface Web d'Onitu.
+
+##### `css/`
+Feuilles de style *CSS*
+
+##### `js/`
+Répertoire contenant les sources de l'interface
+
+- `controllers/` — Contrôleurs *AngularJS*
+    - `drivers.js` — Contrôleur gérant les *drivers*
+    - `files.js` — Contrôleur supervisant les fichiers
+    - `settings.js` — Gestion des paramètres
+- `app.js` — Application principale
+- `factories.js` — Patrons de conceptions de *MIME types*
+
+##### `partials/`
+Patrons de pages *Html*
+
+##### `index.html`
+Page d'accueil de l'interface
