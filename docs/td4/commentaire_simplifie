@@ -1,0 +1,15 @@
+- Schéma utilisateur final: représenter la synchronisation entre les différents services (en 1er schéma)
+- Regrouper les éléments entre-eux (gestion de configuration, tests)
+- modélisation, diagrammes par thème et groupes de fonctionnalités plutôt qu'explications textuelles
+- diagramme objet, de classes découpé en grand packages en support des explications
+- Illustrer l'API et autres interfaces
+- Extraire les tests et les traiter plus profondément à la fin
+- Diagrammes de séquence pour les processus de download/upload/sync entre les composants (FS, serveur, drivers, services). Fichiers traités de façon trop partielle
+- Doc pas assez axée sur le coeur du projet, plutôt orientée pour un développeur de driver
+- Faire une approche haut niveau → détail, logique (conceptuelle) → physique (implémentation)
+- Décrire le projet + vue fonctionnelle rapide (use cases: description en diagrammes, schéma vue utilisateur)
+- Schéma d'architecture globale (grandes solutions et usages, composants)
+- Vue logique: vue qui reprend les composants avec vue haut-niveau et entités métiers (peuvent regrouper plusieurs objects/classes)
+- Présenter brièvement technologiques utilisées afin de cibler les composants internes et externes
+- Vue physique en composants et classes, expliquant le fondement et l'utilité: pas besoin de tout décrire, juste les interfacs et intéractions
+- Environnement de dév et configuration (stratégies branches/releases, norme du code, bonnes pratiques, passage des tests, intégration continue)

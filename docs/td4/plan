@@ -1,0 +1,129 @@
+1. Présentation du projet
+  1.1 Onitu
+    + Schéma utilisateur final
+    + Schémas use-cases
+  1.2 Contact
+    1.2.1 Site virtrine
+    1.2.2 Liste de diffusion
+    1.2.3 IRC
+    1.2.4 Github
+
+2. Architecture
+  2.1 Architecture générale
+    2.1.1 Glossaire
+    2.1.2 Vue logique
+      - Vue logique (schéma actuel)
+    2.1.3 Arborescence
+  2.2 Fonctionnement (échanges)
+    - Déroulement de la gestion des fichiers
+    + diagrammes de séquence (de la détection par un service jusqu'au relayage aux autres services)
+    (parler brièvement des règles en indiquant qu'elles seront traitées plus loin)
+    - Utiliser les noms définis par le glossaire
+  2.3 Technologies utilisées
+    2.3.1 Serveur
+    2.3.2 Client
+    2.3.3 Interface web
+  2.4 Server
+    + diagrammes objet/classes
+    2.4.1 Launcher
+    2.4.2 Referee
+    2.4.3 Plug
+    2.4.4 Majordomo
+    2.4.5 Escalator
+  2.5 Drivers
+    + diagrammes objet/classes
+    2.5.1 Handlers
+    2.5.2 Plug
+    2.5.3 Exceptions
+  2.6 API
+    + diagramme illustration
+    2.6.1 Utilisation
+    2.6.2 Développer de nouvelles fonctionnalités
+  2.7 Interface Web
+  2.8 Client
+    2.8.1 Authentification
+    2.8.2 Plug
+
+3. Configuration
+  3.1 Fichier de configuration
+  3.2 Règles de configuration
+
+4. Tests
+  4.1 Passage et validation
+  4.2 Architecture des tests
+  4.3 Tests serveur
+  4.4 Tests drivers
+
+5. Contribuer
+  5.1 Environnement de développement
+    5.1.1 Dépôt Git
+    5.1.2 Dépendances
+    5.1.3 Bug tracker
+  5.2 Contributions
+    5.2.1 Coeur du projet
+      - Lecture des issues pour savoir quoi faire
+      - Conformité au projet
+    5.2.2 Développement de drivers
+      - Déploiement: script setup.py
+      - Tests spécifiques, features
+  5.3 Validation
+    5.3.1 Validation du code
+      - PEP8
+    5.3.2 Passage des tests
+      - Doit passer tous les tests, py2k et py3k
+    5.3.3 Pull request
+      - Branche à jour sur develop, commits explicites
+      - Aucune fusion
+
+6. Liens utiles
+  6.1 Onitu
+  6.2 Documentation externe
+
+=====================================
+Ancien:
+
+1. Présentation du projet
+  1.1 Onitu
+  1.2 Contact
+    1.2.1 Site virtrine
+    1.2.2 Liste de diffusion
+    1.2.3 IRC
+    1.2.4 Github
+
+2. Contribuer
+  2.1 Environnement de dév
+    2.1.1 Github
+    2.1.2 Bugtracker
+    2.1.3 Pull requests
+  2.2 Technologies
+  2.3 Normes
+  2.4 Installation de l'env
+  2.5 Tests
+
+3. Architecture
+  3.1 Architecture générale
+    3.1.1 Glossaire
+    3.1.2 Arborescence
+  3.2 Server
+    3.2.1 Launcher
+    3.2.2 Referee
+    3.2.3 Plug
+    3.2.4 Majordomo
+    3.2.5 Escalator
+    3.2.6 Tests
+  3.3 Drivers
+    3.3.1 Handlers
+    3.3.2 Plug
+    3.3.3 Exceptions
+    3.3.4 Déploiement
+    3.3.5 Tests
+  3.4 API
+    3.4.1 Utilisation
+    3.4.2 Développer de nouvelles fonctionnalités
+  3.5 Client
+    3.5.1 Authentification
+    3.5.2 Plug
+
+4. Liens utiles
+  4.1 Onitu
+  4.2 Documentation externe
