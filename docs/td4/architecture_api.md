@@ -50,20 +50,3 @@ La dernière partie du *driver* travaille sur les règles de configuration entre
 *drivers*. Il s'agit de récupérer ces règles, mais aussi de les modifier ou de
 lancer une vérification sur l'ensemble des *drivers* pour voir si les fichiers
 respèctent bien la dernière version des règles.
-
-### Développer de nouvelles fonctionnalités
-
-Pour ajouter de nouvelles fonctionnalités à l'API REST, il faut ajouter des
-routes. l'API utilisant Bottle, il est possible d'utiliser toutes les options de
-ce framework.
-
-La création de nouvelles routes doit suivre des règles précises :
-
-- Les routes qui servent à la **consultation** doivent forcément être de type GET.
-- Les routes qui servent à la **modification** doivent forcément être de type PUT.
-- Les routes qui servent à la **suppression** doivent forcément être de type DELETE.
-- Un numéro de version apparaît dans la route. Le fonctionnement d'une route ne
-doit pas changer tant que le numéro de version reste le même.
-- Toutes les réponses doivent être du JSON valide.
-- Le code de réponse HTTP doit être correctement fixé pour correspondre à la
-réponse envoyée par l'API. Pas de code 200 quand la route renvoie une erreur.

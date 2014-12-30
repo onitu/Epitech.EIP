@@ -1,0 +1,102 @@
+digraph {
+	fontname = "Bitstream Vera Sans"
+	fontsize = 8
+
+	node [
+	     fontname = "Bitstream Vera Sans"
+	     fontsize = 8
+	     shape = "record"
+	]
+
+	edge [
+	     fontname = "Bitstream Vera Sans"
+	     fontsize = 8
+	     dir = both
+	]
+
+	Referee [
+		label = <{<b>Referee</b> | <br/>
+		+ services <br align="left"/>
+		<br/>
+		+ start() <br align="left"/>
+		+ listen(listener) <br align="left"/>
+		+ close() <br align="left"/>
+		+ notify(services, command, fid) <br align="left"/>
+		}>
+	]
+
+	Plug [
+	     label = <{<b>Plug</b> | <br/>
+	     + root: str <br align="left"/>
+	     + folders <br align="left"/>
+	     + options <br align="left"/>
+	     <br/>
+	     + initialize(name: str, session: str, manifest) <br align="left"/>
+	     + close() <br align="left"/>
+	     + listen() <br align="left"/>
+	     + handler() <br align="left"/>
+	     + update_file(metadata) <br align="left"/>
+	     + delete_file(metadata) <br align="left"/>
+	     + move_file(metadata) <br align="left"/>
+	     + get_folder(metadata): folder <br align="left"/>
+	     + get_metadata(filename: str): metadata <br align="left"/>
+	     }>
+	]
+
+	Majordomo [
+		  label = <{<b>Majordomo</b> | <br/>
+		  + frontend <br align="left"/>
+		  + backend <br align="left"/>
+		  <br/>
+		  + bind(frontend_uri, backend_uri) <br align="left"/>
+		  + poll() <br align="left"/>
+		  + close() <br align="left"/>
+		  + new_remote(src_id: bytes) <br align="left"/>
+		  + close_remote(src_id: bytes) <br align="left"/>
+		  }>
+	]
+
+	Escalator [
+		  label = <{<b>Escalator</b> | <br/>
+		  + create(name: str) <br align="left"/>
+		  + connect(name: str, prefix: str) <br align="left"/>
+		  + close() <br align="left"/>
+		  + get(key: str) <br align="left"/>
+		  + exists(key: str): bool <br align="left"/>
+		  + put(key: str, value) <br align="left"/>
+		  + delete(key: str) <br align="left"/>
+		  + range(prefix: str, start: str, stop: str) <br align="left"/>
+		  }>
+	]
+
+	Metadata [
+		 label = <{<b>Metadata</b> | <br/>
+		 + filename: str <br align="left"/>
+		 + size: int <br align="left"/>
+		 + uptodate: bool <br align="left"/>
+		 + mimetype: str <br align="left"/>
+		 + folder <br align="left"/>
+		 + path: str <br align="left"/>
+		 <br/>
+		 <u>+ get(plug, folder, filename: str): metadata</u> <br align="left"/>
+		 + write() <br align="left"/>
+		 + delete() <br align="left"/>
+		 }>
+	]
+
+	Folder [
+	       label = <{<b>Folder</b> | <br/>
+	       + name: str <br align="left"/>
+	       + path: str <br align="left"/>
+	       <br/>
+	       <u>+ get(escalator, service): folder</u> <br align="left"/>
+	       + relpath(filename: str): str <br align="left"/>
+	       + join(filename: str): str <br align="left"/>
+	       + contains(filename: str): bool <br align="left"/>
+	       }>
+	]
+
+	Plug -> Escalator [arrowhead=none headlabel=1 arrowtail=diamond taillabel="1   "]
+	Metadata -> Plug [arrowhead=none headlabel=1 arrowtail=odiamond taillabel="0..*   "]
+	Plug -> Folder [arrowhead=none headlabel="0..*  " arrowtail=diamond taillabel="1 "]
+}

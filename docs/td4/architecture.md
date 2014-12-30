@@ -30,7 +30,7 @@
 
 ### Vue logique
 
-\FullWidthFigure{Architecture globale - Vue logique}{imgs/global_archi.png}
+\FullWidthFigure{Architecture générale - Vue logique}{imgs/global_archi.png}
 
 
 ### Arborescence
