@@ -32,6 +32,8 @@ Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la comm
 
     onitu --debug
 
+#### Interface web (facet)
+
 ### *Bugtracker*
 
 Quand vous rencontrez des problèmes avec Onitu, nous aimons en être informés.
