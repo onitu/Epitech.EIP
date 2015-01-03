@@ -35,6 +35,8 @@
 
 ### Arborescence
 
+\label{arborescence}
+
 Le projet est répartit sur 3 dépôts *Git*, décrits ci-dessous.
 
 ##### Dépôt `onitu.onitu`

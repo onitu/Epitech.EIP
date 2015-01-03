@@ -128,11 +128,15 @@ Tests s'assurant du bon comportement d'Onitu en fonction du fichier de configura
 
 ## Tests *drivers*
 
+\label{tests_drivers}
+
 Afin de pouvoir être éligible aux tests génériques prévus par Onitu, chaque driver doit être fourni avec un module ou *package* `tests`.
 
 Ce module contient une classe `Driver` héritant de `tests.utils.driver.Driver` fournissant un ensemble d'opérations élémentaires pour communiquer avec le service cible lors des tests. Une classe `DriverFeatures`, héritant de `tests.utils.driver.DriverFeatures`, doit aussi être présente pour énoncer les fonctionnalités supportées par le *driver*.
 
-Les opérations sont les suivantes:
+\ 
+
+Les opérations élémentaires sont les suivantes:
 
 - **mkdir** — Crée sur le service le ou les répertoires indiqués par le chemin donné en paramètre
 - **rmdir** — Supprime le répertoire correspondant au chemin donné
@@ -144,7 +148,11 @@ Les opérations sont les suivantes:
 - **checksum** — Retourne la somme *MD5* du fichier pointé par le chemin donné en paramètre
 - **close** — Permet la coupure de la connexion auprès du service
 
+\ 
+
 Les *drivers* peuvent aussi fournir leurs propres fichiers de tests *py.test* en les plaçant dans un module `driver_tests` de ce même *package* `tests`.
+
+\ 
 
 La suite de tests passées pour le *driver* est ensuite définie dans le répertoire `tests/functional/driver` d'Onitu:
 

@@ -30,9 +30,30 @@ Il ne vous reste ensuite qu'à installer les dépendances requises par Onitu:
 
 Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la commande suivante:
 
-    onitu --debug
+    onitu
+
+#### Client
+
+Le client se trouve hébergé sur un dépôt séparé, mais son installation est semblable à celle du serveur:
+
+    git clone git@github.com:onitu/client.git
+    cd onitu
+    pip install -r requirements.txt
+
+Quant à l'utilisation:
+
+    python -m onitu
 
 #### Interface web (facet)
+
+L'interface web est disponible sur un troisième dépôt, et est fournie clefs en main.
+
+    git clone git@github.com:onitu/facet.git
+    cd facet
+
+Il suffit ensuite de servir statiquement le répertoire, avec Python 2 par exemple:
+
+    python -m SimpleHttpServer
 
 ### *Bugtracker*
 
@@ -54,30 +75,42 @@ Les rapports de bogues se font au moyen des *issues* Github du projet.
 
 ## Contribution
 
-### Coeur du projet
+### Cœur du projet
 
-#### API
+Si vous cherchez à contribuer au cœur du projet, pensez initialement à consulter les *issues* *Github* pour être informé des besoins actuels. Ces *issues* regroupent les rapports de bogues et les demandes de nouvelles fonctionnalités.
 
-Pour ajouter de nouvelles fonctionnalités à l'API REST, il faut ajouter des
-routes. l'API utilisant Bottle, il est possible d'utiliser toutes les options de
-ce framework.
+Pour le développement d'une nouvelle fonctionnalité, n'hésitez pas à en discuter sur les *issues* ou à venir rencontrer l'équipe sur notre chan IRC.
+
+Le cœur du projet est diffusé sous licence *MIT*, vous êtes donc libres de copier, modifier et redistribuer les sources librement, sous les termes énoncés par la licence. En outre, les contributions au sein du dépôt officiel devront s'inscrire sous cette même licence.
+
+#### *API*
+
+Pour ajouter de nouvelles fonctionnalités à l'*API REST*, il vous faut ajouter de
+nouvelles routes. l'*API* utilisant *Bottle*, il est possible d'utiliser toutes les options de
+ce *framework*.
 
 La création de nouvelles routes doit suivre des règles précises :
 
-- Les routes qui servent à la **consultation** doivent forcément être de type GET.
-- Les routes qui servent à la **modification** doivent forcément être de type PUT.
-- Les routes qui servent à la **suppression** doivent forcément être de type DELETE.
+- Les routes qui servent à la **consultation** doivent forcément être de type *GET*.
+- Les routes qui servent à la **modification** doivent forcément être de type *PUT*.
+- Les routes qui servent à la **suppression** doivent forcément être de type *DELETE*.
 - Un numéro de version apparaît dans la route. Le fonctionnement d'une route ne
 doit pas changer tant que le numéro de version reste le même.
-- Toutes les réponses doivent être du JSON valide.
-- Le code de réponse HTTP doit être correctement fixé pour correspondre à la
-réponse envoyée par l'API. Pas de code 200 quand la route renvoie une erreur.
+- Toutes les réponses doivent être du *JSON* valide.
+- Le code de réponse *HTTP* doit être correctement fixé pour correspondre à la
+réponse envoyée par l'*API*. Pas de code 200 quand la route renvoie une erreur.
 
 ### Développement de drivers
 
-#### Configuration
+Les *drivers* sont l'essence du projet, et les services externes en continuelle expansion. Le développement de nouveaux *drivers* permet donc au projet de se maintenir à jour et d'avoir de l'intérêt.
 
-Le dossier du *driver* doit respecter l'arborescence décrite plus haut, en intégrant un fichier `manifest.json` et un fichier `LICENSE`.
+Un *driver* est constitué d'un paquet installable via *pip*, respecant l'arborescence décrite au chapitre \ref{arborescence}.
+
+Le fichier `LICENSE` doit contenir la licence sous laquelle le *driver* est distribué. Le code source doit se trouver dans le *sous-package* `onitu_nom_du_driver`, contenant un fichier `__init__.py` exportant un object `plug` et une fonction `start`. Les fichiers `manifest.json` et `setup.py` seront décrits dans les sections qui suivent.
+
+Enfin, le *driver* doit implémenter les classes de tests décrites au chapitre \ref{tests_drivers}.
+
+#### Configuration
 
 Chaque *driver* est fourni avec un fichier `manifest.json` qui permet de définir et de valider la structure de ses options de configuration.
 
@@ -110,7 +143,36 @@ Le champ `type` contient le type de l'option: sont disponibles `string` (chaîne
 
 Un *driver* doit être fourni avec un script python `setup.py`, construit à l'aide des *setuptools* python et permettant l'installation du *driver* au sein d'Onitu.
 
-Ce script est simplement chargé de copier les fichiers du *driver* dans le répertoire `drivers/` d'Onitu (client ou serveur).
+Ce script se doit d'installer toutes les dépendances requises par le *driver* (`install_requires`), et d'installer dans `onitu.drivers` le paquet `onitu_nom_du_driver` et `onitu_nom_du_driver.tests` dans `onitu.tests`.
+
+Un `setup.py` d'exemple est fourni en figure \ref{setup.py}.
+
+\begin{figure}[h]
+\begin{lstlisting}[language=python]
+from setuptools import setup, find_packages
+
+setup(
+    name="onitu-nom-du-driver",
+    version="1.2.3",
+    url="http://site.du.driver.com",
+    description="Description courte du driver",
+    license="MIT",
+    packages=find_packages(),
+    install_requires=[],
+    package_data={'': ['manifest.json']},
+    entry_points={
+        'onitu.drivers': [
+            'nom_du_driver = onitu_nom_du_driver'
+        ],
+        'onitu.tests': [
+            'nom_du_driver = onitu_nom_du_driver.tests'
+        ]
+    }
+)
+\end{lstlisting}
+\caption{\label{setup.py} setup.py}
+\end{figure}
+
 
 ## Validation
 
