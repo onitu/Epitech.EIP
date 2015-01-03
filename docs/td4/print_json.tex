@@ -47,3 +47,25 @@
       {Î}{{\^{I}}}1
       {'}{{\'{}}}1,
 }
+
+\lstdefinelanguage{yaml}{
+    basicstyle=\normalfont\ttfamily,
+    breaklines=true,
+    numbers=none,
+    frame=lines,
+    backgroundcolor=\color{background},
+    keywords={true,false,null,y,n},
+    keywordstyle=\color{darkgray}\bfseries,
+    sensitive=false,
+    comment=[l]{\#},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{purple}\ttfamily,
+    stringstyle=\color{string}\ttfamily,
+    identifierstyle=\color{identifier},
+    numberstyle=\color{number},
+    moredelim=[l][\color{orange}]{\&},
+    moredelim=[l][\color{magenta}]{*},
+    moredelim=**[il][\color{delim}{:}\color{string}]{:},
+    morestring=[b]',
+    morestring=[b]"
+}

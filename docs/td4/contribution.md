@@ -32,6 +32,8 @@ Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la comm
 
     onitu --debug
 
+#### Interface web (facet)
+
 ### *Bugtracker*
 
 Quand vous rencontrez des problèmes avec Onitu, nous aimons en être informés.
@@ -126,6 +128,10 @@ rester propre. Chaque demande de ```pull request``` sera étudiée afin de
 regarder en premier lieu si le code fourni les respecte.
 
 ### Passage des tests
+
+Pour chaque nouvelle fonctionnalité que vous developpez, vous devez vous assurer que le projet est toujours fonctionnel, en passant la suite de tests comme indiqué au chapitre \ref{tests}.
+
+De plus, vous devrez implémenter vos propres tests vérifiant la stabilité de votre nouvelle fonctionnalité.
 
 ### *Pull requests*
 

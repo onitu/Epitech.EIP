@@ -36,6 +36,24 @@ Le plug fait la liaison entre un fichier et ses métadonnées. Les métadonnées
 
 Le *Plug* offre aussi la possibilité aux *drivers* de se connecter à des *handlers*.
 
+Les principales méthodes du *Plug* sont les suivantes:
+
+#### `get_metadata`
+
+Permet de récupérer les métadonnées d'un fichier. Prend le chemin du fichier en paramètre et retourne un objet `Metadata` (objet contenant le nom, la taille, le type *MIME* et les propriétaires du fichier).
+
+#### `update_file`
+
+Indique au *Plug* qu'un fichier a été mis à jour. Transmet les métadonnées du fichier en paramètre.
+
+#### `delete_file`
+
+Notifie le *Plug* de la suppression d'un fichier, en précisant les métadonnés du fichier en paramètre.
+
+#### `move_file`
+
+Notifie le *Plug* du déplacement d'un fichier, en indiquant en paramètre les métadonnées du fichier et le nouvel emplacement.
+
 ### *Majordomo*
 
 Le *Majordomo* est l'entité au sein d'Onitu permettant la communication avec des clients distant. Il agit comme un *proxy* en permettant d'instancier un *driver* sur une machine distante.

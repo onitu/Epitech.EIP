@@ -6,7 +6,9 @@ Un *driver* est spécifique à un service, en cela il implémente l'API propre �
 
 Un *driver* consiste simplement en un module python. Chaque *driver* doit comporter une méthode `start`, son point d'entrée, qui sera appelée pour son initialisation.
 
-### *Handlers*
+### *Plug* et *handlers*
+
+Un *driver* est amené à demander des informations auprès d'un *Plug* qu'il aura préalablement instancié, il peut ainsi utiliser les méthodes vues précédemment pour communiquer avec Onitu, mais aussi connecter des *handlers*.
 
 Les *handlers* sont les méthodes par lesquelles le *Plug* effectue des requêtes auprès d'un service.
 
@@ -61,29 +63,9 @@ Demande au *driver* de déplacer un fichier vers un nouvel emplacement. Les mét
 
 Permet de négocier la taille des blocs entre le *Referee* et le *driver*. Le *handler* prend en paramètre la taille proposée par le *Referee*, et retourne `None` si cette valeur lui convient, ou une autre taille dans le cas contraire.
 
-### Plug
-
-Un *driver* est de plus amené à demander des informations auprès du *Plug*, il peut le faire à l'aide des méthodes suivantes.
-
-#### `get_metadata`
-
-Permet de récupérer les métadonnées d'un fichier. Prend le chemin du fichier en paramètre et retourne un objet `Metadata` (objet contenant le nom, la taille, le type *MIME* et les propriétaires du fichier).
-
-#### `update_file`
-
-Indique au *Plug* qu'un fichier a été mis à jour. Transmet les métadonnées du fichier en paramètre.
-
-#### `delete_file`
-
-Notifie le *Plug* de la suppression d'un fichier, en précisant les métadonnés du fichier en paramètre.
-
-#### `move_file`
-
-Notifie le *Plug* du déplacement d'un fichier, en indiquant en paramètre les métadonnées du fichier et le nouvel emplacement.
-
 ### Exceptions
 
-Différentes exceptions sont mises à disposition des *drivers* pour relayer à Onitu l'apparition d'un erreur.
+Différentes exceptions sont mises à disposition des *drivers* pour avertir Onitu de l'apparition d'une erreur.
 
 #### `ServiceError`
 
