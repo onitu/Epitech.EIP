@@ -362,7 +362,65 @@ Détection des déplacements & \Non & \Non & \Non & \Non & \Non\\
 
 ## Les règles
 
-Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quels services, et s'insèrent dans la section `rules` du document.
+Les règles vous permettent de définir quels fichiers doivent être synchronisés vers quels services. Les regles se definissent en deux parties, la premiere partie est la definition des dossiers (`folders`) et la deuxieme est la definition des regles dans les differents services.
+
+La definition des dossiers se place dans l'option `folders`, c'est une liste de noms de dossiers contenant les options de chacun d'eux.
+
+Il faut donc nommer chaque dossier, vous pouvez ensuite ajouter des options a celui ci:
+
+- L'option `type`:
+
+Cette option permet de filtrer le type de fichiers qui seront synchronises dans ce dossier. Cette option est une liste contenant la definition de ces types. Les definitions suivent la norme MIME (RFC 2045) et il est possible d'utiliser le selecteur universel (`*`) afin de preciser seulement l'extension ou seulement le type de fichier. Exemple:
+
+- audio/ (Tout les fichiers audio quelque soit leur extension)
+- */mpeg (Tout les fichiers ayant une extension mpeg quel que soit leur type)
+
+
+- L'option `size`:
+
+Cette option permet de filtrer la taille des fichiers qui seront synchronises dans ce dossier. Cette option peut en contenir deux, a savoir `min` et `max` correspondant a la taille minimum ou maximum qu'un fichier doit faire pour etre synchronise dans ce dossier. Vous pouvez preciser la taille des fichiers en utilisant les suffixes suivants:
+- Octet: no suffixes, o, b
+- Kilooctet: k, ko, kb
+- Megaoctet: m, mo, mb
+- Gigaoctet: g, go, gb
+- Teraoctet: t, to, tb
+- Petaoctet: p, po, pb
+
+- Kibi: ki
+- Mibi: mi
+- Gibi: gi
+- Tebi: ti
+- Pebi: pi
+
+Exemple:
+
+size:
+   min: 2G
+
+size:
+   min: 2ko
+   max: 5t
+
+- L'option `whitelist`:
+
+Cette option permet de filtrer les fichiers qui seront accepte dans le dossier. Si cette option est precisee, tout les fichiers sont refuses par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulieres. Exemple:
+
+whitelist:
+   - "*.bak"
+   - Public/
+
+Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers present dans le dossier `Public/` seront synchronises avec ce dossier.
+
+- L'option `blacklist`:
+
+Cette option permet de filtrer les fichiers qui seront refuses dans le dossier. Si cette option est precisee, tout les fichiers sont acceptes par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulieres. Exemple:
+
+blacklist:
+   - "*.avi"
+   - Private/
+
+Dans cet exemple tout les fichiers seront synchronises sauf les fichiers ayant pour extension `.avi` et les fichiers present dans le dossier `Private/`.
+
 
 Dans notre exemple, nous souhaitons que toutes les modifications (création, mise à jour ou suppression) de fichiers soient transférées au service «Local», mais que seules celles opérant sur des images du répertoire `photos/`, et de type *JPG* ou *PNG*, soient relayées à *Dropbox*, comme explicité sur les schémas ci-dessous:
 
