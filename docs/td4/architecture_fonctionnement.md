@@ -6,7 +6,7 @@ Nous imaginons un utilisateur créant un document texte sur **Hubic** (figure \r
 
 \HalfWidthFigure{\label{use_case_1}Création d'un document par l'utilisateur}{imgs/sequence_schema_1.png}
 
-Ce document est par la suite détecté par le *driver* **Hubic**, est reconnu comme répondant à la règle «document texte», il est donc transféré via son *Plug* vers le **serveur Onitu** (figure \ref{use_case_2}).
+Ce document est par la suite détecté par le *driver* **Hubic**, et reconnu comme répondant à la règle «document texte», il est donc transféré via son *Plug* vers le **serveur Onitu** (figure \ref{use_case_2}).
 
 \HalfWidthFigure{\label{use_case_2}Détection du fichier par le service et transfert vers Onitu}{imgs/sequence_schema_2.png}
 

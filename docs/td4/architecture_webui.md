@@ -12,7 +12,7 @@ Le contrôleur `filesDetailsCtrl` récupère les informations détaillées d'un 
 
 #### Services
 
-Un premier contrôleur, `driverListCtrl`, permet de lister les services actuellement présent dans l'isntance courante d'Onitu, et d'accéder aux contrôleurs suivants.
+Un premier contrôleur, `driverListCtrl`, permet de lister les services actuellement présents dans l'instance courante d'Onitu, et d'accéder aux contrôleurs suivants.
 
 `driverInfoCtrl` indique à l'utilisateur les informations détaillées du service: son état, sa consommation mémoire, sa consommation *CPU*, son temps d'activité, et ses paramètres. Il permet en outre de démarrer/stopper le service.
 

@@ -4,7 +4,7 @@ Le serveur est le point d'entrée d'Onitu, c'est le programme qui s'occupe des c
 
 Onitu est formé de divers composants détaillés dans les sections ci-dessous.
 
-\FullWidthFigure{Diagramme de classes}{imgs/architecture_uml.jpg}
+\FullWidthFigure{Diagramme de classes}{imgs/architecture_uml.png}
 
 ### *Launcher*
 
