@@ -87,7 +87,7 @@ Le cœur du projet est diffusé sous licence *MIT*, vous êtes donc libre de cop
 
 Pour ajouter de nouvelles fonctionnalités à l'*API REST*, il vous faut ajouter de
 nouvelles routes. l'*API* utilisant *Bottle*, il est possible d'utiliser toutes les options de
-ce *framework*.
+ce *cadriciel*.
 
 La création de nouvelles routes doit suivre des règles précises :
 
@@ -191,7 +191,7 @@ regarder en premier lieu si le code fourni les respecte.
 
 ### Passage des tests
 
-Pour chaque nouvelle fonctionnalité que vous developpez, vous devez vous assurer que le projet est toujours fonctionnel, en passant la suite de tests comme indiqué au chapitre \ref{tests} **[Tests]**.
+Pour chaque nouvelle fonctionnalité que vous développez, vous devez vous assurer que le projet est toujours fonctionnel, en passant la suite de tests comme indiqué au chapitre \ref{tests} **[Tests]**.
 
 De plus, vous devrez implémenter vos propres tests vérifiant la stabilité de votre nouvelle fonctionnalité.
 

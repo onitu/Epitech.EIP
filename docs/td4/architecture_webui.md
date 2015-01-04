@@ -1,6 +1,6 @@
 ## Interface web
 
-L'interface web est construite de façon assez simple: ses fonctionnalités sont basées sur l'*API REST* à laquelle elle offre une interface graphique pour une utilisation grand public. Ainsi, elle consiste simplement en des appels vers l'*API* et le formattage des réponses.
+L'interface web est construite de façon assez simple: ses fonctionnalités sont basées sur l'*API REST* à laquelle elle offre une interface graphique pour une utilisation grand public. Ainsi, elle consiste simplement en des appels vers l'*API* et le formatage des réponses.
 
 L'interface présente ainsi différentes routes, décrites dans le fichier `js/app.js` pour la gestion des fichiers et des services.
 

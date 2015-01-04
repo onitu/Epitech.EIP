@@ -38,7 +38,7 @@ Les tests s'exécutent à l'aides des commandes suivantes:
 
 ## Architecture des tests
 
-Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit au chapitre **[Technologies utilisées]**, ils sont construits à l'aide du framework *py.test*.
+Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit au chapitre **[Technologies utilisées]**, ils sont construits à l'aide du cadriciel *py.test*.
 
 Une série d'utilitaires est fournie dans le dossier `tests/utils/` pour vous permettre de développer le plus simplement possible de nouveaux tests.
 

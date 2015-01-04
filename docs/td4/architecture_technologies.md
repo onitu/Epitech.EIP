@@ -11,7 +11,7 @@ Python est un langage polyvalent et flexible. Il nous permet de développer et
 distribuer Onitu très facilement, sans se soucier des plateformes cibles sur
 lequel il sera déployé (pas de compilation des sources ou de distribution de
     binaires), étant de plus disponible sur un très grand nombre de systèmes.
-Python possède une libraire standard conséquente et est aisé à lire et à
+Python possède une bibliothèque standard conséquente et est aisé à lire et à
 comprendre.
 
 Onitu étant une application limitée majoritairement par les entrées/sorties, la
@@ -59,7 +59,7 @@ nous vous invitons à en faire de même pour toutes vos contributions.
 
 #### *Bottle*
 
-*Bottle* est un framework web python. Cette bibliothèque est utilisée pour exposer
+*Bottle* est un cadriciel web python. Cette bibliothèque est utilisée pour exposer
 un serveur web qui sert notamment à mettre à disposition une API REST.
 
 ### Client
@@ -74,4 +74,4 @@ L'interface web du projet exploite les possibilités offertes par le moteur *Jav
 
 #### *AngularJS*
 
-Le *framework* *AngularJS* est utilisé afin de mieux découper le code *Javascript*, et de disposer d'outils puissants pour la génération dynamique de pages côté client.
+Le *cadriciel* *AngularJS* est utilisé afin de mieux découper le code *Javascript*, et de disposer d'outils puissants pour la génération dynamique de pages côté client.
