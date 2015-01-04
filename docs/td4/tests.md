@@ -38,7 +38,7 @@ Les tests s'exécutent à l'aides des commandes suivantes:
 
 ## Architecture des tests
 
-Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit dans le chapitre 2, ils sont construits à l'aide du framework *py.test*.
+Onitu est fourni avec une suite de tests conséquente présente dans le répertoire `tests/`. Ces tests sont génériques et conçus pour fonctionner avec tous les *drivers*, comme décrit au chapitre **[Technologies utilisées]**, ils sont construits à l'aide du framework *py.test*.
 
 Une série d'utilitaires est fournie dans le dossier `tests/utils/` pour vous permettre de développer le plus simplement possible de nouveaux tests.
 
@@ -46,7 +46,7 @@ Ces utilitaires sont décris par les sections suivantes.
 
 #### `launcher.py`
 
-Permet d'exécuter simplement une instance d'Onitu, à l'aide du fichier de configuration donné en paramètre à la classe `Launcher`. Offre en retour la possibilité de réagir aux évènements émis par Onitu, à l'aide des méthodes `launcher.on_nomdelevenement` où `launcher` serait une instance de `Launcher` et `nomdevenement` un nom d'événement valide.
+Permet d'exécuter simplement une instance d'Onitu, à l'aide du fichier de configuration donné en paramètre à la classe `Launcher`. Offre en retour la possibilité de réagir aux évènements émis par Onitu, à l'aide des méthodes `launcher.on_nomdelevenement` où `launcher` serait une instance de `Launcher` et `nomdelevenement` un nom d'événement valide.
 
 La liste des noms d'événements est présente dans le fichier `logs.py`. Les méthodes de connexion aux événements peuvent aussi prendre des paramètres nommés, visibles eux aussi dans le fichier `logs.py`.
 
@@ -78,7 +78,7 @@ Le module `testdriver.py` permet de plus d'instancier directement ce *driver* da
 
 #### `fixtures.py`
 
-Les tests se basent beaucoup sur les *fixtures py.test*. Cette fonctionnalité permet en effet d'instancier automatiquement des objets pour le lancement de chaque test. Les *fixtures* utilisées par Onitu sont présentes dans ce module, et concerne la génération d'un `Setup` et d'un `Launcher` fonctionnels.
+Les tests se basent beaucoup sur les *fixtures py.test*. Cette fonctionnalité permet en effet d'instancier automatiquement des objets pour le lancement de chaque test. Les *fixtures* utilisées par Onitu sont présentes dans ce module, et concernent la génération d'un `Setup` et d'un `Launcher` fonctionnels.
 
 ## Tests serveur
 

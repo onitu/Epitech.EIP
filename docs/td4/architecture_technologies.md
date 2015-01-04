@@ -53,13 +53,13 @@ en cas d'erreur critique, c'est pourquoi nous nous sommes orientés vers
 
 #### *py.test*
 
-*py.test* est une librairie python simplifiant l'écriture et l'exécution de
+*py.test* est une bibliothèque python simplifiant l'écriture et l'exécution de
 tests. Elle est utilisée pour tester l'ensemble des composants du projet, et
 nous vous invitons à en faire de même pour toutes vos contributions.
 
 #### *Bottle*
 
-*Bottle* est un framework web python. Cette librairie est utilisée pour exposer
+*Bottle* est un framework web python. Cette bibliothèque est utilisée pour exposer
 un serveur web qui sert notamment à mettre à disposition une API REST.
 
 ### Client

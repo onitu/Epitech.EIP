@@ -12,9 +12,11 @@
 
 - **Service** — Un service est un pilote configuré par l'utilisateur. Il peut s'agir par exemple d'un pilote Dropbox configuré pour utiliser un compte utilisateur spécifique. Un service peut être vu comme l'instanciation d'un pilote.
 
+- **Folder** — Un *folder*, ou dossier, est une entité dans laquelle seront groupés des fichiers, et sur laquelle s'appliqueront les règles.
+
 - **Règle** — Unité faisant correspondre un ensemble de fichiers à un ensemble de services. Les règles définissent les conditions par lesquelles un fichier serait envoyé à un service.
 
-- **Fichier de configuration** — Fichier au format *JSON* décrivant les services et les règles d'une exécution d'Onitu.
+- **Fichier de configuration** — Fichier au format *YAML* décrivant les services et les *folders* d'une exécution d'Onitu.
 
 - **Launcher** — Le *Launcher* est le composant appelé au démarrage d'Onitu, et qui s'occupe de lancer les autres processus.
 

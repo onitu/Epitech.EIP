@@ -37,7 +37,7 @@ Le projet est maintenant fonctionnel, vous pouvez le lancer à l'aide de la comm
 Le client se trouve hébergé sur un dépôt séparé, mais son installation est semblable à celle du serveur:
 
     git clone git@github.com:onitu/client.git
-    cd onitu
+    cd client
     pip install -r requirements.txt
 
 Quant à l'utilisation:
@@ -81,7 +81,7 @@ Si vous cherchez à contribuer au cœur du projet, pensez initialement à consul
 
 Pour le développement d'une nouvelle fonctionnalité, n'hésitez pas à en discuter sur les *issues* ou à venir rencontrer l'équipe sur notre chan IRC.
 
-Le cœur du projet est diffusé sous licence *MIT*, vous êtes donc libres de copier, modifier et redistribuer les sources librement, sous les termes énoncés par la licence. En outre, les contributions au sein du dépôt officiel devront s'inscrire sous cette même licence.
+Le cœur du projet est diffusé sous licence *MIT*, vous êtes donc libre de copier, modifier et redistribuer les sources, sous les termes énoncés par la licence. En outre, les contributions au sein du dépôt officiel devront s'inscrire sous cette même licence.
 
 #### *API*
 
@@ -104,11 +104,11 @@ réponse envoyée par l'*API*. Pas de code 200 quand la route renvoie une erreur
 
 Les *drivers* sont l'essence du projet, et les services externes en continuelle expansion. Le développement de nouveaux *drivers* permet donc au projet de se maintenir à jour et d'avoir de l'intérêt.
 
-Un *driver* est constitué d'un paquet installable via *pip*, respecant l'arborescence décrite au chapitre \ref{arborescence}.
+Un *driver* est constitué d'un paquet installable via *pip*, respecant l'arborescence décrite au chapitre \ref{arborescence} **[Arborescence]**.
 
-Le fichier `LICENSE` doit contenir la licence sous laquelle le *driver* est distribué. Le code source doit se trouver dans le *sous-package* `onitu_nom_du_driver`, contenant un fichier `__init__.py` exportant un object `plug` et une fonction `start`. Les fichiers `manifest.json` et `setup.py` seront décrits dans les sections qui suivent.
+Le fichier `LICENSE` doit contenir la licence sous laquelle le *driver* est distribué. Le code source doit se trouver dans le *sous-package* `onitu_nom_du_driver`, contenant un fichier `__init__.py` exportant un objet `plug` et une fonction `start`. Les fichiers `manifest.json` et `setup.py` seront décrits dans les sections qui suivent.
 
-Enfin, le *driver* doit implémenter les classes de tests décrites au chapitre \ref{tests_drivers}.
+Enfin, le *driver* doit implémenter les classes de tests décrites au chapitre \ref{tests_drivers} **[Tests *drivers*]**.
 
 #### Configuration
 
@@ -191,7 +191,7 @@ regarder en premier lieu si le code fourni les respecte.
 
 ### Passage des tests
 
-Pour chaque nouvelle fonctionnalité que vous developpez, vous devez vous assurer que le projet est toujours fonctionnel, en passant la suite de tests comme indiqué au chapitre \ref{tests}.
+Pour chaque nouvelle fonctionnalité que vous developpez, vous devez vous assurer que le projet est toujours fonctionnel, en passant la suite de tests comme indiqué au chapitre \ref{tests} **[Tests]**.
 
 De plus, vous devrez implémenter vos propres tests vérifiant la stabilité de votre nouvelle fonctionnalité.
 

@@ -4,7 +4,7 @@ Les *drivers*, ou pilotes, sont les éléments clefs d'Onitu. Ils forment une in
 
 Un *driver* est spécifique à un service, en cela il implémente l'API propre à ce service. Certaines API ne fournissent pas toutes les fonctionnalités que nous pourrions espérer (téléchargement par blocs par exemple) et peuvent donc impliquer des *drivers* plus limités.
 
-Un *driver* consiste simplement en un module python. Chaque *driver* doit comporter une méthode `start`, son point d'entrée, qui sera appelée pour son initialisation.
+Un *driver* consiste simplement en un module python. Chaque *driver* doit comporter une méthode `start`, son point d'entrée, qui sera appelée pour son initialisation, et un objet `plug`.
 
 ### *Plug* et *handlers*
 

@@ -37,7 +37,7 @@ digraph {
 	     + handler() <br align="left"/>
 	     + update_file(metadata) <br align="left"/>
 	     + delete_file(metadata) <br align="left"/>
-	     + move_file(metadata) <br align="left"/>
+	     + move_file(metadata, new_path: str) <br align="left"/>
 	     + get_folder(metadata): folder <br align="left"/>
 	     + get_metadata(filename: str): metadata <br align="left"/>
 	     }>
