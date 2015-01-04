@@ -151,10 +151,11 @@ Un exemple de configuration du service Drive réussie :
 google-drive-celine:
   driver: google_drive
   root: "onitu/"
-  refresh_token: "MY_REFRESH_TOKEN"
-  client_id: "MY_CLIENT_ID"
-  client_secret: "MY_CLIENT_SECRET"
-  changes_timer: 300
+  options:
+     refresh_token: "MY_REFRESH_TOKEN"
+     client_id: "MY_CLIENT_ID"
+     client_secret: "MY_CLIENT_SECRET"
+     changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -194,10 +195,11 @@ Un exemple de configuration du service Amazon S3 réussie :
 amazon-s3-alice:
   driver: amazon_s3
   root: "onitu/"
-  bucket: "my-bucket"
-  aws_access_key: "MY_ACCESS_KEY"
-  aws_secret_key: "MY_SECRET_KEY"
-  changes_timer: 300
+  options:
+     bucket: "my-bucket"
+     aws_access_key: "MY_ACCESS_KEY"
+     aws_secret_key: "MY_SECRET_KEY"
+     changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -262,10 +264,11 @@ Un exemple de configuration du service HubiC réussie :
 hubic-jean-pierre:
   driver: hubic
   root: "onitu/"
-  refresh_token: "MY_REFRESH_TOKEN"
-  client_id: "MY_CLIENT_ID"
-  client_secret: "MY_CLIENT_SECRET"
-  changes_timer: 300
+  options:
+     refresh_token: "MY_REFRESH_TOKEN"
+     client_id: "MY_CLIENT_ID"
+     client_secret: "MY_CLIENT_SECRET"
+     changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -315,9 +318,10 @@ Un exemple de configuration du service Flickr réussie :
 flickr-william:
   driver: flickr
   root: "onitu/"
-  oauth_token: "MY_OAUTH_TOKEN"
-  oauth_secret_token: "MY_SECRET_TOKEN"
-  changes_timer: 300
+  options:
+     oauth_token: "MY_OAUTH_TOKEN"
+     oauth_secret_token: "MY_SECRET_TOKEN"
+     changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
