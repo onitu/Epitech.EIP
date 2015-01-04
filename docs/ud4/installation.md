@@ -56,7 +56,7 @@ Voici la liste des *drivers* Onitu actuellement installables par PIP :
 
 ## Lancement
 
-Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration à l'aide de l'option `--setup` (par défaut est utilisé le fichier `.onitu/setup.json` de votre répertoire utilisateur).
+Une fois installé, vous pouvez lancer *Onitu* par la simple commande `onitu`, à laquelle vous pouvez joindre le chemin d'un fichier de configuration à l'aide de l'option `--setup` (par défaut est utilisé le fichier `.config/onitu/setup.yml` de votre répertoire utilisateur).
 
 Cela vous permet par exemple de lancer plusieurs instances indépendantes d'*Onitu*, opérant chacune sur une configuration différente, avec des services différents.
 

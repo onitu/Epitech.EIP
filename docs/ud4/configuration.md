@@ -8,27 +8,24 @@ Dans ce chapitre, nous allons aborder, point par point, tout ce qu'il y a à sav
 
 ## Le nom
 
-Premièrement, chaque configuration *JSON* possède un attribut `name` déterminant son nom.
+Premièrement, chaque configuration *YAML* possède un attribut `name` déterminant son nom.
 
 Ce nom est utilisé en interne pour permettre de lancer simultanément plusieurs configurations différentes. Assurez-vous donc que ce nom soit unique.
 
 
 ## Les services
 
-La section `services` du document *JSON* vous permet de lister les services.
+La section `services` du document *YAML* vous permet de lister les services.
 
-Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service. Chaque service est associé à une clef permettant de l'identifier, dans les règles par exemple.
+Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service de stockage. Chaque service est associé à une clef permettant de l'identifier, dans les règles par exemple.
 
 Un service est composé :
 
 * d'un nom permettant de l'identifier de manière unique : "dropbox-bob", "dropbox-alice"...
 * d'un champ `driver` contenant le nom du *driver* à instancier, en général le même que celui du service supporté par ce *driver*, comme *dropbox* ou *google_drive*
-* d'un champ `options` pour les options de lancement ce *driver*. Ces options sont spécifiques à chaque service, comme les données de connexion, et peuvent varier selon les *drivers*. Dans cette documentation, le symbole\Mandatory{} symbolise qu'il s'agit d'un champ obligatoire.
-
-Dans notre exemple, nous utiliserons deux services: le premier pour interagir avec les fichiers locaux et le second connecté à un compte *Dropbox*.
+* d'un champ `options` pour les options de lancement de ce *driver*. Ces options sont spécifiques à chaque service, comme les données de connexion, et peuvent varier selon les *drivers*. Dans cette documentation, le symbole\Mandatory{} symbolise qu'il s'agit d'un champ obligatoire.
 
 \newpage
-
 
 ### Fichiers locaux
 
@@ -45,12 +42,10 @@ Le nom à utiliser pour le *driver* des fichiers locaux est `local_storage`. Ce 
 Une configuration possible est la suivante:
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"Local": {
-  "driver": "local_storage",
-  "options": {
-    "root": "example/local_driver"
-  }
+\begin{lstlisting}[language=yaml,firstnumber=1]
+Local:
+  driver: local_storage
+  root: example/local_driver
 }
 \end{lstlisting}
 \end{figure}
@@ -88,14 +83,12 @@ Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentific
 Un exemple de configuration de service Dropbox réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"dropbox-bob": {
-  "driver": "dropbox",
-  "options": {
-    "access_key": "MY_ACCESS_KEY"
-    "access_secret": "MY_SECRET_KEY"
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+dropbox-bob:
+  driver: dropbox
+  options:
+    access_key: "MY_ACCESS_KEY"
+    access_secret: "MY_SECRET_KEY"
 \end{lstlisting}
 \end{figure}
 
@@ -112,7 +105,7 @@ Le nom du *driver* Google Drive est `google_drive`. Il vous permet de connecter 
 Le service du *driver* Google Drive comporte cinq options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu interagira avec Google Drive
-* \Mandatory{refresh\_token} : le jeton d'autorisation poura accéder à votre compte Drive *(voir plus bas)*
+* \Mandatory{refresh\_token} : le jeton d'autorisation pourra accéder à votre compte Drive *(voir plus bas)*
 * \Mandatory{client\_id} : la clé d'identification de l'application pour l'API Google Drive
 * \Mandatory{client\_secret} : la clé secrète de l'application pour l'API Google Drive
 * **changes\_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Drive, en secondes. **La valeur par défaut est de 60 secondes.**
@@ -140,17 +133,15 @@ Enfin, vous aurez besoin de récupérer le *Client ID* et le *Client Secret* de 
 Un exemple de configuration du service Drive réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"google-drive-celine": {
-  "driver": "google_drive",
-  "options": {
-    "root": "onitu/",
-    "refresh_token": "MY_REFRESH_TOKEN",
-    "client_id": "MY_CLIENT_ID",
-    "client_secret": "MY_CLIENT_SECRET",
-    "changes_timer": 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+google-drive-celine:
+  driver: google_drive
+  options:
+    root: "onitu/"
+    refresh_token: "MY_REFRESH_TOKEN"
+    client_id: "MY_CLIENT_ID"
+    client_secret: "MY_CLIENT_SECRET"
+    changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -185,20 +176,18 @@ Pour créer une nouvelle paire de clés, cliquez sur "Create New Access Keys". L
 
 \newpage
 
-Un exemple de configuration d'entrée Amazon S3 réussie :
+Un exemple de configuration du service Amazon S3 réussie :
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
-"amazon-s3-alice": {
-  "driver": "amazon_s3",
-  "options": {
-    "root": "onitu/",
-    "bucket": "my-bucket",
-    "aws_access_key": "MY_ACCESS_KEY",
-    "aws_secret_key": "MY_SECRET_KEY",
-    "changes_timer" : 300
-  }
-}
+amazon-s3-alice:
+  driver: amazon_s3
+  options:
+    root: "onitu/"
+    bucket: "my-bucket"
+    aws_access_key: "MY_ACCESS_KEY"
+    aws_secret_key: "MY_SECRET_KEY"
+    changes_timer : 300
 \end{lstlisting}
 \end{figure}
 
@@ -224,11 +213,11 @@ Pour utiliser Onitu avec HubiC, il vous faut créer une application Onitu pour H
 
 Une fois votre compte HubiC créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
 
-![Étape 1 : Accéder à l'interface pour créer votre application HubiC](imgs/hubic_etape1.png)
+![Étape 1 : Accédez à l'interface pour créer votre application HubiC](imgs/hubic_etape1.png)
 
 Une fois votre application HubiC créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
 
-![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application HubiC](imgs/hubic_etape2.png)
+![Étape 2 : Récupérez l'identifiant et la clé secrète de votre application HubiC](imgs/hubic_etape2.png)
 
 \newpage
 
@@ -259,17 +248,15 @@ Retournez dans le terminal pour coller le code ainsi copié. Le script produira 
 Un exemple de configuration du service HubiC réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"hubic-jean-pierre": {
-  "driver": "hubic",
-  "options": {
-    "root": "onitu/",
-    "refresh_token": "MY_REFRESH_TOKEN",
-    "client_id": "MY_CLIENT_ID",
-    "client_secret": "MY_CLIENT_SECRET",
-    "changes_timer" : 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+hubic-jean-pierre:
+  driver: hubic
+  options:
+    root: "onitu/"
+    refresh_token: "MY_REFRESH_TOKEN"
+    client_id: "MY_CLIENT_ID"
+    client_secret: "MY_CLIENT_SECRET"
+    changes_timer : 300
 \end{lstlisting}
 \end{figure}
 
@@ -316,15 +303,13 @@ Un exemple de configuration du service Flickr réussie :
 
 \begin{figure}[h]
 \begin{lstlisting}[language=json,firstnumber=1]
-"flickr-william": {
-  "driver": "flickr",
-  "options": {
-    "root": "onitu/",
-    "oauth_token": "MY_OAUTH_TOKEN",
-    "oauth_secret_token": "MY_SECRET_TOKEN",
-    "changes_timer" : 300
-  }
-}
+flickr-william:
+  driver: flickr
+  options:
+    root: "onitu/"
+    oauth_token: "MY_OAUTH_TOKEN"
+    oauth_secret_token: "MY_SECRET_TOKEN"
+    changes_timer : 300
 \end{lstlisting}
 \end{figure}
 
@@ -370,8 +355,8 @@ Il faut donc nommer chaque dossier, vous pouvez ensuite ajouter des options à c
 
 Cette option permet de filtrer le type de fichiers qui seront synchronisés dans ce dossier. Cette option est une liste contenant la définition de ces types. Les définitions suivent la norme MIME (RFC 2045) et il est possible d'utiliser le sélecteur universel (`*`) afin de préciser seulement l'extension ou seulement le type de fichier. Exemple:
 
-- audio/ (Tout les fichiers audio quelque soit leur extension)
-- */mpeg (Tout les fichiers ayant une extension mpeg quel que soit leur type)
+- audio/ (Tous les fichiers audio quelle que soit leur extension)
+- */mpeg (Tous les fichiers ayant une extension mpeg quel que soit leur type)
 
 
 - L'option `size`:
@@ -380,51 +365,55 @@ Cette option permet de filtrer la taille des fichiers qui seront synchronisés d
 
 - Octet: pas de suffixes, o, b
 - Kilooctet: k, ko, kb
-- Megaoctet: m, mo, mb
+- Mégaoctet: m, mo, mb
 - Gigaoctet: g, go, gb
-- Teraoctet: t, to, tb
-- Petaoctet: p, po, pb
+- Téraoctet: t, to, tb
+- Pétaoctet: p, po, pb
 
 - Kibi: ki
 - Mibi: mi
 - Gibi: gi
-- Tebi: ti
-- Pebi: pi
+- Tébi: ti
+- Pébi: pi
 
 Exemple:
 
-size:
-   min: 2G
+    size:
+       min: 2G
 
-size:
-   min: 2ko
-   max: 5t
+    size:
+       min: 2ko
+       max: 5t
 
 - L'option `whitelist`:
 
-Cette option permet de filtrer les fichiers qui seront accepté dans le dossier. Si cette option est precisée, tout les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulières. Exemple:
+Cette option permet de filtrer les fichiers qui seront acceptés dans le dossier. Si cette option est precisée, tous les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelle. Exemple:
 
-whitelist:
-   - "*.bak"
-   - Public/
+    whitelist:
+       - "*.bak"
+       - Public/
 
-Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers present dans le dossier `Public/` seront synchronises avec ce dossier.
+Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers presents dans le dossier `Public/` seront synchronisés avec ce dossier.
 
 - L'option `blacklist`:
 
-Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est precisée, tout les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulières. Exemple:
+Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est precisée, tous les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelle. Exemple:
 
-blacklist:
-   - "*.avi"
-   - Private/
+    blacklist:
+       - "*.avi"
+       - Private/
 
 Dans cet exemple tout les fichiers seront synchronisés sauf les fichiers ayant pour extension `.avi` et les fichiers présent dans le dossier `Private/`.
 
 Un fois ces dossiers définis, vous pouvez les associer à des services afin que ceux-ci suivent les règles imposées par ces dossiers.
-Pour ce faire, dans la liste contenu dans l'option folders des services, il suffit d'ajouter un couple clé valeur dans le format suivant: `dossier`: `racine du dossier`, il est aussi possible de préciser le mode d'accès à ces dossiers:
-`dossier`:
-   path: `racine`
-   mode: ro
+Pour ce faire, dans la liste contenue dans l'option folders des services, il suffit d'ajouter un couple clé valeur dans le format suivant: `dossier`: `racine du dossier`, il est aussi possible de préciser le mode d'accès à ces dossiers:
+
+    mon_service:
+       driver: dropbox
+       folders:
+          dossier:
+             path: `racine`
+             mode: ro
 
 Les valeurs possibles pour le mode sont: ro (leture seule), wo (écriture seule) et rw (lecture et écriture).
 
