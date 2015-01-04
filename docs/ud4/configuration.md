@@ -70,22 +70,35 @@ Il comporte quatre options :
 
 Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification **get_access_token.py** fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
 
+
+Le script va générer une adresse Web dans votre terminal sur laquelle vous devrez vous rendre afin d'autoriser l'utilisation de votre compte Dropbox par Onitu.
+
 ![Étape 1 : Lancez le script get\_access\_token.py et accédez à l'URL générée](imgs/dropbox_etape1.png)
-
-![Étape 2 : Autorisez l'accès à l'application Onitu pour Dropbox](imgs/dropbox_etape2.png)
-
-![Étape 3 : Récupérez les clés générées par le script, utilisables par Onitu.](imgs/dropbox_etape3.png)
 
 \clearpage
 
-Un exemple de configuration de service Dropbox réussie :
+Une fois sur la page Web en question, vous n'avez plus qu'à appuyer sur le bouton "Allow" pour autoriser l'utilisation de votre compte Dropbox par Onitu.
+
+![Étape 2 : Autorisez l'accès à l'application Onitu pour Dropbox](imgs/dropbox_etape2.png)
+
+\clearpage
+
+Une fois l'accès autorisé dans votre navigateur, revenez dans votre terminal et appuyez sur Entrée comme indiqué. L'exécution du script devrait se terminer en affichant la clé d'accès et la clé secrète dont vous avez besoin.
+
+![Étape 3 : Récupérez les clés générées par le script, utilisables par Onitu.](imgs/dropbox_etape3.png)
+
+
+Un exemple de configuration YAML du service Dropbox réussie :
 
 \begin{figure}[h]
 \begin{lstlisting}[language=yaml,firstnumber=1]
 dropbox-bob:
   driver: dropbox
-  access_key: "MY_ACCESS_KEY"
-  access_secret: "MY_SECRET_KEY"
+  folders:
+    test: db_test
+  options:
+      access_key: CLE_ACCES
+      access_secret: CLE_SECRETE
 \end{lstlisting}
 \end{figure}
 
@@ -111,9 +124,15 @@ Pour obtenir vos clés d'autorisation Google Drive pour Onitu, vous devez vous s
 
 Lancez-le dans un terminal, puis accédez à l'URL qu'il génère dans votre navigateur Web.
 
-![Lancez le script dans un terminal, et allez à l'adresse indiquée pour récupérer votre code d'autorisation](imgs/drive_etape1.png)
+![Vous devez visiter la page Web à l'adresse indiquée pour récupérer votre code d'autorisation](imgs/drive_etape1.png)
+
+\clearpage
+
+L'adresse en question vous redirige vers une page Google mettant à disposition un code que vous devrez copier dans votre terminal. Vous devrez vous connecter à votre compte Google si ce n'est pas déjà le cas.
 
 ![Le code généré est celui que vous devez rentrer dans votre terminal](imgs/drive_etape2.png)
+
+\clearpage
 
 Copiez le code d'autorisation dans votre terminal. Le script génère alors un *refresh token*, un des codes à utiliser dans votre configuration d'Onitu.
 
@@ -338,7 +357,7 @@ Les règles vous permettent de définir quels fichiers doivent être synchronis�
 
 La définition des dossiers se place dans l'option `folders`, c'est une liste de noms de dossiers contenant les options de chacun d'eux.
 
-Il faut donc nommer chaque dossier, vous pouvez ensuite ajouter des options à celui ci:
+Il faut donc nommer chaque dossier, vous pouvez ensuite ajouter des options à celui-ci:
 
 #### L'option `type`
 
@@ -349,7 +368,7 @@ Cette option permet de filtrer le type de fichiers qui seront synchronisés dans
 
 #### L'option `file_size`
 
-Cette option permet de filtrer la taille des fichiers qui seront synchronisés dans ce dossier. Cette option peut en contenir deux, à savoir `min` et `max` correspondant à la taille minimum ou maximum qu'un fichier doit faire pour etre synchronisé dans ce dossier. Vous pouvez préciser la taille des fichiers en utilisant les suffixes suivants:
+Cette option permet de filtrer la taille des fichiers qui seront synchronisés dans ce dossier. Cette option peut en contenir deux, à savoir `min` et `max` correspondant à la taille minimum ou maximum qu'un fichier doit faire pour être synchronisé dans ce dossier. Vous pouvez préciser la taille des fichiers en utilisant les suffixes suivants:
 
 - Octet: pas de suffixe, o, b
 - Kilooctet: k, ko, kb
@@ -379,7 +398,7 @@ file_size:
 
 #### L'option `whitelist`
 
-Cette option permet de filtrer les fichiers qui seront acceptés dans le dossier. Si cette option est precisée, tous les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
+Cette option permet de filtrer les fichiers qui seront acceptés dans le dossier. Si cette option est précisée, tous les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
 
 \begin{figure}[h]
 \begin{lstlisting}[language=yaml,firstnumber=1]
@@ -389,11 +408,11 @@ whitelist:
 \end{lstlisting}
 \end{figure}
 
-Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers présents dans le dossier `Public/` seront synchronisés avec ce dossier.
+Dans cet exemple, seuls les fichiers ayant pour extension `.bak` et les fichiers présents dans le dossier `Public/` seront synchronisés avec ce dossier.
 
 #### L'option `blacklist`
 
-Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est precisée, tous les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
+Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est précisée, tous les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
 
 \begin{figure}[h]
 \begin{lstlisting}[language=yaml,firstnumber=1]
@@ -403,12 +422,12 @@ blacklist:
 \end{lstlisting}
 \end{figure}
 
-Dans cet exemple tous les fichiers seront synchronisés sauf les fichiers ayant pour extension `.avi` et les fichiers présents dans le dossier `Private/`.
+Dans cet exemple, tous les fichiers seront synchronisés sauf les fichiers ayant pour extension `.avi` et les fichiers présents dans le dossier `Private/`.
 
 #### Modes
 
 Un fois ces dossiers définis, vous pouvez les associer à des services afin que ceux-ci suivent les règles imposées par ces dossiers.
-Pour ce faire, dans la liste contenue dans l'option folders des services, il suffit d'ajouter un couple clé valeur dans le format suivant: `dossier`: `racine du dossier`, il est aussi possible de préciser le mode d'accès à ces dossiers:
+Pour ce faire, dans la liste contenue dans l'option folders des services, il suffit d'ajouter un couple clé/valeur dans le format suivant: `dossier`: `racine du dossier`. Il est aussi possible de préciser le mode d'accès à ces dossiers:
 
 \begin{figure}[h]
 \begin{lstlisting}[language=yaml,firstnumber=1]
