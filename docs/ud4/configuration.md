@@ -8,24 +8,22 @@ Dans ce chapitre, nous allons aborder, point par point, tout ce qu'il y a à sav
 
 ## Le nom
 
-Premièrement, chaque configuration *JSON* possède un attribut `name` déterminant son nom.
+Premièrement, chaque configuration *YAML* possède un attribut `name` déterminant son nom.
 
 Ce nom est utilisé en interne pour permettre de lancer simultanément plusieurs configurations différentes. Assurez-vous donc que ce nom soit unique.
 
 
 ## Les services
 
-La section `services` du document *JSON* vous permet de lister les services.
+La section `services` du document *YAML* vous permet de lister les services.
 
-Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur ce service. Chaque service est associé à une clef permettant de l'identifier, dans les règles par exemple.
+Un service est une instance de *driver*, et correspond au paramétrage d'un compte sur l'outil. Chaque service est associé à une clef permettant de l'identifier, dans les règles par exemple.
 
 Un service est composé :
 
 * d'un nom permettant de l'identifier de manière unique : "dropbox-bob", "dropbox-alice"...
 * d'un champ `driver` contenant le nom du *driver* à instancier, en général le même que celui du service supporté par ce *driver*, comme *dropbox* ou *google_drive*
-* d'un champ `options` pour les options de lancement ce *driver*. Ces options sont spécifiques à chaque service, comme les données de connexion, et peuvent varier selon les *drivers*. Dans cette documentation, le symbole\Mandatory{} symbolise qu'il s'agit d'un champ obligatoire.
-
-Dans notre exemple, nous utiliserons deux services: le premier pour interagir avec les fichiers locaux et le second connecté à un compte *Dropbox*.
+* d'un champ `options` pour les options de lancement de ce *driver*. Ces options sont spécifiques à chaque service, comme les données de connexion, et peuvent varier selon les *drivers*. Dans cette documentation, le symbole\Mandatory{} symbolise qu'il s'agit d'un champ obligatoire.
 
 \newpage
 
@@ -45,13 +43,10 @@ Le nom à utiliser pour le *driver* des fichiers locaux est `local_storage`. Ce 
 Une configuration possible est la suivante:
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"Local": {
-  "driver": "local_storage",
-  "options": {
-    "root": "example/local_driver"
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+Local:
+  driver: local_storage
+  root: "example/local_driver"
 \end{lstlisting}
 \end{figure}
 
@@ -76,26 +71,22 @@ Il comporte quatre options :
 
 Pour obtenir vos clés d'accès, vous devrez vous servir du script d'authentification **get_access_token.py** fourni à l'installation du driver Dropbox. Vous devez au préalable être connecté-e sur Dropbox.
 
-![Étape 1 : Lancer le script get\_access\_token.py et accéder à l'URL générée](imgs/dropbox_etape1.png)
+![Étape 1 : Lancez le script get\_access\_token.py et accédez à l'URL générée](imgs/dropbox_etape1.png)
 
-![Étape 2 : Autoriser l'accès à l'application Onitu pour Dropbox](imgs/dropbox_etape2.png)
+![Étape 2 : Autorisez l'accès à l'application Onitu pour Dropbox](imgs/dropbox_etape2.png)
 
-![Étape 3 : Récupérer les clés générées par le script, utilisables par Onitu.](imgs/dropbox_etape3.png)
+![Étape 3 : Récupérez les clés générées par le script, utilisables par Onitu.](imgs/dropbox_etape3.png)
 
-
-\newpage
+\clearpage
 
 Un exemple de configuration de service Dropbox réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"dropbox-bob": {
-  "driver": "dropbox",
-  "options": {
-    "access_key": "MY_ACCESS_KEY"
-    "access_secret": "MY_SECRET_KEY"
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+dropbox-bob:
+  driver: dropbox
+  access_key: "MY_ACCESS_KEY"
+  access_secret: "MY_SECRET_KEY"
 \end{lstlisting}
 \end{figure}
 
@@ -112,7 +103,7 @@ Le nom du *driver* Google Drive est `google_drive`. Il vous permet de connecter 
 Le service du *driver* Google Drive comporte cinq options :
 
 * \Mandatory{root} : le dossier à l'intérieur duquel Onitu interagira avec Google Drive
-* \Mandatory{refresh\_token} : le jeton d'autorisation poura accéder à votre compte Drive *(voir plus bas)*
+* \Mandatory{refresh\_token} : le jeton d'autorisation pourra accéder à votre compte Drive *(voir plus bas)*
 * \Mandatory{client\_id} : la clé d'identification de l'application pour l'API Google Drive
 * \Mandatory{client\_secret} : la clé secrète de l'application pour l'API Google Drive
 * **changes\_timer** : la fréquence à laquelle Onitu vérifie les changements sur le compte Drive, en secondes. **La valeur par défaut est de 60 secondes.**
@@ -125,8 +116,6 @@ Lancez-le dans un terminal, puis accédez à l'URL qu'il génère dans votre nav
 
 ![Le code généré est celui que vous devez rentrer dans votre terminal](imgs/drive_etape2.png)
 
-\newpage
-
 Copiez le code d'autorisation dans votre terminal. Le script génère alors un *refresh token*, un des codes à utiliser dans votre configuration d'Onitu.
 
 ![Conservez le *refresh token* généré par le script](imgs/drive_etape3.png)
@@ -135,22 +124,19 @@ Enfin, vous aurez besoin de récupérer le *Client ID* et le *Client Secret* de 
 
 ![Récupérez les valeurs entre guillemets](imgs/drive_etape4.png)
 
-\newpage
+\clearpage
 
 Un exemple de configuration du service Drive réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"google-drive-celine": {
-  "driver": "google_drive",
-  "options": {
-    "root": "onitu/",
-    "refresh_token": "MY_REFRESH_TOKEN",
-    "client_id": "MY_CLIENT_ID",
-    "client_secret": "MY_CLIENT_SECRET",
-    "changes_timer": 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+google-drive-celine:
+  driver: google_drive
+  root: "onitu/"
+  refresh_token: "MY_REFRESH_TOKEN"
+  client_id: "MY_CLIENT_ID"
+  client_secret: "MY_CLIENT_SECRET"
+  changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -179,26 +165,21 @@ Si vous ne possédez pas déjà vos clés d'accès Amazon S3, il faut vous conne
 
 Pour créer une nouvelle paire de clés, cliquez sur "Create New Access Keys". L'opération devrait être instantanée et générer un ID de clé d'accès et une clé d'accès secrète. Ce sont les clés que vous devez utiliser avec Onitu.
 
-![Étape 1 : Accéder à l'interface pour créer vos clés Amazon S3](imgs/s3_etape1.png)
+![Étape 1 : Accédez à l'interface pour créer vos clés Amazon S3](imgs/s3_etape1.png)
 
 ![Étape 2 : Une fois terminé, les clés générées sont celles utilisables avec Onitu](imgs/s3_etape2.png)
 
-\newpage
-
-Un exemple de configuration d'entrée Amazon S3 réussie :
+Un exemple de configuration du service Amazon S3 réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"amazon-s3-alice": {
-  "driver": "amazon_s3",
-  "options": {
-    "root": "onitu/",
-    "bucket": "my-bucket",
-    "aws_access_key": "MY_ACCESS_KEY",
-    "aws_secret_key": "MY_SECRET_KEY",
-    "changes_timer" : 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+amazon-s3-alice:
+  driver: amazon_s3
+  root: "onitu/"
+  bucket: "my-bucket"
+  aws_access_key: "MY_ACCESS_KEY"
+  aws_secret_key: "MY_SECRET_KEY"
+  changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -224,13 +205,11 @@ Pour utiliser Onitu avec HubiC, il vous faut créer une application Onitu pour H
 
 Une fois votre compte HubiC créé, commencez par vous rendre sur la page <https://hubic.com/home/browser/developers/>. Pour créer une nouvelle application, cliquez sur "*Add an application*". Assurez-vous de choisir un nom unique pour votre application. Entrez `http://localhost/` comme domaine de redirection.
 
-![Étape 1 : Accéder à l'interface pour créer votre application HubiC](imgs/hubic_etape1.png)
+![Étape 1 : Accédez à l'interface pour créer votre application HubiC](imgs/hubic_etape1.png)
 
 Une fois votre application HubiC créée, vous devez récupérer son identifiant et sa clé secrète. Pour cela, cliquez sur "Details" dans l'interface, et copiez le contenu des champs "*Client ID*" et "*Secret Client*".
 
-![Étape 2 : Récupérer l'identifiant et la clé secrète de votre application HubiC](imgs/hubic_etape2.png)
-
-\newpage
+![Étape 2 : Récupérez l'identifiant et la clé secrète de votre application HubiC](imgs/hubic_etape2.png)
 
 Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du *driver* HubiC dans un éditeur de texte, et remplacez le contenu de `client_id` et `client_secret` avec les clés que vous avez récupérées sur l'interface HubiC.
 
@@ -238,38 +217,35 @@ Ouvrez ensuite le script **get_refresh_token.py** fourni avec l'installation du 
 
 Vous devrez ensuite lancer le script à l'aide de la commande `python get_refresh_token.py`. Après avoir appuyé sur Entrée, le script ouvrira une fenêtre dans votre navigateur Internet où vous devrez rentrer vos identifiants HubiC et cliquer sur le bouton "Accept" pour autoriser Onitu à accéder à votre compte HubiC.
 
+\clearpage
+
 ![Étape 4 : Lancement du script get_refresh_token.py](imgs/hubic_etape4.png)
 
-![Étape 5 : Accepter la demande d'autorisation d'Onitu pour se servir de HubiC](imgs/hubic_etape5.png)
-
-\newpage
+![Étape 5 : Acceptez la demande d'autorisation d'Onitu pour se servir de HubiC](imgs/hubic_etape5.png)
 
 Vous arriverez ensuite sur une page vide, car vous n'avez aucune application Web hébergée sur votre ordinateur permettant de récupérer le code de vérification. Mais vous pouvez le récupérer depuis la barre d'adresse de votre navigateur, en copiant la valeur du paramètre `code`.
 
-![Étape 6 : Récupérez le code depuis votre barre d'adresse](imgs/hubic_etape6.png)
+\clearpage
 
-\newpage
+![Étape 6 : Récupérez le code depuis votre barre d'adresse](imgs/hubic_etape6.png)
 
 Retournez dans le terminal pour coller le code ainsi copié. Le script produira alors un code d'autorisation, le *refresh token*, qui est celui que vous devrez utiliser pour configurer Onitu.
 
 ![Étape 7 : Récupérez le code d'autorisation à utiliser dans Onitu](imgs/hubic_etape7.png)
 
-\newpage
+\clearpage
 
 Un exemple de configuration du service HubiC réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"hubic-jean-pierre": {
-  "driver": "hubic",
-  "options": {
-    "root": "onitu/",
-    "refresh_token": "MY_REFRESH_TOKEN",
-    "client_id": "MY_CLIENT_ID",
-    "client_secret": "MY_CLIENT_SECRET",
-    "changes_timer" : 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+hubic-jean-pierre:
+  driver: hubic
+  root: "onitu/"
+  refresh_token: "MY_REFRESH_TOKEN"
+  client_id: "MY_CLIENT_ID"
+  client_secret: "MY_CLIENT_SECRET"
+  changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -296,11 +272,13 @@ Pour utiliser Onitu avec Flickr, il vous faut lancer dans un terminal le script 
 
 ![Étape 1 : Lancez le script **get_tokens.py** et rendez-vous à l'adresse affichée](imgs/flickr_etape1.png)
 
+\clearpage
+
 Vous aurez besoin de vous rendre à l'adresse indiquée dans votre navigateur Web pour autoriser Onitu à accéder à votre compte Flickr. Flickr vous redirigera ensuite sur un document XML contenant vos informations d'autorisation, dont vous devrez copier-coller l'adresse dans votre terminal pour finaliser la procédure du script.
 
 ![Étape 2 : Une fois sur la page Web, autorisez l'accès de votre Flickr à Onitu](imgs/flickr_etape2.png)
 
-\newpage
+\clearpage
 
 La page Flickr vous redirige alors sur un document XML. Copiez la nouvelle URL de ce document, revenez dans votre terminal, et collez-la à l'emplacement prévu à cet effet par le script.
 
@@ -310,21 +288,16 @@ Le script vous procure alors les jetons OAuth que vous serez en mesure d'utilise
 
 ![Étape 4 : Les jetons ainsi obtenus sont ceux que vous pourrez utiliser au sein d'Onitu](imgs/flickr_etape4.png)
 
-\newpage
-
 Un exemple de configuration du service Flickr réussie :
 
 \begin{figure}[h]
-\begin{lstlisting}[language=json,firstnumber=1]
-"flickr-william": {
-  "driver": "flickr",
-  "options": {
-    "root": "onitu/",
-    "oauth_token": "MY_OAUTH_TOKEN",
-    "oauth_secret_token": "MY_SECRET_TOKEN",
-    "changes_timer" : 300
-  }
-}
+\begin{lstlisting}[language=yaml,firstnumber=1]
+flickr-william:
+  driver: flickr
+  root: "onitu/"
+  oauth_token: "MY_OAUTH_TOKEN"
+  oauth_secret_token: "MY_SECRET_TOKEN"
+  changes_timer: 300
 \end{lstlisting}
 \end{figure}
 
@@ -366,67 +339,86 @@ La définition des dossiers se place dans l'option `folders`, c'est une liste de
 
 Il faut donc nommer chaque dossier, vous pouvez ensuite ajouter des options à celui ci:
 
-- L'option `type`:
+#### L'option `type`
 
 Cette option permet de filtrer le type de fichiers qui seront synchronisés dans ce dossier. Cette option est une liste contenant la définition de ces types. Les définitions suivent la norme MIME (RFC 2045) et il est possible d'utiliser le sélecteur universel (`*`) afin de préciser seulement l'extension ou seulement le type de fichier. Exemple:
 
-- audio/ (Tout les fichiers audio quelque soit leur extension)
-- */mpeg (Tout les fichiers ayant une extension mpeg quel que soit leur type)
+- `audio/` (Tous les fichiers audio quelle que soit leur extension)
+- `*/mpeg` (Tous les fichiers ayant une extension mpeg quel que soit leur type)
 
 
-- L'option `size`:
+#### L'option `file_size`
 
 Cette option permet de filtrer la taille des fichiers qui seront synchronisés dans ce dossier. Cette option peut en contenir deux, à savoir `min` et `max` correspondant à la taille minimum ou maximum qu'un fichier doit faire pour etre synchronisé dans ce dossier. Vous pouvez préciser la taille des fichiers en utilisant les suffixes suivants:
 
-- Octet: pas de suffixes, o, b
+- Octet: pas de suffixe, o, b
 - Kilooctet: k, ko, kb
-- Megaoctet: m, mo, mb
+- Mégaoctet: m, mo, mb
 - Gigaoctet: g, go, gb
-- Teraoctet: t, to, tb
-- Petaoctet: p, po, pb
+- Téraoctet: t, to, tb
+- Pétaoctet: p, po, pb
 
-- Kibi: ki
-- Mibi: mi
-- Gibi: gi
-- Tebi: ti
-- Pebi: pi
+- Kibioctet: ki
+- Mébioctet: mi
+- Gibioctet: gi
+- Tébioctet: ti
+- Pébioctet: pi
 
 Exemple:
 
-size:
+\begin{figure}[h]
+\begin{lstlisting}[language=yaml,firstnumber=1]
+file_size:
    min: 2G
 
-size:
+file_size:
    min: 2ko
    max: 5t
+\end{lstlisting}
+\end{figure}
 
-- L'option `whitelist`:
+#### L'option `whitelist`
 
-Cette option permet de filtrer les fichiers qui seront accepté dans le dossier. Si cette option est precisée, tout les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulières. Exemple:
+Cette option permet de filtrer les fichiers qui seront acceptés dans le dossier. Si cette option est precisée, tous les fichiers sont refusés par defaut, ce qui la rend incompatible avec l'option `blacklist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
 
+\begin{figure}[h]
+\begin{lstlisting}[language=yaml,firstnumber=1]
 whitelist:
    - "*.bak"
    - Public/
+\end{lstlisting}
+\end{figure}
 
-Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers present dans le dossier `Public/` seront synchronises avec ce dossier.
+Dans cet exemple seuls les fichiers ayant pour extension `.bak` et les fichiers présents dans le dossier `Public/` seront synchronisés avec ce dossier.
 
-- L'option `blacklist`:
+#### L'option `blacklist`
 
-Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est precisée, tout les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions regulières. Exemple:
+Cette option permet de filtrer les fichiers qui seront refusés dans le dossier. Si cette option est precisée, tous les fichiers sont acceptés par defaut, ce qui la rend incompatible avec l'option `whitelist`. Cette option est une liste qui peut contenir des noms de fichiers, des noms de dossiers, ou des expressions rationnelles. Exemple:
 
+\begin{figure}[h]
+\begin{lstlisting}[language=yaml,firstnumber=1]
 blacklist:
    - "*.avi"
    - Private/
+\end{lstlisting}
+\end{figure}
 
-Dans cet exemple tout les fichiers seront synchronisés sauf les fichiers ayant pour extension `.avi` et les fichiers présent dans le dossier `Private/`.
+Dans cet exemple tous les fichiers seront synchronisés sauf les fichiers ayant pour extension `.avi` et les fichiers présents dans le dossier `Private/`.
+
+#### Modes
 
 Un fois ces dossiers définis, vous pouvez les associer à des services afin que ceux-ci suivent les règles imposées par ces dossiers.
-Pour ce faire, dans la liste contenu dans l'option folders des services, il suffit d'ajouter un couple clé valeur dans le format suivant: `dossier`: `racine du dossier`, il est aussi possible de préciser le mode d'accès à ces dossiers:
-`dossier`:
-   path: `racine`
-   mode: ro
+Pour ce faire, dans la liste contenue dans l'option folders des services, il suffit d'ajouter un couple clé valeur dans le format suivant: `dossier`: `racine du dossier`, il est aussi possible de préciser le mode d'accès à ces dossiers:
 
-Les valeurs possibles pour le mode sont: ro (leture seule), wo (écriture seule) et rw (lecture et écriture).
+\begin{figure}[h]
+\begin{lstlisting}[language=yaml,firstnumber=1]
+dossier:
+   path: racine
+   mode: ro
+\end{lstlisting}
+\end{figure}
+
+Les valeurs possibles pour le mode sont: `ro` (leture seule), `wo` (écriture seule) et `rw` (lecture et écriture).
 
 \newpage
 
@@ -445,10 +437,8 @@ Cette interface est toujours en cours de développement, elle n'intègre actuell
 
 Pour l'utiliser à son état de développement actuel, vous devrez cloner son dépôt Github et la lancer vous-même. Pour ce faire, clonez le dépôt à l'aide de la commande suivante : `git@github.com:onitu/facet.git` (cela implique de posséder un compte Github), puis, une fois qu'Onitu est lancé sur votre système, lancez un serveur HTTP dans le dossier où vous avez installé **Facet**, avec Python par exemple :
 
-![Étape 1 : installer le dépôt Git de Facet et lancer un serveur HTTP dans le dossier ainsi créé](imgs/web_etape1.png)
+![Étape 1 : installez le dépôt Git de Facet et lancez un serveur HTTP dans le dossier ainsi créé](imgs/web_etape1.png)
 
-\newpage
-
-Accédez ensuite à l'interface avec le navigateur de votre choix en vous connectant sur l'interface **localhost**, sur le **port 8000** dans notre exemple :
+Accédez ensuite à l'interface avec le navigateur de votre choix en vous connectant sur l'interface **localhost**, sur le **port 8000** dans notre exemple (en python2):
 
 ![Étape 2 : Connectez-vous sur l'interface localhost, port 8000, pour accéder à Facet](imgs/web_etape2.png)
